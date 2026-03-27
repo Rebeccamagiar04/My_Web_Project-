@@ -4,8 +4,11 @@
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      //IMPORT AUTHENTICATION
+  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";// Your web app's Firebase configuration
+ 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
     authDomain: "first-webproject-865a5.firebaseapp.com",
@@ -16,18 +19,14 @@
     measurementId: "G-DHPQ1CL34X"
   };
 
-     //IMPORT AUTHENTICATION
-  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
-from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-  
-    //INITIALIZE AUTHENTICATION
-  const auth = getAuth(app);
 
 // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
-    
+//INITIALIZE AUTHENTICATION
+  const auth = getAuth(app);
+
 //FRIENDLY ERROR MESSAGE
   function getFriendlyError(code) {
   switch(code) {
