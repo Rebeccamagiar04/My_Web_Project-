@@ -80,7 +80,6 @@ googleBtn.addEventListener("click", () => {
     }
     })
     .catch((error) => {
-  if (error.code !== "auth/popup-closed-by-user") {
     console.error("Google sign-in error:", error.code, error.message);
     });
 
