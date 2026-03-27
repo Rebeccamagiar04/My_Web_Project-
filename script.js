@@ -20,6 +20,24 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
+    
+//FRIENDLY ERROR MESSAGE
+  function getFriendlyError(code) {
+  switch(code) {
+    case "auth/email-already-in-use":
+      return "This email already has an account.";
+
+    case "auth/weak-password":
+      return "Password must be at least 6 characters.";
+
+    case "auth/invalid-email":
+      return "Please enter a valid email.";
+
+    default:
+      return "Something went wrong. Try again.";
+  }
+  }
+
 
   //IMPORT AUTHENTICATION
   import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
@@ -42,7 +60,7 @@ signupBtn.addEventListener("click", () => {
       console.log(userCredential.user);
     })
     .catch((error) => {
-      alert(error.message);
+      alert(getFriendlyError(error.code));
     });
 
 });
@@ -63,7 +81,8 @@ googleBtn.addEventListener("click", () => {
     }
     })
     .catch((error) => {
-      alert(error.message);
+  if (error.code !== "auth/popup-closed-by-user") {
+    alert(error.message);
     });
 
 });
