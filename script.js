@@ -19,5 +19,53 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+
+  //IMPORT AUTHENTICATION
+  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+  //INITIALIZE AUTHENTICATION
+  const auth = getAuth(app);
+  
+  //CREATE ACCOUNT EMAIL/password
+  const signupBtn = document.getElementById("createAccount");
+
+signupBtn.addEventListener("click", () => {
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Account created successfully!");
+      console.log(userCredential.user);
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+
+});
+
+
+   //GOOGLE signInWithPopup
+   const googleBtn = document.getElementById("googleLogin");
+
+googleBtn.addEventListener("click", () => {
+
+  const provider = new GoogleAuthProvider();
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+    if (result.user) {
+      alert("Signed in with Google!");
+      console.log(result.user);
+    }
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+
+});
   
 
