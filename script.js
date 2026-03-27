@@ -16,7 +16,11 @@
     measurementId: "G-DHPQ1CL34X"
   };
 
-  // Initialize Firebase
+     //IMPORT AUTHENTICATION
+  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+  
+// Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
@@ -38,13 +42,6 @@
   }
   }
 
-
-  //IMPORT AUTHENTICATION
-  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
-from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-
-  //INITIALIZE AUTHENTICATION
-  const auth = getAuth(app);
   
   //CREATE ACCOUNT EMAIL/password
   const signupBtn = document.getElementById("createAccount");
