@@ -10,6 +10,15 @@ initial-scale=1.0">
      <!--link CSS file-->
      <link rel="stylesheet"
 href="style.css">
+  <style>
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+    </style>
 </head>
 <body class="center">
    <h1>Welcome 👋</h1>
@@ -31,7 +40,8 @@ href="style.css">
 <!-- Questions 1-->
 <div class="question active">
   <h2>What is your name?</h2>
-  <input type="text"><br>
+    <label for="name">Your name</label>
+  <input type="text" id="name"><br>
   <button onclick="nextQuestion()">Next</button>
 </div>
 <!-- Question 2-->
