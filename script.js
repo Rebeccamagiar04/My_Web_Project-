@@ -86,3 +86,109 @@ googleBtn.addEventListener("click", () => {
 });
   
 
+  //STYLING PROGRESS BAR AND MOVING QUESTIONS
+const question = document.querySelectorAll(".question");
+const startBtn = document.getElementById("start-btn");
+const nextBtns = document.querySelectorAll(".next-btn");
+const progressWrapper = document.getElementById("progress-wrapper");
+const progressBar = document.getElementById("progress-bar");
+
+let currentQuestion = 0;
+
+// Show one question at a time
+function showQuestion(index) {
+  questions.forEach(q => q.style.display = "none");
+
+
+ questions[index].style.display = "block";
+
+  // 👇 AUTO FOCUS INPUT
+  const input = questions[index].querySelector(
+  'input[type="text"], input[type="email"], input[type="password"], textarea'
+);
+  if (input) {
+    setTimeout(() => {
+      input.focus();
+    }, 100);
+}
+}
+
+// Update progress bar
+function updateProgressBar() {
+  const totalQuestions = question.length - 1; // exclude welcome page
+  const progressPercent = (currentQuestion / totalQuestions) * 100;
+  progressBar.style.width = progressPercent + "%";
+}
+
+// Start button → move from welcome → first question
+startBtn.addEventListener("click", () => {
+  currentQuestion = 1; // first question (skip welcome)
+  showQuestion(currentQuestion);
+  progressWrapper.style.display = "block"; // show progress bar
+});
+
+// NEXT HANDLER (keyboard-safe)
+function nextHandler() {
+
+  if (document.activeElement) {
+    document.activeElement.blur();
+  }
+  //force keyboard to close
+  document.body.focus();
+  
+  setTimeout(() => {
+
+    currentQuestion++;
+    
+    if (currentQuestion < questions.length) {
+      showQuestion(currentQuestion);
+      updateProgressBar();
+    } else {
+      alert("You have completed all questions!");
+    }
+
+  }, 300);
+}
+
+// Next buttons → move to next question
+nextBtns.forEach((btn) => {
+  btn.addEventListener("touchstart",nextHandler);
+  btn.addEventListener("click",nextHandler);
+});
+
+//disable next button so that user may not skip answering the questions
+const questions = document.querySelectorAll(".question");
+
+questions.forEach(question => {
+
+  const nextBtn = question.querySelector(".next-btn");
+
+  if (!nextBtn) return;
+
+    const inputs = question.querySelector(
+  'input[type="text"], input[type="email"], input[type="password"], textarea'
+  )
+
+  function validateQuestion() {
+
+    // radio or checkbox selected?
+    const choiceSelected = question.querySelector(
+      'input[type="radio"]:checked, input[type="checkbox"]:checked'
+    );
+
+    // text typed?
+    const textInput = question.querySelector(
+      'input[type="text"], textarea'
+    );
+
+    const textFilled =
+      textInput && textInput.value.trim().length > 0;
+
+    // enable if ANY valid answer exists
+    nextBtn.disabled = !(choiceSelected || textFilled);
+   input.forEach(input => {
+    input.addEventListener("input", validateQuestion);
+    input.addEventListener("change", validateQuestion);
+  });
+  }
+});
