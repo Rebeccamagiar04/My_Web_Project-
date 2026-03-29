@@ -21,71 +21,67 @@ href="style.css">
     </style>
 </head>
 <body class="center">
+      <div class="question active" id="welcome-page">
    <h1>Welcome 👋</h1>
   <p>We are thrilled you stopped by. Dive in and see what's waiting for you!</p>
 
-  <button onclick="startForm()">Start</button>
-  <script>
-    function startForm() {
-      window.location.href = "form.html";
-    }
-  </script>
+  <button id="start-btn">Start</button>
+      </div>
 <form> 
   <!-- Progress Bar -->
-<div class="progress-container">
+<div class="progress-wrapper">
   <div id="progressBar"></div>
 </div>
-<p id="progressText">0%</p>
 
 <!-- Questions 1-->
-<div class="question active">
+<div class="question" id="q1">
   <h2>What is your name?</h2>
     <label for="name">Your name</label>
   <input type="text" id="name"><br>
-  <button onclick="nextQuestion()">Next</button>
+  <button class="next-btn" type="button" disabled>Next</button>
 </div>
 <!-- Question 2-->
-<div class="question">
+<div class="question" id="q2">
   <h2>Age Group</h2>
   <label><input type="radio">16–23</label><br>
   <label><input type="radio">24–26</label><br>
   <label><input type="radio">27-29</label><br>
   <label><input type="radio">30-32</label><br>
-  <button onclick="nextQuestion()">Next</button>
+  <button class="next-btn" type="button" disabled>Next</button>
 </div>
 <!--Question 3-->
-<div class="question">
+<div class="question" id="q3">
 <h2>What is your gender</h2>
  <label><input type="radio">Female</label><br>
   <label><input type="radio">Male</label><br>
    <label><input type="radio">I prefer not to say</label><br>
-    <button onclick="nextQuestion()">Next</button>
+    <button class="next-btn" type="button" disabled>Next</button>
  </div>
 <!-- Question 4-->
-<div class="question">
+<div class="question" id="q4">
   <h2>Are you currently a:</h2>
   <label><input type="radio">High School student</label><br>
   <label><input type="radio">High School graduate</label><br>
   <label><input type="radio">University Student</label><br>
-  <button onclick="nextQuestion()">Next</button>
+  <button class="next-btn" type="button" disabled>Next</button>
 </div>
 <!-- Question 5--> 
-<div class="question">
+<div class="question" id="q5">
   <h2>What are you interest</h2>
   <label><input type="checkbox"name="interest" value="Scholarships">Scholarships</label><br>
   <label><input type="checkbox"name="interest" value="Studying Abroad">Studying Abroad</label><br>
   <label><input type="checkbox"name="interest" value="Learning Digital skills">Learning Digital skills</label><br>
   <label><input type="checkbox"name="interest" value="Career Opportunities">Career Opportunities</label><br>
-    <button onclick="nextQuestion()">Next</button>
+    <button class="next-btn" type="button" disabled>Next</button>
 </div>
 <!--Question 6-->
-<div class="question">
+<div class="question" id="q6">
   <h2>If you were an animal which one would you be?</h2>
   <input type="text"><br>
-    <button onclick="nextQuestion()">Next</button>
+    <button class="next-btn" type="button" disabled>Next</button>
   </div>
 <!--Question 7-->
-<div class="question">
+<div class="question" id="q7">
   <h2>What is your personality?</h2>
   <label><input type="checkbox"name="personality" value="Friendly">Friendly</label><br>
   <label><input type="checkbox">Curious</label><br>
@@ -99,26 +95,26 @@ href="style.css">
   <label><input type="checkbox"name="personality" value="Leader">Leader</label><br>
   <label><input type="checkbox"name="personality" value="Responsible">Responsible</label><br>
   <label><input type="checkbox"name="personality" value="Innovative">Innovative</label><br>
-   <button onclick="nextQuestion()">Next</button>
+   <button class="next-btn" type="button" disabled>Next</button>
  </div>
  <!--Question 8-->
-  <div class="question">
+  <div class="question" id="q8">
     <h2>What activities are you involved in?</h2>
     <label><input type="checkbox"name="activity" value="Community Engagement">Community Engagement</label><br>
     <label><input type="checkbox"name="activity" value="Internship">Internship</label><br>
     <label><input type="checkbox"name="activity" value="Learning new skills">Learning new skills</label><br>
     <label><input type="checkbox"name="activity" value="Sports">Sports</label><br>
     <label><input type="checkbox"name="activity" value="Other">Other</label><br>
-    <button onclick="nextQuestion()">Next</button>
+    <button class="next-btn" type="button" disabled>Next</button>
   </div>
  <!--Question 9-->
- <div class="question">
+ <div class="question" id="q9">
     <h2>Where did you hear about us</h2>
     <label><input type="radio">From friends and relatives</label><br>
     <label><input type="radio">Online/Internet</label><br>
     <label><input type="radio">School event</label><br>
     <label><input type="radio">other</label><br>
-     <button onclick="nextQuestion()">Next</button>
+     <button class="next-btn" type="button" disabled>Next</button>
  </div>
   <!--Question 10-->
   <h2>Create your account</h2>
