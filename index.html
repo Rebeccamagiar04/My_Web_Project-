@@ -10,7 +10,7 @@ initial-scale=1.0">
      <!--link CSS file-->
      <link rel="stylesheet"
 href="style.css">
-  <style>
+<style>
 .question {
   display: none;
 }
@@ -18,54 +18,53 @@ href="style.css">
 .question.active {
   display: block;
 }
-    </style>
+</style>
+
 </head>
 <body class="center">
-      <div class="question active" id="welcome-page">
-   <h1>Welcome 👋</h1>
+  <div class="question active" id="welcome-page">
+  <h1>Welcome 👋</h1>
   <p>We are thrilled you stopped by. Dive in and see what's waiting for you!</p>
-
-  <button id="start-btn">Start</button>
-      </div>
+ <button id="start-btn">Start</button>
+  </div>
 <form> 
   <!-- Progress Bar -->
 <div id="progress-wrapper">
-  <div id="progressBar"></div>
+  <div id="progress-bar"></div>
 </div>
 
 <!-- Questions 1-->
 <div class="question" id="q1">
   <h2>What is your name?</h2>
-    <label for="name"></label>
-  <input type="text" id="name"><br>
+  <label for="name" value="name"></label>
+    <input type="text" id="name"><br>
   <button class="next-btn" type="button" disabled>Next</button>
 </div>
 <!-- Question 2-->
 <div class="question" id="q2">
   <h2>Age Group</h2>
-  <label><input type="radio" name="age">16–23</label><br>
-  <label><input type="radio" name="age">24–26</label><br>
-  <label><input type="radio" name="age">27-29</label><br>
-  <label><input type="radio" name="age">30-32</label><br>
+  <label><input type="radio" name="age" value="16-23">16–23</label><br>
+  <label><input type="radio" name="age" value="24-26">24–26</label><br>
+  <label><input type="radio" name="age" value="27-29">27-29</label><br>
+  <label><input type="radio" name="age" value="30-32">30-32</label><br>
   <button class="next-btn" type="button" disabled>Next</button>
 </div>
-<!--Question 3-->
-<div class="question" id="q3">
+<!--Question 3--><div class="question" id="q3">
 <h2>What is your gender</h2>
- <label><input type="radio" name="gender">Female</label><br>
-  <label><input type="radio" name="gender">Male</label><br>
-   <label><input type="radio" name="gender">I prefer not to say</label><br>
+ <label><input type="radio" name="gender" value="female">Female</label><br>
+  <label><input type="radio" name="gender" value="male">Male</label><br>
+   <label><input type="radio" name="gender" value="prefer not to say">I prefer not to say</label><br>
     <button class="next-btn" type="button" disabled>Next</button>
- </div>
+    </div>
 <!-- Question 4-->
 <div class="question" id="q4">
   <h2>Are you currently a:</h2>
-  <label><input type="radio" name="level">High School student</label><br>
-  <label><input type="radio" name="level">High School graduate</label><br>
-  <label><input type="radio" name="level">University Student</label><br>
+  <label><input type="radio" name="level" value="Highschool">High School student</label><br>
+  <label><input type="radio" name="level" value="undergraduate">High School graduate</label><br>
+  <label><input type="radio" name="level" valie="postgraduate">University Student</label><br>
   <button class="next-btn" type="button" disabled>Next</button>
 </div>
-<!-- Question 5--> 
+ <!-- Question 5--> 
 <div class="question" id="q5">
   <h2>What are you interest</h2>
   <label><input type="checkbox"name="interest" value="Scholarships">Scholarships</label><br>
@@ -77,7 +76,7 @@ href="style.css">
 <!--Question 6-->
 <div class="question" id="q6">
   <h2>If you were an animal which one would you be?</h2>
-  <input type="text"><br>
+  <input type="text" name="animal" value="animal name"><br>
     <button class="next-btn" type="button" disabled>Next</button>
   </div>
 <!--Question 7-->
@@ -96,8 +95,8 @@ href="style.css">
   <label><input type="checkbox"name="personality" value="Responsible">Responsible</label><br>
   <label><input type="checkbox"name="personality" value="Innovative">Innovative</label><br>
    <button class="next-btn" type="button" disabled>Next</button>
- </div>
- <!--Question 8-->
+  </div>
+  <!--Question 8-->
   <div class="question" id="q8">
     <h2>What activities are you involved in?</h2>
     <label><input type="checkbox"name="activity" value="Community Engagement">Community Engagement</label><br>
@@ -107,24 +106,24 @@ href="style.css">
     <label><input type="checkbox"name="activity" value="Other">Other</label><br>
     <button class="next-btn" type="button" disabled>Next</button>
   </div>
- <!--Question 9-->
- <div class="question" id="q9">
+  <!--Question 9-->
+  <div class="question" id="q9">
     <h2>Where did you hear about us</h2>
-    <label><input type="radio" name="about">From friends and relatives</label><br>
-    <label><input type="radio" name="about">Online/Internet</label><br>
-    <label><input type="radio" name="about">School event</label><br>
-    <label><input type="radio" name="about">other</label><br>
+    <label><input type="checkbox" name="friends and relatives" value="F&R">From friends and relatives</label><br>
+    <label><input type="checkbox" name="online" value="online">Online/Internet</label><br>
+    <label><input type="checkbox" name="School event" value="School event">School event</label><br>
+    <label><input type="checkbox" name"other" value="other">other</label><br>
      <button class="next-btn" type="button" disabled>Next</button>
- </div>
+  </div>
   <!--Question 10-->
   <div class="question" id="q10">
-    <h2>Create your account</h2>
+  <h2>Create your account</h2>
 
-<input type="email" name="email" id="email" placeholder="Enter your email">
+<input type="email" id="email" placeholder="Enter your email" name="email" value="email">
 
 <br><br>
 
-<input type="password" name="password" id="password" placeholder="Enter your password">
+<input type="password" id="password" placeholder="Enter your password" name="password" value="password">
 
 <br><br>
 
@@ -132,7 +131,7 @@ href="style.css">
 
 <br><br>
 
-<button id="googleLogin" type="button">Sign in with Google</button>
+<button id="googleLogin" type="button" disabled>Sign in with Google</button>
   </div>
 </form>
   
@@ -141,6 +140,7 @@ href="style.css">
 <script type="module" src="script.js"></script>
 </body>
 </html>
+
 
 
 
