@@ -22,15 +22,16 @@ href="style.css">
 
 </head>
 <body class="center">
-    <section id="questionare">
-  <div class="question active" id="welcome-page">
+  <section id="questionare">
+<div class="question active" id="welcome-page">
   <h1>Welcome 👋</h1>
   <p>We are thrilled you stopped by. Dive in and see what's waiting for you!</p>
  <button id="start-btn">Start</button>
   </div>
-<form> 
-  <!-- Progress Bar -->
-<div id="progress-wrapper">
+<form id="form-section">
+
+    <!-- Progress Bar -->
+<div id="progress-wrapper" style="display: none;">
   <div id="progress-bar"></div>
 </div>
 
@@ -104,7 +105,12 @@ href="style.css">
     <label><input type="checkbox"name="activity" value="Internship">Internship</label><br>
     <label><input type="checkbox"name="activity" value="Learning new skills">Learning new skills</label><br>
     <label><input type="checkbox"name="activity" value="Sports">Sports</label><br>
-    <label><input type="checkbox"name="activity" value="Other">Other</label><br>
+    <label><input type="checkbox"name="other" value="Other" id="otherOption1" data-target="otherText1">Other</label><br>
+    <input 
+  type="text" 
+  Id="otherText1" 
+  placeholder="Please specify..." 
+  style="display: none; margin-top: 10px;">
     <button class="next-btn" type="button" disabled>Next</button>
   </div>
   <!--Question 9-->
@@ -113,8 +119,13 @@ href="style.css">
     <label><input type="checkbox" name="friends and relatives" value="F&R">From friends and relatives</label><br>
     <label><input type="checkbox" name="online" value="online">Online/Internet</label><br>
     <label><input type="checkbox" name="School event" value="School event">School event</label><br>
-    <label><input type="checkbox" name"other" value="other">other</label><br>
-     <button class="next-btn" type="button" disabled>Next</button>
+    <label><input type="checkbox" name"other" value="other" id="otherOption2" data-target="otherText2">Other</label><br>
+      <input 
+  type="text" 
+  Id="otherText2" 
+  placeholder="Please specify..." 
+  style="display: none; margin-top: 10px;">
+   <button class="next-btn" type="button" disabled>Next</button>
   </div>
   <!--Question 10-->
   <div class="question" id="q10">
@@ -128,6 +139,7 @@ href="style.css">
 <label>
   <input type="checkbox" id="showPassword"> Show Password
 </label>
+
 <br><br>
 
 <button id="createAccount">Create Account</button>
@@ -138,7 +150,7 @@ href="style.css">
   </div>
 </form>
 </section>
-  <section id="home-page" class="hidden">
+<section id="home-page" class="hidden">
   <!--now this is wherethe main items in the page appear-->
 <header>
   <nav>
@@ -156,15 +168,11 @@ href="style.css">
     
   </main>
   
-  </section>  
-  
-  
+</section>
+
+
   
 <script type="module" src="script.js"></script>
 </body>
 </html>
-
-
-
-
 
