@@ -192,5 +192,53 @@ questions.forEach(question => {
   });
   }
 });
+// HANDLE "OTHER" CHECKBOXES
+const otherCheckboxes = document.querySelectorAll(
+  'input[type="checkbox"][data-target]'
+);
 
+otherCheckboxes.forEach((checkbox) => {
+  const textbox = document.getElementById(checkbox.dataset.target);
+  if (!textbox) return;
+
+  checkbox.addEventListener("change", () => {
+    // show/hide textbox
+    textbox.style.display = checkbox.checked ? "block" : "none";
+
+    if (!checkbox.checked) {
+      textbox.value = "";
+    }
+  });
+});
+
+// VALIDATE BEFORE MOVING NEXT
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const question = btn.closest(".question");
+    if (!question) return;
+
+    const otherCheckboxes = question.querySelectorAll(
+      'input[type="checkbox"][data-target]'
+    );
+
+    for (let checkbox of otherCheckboxes) {
+      const textbox = document.getElementById(checkbox.dataset.target);
+
+      if (checkbox.checked && textbox.value.trim() === "") {
+        alert("Please explain your 'Other' selection");
+        textbox.focus();
+        return;
+      }
+    }
+  });
+});
+  const form=
+  document.getElementById("form-section")
+  form.addEventListener("button" , function(e){
+    e.preventDefault();
+    //pretend signup is successfully
+    document.getElementById("questionare").style.display="none"
+  document.getElementById("home-page").style.display="block"
+  });
+  
 
