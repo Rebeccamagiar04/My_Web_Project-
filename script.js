@@ -261,6 +261,8 @@ showPassword.addEventListener("change", () => {
   }
 });
 
+const form=
+  document.getElementById("form-section")
 form.addEventListener("submit", function(e){
   e.preventDefault();
 
