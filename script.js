@@ -247,14 +247,7 @@ nextBtns.forEach((btn) => {
     }
   });
 });
-  const form=
-  document.getElementById("form-section")
-  form.addEventListener("button" , function(e){
-    e.preventDefault();
-    //pretend signup is successfully
-    document.getElementById("questionare").style.display="none"
-  document.getElementById("home-page").style.display="block"
-  });
+  
   
   //password viscibility
   const password = document.getElementById("password");
@@ -266,5 +259,12 @@ showPassword.addEventListener("change", () => {
   } else {
     password.type = "password"; // hide password
   }
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  document.getElementById("questionare").classList.add("hidden");
+  document.getElementById("home-page").classList.remove("hidden");
 });
 
