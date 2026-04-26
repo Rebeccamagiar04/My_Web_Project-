@@ -65,7 +65,7 @@ label {
   margin: 10px 0;
 }
 
-.next-btn {
+.next-btn, .prev-btn {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -78,4 +78,15 @@ label {
 
 .hidden{
   display:none;
+}
+
+# createAccount{
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  border: none;
+  border-radius: 6px;
+  background-color: canary yellow;
+  color: black; 
 }
