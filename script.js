@@ -3,12 +3,14 @@
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
-
-      //IMPORT AUTHENTICATION
+    
+  //IMPORT AUTHENTICATION
   import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
-from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";// Your web app's Firebase configuration
- 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+  
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  //FIREBASE CONFIGURATION
   const firebaseConfig = {
     apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
     authDomain: "first-webproject-865a5.firebaseapp.com",
@@ -18,16 +20,15 @@ from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";// Your web a
     appId: "1:586929157801:web:46dcd3fee9343ba6895bb8",
     measurementId: "G-DHPQ1CL34X"
   };
-
-
-// Initialize Firebase
+    
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
-//INITIALIZE AUTHENTICATION
+  
+  //INITIALIZE AUTHENTICATION
   const auth = getAuth(app);
-
-//FRIENDLY ERROR MESSAGE
+  
+  //FRIENDLY ERROR MESSAGE
   function getFriendlyError(code) {
   switch(code) {
     case "auth/email-already-in-use":
@@ -42,9 +43,8 @@ from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";// Your web a
     default:
       return "Something went wrong. Try again.";
   }
-  }
+}
 
-  
   //CREATE ACCOUNT EMAIL/password
   const signupBtn = document.getElementById("createAccount");
 
@@ -75,19 +75,19 @@ googleBtn.addEventListener("click", () => {
   signInWithPopup(auth, provider)
     .then((result) => {
     if (result.user) {
+      console.log("Signed in as:", result.user.email);
       alert("Signed in with Google!");
-      console.log(result.user);
     }
     })
     .catch((error) => {
     console.error("Google sign-in error:", error.code, error.message);
-    });
-
-});
   
-
-  //STYLING PROGRESS BAR AND MOVING QUESTIONS
-const question = document.querySelectorAll(".question");
+    });
+   
+  });  
+  
+//STYLING PROGRESS BAR AND MOVING QUESTIONS
+const questions = document.querySelectorAll(".question");
 const startBtn = document.getElementById("start-btn");
 const nextBtns = document.querySelectorAll(".next-btn");
 const progressWrapper = document.getElementById("progress-wrapper");
@@ -113,9 +113,17 @@ function showQuestion(index) {
 }
 }
 
+//function of previous button
+function prevHandler() {
+  if (currentQuestion > 1) {
+    currentQuestion--;
+    showQuestion(currentQuestion);
+    updateProgressBar();
+  }
+}
 // Update progress bar
 function updateProgressBar() {
-  const totalQuestions = question.length - 1; // exclude welcome page
+  const totalQuestions = questions.length - 1; // exclude welcome page
   const progressPercent = (currentQuestion / totalQuestions) * 100;
   progressBar.style.width = progressPercent + "%";
 }
@@ -129,6 +137,11 @@ startBtn.addEventListener("click", () => {
 
 // NEXT HANDLER (keyboard-safe)
 function nextHandler() {
+  const currentQ = questions[currentQuestion];
+  const nextBtn = currentQ.querySelector(".next-btn");
+
+  // 🚫 BLOCK if button is disabled
+  if (nextBtn && nextBtn.disabled) return;
 
   if (document.activeElement) {
     document.activeElement.blur();
@@ -150,23 +163,23 @@ function nextHandler() {
   }, 300);
 }
 
+document.querySelectorAll(".prev-btn").forEach(btn => {
+  btn.addEventListener("click", prevHandler);
+});
 // Next buttons → move to next question
 nextBtns.forEach((btn) => {
-  btn.addEventListener("touchstart",nextHandler);
   btn.addEventListener("click",nextHandler);
 });
 
 //disable next button so that user may not skip answering the questions
-const questions = document.querySelectorAll(".question");
-
 questions.forEach(question => {
 
   const nextBtn = question.querySelector(".next-btn");
 
   if (!nextBtn) return;
 
-    const inputs = question.querySelector(
-  'input[type="text"], input[type="email"], input[type="password"], textarea'
+    const inputs = question.querySelectorAll(
+        'input, textarea'
   )
 
   function validateQuestion() {
@@ -181,16 +194,18 @@ questions.forEach(question => {
       'input[type="text"], textarea'
     );
 
-    const textFilled =
+   const textFilled =
       textInput && textInput.value.trim().length > 0;
 
     // enable if ANY valid answer exists
     nextBtn.disabled = !(choiceSelected || textFilled);
-   input.forEach(input => {
+  }
+   inputs.forEach(input => {
     input.addEventListener("input", validateQuestion);
     input.addEventListener("change", validateQuestion);
   });
-  }
+  // ✅ run once initially (so button starts disabled)
+  validateQuestion();
 });
 // HANDLE "OTHER" CHECKBOXES
 const otherCheckboxes = document.querySelectorAll(
@@ -241,4 +256,15 @@ nextBtns.forEach((btn) => {
   document.getElementById("home-page").style.display="block"
   });
   
+  //password viscibility
+  const password = document.getElementById("password");
+const showPassword = document.getElementById("showPassword");
+
+showPassword.addEventListener("change", () => {
+  if (showPassword.checked) {
+    password.type = "text";   // show password
+  } else {
+    password.type = "password"; // hide password
+  }
+});
 
