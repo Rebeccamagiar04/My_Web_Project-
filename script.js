@@ -68,11 +68,8 @@ signupBtn.addEventListener("click", () => {
   
    //GOOGLE signInWithPopup
    const googleBtn = document.getElementById("googleLogin");
-
+ 
 googleBtn.addEventListener("click", () => {
-
-  if (googleBtn) {
-  googleBtn.addEventListener("click", () => {
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
@@ -86,9 +83,7 @@ googleBtn.addEventListener("click", () => {
     console.error("Google sign-in error:", error.code, error.message);
   
     });
-  });
-  };
-  });  
+  }); 
   
 //STYLING PROGRESS BAR AND MOVING QUESTIONS
 const questions = document.querySelectorAll(".question");
