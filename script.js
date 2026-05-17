@@ -64,12 +64,9 @@ signupBtn.addEventListener("click", () => {
 
 });
 
-
-  
    //GOOGLE signInWithPopup
    const googleBtn = document.getElementById("googleLogin");
- 
-googleBtn.addEventListener("click", () => {
+  googleBtn.addEventListener("click", () => {
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
@@ -83,7 +80,7 @@ googleBtn.addEventListener("click", () => {
     console.error("Google sign-in error:", error.code, error.message);
   
     });
-  }); 
+  });
   
 //STYLING PROGRESS BAR AND MOVING QUESTIONS
 const questions = document.querySelectorAll(".question");
@@ -261,11 +258,17 @@ showPassword.addEventListener("change", () => {
 });
 
 const form=
-  document.getElementById("form-section")
+  document.getElementById("form-page")
 form.addEventListener("submit", function(e){
   e.preventDefault();
 
-  document.getElementById("questionare").classList.add("hidden");
+  document.getElementById("questionnare").classList.add("hidden");
   document.getElementById("home-page").classList.remove("hidden");
 });
 
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
