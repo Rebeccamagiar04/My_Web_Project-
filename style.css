@@ -1,8 +1,4 @@
-body {
-  background-color: #C8A2C8;; /* lilac background */
-}
-    
-    .page { display: none; padding: 20px; }
+   .page { display: none; padding: 20px; }
 
     #progress-wrapper {
       position:block;
@@ -30,14 +26,14 @@ body {
   display: block;
 }
 
-body {
+#questionnare {
   margin: 0;
   height: 100vh;
   display:flex;
   justify-content: center;   /* horizontal center */
   align-items: center;       /* vertical center */
 
-  background-color: #b89bb7; /* keep your color if you want */
+  background-color: #C8A2C8; /* lilac color background*/
   font-family: Arial, sans-serif;
 }
 
@@ -77,16 +73,101 @@ label {
 }
 
 .hidden{
-  display:none;
+  display:none !important;
 }
 
-# createAccount{
+#createAccount, #login-btn{
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
 
   border: none;
   border-radius: 6px;
-  background-color: canary yellow;
+  background-color: pink;
   color: black; 
+ }
+ 
+ body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0569C9;
+  padding: 15px 20px;
+  color: white;
+}
+
+
+
+/* Links in straight line */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* LEFT SIDE */
+.left-section{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Hamburger hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* CENTER TEXT */
+.center-section{
+  flex:1;
+  text-align:center;
+}
+
+.center-section p{
+  font-size:15px;
+  margin:0;
+  max-width:300px;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #6495ED;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+.intro-essay{
+  font-family: "Charter Bd BT", Georgia, serif;
+  background-color: rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: auto;
+      
 }
