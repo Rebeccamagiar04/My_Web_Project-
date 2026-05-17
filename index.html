@@ -5,6 +5,8 @@
     <meta name="viewport"
 content="width=device-width,
 initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
      <title>Scholarship info page</title>
      
      <!--link CSS file-->
@@ -22,13 +24,15 @@ href="style.css">
 
 </head>
 <body class="center">
-  <section id="questionare">
-<div class="question active" id="welcome-page">
+  <section id="questionnare" class="hidden">
+  <form id="form-page">
+  
+  <!--welcome page-->
+  <div class="question active" id="welcome-page">
   <h1>Welcome 👋</h1>
   <p>We are thrilled you stopped by. Dive in and see what's waiting for you!</p>
- <button id="start-btn">Start</button>
+ <button id="start-btn" type="button">Start</button>
   </div>
-<form id="form-section">
 
     <!-- Progress Bar -->
 <div id="progress-wrapper" style="display: none;">
@@ -150,34 +154,54 @@ href="style.css">
 
 <br><br>
  
-<button id="createAccount">Create Account</button><br>
- <button class="prev-btn" type="button">Back</button>
+<button id="createAccount" type="submit">Create Account</button>
+<button type="submit" id="login-btn">Log In</button><br>
+ <button class="prev-btn">Back</button>
 
 <br><br>
 
-<button id="googleLogin" type="button" >Sign in with Google</button>
+<button id="googleLogin" type="submit" >Sign in Google</button>
   </div>
 </form>
 </section>
-<section id="home-page" class="hidden">
-  <!--now this is wherethe main items in the page appear-->
-<header>
-  <nav>
-    <a href="#home-page">Home</a>
-    <a href="#scholarships">Scholarships</a>
-    <a href="#skills">Skills and Resources</a>
-    <a href="#about">About Us</a>
-    <a href="portfolio.html">Personal Portfolio</a>
-  </nav>
-  <p>Hello (username)!</p>
-  <p>Welcome, lets embark on this journey together.</p>
-  <img url="(logo url apa ndani)" alt="logo">
+<section id="home-page">
+  <header>
+  <nav class="navbar" >
+   <div class="left-section">
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i>
+    </div>
+    </div>
+  
+  <div class="center-section"><p>Hello (username)<br>
+    Welcome, lets embark on this journey together.</p></div>
+  
+      <div class="logo">
+  <img src="brightpathinitiativelogo.png" alt="logo" width="60">   </div>
+  
+  <!--hidden until menu toggle clicked-->
+      <ul class="nav-links" id="nav-links">
+   <li><a href="#home-page"><i class="fa-solid fa-house"></i>Home</a></li>
+    <li><a href="#scholarships"><i class="fa-solid fa-graduation-cap"></i>Scholarships</a></li>
+   <li><a href="#skills"><i class="fa-solid fa-book-open"></i>Skills and Resources</a></li>
+    <li><a href="#about"><i class="fa-solid fa-users"></i>About Us</a></li>
+   <li><a href="portfolio.html"><i class="fa-solid fa-briefcase"></i>Personal Portfolio</a></li>
+    </ul>
+    </nav>
   </header>
-  <main>
+  <main class="main">
+    <img src="quote.png" width="400">
+        <p id="intro" class="intro-essay">Education is one of the most powerful tools a refugee can have. For many refugees, war, conflict and displacement disrupt childhood dreams and force families to leave behind their homes, schools and communities. Yet, despite these circumastances, education remains a source of hope, strength and opportunity.<br><br>
+        Alot of refugee children face many struggles in accessing education. Some schools are overcrowded, while others lack enough books and teachers. Also many students have to walk long distances to attend these instituions. Some are also forced to balance school, work and family responsibilities. For girls especially, education may be interupted due to early marriages, cultural expetations or lack of support.<br><br>
+        Despite these challenges, refugees continue to fight for their right to learn. Education gives them knowledge ans skills as tools to build a better future. It allows them to dream big beyond the limitations of dispalacement. It also creates confidence and gives refugees a voice in the society. For many refugees, the classroom is more than a place to study, it is a safe place where they can feel normal, make friends and create lasting relationships. It symbolizes hope, independence, and brighter days therefore its importance cannot be ignored. When refugees are educated, it benefits the entire community. Education reduces poverty and opens doors to new opportunities that once seemed impossible. The determination of refugee students proves that hope can survive even in the hardest circumstances. <br><br>
+        In the end, education is not only about books and exams; it's about giving refugees the chance to rebuild their lives, achieve their dreams, and create a future filled with dignity and possibility.</p>
+    <img src="somaligirlshappy.png" alt="school children" width="400">
+
+  
+    
     
   </main>
-  
 </section>
+</body>
 
 
   
@@ -188,3 +212,4 @@ href="style.css">
 
 
 
+    
