@@ -57,11 +57,11 @@ signupBtn.addEventListener("click", () => {
     .then((userCredential) => {
       alert("Account created successfully!");
       console.log(userCredential.user);
-
-              // Redirect to the home page
-    window.location.href = "Refugee_scholarship_awareness/CODING PROJECT/Home.html";
-  
+      
+        // Redirect to the home page
+    window.location.href = "Home.html";
     })
+  
     .catch((error) => {
       alert(getFriendlyError(error.code));
     });
@@ -76,15 +76,23 @@ signupBtn.addEventListener("click", () => {
   signInWithPopup(auth, provider)
     .then((result) => {
     if (result.user) {
+        // Redirect to the home page
+    window.location.href = "Home.html";
       console.log("Signed in as:", result.user.email);
       alert("Signed in with Google!");
     }
-    })
     .catch((error) => {
     console.error("Google sign-in error:", error.code, error.message);
   
+    })
     });
   });
+  
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+      alert("Login successful!");
+      window.location.href = "Home.html";
+  })
   
 //STYLING PROGRESS BAR AND MOVING QUESTIONS
 const questions = document.querySelectorAll(".question");
