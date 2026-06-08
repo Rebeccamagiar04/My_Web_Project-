@@ -261,18 +261,3 @@ showPassword.addEventListener("change", () => {
   }
 });
 
-const form=
-  document.getElementById("form-page")
-form.addEventListener("submit", function(e){
-  e.preventDefault();
-
-  document.getElementById("questionnare").classList.add("hidden");
-  document.getElementById("home-page").classList.remove("hidden");
-});
-
-const toggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
-
-toggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
