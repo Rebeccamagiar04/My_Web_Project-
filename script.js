@@ -57,6 +57,10 @@ signupBtn.addEventListener("click", () => {
     .then((userCredential) => {
       alert("Account created successfully!");
       console.log(userCredential.user);
+
+              // Redirect to the home page
+    window.location.href = "Refugee_scholarship_awareness/CODING PROJECT/Home.html";
+  
     })
     .catch((error) => {
       alert(getFriendlyError(error.code));
