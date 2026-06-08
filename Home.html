@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <title>Scholarship info page</title>
+     
+     <!--link CSS file-->
+     <link rel="stylesheet"
+href="Style.css">
+<style>
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+</style>
+
+</head>
+
+<body>
+<section id="home-page" class="hidden">
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <nav class="navbar">
+
+            <div class="logo"><img src="logo.png" id="logoimg">
+                <i class="fa-solid fa-heart"></i>
+                <div>
+                    <h2>Bright Path Initiative.</h2>
+                    <p>Scholarships without borders</p>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="scholarship.html">Scholarships</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+
+            <button class="save-btn">
+                <i class="fa-regular fa-bookmark"></i>
+                Save for later
+            </button>
+
+        </nav>
+    </header>
+
+  <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                Your Dream. Our Guidance. Your Future.
+            </span>
+
+            <h1>
+                Navigate Scholarships.<br>
+                Achieve <span>Your Dreams.</span>
+            </h1>
+
+            <p>
+                Find out how to apply for scholarships,
+                understand the process, avoid common
+                mistakes and win opportunities that
+                can change your future.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+                    Learn How To Apply
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <button class="secondary-btn">
+                    Explore Scholarships
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="student.jpg" alt="">
+        </div>
+
+    </section>
+
+    <!-- HOW TO APPLY -->
+
+    <section class="apply-section">
+
+        <div class="section-header">
+            <h2>How to Apply for Scholarships</h2>
+          <a href="#" id="guideBtn">View Full Guide →</a>
+        </div>
+
+        <div class="steps">
+
+            <div class="step-card">
+
+                <div class="icon blue">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <h3>Find Opportunities</h3>
+
+                <p>
+                    Search scholarships that match
+                    your profile, goals and eligibility.
+                </p>
+
+            </div>
+
+            <div class="step-card">
+
+                <div class="icon green">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+
+                <h3>Prepare Documents</h3>
+
+                <p>
+                    Gather transcripts,
+                    SOPs and recommendation letters.
+                </p>
+
+            </div>
+
+            <div class="step-card">
+
+                <div class="icon yellow">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+
+                <h3>Submit Application</h3>
+
+                <p>
+                    Complete forms and upload
+                    required documents.
+                </p>
+
+            </div>
+
+            <div class="step-card">
+
+                <div class="icon purple">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+
+                <h3>Track Results</h3>
+
+                <p>
+                    Monitor updates through
+                    email and portals.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+    <!-- Hidden Detailed Guide -->
+
+<div id="applicationGuide" class="application-guide">
+
+    <div class="guide-item">
+        <h3>1. Research the Scholarship</h3>
+        <p>
+            Carefully review the scholarship requirements,
+            eligibility criteria, deadlines, and benefits.
+            Ensure you qualify before investing time in the application.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>2. Prepare Required Documents</h3>
+        <p>
+            Gather academic transcripts, certificates,
+            recommendation letters, passport or ID,
+            language test scores, and your CV.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>3. Apply for Admission</h3>
+        <p>
+            Many scholarships require admission to a university first.
+            Submit your university application and receive an offer letter.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>4. Complete Financial Aid Forms</h3>
+        <p>
+            Some programs require proof of financial need.
+            Fill out all requested financial aid documents honestly.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>5. Write Strong Essays</h3>
+        <p>
+            Explain your goals, achievements,
+            leadership experience and how the scholarship
+            will help you create impact.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>6. Submit Before Deadlines</h3>
+        <p>
+            Upload all required files and double-check
+            every section before final submission.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>7. Interview Stage</h3>
+        <p>
+            Some scholarships conduct online or physical interviews.
+            Prepare by reviewing your application and practicing answers.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>8. Results & Selection</h3>
+        <p>
+            Scholarship committees review applications
+            and notify shortlisted or selected candidates.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>9. Acceptance</h3>
+        <p>
+            If selected, confirm your acceptance
+            and complete any required paperwork.
+        </p>
+    </div>
+
+    <div class="guide-item">
+        <h3>10. Next Steps</h3>
+        <p>
+            Prepare for enrollment, visa applications,
+            travel arrangements, accommodation,
+            and orientation activities.
+        </p>
+    </div>
+
+</div>
+
+    <!-- INFO GRID -->
+
+    <section class="info-grid">
+
+        <!-- FEES -->
+
+        <div class="info-box">
+
+            <div class="box-header">
+                <h2>Scholarship Application Fees</h2>
+            </div>
+
+            <div class="fee-cards">
+
+                <div class="fee">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Most Are Free</h4>
+                    <p>Most legitimate scholarships are free.</p>
+                </div>
+
+                <div class="fee">
+                    <i class="fas fa-coins"></i>
+                    <h4>Some Have Fees</h4>
+                    <p>Universities may charge processing fees.</p>
+                </div>
+
+                <div class="fee">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h4>Beware of Scams</h4>
+                    <p>Never pay anyone to guarantee a scholarship.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MISTAKES -->
+
+        <div class="info-box">
+
+            <h2>Common Mistakes</h2>
+
+            <ul class="mistakes-list">
+                <li>Missing deadlines</li>
+                <li>Submitting wrong documents</li>
+                <li>Writing weak essays</li>
+                <li>Ignoring eligibility requirements</li>
+                <li>Using unprofessional emails</li>
+                <li>Not proofreading applications</li>
+            </ul>
+
+        </div>
+
+        <!-- DOCUMENTS -->
+
+        <div class="info-box">
+
+            <h2>Documents Checklist</h2>
+
+            <ul class="documents-list">
+
+                <li>Passport / ID</li>
+                <li>Academic Transcripts</li>
+                <li>Recommendation Letters</li>
+                <li>CV / Resume</li>
+                <li>Personal Statement</li>
+                <li>Language Test Results</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- TIPS SECTION -->
+
+    <section class="tips-section">
+
+        <h2>Tips for a Successful Application</h2>
+
+        <div class="tips-grid">
+
+            <div class="tip">
+                <i class="fas fa-clock"></i>
+                <p>Start Early</p>
+            </div>
+
+            <div class="tip">
+                <i class="fas fa-bullseye"></i>
+                <p>Apply to Multiple Scholarships</p>
+            </div>
+
+            <div class="tip">
+                <i class="fas fa-pen"></i>
+                <p>Customize Each Application</p>
+            </div>
+
+            <div class="tip">
+                <i class="fas fa-file-signature"></i>
+                <p>Follow Instructions Carefully</p>
+            </div>
+
+            <div class="tip">
+                <i class="fas fa-folder-open"></i>
+                <p>Keep Copies of Documents</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHY SCHOLARSHIPS MATTER -->
+
+    <section class="importance">
+
+        <div class="importance-content">
+
+            <h2>Why Scholarships Matter</h2>
+
+            <p>
+                Scholarships open doors to quality
+                education, reduce financial burden
+                and help students build brighter futures.
+            </p>
+
+            <button>
+                Your Journey Starts Now
+            </button>
+
+        </div>
+
+        <div class="importance-image">
+
+            <img src="graduate.png" alt="">
+
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div class="stat">
+            <i class="fas fa-trophy"></i>
+            <h2>500+</h2>
+            <p>Scholarships Listed</p>
+        </div>
+
+        <div class="stat">
+            <i class="fas fa-university"></i>
+            <h2>100+</h2>
+            <p>Universities Covered</p>
+        </div>
+
+        <div class="stat">
+            <i class="fas fa-globe"></i>
+            <h2>50+</h2>
+            <p>Countries</p>
+        </div>
+
+        <div class="stat">
+            <i class="fas fa-users"></i>
+            <h2>Thousands</h2>
+            <p>Students Reached</p>
+        </div>
+
+    </section>
+    
+  <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <h2>Refugee Opportunities</h2>
+            <p>Scholarships without borders.</p>
+        </div>        <div class="socials">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+    </footer>
+    </section>
+
+
+  
+<script type="module" src="Script.js"></script>
+</body>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <title>Scholarship info page</title>
+     
+     <!--link CSS file-->
+     <link rel="stylesheet"
+href="Style.css">
+<style>
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+</style>
+
+</head>
+<body>
+
+     <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                <i class="fa-regular fa-heart"></i>
+                <div>
+                    <h2>Refugee Opportunities</h2>
+                </div>
+            </div>
+           <div>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a class="active" href="scholarship.html">Scholarships</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+            </div>
+
+            <div class="nav-actions">
+                <button class="bookmark-btn">
+                    <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+                <button class="login-btn">
+                    <i class="fa-regular fa-user"></i>
+                    Sign In / Register
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Opportunities today,<br>
+                <span>a better</span> tomorrow.
+            </h1>
+
+            <p>
+                Discover scholarships that welcome refugee students
+                and open doors to your future.
+            </p>
+
+            <div class="verified-badge">
+                <i class="fa-solid fa-heart"></i>
+                Curated with care. Verified for you.
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <!-- Replace with your image -->
+            <img src="quote.png" alt="Student">
+
+            <div class="future-note">
+                Your future is waiting ♡
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH BAR -->
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <div class="input-group">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search scholarships...">
+            </div>
+            </div>
+
+ <!-- SEARCH SECTION -->
+     <section class="search-section">
+        <h2>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Find scholarships you're eligible for
+        </h2>
+
+        <div class="filters">
+
+          <p>Field of study</p>
+            <select>
+                <option>All Fields</option>
+                <option>Tech field</option>
+            </select>
+          <p>Degree level</p>
+            <select>
+                <option>All Levels</option>
+                <option>Bachelor's degree</option>
+                <option>Master's degree</option>
+                <option>P.H.D</option>
+            </select>
+
+          <p>Country/Region</p>
+            <select>
+                <option>All Countries</option>
+            </select>
+
+          <p>Study location</p>  
+            <select>
+                <option>Any</option>
+                <option>Physical/On campus</option>
+                <option>Online</option>
+            </select>
+
+            <button id="SearchBtN">
+                Search
+            </button>
+
+        </div>
+
+        </section>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>Filter By</h2>
+                <button>Reset</button>
+            </div>
+
+            <div class="filter-group">
+
+                <h3>Category</h3>
+
+                <label><input type="checkbox" checked> All Categories</label>
+                <label><input type="checkbox"> STEM</label>
+                <label><input type="checkbox"> Humanities</label>
+                <label><input type="checkbox"> Social Sciences</label>
+                <label><input type="checkbox"> Arts & Design</label>
+                <label><input type="checkbox"> Health Sciences</label>
+                <label><input type="checkbox"> Education</label>
+
+            </div>
+
+            <div class="filter-group">
+
+                <h3>Study Level</h3>
+
+                <label><input type="checkbox" checked> All Levels</label>
+                <label><input type="checkbox"> Bachelor's</label>
+                <label><input type="checkbox"> Master's</label>
+                <label><input type="checkbox"> PhD</label>
+
+            </div>
+
+        </aside>
+
+        <!-- SCHOLARSHIP GRID -->
+        <section class="content-area">
+
+                           <!-- CARD 1 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>DAAD Scholarship</h3>
+
+                    <p>
+                        Master's programs in Germany for refugee students.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Germany</span>
+                        <span>🎓 Master's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: 15 Nov 2026
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="partial">Partial Funding</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>University of Ottawa Refugee Scholarship</h3>
+
+                    <p>
+                        Supporting refugee students in Canada.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Canada</span>
+                        <span>🎓 Bachelor's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: 31 Dec 2026
+                    </div>
+
+                     <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 3 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>UNHCR DAFI Scholarship</h3>
+
+                    <p>
+                        Global access to higher education.
+                    </p>
+
+                    <div class="card-info">
+                        <span>🌍 Multiple Countries</span>
+                        <span>🎓 Bachelor's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: Varies
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Erasmus Mundus</h3>
+
+                    <p>
+                        Study across Europe with full funding.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Europe</span>
+                        <span>🎓 Master's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: 20 Jan 2027
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Chevening Refugee Scholarship</h3>
+
+                    <p>
+                        UK scholarships for future leaders.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 United Kingdom</span>
+                        <span>🎓 Master's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: 05 Nov 2026
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Swedish Institute Scholarship</h3>
+
+                    <p>
+                        Fully funded opportunities in Sweden.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Sweden</span>
+                        <span>🎓 Master's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: 10 Jan 2027
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 7-->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded/Sponsorship model</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>World University Service of Canada(SRP/WCC)</h3>
+
+                    <p>
+                        Supporting refugee students in Canada.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Canada/USA</span>
+                        <span>🎓 Bachelor's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline:@@@@
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+              <!-- CARD 8 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Elimisha Kakuma Scholarship</h3>
+
+                    <p>
+                       @@@@####
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Global University Placement</span>
+                        <span>🎓 college access pathway</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline:@@@@
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 9 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Malengo Scholarship</h3>
+
+                    <p>
+                        @@@####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Germany/Canada/Europe</span>
+                        <span>🎓 Bachelor's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 10 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Mastercard Foundation Scholars Program</h3>
+
+                    <p>
+                        @###@.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Multiple Countries</span>
+                        <span>🎓 Bachelor's/Master's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 11 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>United World Colleges</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 ****</span>
+                        <span>🎓 Highschool(IB)</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 12 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>University Corridors for refugees</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Italy</span>
+                        <span>🎓 Master
+                        's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 13 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Southern New Hampshire University</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Mostly online</span>
+                        <span>🎓 Bachelor's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 14 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">@@@@</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Institue of International Education</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 ****</span>
+                        <span>🎓 @@##</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 15 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Significant/Full Support</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Columbia University</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 USA</span>
+                        <span>🎓 Bachelor's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 16 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Paul and Daisy soros fellowship for New Americans</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 USA</span>
+                        <span>🎓 Graduate</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 17 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Stipendum Hungaricum</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Hungary</span>
+                        <span>🎓 All Levels</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 18 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Study in Romania[Government scholarship]</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Romania</span>
+                        <span>🎓 All Levels</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+                
+                <!-- CARD 19 -->
+                <div class="scholarship-card">
+
+                    <div class="card-top">
+                        <span class="funded">Fully Funded</span>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <h3>Chevening Refugee Scholarship</h3>
+
+                    <p>
+                        @@#####.
+                    </p>
+
+                    <div class="card-info">
+                        <span>📍 Europe</span>
+                        <span>🎓 Master's</span>
+                    </div>
+
+                    <div class="deadline">
+                        📅 Deadline: @@##
+                    </div>
+
+                    <a href="#">View Details →</a>
+
+                </div>
+
+            </section>
+
+            <!-- QUOTE PANEL -->
+            <div class="quote-panel">
+
+                <i class="fa-solid fa-quote-left"></i>
+
+                <p>
+                    Education is the passport to the future,
+                    for tomorrow belongs to those who prepare
+                    for it today.
+                </p>
+
+                <h4>— Malcolm X</h4>
+
+                <div class="plant-icon">
+                    🌱
+                </div>
+
+            </div>
+
+    </section>
+
+    <!-- LOAD MORE -->
+    <section class="load-more-section">
+
+        <button class="load-more-btn">
+            Load More Scholarships
+            <i class="fa-solid fa-arrow-down"></i>
+        </button>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            <h2>Bright Path Initiative</h2>
+        </div>
+
+        <div class="footer-links">
+          <a href="Home.html">Home</a>
+            <a href="scholarship.html">Scholarships</a>
+            <a href="#">Resources</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+
+    </footer>
+
+    <script src="Script.js"></script>
+    </body>
+</html>
