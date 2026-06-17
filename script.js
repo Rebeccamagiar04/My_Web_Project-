@@ -69,7 +69,7 @@ signupBtn.addEventListener("click", (e) => {
       console.log(userCredential.user);
       
         // Redirect to the home page
-    window.location.href = "Home.html";
+    window.location.href = "home.html";
     })
   
     .catch((error) => {
@@ -88,7 +88,7 @@ signupBtn.addEventListener("click", (e) => {
     if (result.user) {
       console.log("Signed in as:", result.user.email);
       alert("Signed in with Google!");
-      window.location.href = "Home.html";
+      window.location.href = "home.html";
     }
   })
   .catch((error) => {
@@ -105,7 +105,7 @@ loginBtn.addEventListener("click", (e) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
           alert("Login successful!");
-          window.location.href = "Home.html";
+          window.location.href = "home.html";
       })
       .catch((error) => {
     alert(getFriendlyError(error.code));
