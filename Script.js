@@ -1,12 +1,18 @@
 // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
     
-  //IMPORT AUTHENTICATION
-  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } 
-from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+  import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+  
   
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,7 +26,8 @@ from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
     appId: "1:586929157801:web:46dcd3fee9343ba6895bb8",
     measurementId: "G-DHPQ1CL34X"
   };
-    
+  
+  
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
@@ -47,10 +54,13 @@ from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
   //CREATE ACCOUNT EMAIL/password
   const signupBtn = document.getElementById("createAccount");
+  const googleBtn = document.getElementById("googleLogin");
+  const loginBtn = document.getElementById("login-btn");
 
-signupBtn.addEventListener("click", () => {
-
-  const email = document.getElementById("email").value;
+//SIGNUP
+signupBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+ const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
   createUserWithEmailAndPassword(auth, email, password)
@@ -69,30 +79,38 @@ signupBtn.addEventListener("click", () => {
 });
 
    //GOOGLE signInWithPopup
-   const googleBtn = document.getElementById("googleLogin");
-  googleBtn.addEventListener("click", () => {
+   googleBtn.addEventListener("click", (e) => {
+     e.preventDefault();
   const provider = new GoogleAuthProvider();
 
-  signInWithPopup(auth, provider)
-    .then((result) => {
+ signInWithPopup(auth, provider)
+  .then((result) => {
     if (result.user) {
-        // Redirect to the home page
-    window.location.href = "Home.html";
       console.log("Signed in as:", result.user.email);
       alert("Signed in with Google!");
-    }
-    .catch((error) => {
-    console.error("Google sign-in error:", error.code, error.message);
-  
-    })
-    });
-  });
-  
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-      alert("Login successful!");
       window.location.href = "Home.html";
+    }
   })
+  .catch((error) => {
+    console.error("Google sign-in error:", error.code, error.message);
+  });
+  });
+
+   //LOGIN
+loginBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+          alert("Login successful!");
+          window.location.href = "Home.html";
+      })
+      .catch((error) => {
+    alert(getFriendlyError(error.code));
+});
+});
   
 //STYLING PROGRESS BAR AND MOVING QUESTIONS
 const questions = document.querySelectorAll(".question");
@@ -137,11 +155,17 @@ function updateProgressBar() {
 }
 
 // Start button → move from welcome → first question
-startBtn.addEventListener("click", () => {
-  currentQuestion = 1; // first question (skip welcome)
-  showQuestion(currentQuestion);
-  progressWrapper.style.display = "block"; // show progress bar
-});
+// first question (skip welcome)
+
+    showQuestion(currentQuestion); // Show welcome page
+
+    startBtn.addEventListener("click", () => {
+        currentQuestion = 1; // Move to first question
+        showQuestion(currentQuestion);
+        progressWrapper.style.display = "block";
+        updateProgressBar();
+    });
+
 
 // NEXT HANDLER (keyboard-safe)
 function nextHandler() {
@@ -268,4 +292,8 @@ showPassword.addEventListener("change", () => {
     password.type = "password"; // hide password
   }
 });
+
+
+  
+
 
