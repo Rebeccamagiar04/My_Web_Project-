@@ -25,13 +25,13 @@ href="style.css">
 </head>
 
 <body>
-<section id="home-page" class="hidden">
+<section id="home-page">
 
     <!-- NAVBAR -->
     <header class="header">
         <nav class="navbar">
 
-            <div class="logo"><img src="logo.png" id="logoimg">
+            <div class="logo">
                 <i class="fa-solid fa-heart"></i>
                 <div>
                     <h2>Bright Path Initiative.</h2>
@@ -39,13 +39,15 @@ href="style.css">
                 </div>
             </div>
             
-            <ul class="nav-links">
+            <div class="nav-links">
+            <ul>
                 <li><a href="home.html" class="active">Home</a></li>
                 <li><a href="scholarship.html">Scholarships</a></li>
                 <li><a href="#">Resources</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">FAQ</a></li>
             </ul>
+            </div>
 
             <button class="save-btn">
                 <i class="fa-regular fa-bookmark"></i>
@@ -57,9 +59,9 @@ href="style.css">
 
   <!-- HERO SECTION -->
 
-    <section class="hero">
+    <section class="heroHome">
 
-        <div class="hero-content">
+        <div class="heroHome-content">
 
             <span class="badge">
                 Your Dream. Our Guidance. Your Future.
@@ -77,25 +79,23 @@ href="style.css">
                 can change your future.
             </p>
 
-            <div class="hero-buttons">
+            <div class="heroHome-buttons">
 
                 <button class="primary-btn">
                     Learn How To Apply
                     <i class="fas fa-arrow-right"></i>
                 </button>
 
-                <button class="secondary-btn">
-                    Explore Scholarships
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+              <a href="scholarship.html" class="secondary-btn">
+    Explore Scholarships
+    <i class="fas fa-arrow-right"></i>
+</a>
 
             </div>
 
         </div>
 
-        <div class="hero-image">
-            <img src="student.jpg" alt="">
-        </div>
+        <div class="heroHome-image"></div>
 
     </section>
 
@@ -135,7 +135,7 @@ href="style.css">
 
                 <p>
                     Gather transcripts,
-                    SOPs and recommendation letters.
+                    SOPs and recommendation letters or any other relevant documents.
                 </p>
 
             </div>
@@ -439,7 +439,17 @@ href="style.css">
         <div class="footer-logo">
             <h2>Refugee Opportunities</h2>
             <p>Scholarships without borders.</p>
-        </div>        <div class="socials">
+        </div> 
+        
+        <div class="footer-links">
+          <a href="home.html" class="active">Home</a>
+            <a href="scholarship.html">Scholarships</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <div class="socials">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-twitter"></i>
             <i class="fa-brands fa-instagram"></i>
@@ -451,4 +461,4 @@ href="style.css">
 
   
 <script type="module" src="script.js"></script>
-</body>
+                                   </body>
