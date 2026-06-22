@@ -476,7 +476,7 @@ section{
 }
 
 .tip{
-    background:white;
+    background:#f8fafc;
     padding:25px;
     text-align:center;
     border-radius:18px;
@@ -1032,10 +1032,4 @@ footer{
         order:-1;
     }
 }
-
-
-
-
-
-
 
