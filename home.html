@@ -28,31 +28,35 @@ href="style.css">
 <section id="home-page">
 
     <!-- NAVBAR -->
-    <header class="header">
+ <header>
         <nav class="navbar">
 
             <div class="logo">
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
                 <div>
-                    <h2>Bright Path Initiative.</h2>
-                    <p>Scholarships without borders</p>
+                    <h2>Hope Horizon</h2>
                 </div>
             </div>
-            
-            <div class="nav-links">
-            <ul>
-                <li><a href="home.html" class="active">Home</a></li>
-                <li><a href="scholarship.html">Scholarships</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">FAQ</a></li>
+           <div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a class="active" href="scholarship.html">Scholarships</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">FAQ</a></li>
             </ul>
             </div>
 
-            <button class="save-btn">
-                <i class="fa-regular fa-bookmark"></i>
-                Save for later
-            </button>
+            <div class="nav-actions">
+                <button class="bookmark-btn">
+                    <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+                <button class="login-btn">
+                    <i class="fa-regular fa-user"></i>
+                    Sign In / Register
+                </button>
+            </div>
 
         </nav>
     </header>
@@ -341,15 +345,15 @@ href="style.css">
     <!-- TIPS SECTION -->
 
     <section class="tips-section">
+      
+       <div class="tips-grid">
+       <div class="info-box">
 
-        <h2>Tips for a Successful Application</h2>
-
-        <div class="tips-grid">
-
-            <div class="tip">
-                <i class="fas fa-clock"></i>
-                <p>Start Early</p>
+            <div class="box-header">
+                <h2>Tips for a Successful Application.</h2>
             </div>
+          
+            <div class="tips-card">
 
             <div class="tip">
                 <i class="fas fa-bullseye"></i>
@@ -370,7 +374,9 @@ href="style.css">
                 <i class="fas fa-folder-open"></i>
                 <p>Keep Copies of Documents</p>
             </div>
+            </div>
 
+        </div>
         </div>
 
     </section>
@@ -461,4 +467,4 @@ href="style.css">
 
   
 <script type="module" src="script.js"></script>
-                                   </body>
+            </body>
