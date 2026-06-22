@@ -32,16 +32,16 @@ href="style.css">
             <div class="logo">
                 <i class="fa-regular fa-heart"></i>
                 <div>
-                    <h2>Refugee Opportunities</h2>
+                    <h2>Hope Horizon</h2>
                 </div>
             </div>
            <div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a class="active" href="scholarship.html">Scholarships</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">FAQ</a></li>
             </ul>
             </div>
 
@@ -60,9 +60,9 @@ href="style.css">
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="heroScholarship">
 
-        <div class="hero-content">
+        <div class="heroScholarship-content">
 
             <h1>
                 Opportunities today,<br>
@@ -81,10 +81,10 @@ href="style.css">
 
         </div>
 
-        <div class="hero-image">
+        <div class="heroScholarship-image">
 
             <!-- Replace with your image -->
-            <img src="quote.png" alt="Student">
+            <img src="hero.jpg" alt="Student">
 
             <div class="future-note">
                 Your future is waiting ♡
@@ -103,34 +103,28 @@ href="style.css">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search scholarships...">
             </div>
-            </div>
-
- <!-- SEARCH SECTION -->
-     <section class="search-section">
+        <div class="filters">
         <h2>
             <i class="fa-solid fa-magnifying-glass"></i>
             Find scholarships you're eligible for
         </h2>
-
-        <div class="filters">
-
-          <p>Field of study</p>
+         <p>Field of study</p>
             <select>
                 <option>All Fields</option>
                 <option>Tech field</option>
-            </select>
+            </select><br>
           <p>Degree level</p>
             <select>
                 <option>All Levels</option>
                 <option>Bachelor's degree</option>
                 <option>Master's degree</option>
                 <option>P.H.D</option>
-            </select>
+            </select><br>
 
           <p>Country/Region</p>
             <select>
                 <option>All Countries</option>
-            </select>
+            </select><br>
 
           <p>Study location</p>  
             <select>
@@ -143,6 +137,7 @@ href="style.css">
                 Search
             </button>
 
+        </div>
         </div>
 
         </section>
@@ -745,14 +740,14 @@ href="style.css">
 
         <div class="footer-links">
           <a href="home.html">Home</a>
-            <a href="scholarship.html">Scholarships</a>
-            <a href="#">Resources</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="scholarship.html" class="active">Scholarships</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
 
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     </body>
-</html>
+    </html>
