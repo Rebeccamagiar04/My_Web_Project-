@@ -293,6 +293,34 @@ showPassword.addEventListener("change", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("Hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle("active");
+        });
+
+        // Close when clicking a link
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove("active");
+            }
+        });
+    }
+});
+document.getElementById("closeMenu")?.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+});
 
   
 
