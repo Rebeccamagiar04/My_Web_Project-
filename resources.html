@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <title>Scholarship info page</title>
+     
+     <!--link CSS file-->
+     <link rel="stylesheet"
+href="resources.css">
+<style>
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+</style>
+
+</head>
+
+<body>
+<section id="home-page">
+
+    <!-- NAVBAR -->
+ <header id="header">
+        <nav class="navbar">
+        <div class="hamburger" id="Hamburger" aria-label="Toggle menu">   ☰
+    </div>
+           <div class="nav-links" id="navLinks">
+    <div class="close-btn" id="closeMenu">&times;</div>
+              <ul>
+                <li><a class="active" href="home.html">Home</a></li>
+                <li><a  href="scholarship.html">Scholarships</a></li>
+                <li><a class="active" href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">FAQ</a></li>
+            </ul>
+            </div>
+
+                 <a href="home.html" class="logo">
+                <i class="fa-regular fa-heart"></i>
+                <div>
+                    <h2>Hope Horizon</h2>
+                </div>
+                </a>
+  
+            <div class="nav-actions">
+
+                <button class="login-btn">
+                    <i class="fa-regular fa-user"></i>
+                    Register
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+  <!-- HERO SECTION -->
+<div class="main-wrapper">
+  
+  <!-- Main Content -->
+<div class="main-content">
+
+<!-- Hero -->
+<section class="hero">
+
+<div class="hero-left">
+  
+<h1 class="hero-badge">Resource Center</h1>
+<p class="hero-desc">Find guides, templates, tutorials and expert advice to help you prepare stronger scholarship applications.</p>
+
+<div class="search-box">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+
+<input type="text" placeholder='Search for "motivation letter", "IELTS", "CV", "essay"...'>
+</div>
+
+<div class="popular-searches">
+<span class="popular-label">Popular searches:</span>
+<span class="search-tag">CV Templates</span>
+<span class="search-tag">Motivation Letter</span>
+<span class="search-tag">IELTS Preparation</span>
+<span class="search-tag">Interview Tips</span>
+<span class="search-tag">Personal Statement</span>
+</div>
+
+</div>
+
+
+<div class="hero-image">
+  
+<svg width="320" height="260" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="80" y="160" width="160" height="24" rx="3" fill="#1e3a5f"/>
+<rect x="75" y="136" width="170" height="24" rx="3" fill="#2d5a87"/>
+<rect x="85" y="112" width="150" height="24" rx="3" fill="#3d7ab5"/>
+<rect x="90" y="88" width="140" height="24" rx="3" fill="#4a9fd4"/>
+<polygon points="160,88 100,60 220,60 160,88" fill="#1a1a2e"/>
+<polygon points="100,60 220,60 210,55 110,55" fill="#2a2a4a"/>
+<rect x="155" y="88" width="10" height="35" fill="#d4a843"/>
+<circle cx="160" cy="123" r="4" fill="#d4a843"/>
+<path d="M160 123 Q180 140 200 130" stroke="#d4a843" stroke-width="2" fill="none"/>
+<ellipse cx="240" cy="200" rx="22" ry="8" fill="#e5e7eb"/>
+<path d="M220 175 Q220 200 240 200 Q260 200 260 175" fill="#f8fafc" stroke="#d1d5db" stroke-width="1"/>
+<path d="M260 180 Q270 180 270 190 Q270 200 260 200" fill="none" stroke="#d1d5db" stroke-width="2"/>
+<rect x="255" y="145" width="16" height="35" rx="2" fill="#e8e8e8"/>
+<ellipse cx="263" cy="145" rx="18" ry="12" fill="#4a7c59"/>
+<ellipse cx="255" cy="138" rx="10" ry="8" fill="#5a9a6a" transform="rotate(-20 255 138)"/>
+<ellipse cx="275" cy="140" rx="10" ry="8" fill="#5a9a6a" transform="rotate(20 275 140)"/>
+</svg>
+
+<div class="float-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+</div>
+
+<div class="float-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="float-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Upcoming Deadlines -->
+<section style="margin-bottom: 32px;">
+  
+<div class="section-header">
+  
+<h2 class="section-title">Upcoming Scholarship Deadlines</h2>
+
+<a href="#" class="view-all">View all deadlines <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+</div>
+
+<div class="deadlines-grid">
+  
+<div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon blue">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">15</div>
+<div class="month">May</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Chevening Scholarship 2025</div>
+
+<div class="deadline-subtitle">Deadline: 15 May 2025</div>
+
+<div class="days-left blue">12 days left</div>
+
+</div>
+
+<div class="deadline-card">
+  
+<div class="deadline-date">
+
+<div class="date-icon green">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">31</div>
+<div class="month">May</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Mastercard Foundation Scholars Program</div>
+
+<div class="deadline-subtitle">Deadline: 31 May 2025</div>
+
+<div class="days-left green">28 days left</div>
+
+</div>
+
+<div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon orange">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">15</div>
+<div class="month">Jun</div>
+</div>
+
+</div>
+
+<div class="deadline-title">DAAD EPOS Scholarship</div>
+
+<div class="deadline-subtitle">Deadline: 15 June 2025</div>
+
+<div class="days-left orange">43 days left</div>
+
+</div>
+
+<div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon purple">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">30</div>
+<div class="month">Jun</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Australia Awards Scholarship</div>
+
+<div class="deadline-subtitle">Deadline: 30 June 2025</div>
+
+<div class="days-left purple">58 days left</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- What to Learn -->
+<section style="margin-bottom: 32px;">
+  
+<div class="section-header">
+<h2 class="section-title">What do you want to learn today?</h2>
+</div>
+
+<div class="learn-grid">
+  
+<div class="learn-card">
+  
+<div class="learn-icon blue">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+</div>
+
+<div class="learn-title">Video Tutorials</div>
+
+<div class="learn-desc">Step-by-step videos on how to apply and build strong applications.</div>
+
+<a href="#" class="learn-link">Explore videos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card">
+  
+<div class="learn-icon orange">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+</div>
+
+<div class="learn-title">Application Guides</div>
+
+<div class="learn-desc">Learn how to write strong essays, motivation letters, CVs and more.</div>
+
+<a href="#" class="learn-link">Explore guides <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card">
+  
+<div class="learn-icon green">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+</div>
+
+<div class="learn-title">Documents & Templates</div>
+
+<div class="learn-desc">Download ready-to-use templates and checklists.</div>
+
+<a href="#" class="learn-link">Explore templates <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card">
+  
+<div class="learn-icon purple">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+</div>
+
+<div class="learn-title">English & Language</div>
+
+<div class="learn-desc">Improve your English for IELTS, TOEFL and other tests.</div>
+
+<a href="#" class="learn-link">Explore resources <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card">
+  
+<div class="learn-icon pink">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+</div>
+
+<div class="learn-title">FAQs</div>
+
+<div class="learn-desc">Find answers to common questions about scholarships and applications.</div>
+
+<a href="FAQs.html" class="learn-link">Explore FAQs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card">
+  
+<div class="learn-icon teal">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+</div>
+
+<div class="learn-title">Scholarship Guides</div>
+
+<div class="learn-desc">Learn how to find, choose and apply for the right scholarships.</div>
+
+<a href="#" class="learn-link">Explore guides <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+</div>
+
+</section>
+
+<!--VIDEO SECTION-->
+<!-- Featured Video Tutorials -->
+<section style="margin-bottom: 32px;" class="video-section">
+  
+<div class="section-header">
+<h2 class="section-title">Featured Video Tutorials</h2>
+<a href="videotutorials.html" class="view-all">View all videos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+</div>
+
+<div class="videos-grid">
+  
+<div class="video-card">
+
+    <iframe
+        width="100%"
+        height="250"
+        src="https://www.youtube.com/embed/RcNa9k9BaPU"
+        title="How to Write a Winning Motivation Letter"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
+    <div class="video-info">
+        <h3 class="video-title">How to Write a Winning Motivation Letter.</h3>
+    </div>
+
+</div>
+
+<div class="video-card">
+
+<iframe 
+width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="video-info">
+        <h3 class="video-title">Scholarship application step-by-step.</h3>
+    </div>
+
+</div>
+
+<div class="video-card">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q6323JL8a24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="video-info">
+        <h3 class="video-title">How to prepare for scholarship interviews.</h3>
+    </div>
+
+</div>
+<button class="videos-nav">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+
+<div>
+<h><b><u>Key Takeaways</u></b></h>
+
+<p><i>Be able to explain your academic goals.
+Support answers with real examples.
+Research the scholarship before the interview.
+Stay consistent with what you wrote in your application.
+Prepare thoughtful questions for the interviewers.</i></p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Latest Articles -->
+<section style="margin-bottom: 32px;">
+  
+<div class="section-header">
+<h2 class="section-title">Latest Articles & Tips</h2>
+<a href="#" class="view-all">View all articles <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+</div>
+
+<div class="articles-grid">
+  
+<div class="article-card">
+<div class="article-thumb">
+<img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop" alt="Article">
+<a href="https://blogs.lse.ac.uk/studentsatlse/2026/02/23/5-mistakes-not-to-make-in-your-scholarship-application/"></a>
+<span class="article-badge">Article</span>
+</div>
+<div class="article-info">
+<div class="article-title">10 Common Scholarship Application Mistakes to Avoid</div>
+<div class="article-date">May 5, 2025</div>
+</div>
+</div>
+
+<div class="article-card">
+<div class="article-thumb">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop" alt="Article">
+<span class="article-badge">Article</span>
+</div>
+<div class="article-info">
+<div class="article-title">How to Choose the Right Scholarship for You</div>
+<div class="article-date">April 28, 2025</div>
+</div>
+</div>
+
+<div class="article-card">
+<div class="article-thumb">
+<img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop" alt="Article">
+<span class="article-badge">Article</span>
+</div>
+<div class="article-info">
+<div class="article-title">What Scholarship Committees Look for in Applicants</div>
+<div class="article-date">April 20, 2025</div>
+</div>
+</div>
+
+<div class="article-card">
+<div class="article-thumb">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop" alt="Article">
+<span class="article-badge">Article</span>
+</div>
+<div class="article-info">
+<div class="article-title">How to Stay Motivated While Waiting for Results</div>
+<div class="article-date">April 15, 2025</div>
+</div>
+</div>
+<button class="videos-nav">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+
+</div>
+
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  
+<div class="cta-left">
+  
+<span class="cta-badge">Keep Growing</span>
+
+<h2 class="cta-title">Keep Growing While You Wait</h2>
+
+<p class="cta-desc">Waiting does not mean standing still. Use this time to build new skills, earn certificates, improve your English and build a portfolio that makes you an even stronger candidate for future opportunities.</p>
+
+<div class="cta-features">
+  
+<div class="cta-feature">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+Learn New Skills
+</div>
+
+<div class="cta-feature">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+Earn Certificates
+</div>
+
+<div class="cta-feature">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+Build Your Portfolio
+</div>
+
+<div class="cta-feature">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+Improve Your English
+</div>
+
+</div>
+
+<button class="btn-primary" style="padding: 12px 24px; font-size: 14px;">Start Learning Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-left:4px;"><polyline points="9 18 15 12 9 6"/></svg></button>
+
+</div>
+
+<div class="cta-image">
+<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=350&fit=crop" alt="Student learning">
+</div>
+
+</section>
+
+<div class="footer-note">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+Join thousands of students who are preparing today for a <a href="#">better tomorrow</a>.
+</div>
+</div>
+
+
+<!-- Sidebar -->
+<aside class="sidebar">
+<!-- Calendar -->
+<div class="sidebar-card">
+  
+<h3 class="sidebar-title">Scholarship Calendar</h3>
+
+<div class="calendar-header">
+  
+<div class="calendar-nav">
+  
+<button><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+
+<span class="calendar-month">May 2025</span>
+
+<button><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+
+</div>
+
+</div>
+
+<div class="calendar-grid">
+  
+<div class="calendar-day-header">Sun</div>
+<div class="calendar-day-header">Mon</div>
+<div class="calendar-day-header">Tue</div>
+<div class="calendar-day-header">Wed</div>
+<div class="calendar-day-header">Thu</div>
+<div class="calendar-day-header">Fri</div>
+<div class="calendar-day-header">Sat</div>
+
+<div class="calendar-day other-month">27</div>
+
+<div class="calendar-day other-month">28</div>
+
+<div class="calendar-day other-month">29</div>
+
+<div class="calendar-day other-month">30</div>
+
+<div class="calendar-day">1</div>
+<div class="calendar-day">2</div>
+<div class="calendar-day">3</div>
+<div class="calendar-day">4</div>
+<div class="calendar-day">5</div>
+<div class="calendar-day">6</div>
+<div class="calendar-day">7</div>
+<div class="calendar-day">8</div>
+<div class="calendar-day">9</div>
+<div class="calendar-day">10</div>
+<div class="calendar-day">11</div>
+<div class="calendar-day">12</div>
+<div class="calendar-day">13</div>
+<div class="calendar-day">14</div>
+<div class="calendar-day active">15</div>
+<div class="calendar-day">16</div>
+<div class="calendar-day">17</div>
+<div class="calendar-day">18</div>
+<div class="calendar-day">19</div>
+<div class="calendar-day">20</div>
+<div class="calendar-day">21</div>
+<div class="calendar-day">22</div>
+<div class="calendar-day">23</div>
+<div class="calendar-day">24</div>
+<div class="calendar-day">25</div>
+<div class="calendar-day">26</div>
+<div class="calendar-day">27</div>
+<div class="calendar-day">28</div>
+<div class="calendar-day">29</div>
+<div class="calendar-day">30</div>
+<div class="calendar-day">31</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Quick Access -->
+<div class="sidebar-card">
+  
+<h3 class="sidebar-title">Quick Access</h3>
+
+<div class="quick-list">
+  
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon blue">
+  
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+
+</div>
+
+<span class="quick-label">Video Tutorials</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon orange">
+  
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+
+</div>
+
+<span class="quick-label">Application Guides</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon green">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+</div>
+
+<span class="quick-label">Documents & Templates</span>
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon purple">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+</div>
+
+<span class="quick-label">English & Language Practice</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon pink">
+  
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+
+</div>
+
+<span class="quick-label">Scholarship Guides</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon orange">
+  
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+
+</div>
+
+<span class="quick-label">Blog & Articles</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon teal">
+  
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+
+</div>
+
+<span class="quick-label">Digital Skills (Learning Hub)</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+<div class="quick-item">
+  
+<div class="quick-left">
+  
+<div class="quick-icon red">
+  
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+
+</div>
+
+<span class="quick-label">FAQs</span>
+
+</div>
+
+<svg class="quick-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ -->
+<div class="sidebar-card">
+  
+<h3 class="sidebar-title">Frequently Asked Questions</h3>
+
+<div class="faq-list">
+  
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>Who can apply for scholarships?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Most scholarships are open to students who meet specific eligibility criteria such as academic performance, nationality, field of study, and financial need.
+</div>
+
+</div>
+
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>What documents are usually required?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Common documents include academic transcripts, CV/resume, motivation letter, recommendation letters, language test scores, and proof of identity.
+</div>
+
+</div>
+
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>Can I apply for multiple scholarships?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Yes, you can apply for multiple scholarships simultaneously. In fact, it is recommended to increase your chances of receiving funding.
+</div>
+
+</div>
+
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>Do I need IELTS to apply?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Many scholarships require English proficiency proof. IELTS, TOEFL, and Duolingo are commonly accepted. Some scholarships may waive this requirement.
+</div>
+
+</div>
+
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>How are scholarship recipients selected?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Selection is based on academic merit, leadership potential, community involvement, quality of application materials, and sometimes interviews.
+</div>
+
+</div>
+
+</div>
+
+<a href="#" class="view-all" style="margin-top: 16px; justify-content: center;">View all FAQs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+</aside>
+
+</div>
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <h2>Refugee Opportunities</h2>
+            <p>Scholarships without borders.</p>
+        </div> 
+        
+        <div class="footer-links">
+          <a href="home.html" class="active">Home</a>
+            <a href="scholarship.html">Scholarships</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <div class="socials">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+    </footer>
+    </section>
+
+
+  
+<script type="module" src="resources.js"></script>
+</body>
+</html>

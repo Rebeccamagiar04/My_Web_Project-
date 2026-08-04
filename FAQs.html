@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <title>Scholarship info page</title>
+     
+     <!--link CSS file-->
+     <link rel="stylesheet"
+href="resources.css">
+<style>
+.question {
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- FAQ -->
+<div class="sidebar-card">
+  
+<h3 class="sidebar-title">Frequently Asked Questions</h3>
+
+<div class="faq-list">
+  
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>Who can apply for scholarships?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Most scholarships are open to students who meet specific eligibility criteria such as academic performance, nationality, field of study, and financial need.
+</div>
+
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>Can I apply if I am still completing high school or university?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    Yes. Some scholarships are open to final-year students or applicants expecting to graduate before the programme begins. Check the eligibility requirements carefully.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>How can I improve my chances of winning a scholarship?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    Apply early, follow all instructions, submit complete documents, write strong essays, and tailor every application to the scholarship's requirements.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>What if I don't have perfect grades?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    Don't be discouraged. Many scholarships consider leadership, community service, work experience, financial need, and personal achievements in addition to academic performance.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>What documents are commonly required?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    Common documents include academic transcripts, certificates, a CV, a motivation letter, recommendation letters, a passport or national ID, and proof of English proficiency if required.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>Can I apply for more than one scholarship?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    Yes. You are encouraged to apply for multiple scholarships as long as you meet the eligibility requirements for each one.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>Do I need to pay to apply for a scholarship?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    Most scholarship applications are free. Be cautious of anyone asking you to pay an application fee for a scholarship, as this could be a scam.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    <span>Are all scholarships fully funded?</span>
+    <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+
+  <div class="faq-answer">
+    No. Some scholarships cover all expenses, while others only pay for tuition, accommodation, travel, or provide a partial award. Always read the scholarship benefits carefully.
+  </div>
+</div>
+
+<section class="ask-question">
+
+    <h2>Still Have a Question?</h2>
+
+    <p>
+        If you couldn't find the answer you're looking for,
+        send us your question and we'll get back to you as soon as possible.
+    </p>
+
+    <form id="questionForm">
+
+        <input
+            type="text"
+            id="questionName"
+            placeholder="Your Name"
+            required>
+
+        <input
+            type="email"
+            id="questionEmail"
+            placeholder="Your Email"
+            required>
+
+        <textarea
+            id="questionText"
+            placeholder="Type your question here..."
+            rows="6"
+            required></textarea>
+
+        <button type="submit">
+            Send Question
+        </button>
+
+    </form>
+
+    <p id="successMessage"></p>
+
+</section>
+
+<script type="module" src="resources.js"></script>
+</body>
+</html>
