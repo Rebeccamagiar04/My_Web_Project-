@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+.page { display: none; padding: 20px; }
+
+    #progress-wrapper {
+      position: fixed;
+      top:0;
+      left:0;
+      width: 100%;
+      background: #eee;
+      height: 15px;
+      margin-bottom: 20px;
+    }
+    
+    #progress-bar {
+      width: 0%;
+      height: 100%;
+      background: purple;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+      transition: width 0.3s ease;
+    }
+  
+
+  #progress-wrapper {
+  display: none; /* hide by default */
+}
+
+.question.active ~ #progress-wrapper {
+  display: block;
+}
+.q-body{
+  background-color: #C8A2C8; /* lilac color background*/
+}
+.questionnare {
+  margin: 0;
+  height: 100vh;
+  display:flex;
+  justify-content:center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  font-family: "Segoe UI", sans-serif;
+}
+
+.question {
+  width: 90%;
+  max-width: 500px;
+
+  text-align: center;
+  padding: 30px;
+
+  background: white;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.question h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 18px;
+  display: block;
+  margin: 10px 0;
+}
+
+#start-btn{
+  font-size:20px;
+  border: none;
+  border-radius: 3px;
+  background-color: #FF007F;
+  color: white;
+}
+.next-btn, .prev-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  border: none;
+  border-radius: 6px;
+  background-color: purple;
+  color: white;
+}
+
+.hidden{
+  display:none !important;
+}
+
+#createAccount, #login-btn{
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  border: none;
+  border-radius: 6px;
+  background-color: pink;
+  color: black; 
+ }
+ 
+  body{
+    margin:0;
+    background:#f7f9fc;
+    color:#1e293b;
+}
+
