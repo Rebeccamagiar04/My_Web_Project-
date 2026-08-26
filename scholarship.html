@@ -11,7 +11,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
      
      <!--link CSS file-->
      <link rel="stylesheet"
-href="style.css">
+href="scholarship.css">
 <style>
 .question {
   display: none;
@@ -28,15 +28,10 @@ href="style.css">
      <!-- NAVBAR -->
     <header>
         <nav class="navbar">
-
-            <div class="logo">
-                <i class="fa-regular fa-heart"></i>
-                <div>
-                    <h2>Hope Horizon</h2>
-                </div>
-            </div>
-           <div>
-            <ul class="nav-links">
+            <div class="hamburger" id="Hamburger">   ☰
+    </div>
+           <div class="nav-links" id="navLinks">
+            <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a class="active" href="scholarship.html">Scholarships</a></li>
                 <li><a href="resources.html">Resources</a></li>
@@ -44,12 +39,13 @@ href="style.css">
                 <li><a href="contact.html">FAQ</a></li>
             </ul>
             </div>
-
+             <div class="logo">
+                <i class="fa-regular fa-heart"></i>
+                <div>
+                    <h2>Hope Horizon</h2>
+                </div>
+            </div>
             <div class="nav-actions">
-                <button class="bookmark-btn">
-                    <i class="fa-regular fa-bookmark"></i>
-                </button>
-
                 <button class="login-btn">
                     <i class="fa-regular fa-user"></i>
                     Sign In / Register
@@ -105,33 +101,33 @@ href="style.css">
             </div>
         <div class="filters">
         <h2>
-            <i class="fa-solid fa-magnifying-glass"></i>
             Find scholarships you're eligible for
         </h2>
-         <p>Field of study</p>
+         <p>Field of study</p><br>
             <select>
                 <option>All Fields</option>
                 <option>Tech field</option>
-            </select><br>
-          <p>Degree level</p>
+            </select><br><br>
+            
+          <p>Degree level</p><br>
             <select>
                 <option>All Levels</option>
                 <option>Bachelor's degree</option>
                 <option>Master's degree</option>
                 <option>P.H.D</option>
-            </select><br>
+            </select><br><br>
 
-          <p>Country/Region</p>
+          <p>Country/Region</p><br>
             <select>
                 <option>All Countries</option>
-            </select><br>
+            </select><br><br>
 
-          <p>Study location</p>  
+          <p>Study location</p><br>  
             <select>
                 <option>Any</option>
                 <option>Physical/On campus</option>
                 <option>Online</option>
-            </select>
+            </select><br><br>
 
             <button id="SearchBtN">
                 Search
@@ -315,8 +311,11 @@ href="style.css">
                         📅 Deadline: 05 Nov 2026
                     </div>
 
-                    <a href="#">View Details →</a>
-
+                    
+           <a href="https://www.chevening.org/scholarships/">
+             View Details →</a>
+  
+  
                 </div>
 
                 <!-- CARD 6 -->
@@ -350,23 +349,23 @@ href="style.css">
                 <div class="scholarship-card">
 
                     <div class="card-top">
-                        <span class="funded">Fully Funded/Sponsorship model</span>
+                        <span class="funded">Sponsorship model</span>
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
 
-                    <h3>World University Service of Canada(SRP/WCC)</h3>
+                    <h3>WUSC Student Refugee Program(SRP)</h3>
 
                     <p>
-                        Supporting refugee students in Canada.
-                    </p>
+                      Sponsors refugee students to pursue undergraduate degrees in Canada through university sponsorship.
+                      </p>
 
                     <div class="card-info">
-                        <span>📍 Canada/USA</span>
+                        <span>📍 Canada</span>
                         <span>🎓 Bachelor's</span>
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline:@@@@
+                        📅 Deadline:varies
                     </div>
 
                     <a href="#">View Details →</a>
@@ -384,7 +383,7 @@ href="style.css">
                     <h3>Elimisha Kakuma Scholarship</h3>
 
                     <p>
-                       @@@@####
+                       Helps talented refugee youth access university scholarships and global education opportunities.
                     </p>
 
                     <div class="card-info">
@@ -393,7 +392,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline:@@@@
+                        📅 Deadline:varies
                     </div>
 
                     <a href="#">View Details →</a>
@@ -408,10 +407,10 @@ href="style.css">
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
 
-                    <h3>Malengo Scholarship</h3>
+                    <h3>Malengo Program</h3>
 
                     <p>
-                        @@@####.
+                        Supports displaced students to access university education and relocation pathways abroad.
                     </p>
 
                     <div class="card-info">
@@ -420,7 +419,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@@##
+                        📅 Deadline: varies
                     </div>
 
                     <a href="#">View Details →</a>
@@ -438,7 +437,7 @@ href="style.css">
                     <h3>Mastercard Foundation Scholars Program</h3>
 
                     <p>
-                        @###@.
+                        Provides fully funded education and leadership development for academically talented African students.
                     </p>
 
                     <div class="card-info">
@@ -447,7 +446,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: varies by University
                     </div>
 
                     <a href="#">View Details →</a>
@@ -465,16 +464,16 @@ href="style.css">
                     <h3>United World Colleges</h3>
 
                     <p>
-                        @@#####.
+                      Offers scholarships for exceptional students to complete the International Baccalaureate programme.  
                     </p>
 
                     <div class="card-info">
-                        <span>📍 ****</span>
+                        <span>📍Multiple Countries</span>
                         <span>🎓 Highschool(IB)</span>
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: varies by national committee
                     </div>
 
                     <a href="#">View Details →</a>
@@ -492,7 +491,7 @@ href="style.css">
                     <h3>University Corridors for refugees</h3>
 
                     <p>
-                        @@#####.
+                      Provides refugee students with scholarships to pursue master's degrees at Italian universities.
                     </p>
 
                     <div class="card-info">
@@ -502,7 +501,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: Jan-Apr
                     </div>
 
                     <a href="#">View Details →</a>
@@ -520,7 +519,7 @@ href="style.css">
                     <h3>Southern New Hampshire University</h3>
 
                     <p>
-                        @@#####.
+                        Offers affordable online degree opportunities and scholarships for displaced learners.
                     </p>
 
                     <div class="card-info">
@@ -529,7 +528,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: Rolling admissions
                     </div>
 
                     <a href="#">View Details →</a>
@@ -540,24 +539,24 @@ href="style.css">
                 <div class="scholarship-card">
 
                     <div class="card-top">
-                        <span class="funded">@@@@</span>
+                        <span class="funded">varies</span>
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
 
-                    <h3>Institue of International Education</h3>
+                    <h3>Institute of International Education</h3>
 
                     <p>
-                        @@#####.
+                        Supports displaced students through emergency scholarships and higher education opportunities.
                     </p>
 
                     <div class="card-info">
-                        <span>📍 ****</span>
-                        <span>🎓 @@##</span>
+                        <span>📍 Multiple Countries</span>
+                        <span>🎓 Bachelor's and Master's</span>
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
-                    </div>
+                        📅 Deadline: varies
+                     by program</div>
 
                     <a href="#">View Details →</a>
 
@@ -574,7 +573,7 @@ href="style.css">
                     <h3>Columbia University</h3>
 
                     <p>
-                        @@#####.
+                        Provides financial aid and support for displaced students through partner initiatives.
                     </p>
 
                     <div class="card-info">
@@ -583,8 +582,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
-                    </div>
+                   📅 Deadline: University Admission Cycle </div>
 
                     <a href="#">View Details →</a>
 
@@ -601,7 +599,7 @@ href="style.css">
                     <h3>Paul and Daisy soros fellowship for New Americans</h3>
 
                     <p>
-                        @@#####.
+                     Supports outstanding immigrants and refugees pursuing graduate studies in the United States. 
                     </p>
 
                     <div class="card-info">
@@ -610,7 +608,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: late October
                     </div>
 
                     <a href="#">View Details →</a>
@@ -628,7 +626,7 @@ href="style.css">
                     <h3>Stipendum Hungaricum</h3>
 
                     <p>
-                        @@#####.
+                        Hungary's government scholarship covering tuition, accommodation and living expenses.
                     </p>
 
                     <div class="card-info">
@@ -637,7 +635,7 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: usually January
                     </div>
 
                     <a href="#">View Details →</a>
@@ -655,7 +653,7 @@ href="style.css">
                     <h3>Study in Romania[Government scholarship]</h3>
 
                     <p>
-                        @@#####.
+                        Romanian Government scholarship covering tuition, accommodation and monthly stipend for international students.
                     </p>
 
                     <div class="card-info">
@@ -664,41 +662,41 @@ href="style.css">
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline: usually 31 March
                     </div>
 
                     <a href="#">View Details →</a>
 
                 </div>
                 
-                <!-- CARD 19 -->
+                <!-- CARD 19 -->        
                 <div class="scholarship-card">
 
                     <div class="card-top">
-                        <span class="funded">Fully Funded</span>
+                        <span class="funded">Sponsorship model</span>
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
 
-                    <h3>Chevening Refugee Scholarship</h3>
+                    <h3>Welcome Corps Campus (WCC)</h3>
 
                     <p>
-                        @@#####.
-                    </p>
+                      Supports refugee students through sponsorship and relocation pathways to study at participating universities in the United States.
+                      </p>
 
                     <div class="card-info">
-                        <span>📍 Europe</span>
-                        <span>🎓 Master's</span>
+                        <span>📍USA</span>
+                        <span>🎓 Bachelor's</span>
                     </div>
 
                     <div class="deadline">
-                        📅 Deadline: @@##
+                        📅 Deadline:temporarily suspended
                     </div>
 
                     <a href="#">View Details →</a>
 
                 </div>
-
-            </section>
+                
+  </section>
 
             <!-- QUOTE PANEL -->
             <div class="quote-panel">
@@ -750,4 +748,4 @@ href="style.css">
 
     <script type="module" src="script.js"></script>
     </body>
-    </html>
+                            </html>
