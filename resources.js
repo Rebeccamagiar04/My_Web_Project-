@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
 import {
@@ -91,10 +92,142 @@ e.preventDefault();
 });
 });
 
-// Calendar day selection
-document.querySelectorAll('.calendar-day:not(.other-month)').forEach(day => {
-day.addEventListener('click', () => {
-document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('active'));
-day.classList.add('active');
-});
-});
+// Scholarship Deadline Countdown
+
+function updateCountdowns() {
+
+    const countdowns = document.querySelectorAll(".countdown");
+
+    countdowns.forEach(countdown => {
+
+        const deadline = new Date(countdown.dataset.deadline).getTime();
+        const now = new Date().getTime();
+
+        const difference = deadline - now;
+
+        if (difference <= 0) {
+            countdown.textContent = "🔴 Application closed";
+            return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+            (difference % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+            (difference % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+            (difference % (1000 * 60)) /
+            1000
+        );
+
+        countdown.textContent =
+            `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+    });
+}
+
+updateCountdowns();
+
+setInterval(updateCountdowns, 1000);
+
+// ================================
+// DAILY MOTIVATION
+// ================================
+
+const motivations = [
+    "You don't have to have everything figured out. Just keep taking the next step.",
+    
+    "Your journey doesn't have to look like anyone else's. Keep going at your own pace.",
+    
+    "Small progress is still progress. Be proud of every step you take.",
+    
+    "One rejection does not define your future. Keep searching, keep learning, keep growing.",
+    
+    "Your dreams are worth the effort it takes to reach them.",
+    
+    "You are allowed to start small. Great things often begin with one small step.",
+    
+    "Don't compare your beginning to someone else's middle.",
+    
+    "Keep going. The opportunity you're looking for may be closer than you think.",
+    
+    "Your current circumstances do not have to determine your destination.",
+    
+    "Believe in the person you're becoming."
+];
+
+
+// ================================
+// DAILY CHALLENGES
+// ================================
+
+const challenges = [
+    "Spend 20 minutes learning something you've always been curious about.",
+    
+    "Write down three things you're proud of accomplishing.",
+    
+    "Learn five new words in a language you've always wanted to speak.",
+    
+    "Practice introducing yourself confidently in 30 seconds.",
+    
+    "Spend 15 minutes improving one digital skill.",
+    
+    "Read an article about a topic you've never explored before.",
+    
+    "Write down one goal you'd like to accomplish this month.",
+    
+    "Teach someone something you know.",
+    
+    "Spend 20 minutes practicing your communication skills.",
+    
+    "Try something creative today that you've never done before."
+];
+
+
+// ================================
+// SELECT MESSAGE BASED ON THE DATE
+// ================================
+
+function getDailyContent(array) {
+
+    const today = new Date();
+
+    // Create a number based on today's date
+    const dateNumber =
+        today.getFullYear() +
+        today.getMonth() +
+        today.getDate();
+
+    // Choose an item from the array
+    const index = dateNumber % array.length;
+
+    return array[index];
+}
+
+
+// ================================
+// DISPLAY TODAY'S CONTENT
+// ================================
+
+const motivationElement =
+    document.getElementById("dailyMotivation");
+
+const challengeElement =
+    document.getElementById("dailyChallenge");
+
+
+if (motivationElement) {
+    motivationElement.textContent =
+        getDailyContent(motivations);
+}
+
+
+if (challengeElement) {
+    challengeElement.textContent =
+        getDailyContent(challenges);
+}
