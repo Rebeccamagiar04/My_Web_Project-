@@ -34,23 +34,6 @@
   
   //INITIALIZE AUTHENTICATION
   const auth = getAuth(app);
-  
-  //FRIENDLY ERROR MESSAGE
-  function getFriendlyError(code) {
-  switch(code) {
-    case "auth/email-already-in-use":
-      return "This email already has an account.";
-
-    case "auth/weak-password":
-      return "Password must be at least 6 characters.";
-
-    case "auth/invalid-email":
-      return "Please enter a valid email.";
-
-    default:
-      return "Something went wrong. Try again.";
-  }
-}
 
   //CREATE ACCOUNT EMAIL/password
   const signupBtn = document.getElementById("createAccount");
@@ -79,7 +62,6 @@
    //GOOGLE signInWithPopup
 if (googleBtn) {
   googleBtn.addEventListener("click", (e) => {
-googleBtn.addEventListener("click", (e) => {
      e.preventDefault();
   const provider = new GoogleAuthProvider();
 
@@ -93,7 +75,6 @@ googleBtn.addEventListener("click", (e) => {
   })
   .catch((error) => {
     console.error("Google sign-in error:", error.code, error.message);
-  });
   });
   });
 }
@@ -131,6 +112,23 @@ if (loginBtn) {
             });
     });
 }
+
+ //FRIENDLY ERROR MESSAGE
+  function getFriendlyError(code) {
+  switch(code) {
+    case "auth/email-already-in-use":
+      return "This email already has an account.";
+
+    case "auth/weak-password":
+      return "Password must be at least 6 characters.";
+
+    case "auth/invalid-email":
+      return "Please enter a valid email.";
+
+    default:
+      return "Something went wrong. Try again.";
+  }
+  }
   
 //STYLING PROGRESS BAR AND MOVING QUESTIONS
 const questions = document.querySelectorAll(".question");
