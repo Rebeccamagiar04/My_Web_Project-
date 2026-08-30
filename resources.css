@@ -299,6 +299,45 @@ animation: float 3s ease-in-out infinite;
 50% { transform: translateY(-8px); }
 }
 
+/*BACKGROUND IMAGE*/
+.hero {
+    min-height: 550px;
+    width: 100%;
+
+    background-image:
+        linear-gradient(rgba(10, 10, 15, 0.35), rgba(10, 10, 15, 0.35)),
+        url("backgroundres.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 600px;
+
+        background-position: center center;
+    }
+}
+
+
+/* 💻 Large desktop screens */
+@media (min-width: 1200px) {
+    .hero {
+        min-height: 600px;
+
+        background-position: center center;
+    }
+        }
+
 /* Section Headers */
 .section-header {
 display: flex;
