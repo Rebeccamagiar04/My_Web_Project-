@@ -1,33 +1,62 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const copyButtons = document.querySelectorAll('.btn-copy');
+/* =====================================================
+   TEMPLATES & DOCUMENT VIEWER
+   ===================================================== */
 
-  copyButtons.forEach(button => {
-    button.addEventListener('click', async () => {
-      // Find the target text block via the data-target attribute
-      const targetId = button.getAttribute('data-target');
-      const textContent = document.getElementById(targetId).innerText;
+const templateCards = document.querySelectorAll(".template-card");
+const documentFrame = document.getElementById("document-frame");
+const documentTitle = document.getElementById("document-title");
+const downloadDocument = document.getElementById("download-document");
 
-      try {
-        // Copy to clipboard
-        await navigator.clipboard.writeText(textContent);
 
-        // Visual feedback for success
-        const btnText = button.querySelector('.btn-text');
-        const originalText = btnText.textContent;
-        
-        button.classList.add('success');
-        btnText.textContent = 'Copied!';
+templateCards.forEach((card) => {
 
-        // Revert back after 2 seconds
-        setTimeout(() => {
-          button.classList.remove('success');
-          btnText.textContent = originalText;
-        }, 2000);
-        
-      } catch (err) {
-        console.error('Failed to copy text: ', err);
-        alert('Failed to copy to clipboard.');
-      }
+  card.addEventListener("click", () => {
+
+    // Get the document path from the clicked card
+    const documentPath = card.dataset.document;
+
+    // Get the document name from the card
+    const title = card.querySelector("h4").textContent;
+
+
+    // Make sure the required elements exist
+    if (!documentFrame || !documentTitle || !downloadDocument) {
+      return;
+    }
+
+
+    // Change the document viewer
+    documentFrame.src = documentPath;
+
+
+    // Change the document title
+    documentTitle.textContent = title;
+
+
+    // Change the download link
+    downloadDocument.href = documentPath;
+
+
+    // Change the download button text
+    downloadDocument.textContent = "↓ Download PDF";
+
+
+    // Remove active state from all cards
+    templateCards.forEach((item) => {
+      item.classList.remove("active");
     });
+
+
+    // Highlight the selected card
+    card.classList.add("active");
+
+
+    // Scroll smoothly to the document viewer
+    document.querySelector(".document-viewer-section").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
   });
+
 });
