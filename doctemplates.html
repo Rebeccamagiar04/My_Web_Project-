@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,125 +25,186 @@ href="doctemplates.css">
 </head>
 
 <body>
+  <section class="templates-section">
 
-<section class="templates-container">
-  <!-- Card 1 -->
-  <article class="template-card">
-    <header class="card-header">
-      <span class="badge docx">DOCX</span>
-      <h3 class="card-title">Recommendation Letter Request</h3>
-    </header>
-    <p class="card-desc">
-      Email script to politely request reference letters from teachers or mentors, including a background summary cheat sheet.
+  <!-- PAGE TITLE -->
+  <div class="templates-header">
+    <h2>Templates & Documents</h2>
+    <p>
+      Access professional templates and examples to strengthen your
+      scholarship applications.
     </p>
-    <div class="card-actions">
-      <a href="templates/Recommendation_Letter_Request.docx" download class="btn btn-primary">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-        Download
-      </a>
-      <a href="templates/Recommendation_Letter_Request.pdf" target="_blank" class="btn btn-secondary">
-        Preview
-      </a>
-    </div>
-  </article>
-
-  <!-- Card 2 -->
-  <article class="template-card">
-    <header class="card-header">
-      <span class="badge xlsx">XLSX</span>
-      <h3 class="card-title">Scholarship Tracker Sheet</h3>
-    </header>
-    <p class="card-desc">
-      Pre-formatted spreadsheet to track deadlines, required documents, status, and award amounts.
-    </p>
-    <div class="card-actions">
-      <a href="templates/Scholarship_Tracker.xlsx" download class="btn btn-primary">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-        Download
-      </a>
-      <a href="templates/Scholarship_Tracker.pdf" target="_blank" class="btn btn-secondary">
-        Preview
-      </a>
-    </div>
-  </article>
-</section>
-<section class="text-templates">
-  
-  <!-- Template 1: Email Request -->
-  <div class="template-box">
-    <div class="box-header">
-      <h3 class="box-title">Recommendation Letter Email</h3>
-      <button class="btn-copy" data-target="email-template">
-        <svg viewBox="0 0 24 24" class="copy-icon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        <span class="btn-text">Copy</span>
-      </button>
-    </div>
-    <div class="template-content" id="email-template">
-Subject: Recommendation Letter Request for [Name of Scholarship/Program] – [Your Full Name]
-
-Dear [Title and Last Name],
-
-I hope this email finds you well. 
-
-I am writing to ask if you would feel comfortable writing a strong letter of recommendation for my application to the [Name of Scholarship/Program]. Having thoroughly enjoyed your [Course Name / Project] and gained [mention specific skill], I believe your perspective would add immense value to my application.
-
-About the Scholarship:
-• Target Field: [Briefly state what it supports]
-• Submission Deadline: [Insert Date]
-
-To make this process as easy as possible for you, I have attached my updated Academic CV and a draft of my personal statement.
-
-Summary of My Key Contributions:
-• Grade/Performance: Received an [Grade] in [Course] during [Semester/Year].
-• Key Project: Completed [Briefly name major project].
-
-If you are able to support my application, please let me know by [Insert Date], and I will forward the official submission link. 
-
-Warm regards,
-
-[Your Full Name]
-[Your Phone Number]
-[Your Degree Program]</div>
   </div>
 
-  <!-- Template 2: Personal Statement Outline -->
-  <div class="template-box">
-    <div class="box-header">
-      <h3 class="box-title">Personal Statement Outline</h3>
-      <button class="btn-copy" data-target="statement-template">
-        <svg viewBox="0 0 24 24" class="copy-icon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-        <span class="btn-text">Copy</span>
-      </button>
+
+  <!-- TEMPLATE PREVIEWS -->
+  <div class="template-library">
+
+    <h3>Browse Templates</h3>
+
+    <div class="template-cards">
+
+      <!-- ACADEMIC CV -->
+      <div class="template-card active"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/Rebecca-CV.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Refugee_scholarship_awareness/CODING PROJECT/cv-preview.jpg"
+            alt="Academic CV Example">
+        </div>
+
+        <h4>Academic CV Example</h4>
+
+        <span class="file-type">PDF</span>
+
+      </div>
+
+
+      <!-- MOTIVATION LETTER -->
+      <div class="template-card"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/motivation-letter.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Refugee_scholarship_awareness/CODING PROJECT/motivation-letter-preview.jpg"
+            alt="Motivation Letter Example">
+        </div>
+
+        <h4>Motivation Letter Example</h4>
+
+        <span class="file-type">PDF</span>
+
+      </div>
+
+
+      <!-- RECOMMENDATION LETTER -->
+      <div class="template-card"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/recommendation-letter.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Refugee_scholarship_awareness/CODING PROJECT/recommendation-letter-preview.jpg"
+            alt="Recommendation Letter Request">
+        </div>
+
+        <h4>Recommendation Letter Request</h4>
+
+        <span class="file-type">PDF</span>
+
+      </div>
+
+
+      <!-- STUDY PLAN -->
+      <div class="template-card"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/study-plan.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Refugee_scholarship_awareness/CODING PROJECT/study-plan-preview.jpg"
+            alt="Study Plan Example">
+        </div>
+
+        <h4>Study Plan Example</h4>
+
+        <span class="file-type">PDF</span>
+
+      </div>
+
+
+      <!-- PERSONAL STATEMENT -->
+      <div class="template-card"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/personal-statement.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Refugee_scholarship_awareness/CODING PROJECT/personal-statement-preview.jpg"
+            alt="Personal Statement Example">
+        </div>
+
+        <h4>Personal Statement Example</h4>
+
+        <span class="file-type">PDF</span>
+
+      </div>
+
+
+      <!-- SCHOLARSHIP CHECKLIST -->
+      <div class="template-card"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/scholarship-checklist.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Refugee_scholarship_awareness/CODING PROJECT/scholarship-checklist-preview.jpg"
+            alt="Scholarship Application Checklist">
+        </div>
+
+        <h4>Scholarship Application Checklist</h4>
+
+        <span class="file-type">PDF</span>
+
+      </div>
+
+      <!--PROFESSIONAL CV-->
+      <div class="template-card"
+           data-document="Refugee_scholarship_awareness/CODING PROJECT/Professional_CV_Template_Editable.pdf">
+
+        <div class="template-preview">
+          <img
+            src="Pro-CV.png"
+            alt="Personal Statement Example">
+        </div>
+
+        <h4>Proffesional CV</h4>
+
+        <span class="file-type">PDF</span>
+
     </div>
-    <div class="template-content" id="statement-template">
 
-      Section 1: The Hook & Core Purpose (Paragraph 1)
-      
-•Opening Hook: Start with a compelling narrative, pivotal moment, or central passion driving your goals. (Avoid cliché quotes or opening with "My name is...").
-•Thesis Statement: Explicitly state what field you want to study and your long-term objective.
-•Key Prompt to Answer: What specific vision or problem drives your academic pursuit?
-
-    Section 2: Academic Background & Skills (Paragraphs 2–3)
-•Academic Milestones: Detail relevant coursework, research projects, or self-directed learning relevant to your chosen field.
-•Overcoming Challenges: Briefly explain how you navigated academic or financial constraints, highlighting resilience and resourcefulness.
-•Key Prompt to Answer: What concrete evidence proves you have the intellectual capacity to succeed in this program?
-
-      Section 3: Leadership & Community Impact (Paragraph 4)
-•Real-World Initiative: Describe a leadership experience, volunteer effort, or community initiative you spearheaded or significantly contributed to.
-•Measurable Results: Quantify your impact (e.g., "Trained 15 students," "Organized workshops for over 50 community members").
-•Key Prompt to Answer: How do you use your skills to serve others and create tangible change?
-
-      Section 4: Future Vision & Program Fit (Paragraph 5)
-•Short- & Long-Term Goals: Explain what you plan to do immediately after completing your studies, and where you see yourself in 5–10 years.
-•Why This Specific Opportunity: Name specific professors, courses, or values of the scholarship provider that align with your mission.
-•Key Prompt to Answer: Why is this scholarship the exact bridge you need to reach your goals, and how will society benefit from investing in you?</div>
+    </div>
   </div>
 
-</section>
+
+  <!-- DOCUMENT VIEWER -->
+  <div class="document-viewer-section">
+
+    <div class="document-header">
+
+      <div>
+        <h3 id="document-title">Academic CV Example</h3>
+        <span id="document-type" class="file-type">PDF</span>
+      </div>
+
+      <a
+        id="download-document"
+        href="Refugee_scholarship_awareness/CODING PROJECT/Rebecca-CV.pdf"
+        download
+        class="download-btn">
+
+        ↓ Download PDF
+
+      </a>
+
+    </div>
 
 
+    <!-- LARGE DOCUMENT DISPLAY -->
+    <div class="document-viewer">
 
+      <iframe
+        id="document-frame"
+        src="Refugee_scholarship_awareness/CODING PROJECT/Professional_CV_Template_Editable.pdf"
+        title="Academic CV Example"
+        width="100%"
+        height="700">
+      </iframe>
+
+    </div>
+
+  </div>
+
+
+  </section>
   <script type="module" src="doctemplates.js"></script>
 </body>
-</html>
- 
+    </html>
