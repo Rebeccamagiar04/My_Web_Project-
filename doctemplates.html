@@ -46,11 +46,11 @@ href="doctemplates.css">
 
       <!-- ACADEMIC CV -->
       <div class="template-card active"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/Rebecca-CV.pdf">
+           data-document="Academic_CV_Writting.pdf" data-reminder="academic-cv">
 
         <div class="template-preview">
           <img
-            src="Refugee_scholarship_awareness/CODING PROJECT/cv-preview.jpg"
+            src="example-of-a-bad-cv.png"
             alt="Academic CV Example">
         </div>
 
@@ -63,15 +63,16 @@ href="doctemplates.css">
 
       <!-- MOTIVATION LETTER -->
       <div class="template-card"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/motivation-letter.pdf">
+           data-document="Motivation_Letter_Example.pdf"
+      data-reminder="motivation-letter">
 
         <div class="template-preview">
           <img
-            src="Refugee_scholarship_awareness/CODING PROJECT/motivation-letter-preview.jpg"
+            src="Motivation-Letter-Example.png"
             alt="Motivation Letter Example">
         </div>
 
-        <h4>Motivation Letter Example</h4>
+        <h4>Letter of Motivation Example</h4>
 
         <span class="file-type">PDF</span>
 
@@ -80,15 +81,16 @@ href="doctemplates.css">
 
       <!-- RECOMMENDATION LETTER -->
       <div class="template-card"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/recommendation-letter.pdf">
+           data-document="Rec_Letter_Request.pdf" 
+        data-reminder="recommendation-letter">
 
         <div class="template-preview">
           <img
-            src="Refugee_scholarship_awareness/CODING PROJECT/recommendation-letter-preview.jpg"
+            src="Rec-letter-request.png"
             alt="Recommendation Letter Request">
         </div>
 
-        <h4>Recommendation Letter Request</h4>
+        <h4>Recommendation Letter email Request</h4>
 
         <span class="file-type">PDF</span>
 
@@ -97,15 +99,16 @@ href="doctemplates.css">
 
       <!-- STUDY PLAN -->
       <div class="template-card"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/study-plan.pdf">
+           data-document="Weekly_Study_Plan.pdf" 
+        data-reminder="study-plan">
 
         <div class="template-preview">
           <img
-            src="Refugee_scholarship_awareness/CODING PROJECT/study-plan-preview.jpg"
-            alt="Study Plan Example">
+            src="Weekly_Study_Plan.png"
+            alt="Study Plan Print">
         </div>
 
-        <h4>Study Plan Example</h4>
+        <h4>Study Plan Table</h4>
 
         <span class="file-type">PDF</span>
 
@@ -114,15 +117,15 @@ href="doctemplates.css">
 
       <!-- PERSONAL STATEMENT -->
       <div class="template-card"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/personal-statement.pdf">
+           data-document="personal statement guide.pdf" data-reminder="personal-statement">
 
         <div class="template-preview">
           <img
-            src="Refugee_scholarship_awareness/CODING PROJECT/personal-statement-preview.jpg"
+            src="personal statement guide.png"
             alt="Personal Statement Example">
         </div>
 
-        <h4>Personal Statement Example</h4>
+        <h4>Personal Statement Guide</h4>
 
         <span class="file-type">PDF</span>
 
@@ -131,11 +134,11 @@ href="doctemplates.css">
 
       <!-- SCHOLARSHIP CHECKLIST -->
       <div class="template-card"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/scholarship-checklist.pdf">
+          data-document="Scholarship_Application_Checklist.pdf" data-reminder="scholarship-checklist">
 
         <div class="template-preview">
           <img
-            src="Refugee_scholarship_awareness/CODING PROJECT/scholarship-checklist-preview.jpg"
+            src="Scholarship_Application_Checklist.png"
             alt="Scholarship Application Checklist">
         </div>
 
@@ -147,15 +150,15 @@ href="doctemplates.css">
 
       <!--PROFESSIONAL CV-->
       <div class="template-card"
-           data-document="Refugee_scholarship_awareness/CODING PROJECT/Professional_CV_Template_Editable.pdf">
+           data-document="Professional_CV_Template_Editable.pdf" data-reminder="professional-cv">
 
         <div class="template-preview">
           <img
             src="Pro-CV.png"
-            alt="Proffesional CV template">
+            alt="Professional cv template">
         </div>
 
-        <h4>Proffesional CV</h4>
+        <h4>Profesional CV Overview</h4>
 
         <span class="file-type">PDF</span>
 
@@ -165,46 +168,164 @@ href="doctemplates.css">
   </div>
 
 
-  <!-- DOCUMENT VIEWER -->
-  <div class="document-viewer-section">
+    <!-- DOCUMENT VIEWER -->
+<div class="document-viewer-section">
 
-    <div class="document-header">
+  <div class="document-header">
 
-      <div>
-        <h3 id="document-title">Academic CV Example</h3>
-        <span id="document-type" class="file-type">PDF</span>
-      </div>
+    <div>
+      <h3 id="document-title">Academic CV example</h3>
+      <span id="document-type" class="file-type">PDF</span>
+    </div>
 
-      <a
-        id="download-document"
-        href="Refugee_scholarship_awareness/CODING PROJECT/Rebecca-CV.pdf"
-        download
-        class="download-btn">
+    <a
+      id="download-document"
+      data-document="Academic-CV.pdf"
+      download
+      class="download-btn">
 
-        ↓ Download PDF
+      ↓ Download PDF
 
-      </a>
+    </a>
+
+  </div>
+
+  <div class="document-viewer">
+
+    <div id="pdf-loading">
+      Loading document...
+    </div>
+
+    <div id="pdf-container"></div>
+
+  </div>
+
+
+    <!-- DOCUMENT REMINDERS -->
+
+  <div class="document-reminders">
+
+    <!-- ACADEMIC CV REMINDER -->
+    <div class="reminder-box" data-reminder="academic-cv">
+
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Keep your CV clear, professional, and easy to read.</li>
+        <li>Include your education, relevant skills, achievements, activities, and experience.</li>
+        <li>Tailor your CV to the scholarship or academic opportunity.</li>
+        <li>Use specific examples and achievements instead of vague statements.</li>
+        <li>Keep your formatting consistent and check for spelling and grammar mistakes.</li>
+        <li>Only include information that is relevant and appropriate for an academic application.</li>
+      </ul>
 
     </div>
 
 
-    <!-- LARGE DOCUMENT DISPLAY -->
-    <div class="document-viewer">
+    <!-- MOTIVATION LETTER REMINDER -->
+    <div class="reminder-box" data-reminder="motivation-letter">
 
-      <iframe
-        id="document-frame"
-        src="Refugee_scholarship_awareness/CODING PROJECT/Professional_CV_Template_Editable.pdf"
-        title="Academic CV Example"
-        width="100%"
-        height="700">
-      </iframe>
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Explain why you are applying and why the opportunity matters to you.</li>
+        <li>Connect your background, goals, and experiences to the opportunity.</li>
+        <li>Be specific and avoid generic statements.</li>
+        <li>Show what you hope to learn, contribute, and achieve.</li>
+        <li>Keep your letter organized and within the required word limit.</li>
+        <li>Proofread before submitting.</li>
+      </ul>
+
+    </div>
+
+
+    <!-- RECOMMENDATION LETTER REMINDER -->
+    <div class="reminder-box" data-reminder="recommendation-letter">
+
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Ask your recommender well in advance of the deadline.</li>
+        <li>Give them the information they need about the scholarship or program.</li>
+        <li>Share your CV and other relevant documents if appropriate.</li>
+        <li>Tell them where and when the recommendation must be submitted.</li>
+        <li>Follow up politely if necessary.</li>
+        <li>Remember to thank your recommender.</li>
+      </ul>
+
+    </div>
+
+
+    <!-- STUDY PLAN REMINDER -->
+    <div class="reminder-box" data-reminder="study-plan">
+
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Print the study plan and fill in the sections as you study.</li>
+        <li>Keep the completed plan somewhere you can easily refer to and track your progress.</li>
+      </ul>
+
+    </div>
+
+
+    <!-- PERSONAL STATEMENT REMINDER -->
+    <div class="reminder-box" data-reminder="personal-statement">
+
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Tell your own story rather than simply listing achievements.</li>
+        <li>Explain how your experiences have shaped your goals and aspirations.</li>
+        <li>Focus on experiences that are relevant to the application.</li>
+        <li>Be honest and authentic.</li>
+        <li>Make sure your statement answers the specific question or prompt.</li>
+        <li>Proofread and respect the required word limit.</li>
+      </ul>
+
+    </div>
+
+
+    <!-- SCHOLARSHIP CHECKLIST REMINDER -->
+    <div class="reminder-box" data-reminder="scholarship-checklist">
+
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Print the checklist and fill in the sections as you complete each step.</li>
+        <li>Keep the completed checklist somewhere safe so you can refer back to it throughout your application.</li>
+      </ul>
+
+    </div>
+
+
+    <!-- PROFESSIONAL CV REMINDER -->
+    <div class="reminder-box" data-reminder="professional-cv">
+
+      <h4>Reminder</h4>
+
+      <ul>
+        <li>Focus on skills and experience relevant to the position.</li>
+        <li>Start with your strongest and most relevant information.</li>
+        <li>Use clear, professional language and avoid unnecessary details.</li>
+        <li>Describe achievements where possible instead of only listing duties.</li>
+        <li>Keep the formatting consistent and easy to scan.</li>
+        <li>Check your contact information, spelling, grammar, and dates before sending.</li>
+      </ul>
 
     </div>
 
   </div>
 
+  
+</div>
+
+
 
   </section>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  
   <script type="module" src="doctemplates.js"></script>
 </body>
-    </html>
+</html>
