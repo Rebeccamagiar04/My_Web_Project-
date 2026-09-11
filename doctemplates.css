@@ -188,45 +188,62 @@ line-height: 1.5;
 }
 
 
-/* =====================================================
-   DOCUMENT VIEWER
-   ===================================================== */
+/* =========================
+   PDF DOCUMENT VIEWER
+   ========================= */
 
-.document-viewer-section {
-  background: #ffffff;
-  border: 1px solid #e4e8ee;
-  border-radius: 18px;
-  padding: 22px;
-  margin-bottom: 50px;
-  box-shadow: 0 8px 30px rgba(11, 31, 58, 0.08);
+.document-viewer {
+  width: 100%;
+  height: 720px;
+
+  background: #20252b;
+
+  border-radius: 50px 0;
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  /* Allow scrolling when document is larger than screen */
+  overflow: auto;
 }
 
 
 /* =========================
-   DOCUMENT HEADER
+   PDF PAGES
    ========================= */
 
-.document-header {
+#pdf-container {
+  width: max-content;
+  min-width: 100%;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
-  margin-bottom: 20px;
-}
-
-.document-header > div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.document-header h3 {
-  color: #0b1f3a;
-  font-size: 24px;
-  margin: 0;
 }
 
 
+/* =========================
+   INDIVIDUAL PDF PAGE
+   ========================= */
+
+#pdf-container canvas {
+  display: block;
+
+  /*
+     IMPORTANT:
+     Don't squeeze the PDF to the
+     width of the phone.
+  */
+  width: auto;
+  max-width: none;
+
+  height: auto;
+
+  background: white;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
 /* =========================
    DOWNLOAD BUTTON
    ========================= */
@@ -257,23 +274,41 @@ line-height: 1.5;
 
 
 /* =========================
-   PDF VIEWER
+   LOADING MESSAGE
    ========================= */
 
-.document-viewer {
-  width: 100%;
-  height: 700px;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #20252b;
+#pdf-loading {
+  text-align: center;
+
+  color: white;
+
+  font-size: 16px;
+
+  padding: 40px 20px;
 }
 
-.document-viewer iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+  .document-viewer {
+    height: 700px;
+    padding: 12px;
+
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  #pdf-container canvas {
+    width: auto;
+    max-width: none;
+  }
+
 }
+
 
 
 /* =====================================================
@@ -303,7 +338,7 @@ line-height: 1.5;
     grid-template-columns: repeat(3, 1fr);
   }
 
-.template-cards {
+  .more-templates .template-cards {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -354,12 +389,26 @@ line-height: 1.5;
   .download-btn {
     width: 100%;
   }
-
+  
   .document-viewer {
-    height: 600px;
+  width: calc(100% + 36px);
+  margin-left: -18px;
+
+  height: 600px;
+  padding: 8px;
+
+  overflow-x: auto;
+  overflow-y: auto;
+
+  touch-action: pan-x pan-y;
   }
 
-.template-cards {
+  #pdf-container canvas {
+    width: auto;
+    max-width: none;
+  }
+
+  .more-templates .template-cards {
     display: flex;
     overflow-x: auto;
   }
@@ -385,4 +434,44 @@ line-height: 1.5;
     height: 500px;
   }
 
+}
+
+/* =====================================================
+   DOCUMENT REMINDERS
+   ===================================================== */
+
+.document-reminders {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.reminder-box {
+  background: #eee6f7;
+  border: 1px solid #cfc4d9;
+  border-radius: 10px;
+  padding: 20px;
+  color: #000000;
+}
+
+.reminder-box h4 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.reminder-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.reminder-box li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.reminder-box li:last-child {
+  margin-bottom: 0;
 }
