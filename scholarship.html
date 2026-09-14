@@ -61,13 +61,13 @@ href="scholarship.css">
         <div class="heroScholarship-content">
 
             <h1>
-                Opportunities today,<br>
-                <span>a better</span> tomorrow.
+                Opportunities for<br>
+                you.
             </h1>
 
             <p>
-                Discover scholarships that welcome refugee students
-                and open doors to your future.
+                Discover a variety of scholarships that welcome refugee students
+                and open new doors.
             </p>
 
             <div class="verified-badge">
@@ -77,111 +77,136 @@ href="scholarship.css">
 
         </div>
 
-        <div class="heroScholarship-image">
+    </section>
 
-            <!-- Replace with your image -->
-            <img src="S-hero.png" alt="Student">
+    <!-- =========================
+     SCHOLARSHIP SEARCH
+========================= -->
+<section class="scholarship-search" id="scholarship-search">
+
+    <div class="search-heading">
+        <h2>Find an opportunity for you</h2>
+        <p>
+            Search scholarships by opportunity name, country, funding type, or study level.
+        </p>
+    </div>
+
+    <div class="search-controls">
+
+        <!-- Keyword Search -->
+        <div class="search-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="scholarshipSearch"
+                placeholder="Search scholarships, universities, or keywords..."
+                autocomplete="off"
+            >
+        </div>
+
+        <!-- Country -->
+        <div class="search-select">
+            <label for="countryFilter">Country</label>
+
+            <select id="countryFilter">
+              <option value="">All countries</option>
+                <option value="Global University placement">Global University placement</option>
+                <option value="Germany">Germany</option>
+                <option value="Canada">Canada</option>
+                <option value="Sweden">Sweden</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Romania">Romania</option>
+                <option value="Europe">Europe</option>
+                <option value="united states">United States of America</option>
+              <option value="Online">Online</option>
+            </select>
+        </div>
+
+        <!-- Study Level -->
+        <div class="search-select">
+            <label for="levelFilter">Study level</label>
+
+            <select id="levelFilter">
+                <option value="">All Levels</option>
+                <option value="Bachelor's">Bachelor's</option>
+                <option value="Master's">Master's</option>
+                <option value="PhD">PhD</option>
+                <option value="Highschool(IB)">Highschool(IB)</option>
+            </select>
+        </div>
+
+      <!--FUNDED-->
+      <div class="search-select">
+            <label for="fundedFilter">Funding</label>
+
+            <select id="fundedFilter">
+                <option value="">Fully funded</option>
+                <option value="Partially Funded">Partially Funded</option>                           <option value="Sponsorship model">Sponsorship model</option>
+              <option value="Significant Funding">Significant Funding</option>
+              <option value="Varies">Varies</option>
+            </select>
+      </div>
+
+        <!-- Search Button -->
+        <button type="button" id="SearchBtN">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+
+      <button type="button" id="resetSearchBtn">
+    <i class="fa-solid fa-rotate-left"></i>
+    Reset
+      </button>
+
+    </div>
+
+    <!-- Search message -->
+    <p id="searchMessage" class="search-message"></p>
+
+</section>
+
+  
+<!--IMAGE 1-->
+  <div class="heroScholarship-image">
+
+  <img src="S-hero.png" alt="Student">
 
             <div class="future-note">
                 Your future is waiting ♡
             </div>
 
+  </div>
+  
+      <!-- =========================
+     SCHOLARSHIP RESULTS
+========================= -->
+<section class="scholarship-results" id="scholarship-results"> 
+
+    <div class="results-heading">
+        <div>
+            <h2>SCHOLARSHIP OPPORTUNITIES</h2>
         </div>
 
-    </section>
+        <span id="resultsCount"></span>
+    </div>
 
-    <!-- SEARCH BAR -->
-    <section class="search-section">
+    <div class="scholarship-layout">
 
-        <div class="search-box">
+        <!-- Scholarship Cards -->
+        <div class="scholarship-grid" id="scholarshipGrid">
 
-            <div class="input-group">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search scholarships...">
-            </div>
-        <div class="filters">
-        <h2>
-            Find scholarships you're eligible for
-        </h2>
-         <p>Field of study</p><br>
-            <select>
-                <option>All Fields</option>
-                <option>Tech field</option>
-            </select><br><br>
-            
-          <p>Degree level</p><br>
-            <select>
-                <option>All Levels</option>
-                <option>Bachelor's degree</option>
-                <option>Master's degree</option>
-                <option>P.H.D</option>
-            </select><br><br>
-
-          <p>Country/Region</p><br>
-            <select>
-                <option>All Countries</option>
-            </select><br><br>
-
-          <p>Study location</p><br>  
-            <select>
-                <option>Any</option>
-                <option>Physical/On campus</option>
-                <option>Online</option>
-            </select><br><br>
-
-            <button id="SearchBtN">
-                Search
-            </button>
-
-        </div>
-        </div>
-
-        </section>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <section class="main-content">
-
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-
-            <div class="sidebar-header">
-                <h2>Filter By</h2>
-                <button>Reset</button>
-            </div>
-
-            <div class="filter-group">
-
-                <h3>Category</h3>
-
-                <label><input type="checkbox" checked> All Categories</label>
-                <label><input type="checkbox"> STEM</label>
-                <label><input type="checkbox"> Humanities</label>
-                <label><input type="checkbox"> Social Sciences</label>
-                <label><input type="checkbox"> Arts & Design</label>
-                <label><input type="checkbox"> Health Sciences</label>
-                <label><input type="checkbox"> Education</label>
-
-            </div>
-
-            <div class="filter-group">
-
-                <h3>Study Level</h3>
-
-                <label><input type="checkbox" checked> All Levels</label>
-                <label><input type="checkbox"> Bachelor's</label>
-                <label><input type="checkbox"> Master's</label>
-                <label><input type="checkbox"> PhD</label>
-
-            </div>
-
-        </aside>
-
-        <!-- SCHOLARSHIP GRID -->
-        <section class="content-area">
-
-                           <!-- CARD 1 -->
-                <div class="scholarship-card">
+            <!-- Your scholarship cards go here -->
+      
+ <!-- CARD 1 -->
+                <div
+    class="scholarship-card"
+    data-name="DAAD Scholarship"
+    data-country="Germany"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -206,9 +231,16 @@ href="scholarship.css">
                     <a href="#">View Details →</a>
 
                 </div>
+      
 
                 <!-- CARD 2 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="University of Ottawa refugee Scholarship"
+    data-country="Canada"
+    data-level="Bachelor's"
+    data-funded="Partially Funded"
+>
 
                     <div class="card-top">
                         <span class="partial">Partial Funding</span>
@@ -235,9 +267,15 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 3 -->
-                <div class="scholarship-card">
-
-                    <div class="card-top">
+          <div
+    class="scholarship-card"
+    data-name="UNHCR DAFI Scholarship"
+    data-country="Global University placement"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+>
+          
+          <div class="card-top">
                         <span class="funded">Fully Funded</span>
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
@@ -262,7 +300,13 @@ href="scholarship.css">
                 </div>
 
                 <!-- CARD 4 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Erasmus Mundus Scholarship"
+    data-country="Europe"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -289,7 +333,13 @@ href="scholarship.css">
                 </div>
 
                 <!-- CARD 5 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Chevening Refugee Scholarship"
+    data-country="United Kingdom"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -319,7 +369,13 @@ href="scholarship.css">
                 </div>
 
                 <!-- CARD 6 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Swedish Institute Scholarship"
+    data-country="Sweden"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -346,7 +402,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 7-->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="WUSC-Student Refugee Program"
+    data-country="Canada"
+    data-level="Bachelor's"
+    data-funded="Sponsorship model"
+>
 
                     <div class="card-top">
                         <span class="funded">Sponsorship model</span>
@@ -373,14 +435,20 @@ href="scholarship.css">
                 </div>
                 
               <!-- CARD 8 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Elimisha Kakuma"
+    data-country="Global University placement"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
 
-                    <h3>Elimisha Kakuma Scholarship</h3>
+                    <h3>Elimisha Kakuma</h3>
 
                     <p>
                        Helps talented refugee youth access university scholarships and global education opportunities.
@@ -400,7 +468,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 9 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Malengo Program"
+    data-country="Germany, Canada, Europe"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -427,7 +501,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 10 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Mastercard Foundation  Scholars Program"
+    data-country="Global University placement"
+    data-level="Master's, Bachelor's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -454,7 +534,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 11 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="United World Colleges"
+    data-country="Global University placement"
+    data-level="Highschool(IB)"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -481,7 +567,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 12 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="University Corridors for Refugees"
+    data-country="Italy"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -509,7 +601,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 13 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Southern New Hampshire University"
+    data-country="Online"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -536,7 +634,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 14 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Institute of International Education"
+    data-country="Global University placement"
+    data-level="Bachelor's"
+    data-funded="Varies"
+>
 
                     <div class="card-top">
                         <span class="funded">varies</span>
@@ -563,7 +667,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 15 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Columbia University"
+    data-country="United States of America"
+    data-level="Bachelor's"
+    data-funded="Significant Funding"
+>
 
                     <div class="card-top">
                         <span class="funded">Significant/Full Support</span>
@@ -589,7 +699,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 16 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Paul and Daisy soros fellowship for new Americans"
+    data-country="United States of America"
+    data-level="Master's"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -616,7 +732,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 17 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Stipendum Hungaricum"
+    data-country="Hungary"
+    data-level="All Levels"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -643,7 +765,13 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 18 -->
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Study in Romania"
+    data-country="Romania"
+    data-level="All Levels"
+    data-funded="Fully Funded"
+>
 
                     <div class="card-top">
                         <span class="funded">Fully Funded</span>
@@ -670,14 +798,20 @@ href="scholarship.css">
                 </div>
                 
                 <!-- CARD 19 -->        
-                <div class="scholarship-card">
+                <div
+    class="scholarship-card"
+    data-name="Welcome Corps on Campus"
+    data-country="United States of America"
+    data-level="Bachelor's"
+    data-funded="Sponsorship model"
+>
 
                     <div class="card-top">
                         <span class="funded">Sponsorship model</span>
                         <i class="fa-regular fa-bookmark"></i>
                     </div>
 
-                    <h3>Welcome Corps Campus (WCC)</h3>
+                    <h3>Welcome Corps on Campus (WCC)</h3>
 
                     <p>
                       Supports refugee students through sponsorship and relocation pathways to study at participating universities in the United States.
@@ -695,9 +829,47 @@ href="scholarship.css">
                     <a href="#">View Details →</a>
 
                 </div>
-                
-  </section>
 
+          </div>
+
+    </div>
+
+    </section>
+
+  <!-- =========================
+     PAGINATION
+========================= -->
+<div class="scholarship-pagination" id="scholarshipPagination">
+
+    <button
+        type="button"
+        id="previousPageBtn"
+        class="pagination-btn"
+        disabled
+    >
+        <i class="fa-solid fa-chevron-left"></i>
+        Previous
+    </button>
+
+    <div
+        class="pagination-numbers"
+        id="paginationNumbers"
+        aria-label="Scholarship pages">
+    </div>
+
+    <button
+        type="button"
+        id="nextPageBtn"
+        class="pagination-btn"
+    >
+        Next
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+</div>
+      
+
+      <section>
             <!-- QUOTE PANEL -->
             <div class="quote-panel">
 
@@ -718,16 +890,7 @@ href="scholarship.css">
             </div>
 
     </section>
-
-    <!-- LOAD MORE -->
-    <section class="load-more-section">
-
-        <button class="load-more-btn">
-            Load More Scholarships
-            <i class="fa-solid fa-arrow-down"></i>
-        </button>
-
-    </section>
+  
 
     <!-- FOOTER -->
     <footer>
@@ -746,6 +909,6 @@ href="scholarship.css">
 
     </footer>
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="scholarship.js"></script>
     </body>
-                            </html>
+</html>
