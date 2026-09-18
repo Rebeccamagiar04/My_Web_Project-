@@ -71,6 +71,7 @@ if (signupBtn) {
       await updateProfile(userCredential.user, {
         displayName: name
       });
+      console.log("NAME SAVED:", name);
 
       alert("Account created successfully!");
 
@@ -104,40 +105,51 @@ if (googleBtn) {
   });
 }
 
-   //LOGIN
+   // LOGIN
 if (loginBtn) {
-    loginBtn.addEventListener("click", (e) => {
+    loginBtn.addEventListener("click", async (e) => {
         e.preventDefault();
 
         console.log("Login button clicked");
 
-        const email = document.getElementById("email").value;
+        const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value;
 
-        console.log("Email:", email);
+        try {
+            const userCredential = await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            const user = userCredential.user;
 
-                console.log("Login successful!");
-                console.log(userCredential.user);
+            console.log("Login successful!");
+            console.log("Logged in user:", user);
+            console.log("Firebase displayName:", user.displayName);
 
-                alert("Login successful!");
+            // Save the user's name for home.html
+            if (user.displayName) {
+                localStorage.setItem("questionnaireName", user.displayName);
+                console.log("NAME SAVED:", user.displayName);
+            } else {
+                console.log("This account does not have a displayName.");
+            }
 
-                window.location.href = "home.html";
+            alert("Login successful!");
 
-            })
-            .catch((error) => {
+            window.location.href = "home.html";
 
-                console.error("Firebase Error:", error.code);
-                console.error(error.message);
+        } catch (error) {
+            console.error("Firebase Error:", error.code);
+            console.error(error.message);
 
-                alert(getFriendlyError(error.code));
-
-            });
+            alert(getFriendlyError(error.code));
+        }
     });
 }
-
+  
+    
  //FRIENDLY ERROR MESSAGE
   function getFriendlyError(code) {
   switch(code) {
@@ -369,17 +381,6 @@ document.addEventListener("DOMContentLoaded", () => { // Fixed capitalization of
         });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
