@@ -1,26 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const userName = document.getElementById("userName");
-
-    onAuthStateChanged(auth, (user) => {
-        if (!userName) return;
-
-        // Check localStorage first as a fallback for freshly created accounts
-        const savedName = localStorage.getItem("questionnaireName");
-
-        if (user) {
-            // Use Firebase displayName if available, otherwise fallback to localStorage
-            const displayName = user.displayName || savedName || "there";
-            userName.textContent = displayName;
-        } else if (savedName) {
-            // Fallback if auth state hasn't fully loaded yet
-            userName.textContent = savedName;
-        } else {
-            userName.textContent = "there";
-        }
-    });
-});
-
-
 // =========================================================
 // IMPACT STATS SLIDER
 // =========================================================
