@@ -1,3 +1,12 @@
+const savedName = localStorage.getItem("questionnaireName");
+
+console.log("NAME RETRIEVED:", JSON.stringify(savedName));
+
+if (savedName) {
+    document.getElementById("userName").textContent = savedName;
+}
+
+
 // =========================================================
 // IMPACT STATS SLIDER
 // =========================================================
@@ -95,9 +104,7 @@ dots.forEach((dot, index) => {
 });
 
 
-// =========================================================
-// MOBILE / DESKTOP BEHAVIOUR
-// =========================================================
+// DESKTOP BEHAVIOUR//
 
 function updateStatsForScreen() {
 
