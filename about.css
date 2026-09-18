@@ -145,29 +145,45 @@ cursor: pointer;
 .about-hero {
     position: relative;
     overflow: hidden;
+
     background: #071426;
-    color: #fff;
-    min-height: 82vh;
+    color: #ffffff;
+
+    min-height: 76vh;
+
     display: flex;
     align-items: center;
 }
 
+
+/* SUBTLE BLUE GLOW */
+
 .about-hero::before {
     content: "";
+
     position: absolute;
+
     width: 520px;
     height: 520px;
+
     right: 5%;
     top: 50%;
+
     transform: translateY(-50%);
+
     background: rgba(37, 99, 235, 0.10);
+
     border-radius: 50%;
+
     filter: blur(90px);
+
     pointer-events: none;
 }
 
 
-/* MAIN HERO CONTAINER */
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
 
 .about-container {
     position: relative;
@@ -177,7 +193,8 @@ cursor: pointer;
     max-width: 1180px;
 
     margin: 0 auto;
-    padding: 75px 5%;
+
+    padding: 70px 5%;
 
     display: grid;
 
@@ -185,140 +202,187 @@ cursor: pointer;
     grid-template-columns: 1fr 1fr;
 
     align-items: center;
-    gap: 60px;
+
+    gap: 55px;
 }
 
 
-/* TEXT */
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
 
 .about-text {
-    max-width: 570px;
+    max-width: 560px;
 }
 
 .section-tag {
     display: inline-block;
+
     color: #60a5fa;
-    font-size: 0.82rem;
+
+    font-size: 0.78rem;
     font-weight: 700;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
-    margin-bottom: 8px;
+
+    margin-bottom: 10px;
 }
+
 
 .about-text h1 {
-    font-size: clamp(2.7rem, 4vw, 3.5rem);
-    line-height: 1.12;
-    margin: 15px 0 22px;
+    margin: 12px 0 22px;
+
+    font-size: clamp(2.8rem, 4vw, 3.6rem);
+
+    line-height: 1.08;
+
     font-weight: 700;
-    letter-spacing: -0.8px;
+
+    letter-spacing: -1px;
 }
+
 
 .about-text p {
-    max-width: 540px;
-    font-size: 1rem;
-    line-height: 1.8;
+    max-width: 530px;
+
+    margin: 0 0 32px;
+
     color: #cbd5e1;
-    margin-bottom: 34px;
+
+    font-size: 1rem;
+
+    line-height: 1.75;
 }
 
 
-/* BUTTONS */
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
 
 .hero-buttons {
     display: flex;
+
     align-items: center;
+
     gap: 22px;
 }
 
+
 .primary-Abtn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    background: #2563eb;
-    color: #fff;
+    padding: 14px 27px;
 
-    padding: 14px 28px;
-    border-radius: 10px;
+    background: #2563eb;
+    color: #ffffff;
+
+    border-radius: 9px;
 
     font-weight: 600;
+
     text-decoration: none;
 
-    transition: 0.3s;
+    transition: 0.25s ease;
 }
+
 
 .primary-Abtn:hover {
     background: #1d4ed8;
-    transform: translateY(-3px);
+
+    transform: translateY(-2px);
 }
 
+
 .secondary-Abtn {
-    color: #fff;
+    color: #ffffff;
+
     font-weight: 600;
+
     text-decoration: none;
-    transition: 0.3s;
+
+    transition: 0.25s ease;
 }
+
 
 .secondary-Abtn:hover {
     color: #60a5fa;
 }
 
 
-/* IMAGE — RIGHT SIDE */
+/* =========================================================
+   HERO IMAGE — RIGHT SIDE
+   ========================================================= */
 
 .about-image {
     position: relative;
 
-    min-height: 470px;
+    min-height: 430px;
 
     display: flex;
-    justify-content: center;
+
     align-items: center;
+    justify-content: center;
 }
+
+
+/* SOFT GLOW BEHIND IMAGE */
 
 .about-image::before {
     content: "";
 
     position: absolute;
 
-    width: 430px;
-    height: 430px;
+    width: 400px;
+    height: 400px;
 
-    background: rgba(37, 99, 235, 0.16);
+    background: rgba(37, 99, 235, 0.14);
 
     border-radius: 50%;
 
-    filter: blur(70px);
+    filter: blur(65px);
 
     z-index: 0;
 }
 
+
+/* IMAGE */
+
 .about-image img {
     position: relative;
+
     z-index: 2;
 
     display: block;
 
     width: 100%;
-    max-width: 480px;
+
+    max-width: 450px;
+
     height: auto;
 
     object-fit: contain;
 
-    animation: float 5s ease-in-out infinite;
+    animation: aboutFloat 5s ease-in-out infinite;
 }
 
 
-/* IMAGE FLOAT */
+/* =========================================================
+   SUBTLE IMAGE MOVEMENT
+   ========================================================= */
 
-@keyframes float {
+@keyframes aboutFloat {
 
     0% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-10px);
     }
 
     100% {
@@ -328,47 +392,164 @@ cursor: pointer;
 
 
 /* =========================================================
-   MOBILE / TABLET
+   TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
+
+    .about-hero {
+        min-height: auto;
+    }
 
     .about-container {
         grid-template-columns: 1fr;
 
         text-align: center;
 
-        gap: 25px;
+        gap: 30px;
 
-        padding-top: 70px;
-        padding-bottom: 70px;
+        padding: 75px 6%;
     }
 
     .about-text {
         max-width: 700px;
+
         margin: 0 auto;
     }
 
     .about-text p {
-        margin: 0 auto 32px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-buttons {
         justify-content: center;
     }
 
-    /* IMAGE MOVES BELOW TEXT */
-
     .about-image {
-        min-height: 380px;
+        min-height: 350px;
 
         order: 2;
     }
 
     .about-image img {
-        max-width: 400px;
+        max-width: 390px;
     }
-  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .about-hero {
+        min-height: auto;
+    }
+
+    .about-container {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 55px 22px 50px;
+    }
+
+
+    /* TEXT FIRST */
+
+    .about-text {
+        width: 100%;
+    }
+
+
+    .section-tag {
+        font-size: 0.72rem;
+
+        letter-spacing: 1.8px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .about-text h1 {
+        font-size: 2.45rem;
+
+        line-height: 1.1;
+
+        letter-spacing: -0.7px;
+
+        margin: 10px 0 20px;
+    }
+
+
+    .about-text p {
+        width: 100%;
+
+        font-size: 0.94rem;
+
+        line-height: 1.7;
+
+        margin-bottom: 28px;
+    }
+
+
+    /* BUTTONS */
+
+    .hero-buttons {
+        gap: 18px;
+    }
+
+
+    .primary-Abtn {
+        padding: 13px 21px;
+
+        font-size: 0.9rem;
+    }
+
+
+    .secondary-Abtn {
+        font-size: 0.9rem;
+    }
+
+
+    /* IMAGE BELOW TEXT */
+
+    .about-image {
+        order: 2;
+
+        min-height: auto;
+
+        width: 100%;
+
+        margin-top: 8px;
+    }
+
+
+    .about-image img {
+        width: 100%;
+
+        max-width: 320px;
+    }
+
+
+    .about-image::before {
+        width: 280px;
+        height: 280px;
+
+        filter: blur(55px);
+    }
+
+
+    /* REMOVE THE FLOAT ON SMALL SCREENS */
+
+    .about-image img {
+        animation: none;
+    }
+}
 
 /* =========================================================
 GENERAL SECTION
