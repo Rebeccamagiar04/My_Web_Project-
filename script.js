@@ -10,7 +10,8 @@
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
   
   
@@ -29,9 +30,9 @@
   
   
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  
+ const app = initializeApp(firebaseConfig);
+ getAnalytics(app);
+
   //INITIALIZE AUTHENTICATION
   const auth = getAuth(app);
 
@@ -40,24 +41,48 @@
   const googleBtn = document.getElementById("googleLogin");
   const loginBtn = document.getElementById("login-btn");
 
-//SIGNUP
- if (signupBtn) {
-  signupBtn.addEventListener("click", (e) => {
+// SIGNUP
+if (signupBtn) {
+  signupBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
+    const nameInput = document.getElementById("name");
+    const name = nameInput ? nameInput.value.trim() : "";
+    const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("Account created successfully!");
-        window.location.href = "home.html";
-      })
-      .catch((error) => {
-        alert(getFriendlyError(error.code));
+    if (!name) {
+      alert("Please go back to Question 1 and enter your name.");
+      return;
+    }
+
+    try {
+      // 1. Save to localStorage immediately so the next page can read it right away
+      localStorage.setItem("questionnaireName", name);
+
+      // 2. Create the Firebase user
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // 3. Update the profile on Firebase
+      await updateProfile(userCredential.user, {
+        displayName: name
       });
+
+      alert("Account created successfully!");
+
+      // 4. Redirect to home page
+      window.location.href = "home.html";
+
+    } catch (error) {
+      alert(getFriendlyError(error.code));
+    }
   });
 }
+
 
    //GOOGLE signInWithPopup
 if (googleBtn) {
