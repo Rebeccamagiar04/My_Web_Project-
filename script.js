@@ -85,23 +85,40 @@ if (signupBtn) {
 }
 
 
-   //GOOGLE signInWithPopup
+   // GOOGLE SIGN-IN
 if (googleBtn) {
   googleBtn.addEventListener("click", (e) => {
-     e.preventDefault();
-  const provider = new GoogleAuthProvider();
+    e.preventDefault();
 
- signInWithPopup(auth, provider)
-  .then((result) => {
-    if (result.user) {
-      console.log("Signed in as:", result.user.email);
-      alert("Signed in with Google!");
-      window.location.href = "home.html";
-    }
-  })
-  .catch((error) => {
-    console.error("Google sign-in error:", error.code, error.message);
-  });
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        if (result.user) {
+
+          const user = result.user;
+
+          console.log("Signed in as:", user.email);
+          console.log("Google displayName:", user.displayName);
+
+          // Save Google's name for home.html
+          if (user.displayName) {
+            localStorage.setItem("questionnaireName", user.displayName);
+            console.log("NAME SAVED:", user.displayName);
+          }
+
+          alert("Signed in with Google!");
+
+          window.location.href = "home.html";
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "Google sign-in error:",
+          error.code,
+          error.message
+        );
+      });
   });
 }
 
