@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-//IMPACT STAT SLIDER//
+// =========================================================
+// IMPACT STATS SLIDER
+// =========================================================
 
 const stats = document.querySelectorAll(".stat");
 const dots = document.querySelectorAll(".dot");
@@ -33,131 +34,123 @@ const nextButton = document.querySelector(".slider-arrow.next");
 let currentStat = 0;
 
 
-//Show a particular statistic //
+// =========================================================
+// SHOW A PARTICULAR STATISTIC
+// =========================================================
 
 function showStat(index) {
 
-    currentStat = index;
-
-    // Make sure the number stays within the range //
-
-    if (currentStat < 0) {
+    // Make sure the index stays within the range
+    if (index < 0) {
         currentStat = stats.length - 1;
-    }
-
-    if (currentStat >= stats.length) {
+    } else if (index >= stats.length) {
         currentStat = 0;
+    } else {
+        currentStat = index;
     }
 
 
-    /* Hide all statistics //
-
-    stats.forEach((stat) => {
-        stat.classList.remove("active");
-    });
-
-
-    /* Remove active state from all dots */
-
-    dots.forEach((dot) => {
-        dot.classList.remove("active");
-    });
-
-
-    // Show the selected statistic */
-
-    if (stats[currentStat]) {
-        stats[currentStat].classList.add("active");
-    }
-
-
-    //Activate the correct dot //
-
-    if (dots[currentStat]) {
-        dots[currentStat].classList.add("active");
-    }
-}
-
-
-
-  // 2. NEXT BUTTON//
-   
-
-if (nextButton) {
-
-    nextButton.addEventListener("click", () => {
-
-        showStat(currentStat + 1);
-
-    });
-
-}
-
-  // 3. PREVIOUS BUTTON//
-
-
-if (previousButton) {
-
-    previousButton.addEventListener("click", () => {
-
-        showStat(currentStat - 1);
-
-    });
-
-}
-
-
-
-   //4. DOT BUTTONS//
-
-
-dots.forEach((dot, index) => {
-
-    dot.addEventListener("click", () => {
-
-        showStat(index);
-
-    });
-
-});
-
-
-
-  // 5. MOBILE / DESKTOP BEHAVIOUR//
-   
-
-function updateStatsForScreen() {
-
-    //On mobile:On desktop:Show all statistics//
-
+    // On mobile, show only the current statistic
     if (window.innerWidth <= 700) {
 
-        stats.forEach((stat, index) => {
-
-            if (index === currentStat) {
-                stat.classList.add("active");
-            } else {
-                stat.classList.remove("active");
-            }
-
+        stats.forEach((stat, i) => {
+            stat.classList.toggle("active", i === currentStat);
         });
 
-    } else {
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentStat);
+        });
+
+    }
+
+    // On desktop, show all statistics
+    else {
 
         stats.forEach((stat) => {
             stat.classList.add("active");
         });
 
+        // Keep the current dot active
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentStat);
+        });
+
     }
+}
+
+
+// =========================================================
+// NEXT BUTTON
+// =========================================================
+
+if (nextButton) {
+
+    nextButton.addEventListener("click", () => {
+        showStat(currentStat + 1);
+    });
 
 }
 
 
-//Run when the page first loads //
+// =========================================================
+// PREVIOUS BUTTON
+// =========================================================
 
-updateStatsForScreen();
+if (previousButton) {
+
+    previousButton.addEventListener("click", () => {
+        showStat(currentStat - 1);
+    });
+
+}
 
 
-// Run whenever the screen size changes //
+// =========================================================
+// DOT BUTTONS
+// =========================================================
+
+dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+        showStat(index);
+    });
+
+});
+
+
+// =========================================================
+// MOBILE / DESKTOP BEHAVIOUR
+// =========================================================
+
+function updateStatsForScreen() {
+
+    if (window.innerWidth <= 700) {
+
+        // Mobile: show only one statistic
+        stats.forEach((stat, index) => {
+            stat.classList.toggle("active", index === currentStat);
+        });
+
+    } else {
+
+        // Desktop: show all statistics
+        stats.forEach((stat) => {
+            stat.classList.add("active");
+        });
+
+    }
+}
+
+
+// =========================================================
+// INITIALIZE
+// =========================================================
+
+showStat(0);
+
+
+// =========================================================
+// UPDATE WHEN SCREEN SIZE CHANGES
+// =========================================================
 
 window.addEventListener("resize", updateStatsForScreen);
