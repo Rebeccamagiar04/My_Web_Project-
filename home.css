@@ -54,14 +54,13 @@ p {
 }
 
 
-
 /* =========================================================
    3. HEADER
    ========================================================= */
 
 .site-header {
     width: 100%;
-    height: 76px;
+    min-height: 76px;
 
     display: flex;
     align-items: center;
@@ -150,170 +149,76 @@ p {
     color: white;
 }
 
+
 /* =========================================================
-   5. HERO GIRL
+   4. WELCOME SECTION
    ========================================================= */
 
-.hero-visual {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.welcome-section {
+    width: 100%;
 
-    width: 430px;
-    height: 520px;
+    padding: 55px 7% 45px;
 
-    z-index: 2;
+    background: #ffffff;
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 650px;
+}
+
+.welcome-text {
+    margin-bottom: 10px;
+
+    font-size: 19px;
+    font-weight: 500;
+
+    color: #16486f;
+}
+
+.welcome-content h1 {
+    margin-bottom: 15px;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    line-height: 1.1;
+
+    color: #0c3764;
+}
+
+.welcome-description {
+    max-width: 560px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #355873;
 }
 
 
-/* BLUE SHAPE */
+/* =========================================================
+   5. HERO / GIRL IMAGE
+   ========================================================= */
 
-.hero-shape {
-    position: absolute;
+.hero-image {
+    width: 100%;
 
-    width: 500px;
-    height: 500px;
+    overflow: hidden;
 
-    right: -150px;
-    bottom: -150px;
-
-    border-radius: 50%;
-
-    background: #d8efff;
-
-    z-index: 1;
+    background: #eef8ff;
 }
 
-
-/* GIRL */
-
-.hero-girl {
-    position: absolute;
-
-    width: auto;
-    height: 500px;
-
-    right: 0;
-    bottom: 0;
-
-    max-width: none;
-
-    z-index: 3;
+.hero-image img {
+    width: 100%;
+    height: auto;
 
     display: block;
-
-    filter: drop-shadow(
-        0 15px 25px rgba(10, 52, 88, 0.12)
-    );
 }
 
 
 /* =========================================================
-   MOBILE HERO
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .hero {
-        min-height: 760px;
-        padding: 50px 6% 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-
-    /* TEXT */
-
-    .hero-content {
-        width: 100%;
-        position: relative;
-        z-index: 10;
-    }
-
-    .hero-content h1 {
-        font-size: 48px;
-        line-height: 1.05;
-        margin-bottom: 22px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 25px;
-    }
-
-
-    /* BUTTON */
-
-    .hero-buttons {
-        display: flex;
-        width: 100%;
-    }
-
-    .primary-btn {
-        width: 100%;
-        min-height: 55px;
-    }
-
-
-    /* GIRL CONTAINER */
-
-    .hero-visual {
-        position: absolute;
-
-        width: 100%;
-        height: 400px;
-
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        z-index: 2;
-
-        pointer-events: none;
-    }
-
-
-    /* BLUE CIRCLE */
-
-    .hero-shape {
-        position: absolute;
-
-        width: 430px;
-        height: 430px;
-
-        right: -100px;
-        bottom: -130px;
-
-        border-radius: 50%;
-
-        background: #d8efff;
-
-        z-index: 1;
-    }
-
-
-    /* GIRL */
-
-    .hero-girl {
-        position: absolute;
-
-        height: 390px;
-        width: auto;
-
-        right: 5px;
-        bottom: 0;
-
-        max-width: none;
-
-        z-index: 3;
-
-        display: block;
-    }
-}
-
-/* =========================================================
-   6. SECTION GENERAL
+   6. GENERAL SECTIONS
    ========================================================= */
 
 section {
@@ -346,8 +251,7 @@ section {
 .process-cards {
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 20px;
 }
@@ -479,7 +383,6 @@ section {
     margin-top: 8px;
 }
 
-
 .application-layout {
     display: flex;
     align-items: stretch;
@@ -491,6 +394,7 @@ section {
     flex: 1;
 
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
 
     gap: 18px;
@@ -502,6 +406,7 @@ section {
     background: #ffffff;
 
     border: 1px solid #cfe3f2;
+
     border-radius: 9px;
 }
 
@@ -524,9 +429,9 @@ section {
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 16px;
+
     color: #123f69;
 }
-
 
 .application-card ul {
     list-style: none;
@@ -540,6 +445,7 @@ section {
     margin-bottom: 7px;
 
     font-size: 13px;
+
     color: #52708c;
 }
 
@@ -547,13 +453,13 @@ section {
     content: "✓";
 
     position: absolute;
+
     left: 0;
 
     font-weight: bold;
 
     color: #1261a0;
 }
-
 
 .guide-link {
     width: 145px;
@@ -614,12 +520,10 @@ section {
     color: #073b65;
 }
 
-
 .document-cards {
     display: grid;
 
-    grid-template-columns:
-        repeat(7, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 
     gap: 12px;
 }
@@ -647,6 +551,7 @@ section {
 
 .document-card:hover {
     transform: translateY(-4px);
+
     background: #ffffff;
 }
 
@@ -662,6 +567,7 @@ section {
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 13px;
+
     line-height: 1.3;
 
     color: #16486f;
@@ -721,9 +627,11 @@ section {
     border-radius: 50%;
 
     background: #d9efff;
+
     color: #0b5793;
 
     font-weight: bold;
+
     font-size: 12px;
 }
 
@@ -780,6 +688,7 @@ section {
     font-family: Georgia, "Times New Roman", serif;
 
     font-size: 39px;
+
     line-height: 1.1;
 
     color: white;
@@ -794,7 +703,6 @@ section {
 
     color: rgba(255, 255, 255, 0.9);
 }
-
 
 .slider-arrow {
     flex-shrink: 0;
@@ -819,12 +727,13 @@ section {
 
 .slider-arrow:hover {
     background: white;
+
     color: #0a4778;
 }
 
-
 .slider-dots {
     display: flex;
+
     justify-content: center;
 
     gap: 8px;
@@ -884,8 +793,7 @@ section {
 .site-footer {
     display: grid;
 
-    grid-template-columns:
-        1.2fr 1fr 1.2fr;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
 
     gap: 40px;
 
@@ -910,6 +818,7 @@ section {
 
 .footer-links {
     display: flex;
+
     flex-wrap: wrap;
 
     align-content: flex-start;
@@ -919,6 +828,7 @@ section {
 
 .footer-links a {
     font-size: 13px;
+
     color: #d5e2ed;
 }
 
@@ -926,19 +836,21 @@ section {
     color: white;
 }
 
-
 .footer-contact {
     font-size: 13px;
+
     color: #cbdbe8;
 }
 
 .footer-contact p {
     margin-bottom: 8px;
+
     color: #cbdbe8;
 }
 
 .social-links {
     display: flex;
+
     gap: 15px;
 
     margin-top: 15px;
@@ -951,7 +863,6 @@ section {
 .social-links a:hover {
     color: white;
 }
-
 
 .copyright {
     grid-column: 1 / -1;
@@ -984,22 +895,9 @@ section {
         gap: 20px;
     }
 
-    .hero {
+    .welcome-section {
         padding-left: 5%;
         padding-right: 5%;
-    }
-
-    .hero-content {
-        width: 58%;
-    }
-
-    .hero-content h1 {
-        font-size: 54px;
-    }
-
-    .hero-girl {
-        width: 480px;
-        right: -80px;
     }
 
     .process-cards {
@@ -1026,7 +924,9 @@ section {
 
 @media (max-width: 700px) {
 
-    /* Header */
+    /* -----------------------------------------------------
+       Header
+       ----------------------------------------------------- */
 
     .site-header {
         height: auto;
@@ -1058,90 +958,68 @@ section {
 
     .main-nav a {
         white-space: nowrap;
+
         font-size: 13px;
     }
 
     .register-btn {
         padding: 7px 15px;
+
         font-size: 12px;
     }
 
 
-    /* Hero */
+    /* -----------------------------------------------------
+       Welcome
+       ----------------------------------------------------- */
 
-    .hero {
-        min-height: 720px;
-
-        display: block;
-
-        padding: 55px 6% 0;
+    .welcome-section {
+        padding: 38px 6% 32px;
     }
 
-    .hero-content {
-        width: 100%;
+    .welcome-text {
+        font-size: 17px;
 
-        max-width: none;
-
-        position: relative;
-        z-index: 6;
+        margin-bottom: 8px;
     }
 
-    .hero-content h1 {
-        font-size: clamp(42px, 12vw, 58px);
+    .welcome-content h1 {
+        font-size: clamp(36px, 11vw, 48px);
 
-        line-height: 1.02;
+        line-height: 1.05;
+
+        margin-bottom: 14px;
     }
 
-    .hero-content h2 {
-        font-size: 20px;
-    }
+    .welcome-description {
+        max-width: 100%;
 
-    .hero-description {
         font-size: 14px;
+
+        line-height: 1.65;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
 
-        max-width: 300px;
-    }
+    /* -----------------------------------------------------
+       Girl Image
+       ----------------------------------------------------- */
 
-    .primary-btn,
-    .secondary-btn {
+    .hero-image {
         width: 100%;
+
+        overflow: hidden;
     }
 
-
-    /* Girl */
-
-    .hero-visual {
+    .hero-image img {
         width: 100%;
-        height: 330px;
 
-        right: 0;
-        bottom: 0;
-    }
-
-    .hero-shape {
-        width: 330px;
-        height: 330px;
-
-        right: -80px;
-        top: 20px;
-
-        border-radius: 50%;
-    }
-
-    .hero-girl {
-        width: 370px;
-
-        right: -75px;
-        bottom: -10px;
+        height: auto;
     }
 
 
-    /* Sections */
+    /* -----------------------------------------------------
+       General Sections
+       ----------------------------------------------------- */
 
     .how-it-works,
     .why-section,
@@ -1157,7 +1035,9 @@ section {
     }
 
 
-    /* How it works */
+    /* -----------------------------------------------------
+       How It Works
+       ----------------------------------------------------- */
 
     .process-cards {
         grid-template-columns: 1fr 1fr;
@@ -1170,7 +1050,9 @@ section {
     }
 
 
-    /* Why */
+    /* -----------------------------------------------------
+       Why Hope Horizon
+       ----------------------------------------------------- */
 
     .why-card h2 {
         font-size: 28px;
@@ -1181,7 +1063,9 @@ section {
     }
 
 
-    /* Application */
+    /* -----------------------------------------------------
+       Application
+       ----------------------------------------------------- */
 
     .application-layout {
         flex-direction: column;
@@ -1195,6 +1079,7 @@ section {
         width: 100%;
 
         border-left: none;
+
         border-top: 1px solid #b9d1e2;
 
         padding-top: 25px;
@@ -1203,10 +1088,13 @@ section {
     }
 
 
-    /* Documents */
+    /* -----------------------------------------------------
+       Documents
+       ----------------------------------------------------- */
 
     .documents-heading {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -1221,7 +1109,9 @@ section {
     }
 
 
-    /* Tips */
+    /* -----------------------------------------------------
+       Tips
+       ----------------------------------------------------- */
 
     .tips-list ol {
         grid-template-columns: 1fr;
@@ -1230,7 +1120,9 @@ section {
     }
 
 
-    /* Stats */
+    /* -----------------------------------------------------
+       Impact / Stats
+       ----------------------------------------------------- */
 
     .impact-section {
         padding: 50px 6%;
@@ -1239,11 +1131,6 @@ section {
     .stats-slider {
         gap: 8px;
     }
-
-    /*
-       On mobile we will show one statistic at a time.
-       JavaScript will later control which .stat is visible.
-    */
 
     .stat {
         display: none;
@@ -1267,7 +1154,9 @@ section {
     }
 
 
-    /* Final CTA */
+    /* -----------------------------------------------------
+       Final CTA
+       ----------------------------------------------------- */
 
     .final-cta {
         padding: 50px 6%;
@@ -1278,7 +1167,9 @@ section {
     }
 
 
-    /* Footer */
+    /* -----------------------------------------------------
+       Footer
+       ----------------------------------------------------- */
 
     .site-footer {
         grid-template-columns: 1fr;
@@ -1300,11 +1191,7 @@ section {
 
 @media (max-width: 420px) {
 
-    .hero {
-        min-height: 690px;
-    }
-
-    .hero-content h1 {
+    .welcome-content h1 {
         font-size: 40px;
     }
 
@@ -1315,9 +1202,4 @@ section {
     .document-cards {
         grid-template-columns: 1fr 1fr;
     }
-
-    .hero-girl {
-        width: 330px;
-        right: -90px;
-    }
-    }
+   }
