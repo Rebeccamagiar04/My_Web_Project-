@@ -17,31 +17,129 @@ href="home.css">
   
   <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header">
+  <!-- ================= SITE HEADER & NAVIGATION ================= -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Brand Logo -->
+    <a href="home.html" class="logo">
+      <span class="logo-icon">🎓</span>
+      <span class="logo-text">Portico Kakuma</span>
+    </a>
 
-        <div class="logo">
-            <span class="logo-icon">🎓</span>
-            <span>Hope Horizon</span>
+    <!-- Desktop Navigation Links -->
+    <nav class="main-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="scholarship.html" class="nav-link">Scholarships</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
+    <div class="header-actions">
+      <!-- Notification System -->
+      <div class="notification-wrapper">
+        <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-badge">3</span>
+        </button>
+        
+        <!-- Notification Dropdown -->
+        <div class="notif-dropdown" id="notifDropdown">
+          <div class="notif-header">
+            <h3>Notifications</h3>
+          </div>
+          <ul class="notif-list">
+            <li>
+              <strong>Chevening Scholarship</strong>
+              <p>Deadline approaching on 06 Oct 2026.</p>
+            </li>
+            <li>
+              <strong>DAAD Scholarship</strong>
+              <p>New application guidance added.</p>
+            </li>
+            <li>
+              <strong>Welcome Corps on Campus</strong>
+              <p>Check updated details on eligibility.</p>
+            </li>
+          </ul>
         </div>
+      </div>
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
 
-        <nav class="main-nav">
-            <a href="home.html" class="active">Home</a>
-            <a href="scholarship.html">Scholarships</a>
-            <a href="resources.html">Resources</a>
-            <a href="about.html">About</a>
-        </nav>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">Portico Kakuma</span>
+      </div>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
 
-        <a href="register.html" class="register-btn">
-            Register
-        </a>
+    <div class="drawer-content">
+      <ul class="mobile-nav-list">
+        
+        <!-- HOME PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <ul class="sub-nav-list">
+            <li><a href="home.html#how-it-works">A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">Application Essentials</a></li>
+            <li><a href="home.html#common-documents">Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">Tips for Successful Application</a></li>
+          </ul>
+        </li>
 
-    </header>
+        <!-- SCHOLARSHIPS PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+          <ul class="sub-nav-list">
+            <li><a href="scholarship.html#scholarship-search">Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-results">Scholarship Listings</a></li>
+          </ul>
+        </li>
+
+        <!-- RESOURCES PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
+          <ul class="sub-nav-list">
+            <li><a href="resources.html#deadlines-section">Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">Latest Articles & Tips</a></li>
+            <li><a href="resources.html#keep-growing">Keep Growing While You Wait</a></li>
+          </ul>
+        </li>
+
+        <!-- ABOUT PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
+          <ul class="sub-nav-list">
+            <li><a href="about.html#mission-vision">Mission & Vision</a></li>
+            
+            <li><a href="about.html#what-we-do">What We Do</a></li>
+            <li><a href="about.html#our-story">Our Story</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+</header>
+
 
 
     <main>
 
-            <!-- ================= WELCOME ================= -->
+      <!-- ================= WELCOME ================= -->
 <section class="welcome-section">
 
     <div class="welcome-content">
@@ -114,7 +212,7 @@ href="home.css">
 
 
         <!-- ================= WHY HOPE HORIZON ================= -->
-        <section class="why-section">
+        <section class="why-section" id="why-card">
 
             <div class="why-content">
 
@@ -156,7 +254,7 @@ href="home.css">
 
 
         <!-- ================= APPLICATION STEPS ================= -->
-        <section class="application-section">
+        <section class="application-section" id="application-essentials">
 
             <div class="section-heading">
 
@@ -245,7 +343,7 @@ href="home.css">
 
 
         <!-- ================= DOCUMENT CATEGORIES ================= -->
-        <section class="documents-section">
+        <section class="documents-section" id="common-documents">
 
             <div class="section-heading documents-heading">
 
@@ -306,7 +404,7 @@ href="home.css">
 
 
         <!-- ================= TIPS ================= -->
-        <section class="tips-section">
+        <section class="tips-section" id="tips-section">
 
             <div class="section-heading">
 
@@ -482,7 +580,8 @@ href="home.css">
 
         <div class="footer-contact">
 
-            <p>✉ hello@hopehorizon.org</p>
+            <p>Contact us at: <a href="mailto:rebeccamagiar04@gmail.com">rebeccamagiar04@gmail.com</a></p>
+
             <p>⌖ 123 Hope Street, Global City</p>
 
             <div class="social-links">
@@ -506,4 +605,4 @@ href="home.css">
 
 
 </body>
-            </html>
+</html>
