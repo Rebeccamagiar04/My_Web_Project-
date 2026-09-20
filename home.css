@@ -54,101 +54,417 @@ p {
 }
 
 
-/* =========================================================
-   3. HEADER
-   ========================================================= */
-
+/* ==========================================================================
+   PORTICO KAKUMA - HEADER & NAVIGATION STYLES
+   ========================================================================== */
 .site-header {
-    width: 100%;
-    min-height: 76px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 7%;
-
-    background: #eef8ff;
-
-    position: relative;
-    z-index: 20;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
 }
 
-
-/* Logo */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 25px;
-    font-weight: bold;
-    color: #0c3764;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1e293b;
+  text-decoration: none;
 }
-
-.logo-icon {
-    font-size: 25px;
-}
-
-
-/* Navigation */
 
 .main-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #2563eb;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Notification System */
+.notification-wrapper {
+  position: relative;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #475569;
+  cursor: pointer;
+  position: relative;
+  padding: 0.4rem;
+}
+
+.notif-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 5px;
+}
+
+.notif-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 120%;
+  width: 280px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1100;
+}
+
+.notif-dropdown.show {
+  display: block;
+}
+
+.notif-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.notif-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.85rem;
+}
+
+.notif-list li:last-child {
+  border-bottom: none;
+}
+
+
+
+/* =========================================================
+   MOBILE MENU / HAMBURGER
+   ========================================================= */
+
+/* Hamburger button */
+.hamburger-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.35rem;
+  line-height: 1;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.hamburger-btn:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   MOBILE DRAWER
+   ========================================================= */
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(310px, 88vw);
+  height: 100vh;
+
+  background-color: #ffffff;
+
+  z-index: 1200;
+
+  box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: right 0.3s ease;
+
+  overflow: hidden;
+}
+
+.mobile-drawer.open {
+  right: 0;
+}
+
+
+/* =========================================================
+   DRAWER HEADER
+   ========================================================= */
+
+.drawer-header {
+  min-height: 72px;
+  padding: 0 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+
+/* Brand inside drawer */
+.drawer-header .logo {
+  font-size: 1.1rem;
+}
+
+
+/* Close button */
+.close-drawer-btn {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  background-color: #ffffff;
+  color: #475569;
+
+  font-size: 1.25rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.close-drawer-btn:hover {
+  background-color: #f8fafc;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+
+/* =========================================================
+   DRAWER CONTENT
+   ========================================================= */
+
+.drawer-content {
+  padding: 1.25rem;
+
+  overflow-y: auto;
+  flex: 1;
+
+  /* Makes scrolling feel nicer on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* Navigation list */
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* =========================================================
+   NAVIGATION GROUPS
+   ========================================================= */
+
+.nav-group {
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.1rem;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.nav-group:last-child {
+  border-bottom: none;
+}
+
+
+/* Main group link */
+.group-title {
+  display: block;
+
+  padding: 0.65rem 0;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  transition: color 0.2s ease;
+
+  background:#0C4A7A;
+}
+
+.group-title:hover {
+  color: #2563eb;
+}
+
+
+/* Sub-navigation */
+.sub-nav-list {
+  list-style: none;
+
+  padding: 0.25rem 0 0 0.75rem;
+  margin: 0;
+}
+
+
+/* Individual links */
+.sub-nav-list li {
+  margin: 0.15rem 0;
+}
+
+.sub-nav-list li a {
+  display: block;
+
+  padding: 0.65rem 0.75rem;
+
+  color: #64748b;
+  text-decoration: none;
+
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  border-radius: 8px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.sub-nav-list li a:hover {
+  background-color: #f1f5f9;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   DRAWER OVERLAY
+   ========================================================= */
+
+.drawer-overlay {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(15, 23, 42, 0.42);
+
+  z-index: 1150;
+
+  backdrop-filter: blur(2px);
+}
+
+.drawer-overlay.show {
+  display: block;
+}
+
+
+/* =========================================================
+   MOBILE BREAKPOINT
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .main-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
     display: flex;
-    align-items: center;
-    gap: 38px;
-}
+  }
 
-.main-nav a {
-    position: relative;
+  .header-container {
+    padding: 0.75rem 1rem;
+  }
 
-    font-size: 14px;
-    color: #153f68;
-
-    padding: 8px 0;
-
-    transition: color 0.25s ease;
-}
-
-.main-nav a:hover {
-    color: #0b6fbd;
-}
-
-.main-nav a.active::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 2px;
-
-    background: #0b4f88;
+  .header-actions {
+    gap: 0.6rem;
+  }
 }
 
 
-/* Register */
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
 
-.register-btn {
-    border: 1.5px solid #123f69;
-    border-radius: 30px;
+@media (max-width: 400px) {
 
-    padding: 9px 21px;
+  .hamburger-btn {
+    width: 40px;
+    height: 40px;
+  }
 
-    font-size: 14px;
-    color: #123f69;
+  .mobile-drawer {
+    width: 90vw;
+  }
 
-    transition: 0.25s ease;
+  .drawer-header {
+    padding: 0 1rem;
+  }
+
+  
+  .drawer-content {
+    padding: 1rem;
+  }
 }
-
-.register-btn:hover {
-    background: #123f69;
-    color: white;
-}
-
 
 /* =========================================================
    4. WELCOME SECTION
@@ -1202,4 +1518,4 @@ section {
     .document-cards {
         grid-template-columns: 1fr 1fr;
     }
-   }
+}
