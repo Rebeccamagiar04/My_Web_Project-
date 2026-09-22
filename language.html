@@ -13,18 +13,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
      <link rel="stylesheet"
 href="language.css">
 <style>
-.question {
-  display: none;
-}
-
-.question.active {
-  display: block;
-}
 </style>
 
 </head>
 
-<body>
+<body id="languages">
 <!-- =====================================================
      ENGLISH LANGUAGE TESTS & PREPARATION
      ===================================================== -->
@@ -108,104 +101,121 @@ href="language.css">
 
     </section>
 
+<!-- =========================
+     THREE MAIN TESTS
+     ========================= -->
+<section class="english-tests">
 
-    <!-- =========================
-         THREE MAIN TESTS
-         ========================= -->
-    <section class="english-tests">
+  <h2>The three main English language tests</h2>
 
-      <h2>The three main English language tests</h2>
-
-      <p class="section-description">
-        Different universities accept different English proficiency
-        tests. Compare the options below before choosing one.
-      </p>
-
-
-      <div class="test-cards">
+  <p class="section-description">
+    Different universities accept different English proficiency
+    tests. Compare the options below before choosing one.
+  </p>
 
 
-        <!-- DET -->
-        <article class="test-card">
-
-          <div class="test-card-content">
-
-            <h3>Duolingo English Test (DET)</h3>
-
-            <p>
-              A convenient online English proficiency test that can
-              be taken from home.
-            </p>
-
-            <a
-              href="https://englishtest.duolingo.com/applicants"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="official-link"
-            >
-              Go to official website →
-            </a>
-
-          </div>
-
-        </article>
+  <div class="test-cards">
 
 
-        <!-- IELTS -->
-        <article class="test-card">
+    <!-- DET -->
+    <article class="test-card" id="DUOLINGO">
 
-          <div class="test-card-content">
+      <div class="test-card-content">
 
-            <h3>IELTS</h3>
+        <img
+          src="duolingo-logo.png"
+          alt="Duolingo English Test logo"
+          class="test-logo"
+        >
 
-            <p>
-              A widely recognized English proficiency test used for
-              study, work and other purposes.
-            </p>
+        <h3>Duolingo English Test (DET)</h3>
 
-            <a
-              href="https://ielts.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="official-link"
-            >
-              Go to official website →
-            </a>
+        <p>
+          A convenient online English proficiency test that can
+          be taken from home.
+        </p>
 
-          </div>
-
-        </article>
-
-
-        <!-- TOEFL -->
-        <article class="test-card">
-
-          <div class="test-card-content">
-
-            <h3>TOEFL iBT</h3>
-
-            <p>
-              An academic English test designed around the reading,
-              listening, speaking and writing skills used in
-              university settings.
-            </p>
-
-            <a
-              href="https://www.ets.org/toefl.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="official-link"
-            >
-              Go to official website →
-            </a>
-
-          </div>
-
-        </article>
+        <a
+          href="https://englishtest.duolingo.com/applicants"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="official-link"
+        >
+          Go to official website →
+        </a>
 
       </div>
 
-    </section>
+    </article>
+
+
+    <!-- IELTS -->
+    <article class="test-card" id="IELTS">
+
+      <div class="test-card-content">
+
+        <img
+          src="ielts-logo.png"
+          alt="IELTS logo"
+          class="test-logo"
+        >
+
+        <h3>IELTS</h3>
+
+        <p>
+          A widely recognized English proficiency test used for
+          study, work and other purposes.
+        </p>
+
+        <a
+          href="https://ielts.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="official-link"
+        >
+          Go to official website →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- TOEFL -->
+    <article class="test-card" id="TOEFL">
+
+      <div class="test-card-content">
+
+        <img
+          src="toefl-logo.png"
+          alt="TOEFL logo"
+          class="test-logo"
+        >
+
+        <h3>TOEFL iBT</h3>
+
+        <p>
+          An academic English test designed around the reading,
+          listening, speaking and writing skills used in
+          university settings.
+        </p>
+
+        <a
+          href="https://www.ets.org/toefl.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="official-link"
+        >
+          Go to official website →
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
 
 
     <!-- =========================
@@ -330,7 +340,7 @@ href="language.css">
 
 
         <!-- IELTS PRACTICE -->
-        <div class="practice-item">
+        <div class="practice-item" id="IELTS-prep">
 
           <h3>IELTS</h3>
 
@@ -720,4 +730,4 @@ or redistributing an edition.
   <script type="module" src="language.js"></script>
 </body>
   
-</html>
+        </html>
