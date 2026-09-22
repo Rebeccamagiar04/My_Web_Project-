@@ -57,6 +57,49 @@ if (questionForm) {
 
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerOverlay = document.getElementById('drawerOverlay');
+  const notifToggle = document.getElementById('notifToggle');
+  const notifDropdown = document.getElementById('notifDropdown');
+
+  // Toggle Mobile Drawer
+  function toggleDrawer() {
+    mobileDrawer.classList.toggle('open');
+    drawerOverlay.classList.toggle('show');
+  }
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', toggleDrawer);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', toggleDrawer);
+
+  // Close drawer when clicking a sub-link
+  document.querySelectorAll('.sub-nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('show');
+    });
+  });
+
+  // Toggle Notifications Dropdown
+  if (notifToggle && notifDropdown) {
+    notifToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!notifDropdown.contains(e.target) && e.target !== notifToggle) {
+        notifDropdown.classList.remove('show');
+      }
+    });
+  }
+});
+
+
   
 
 // FAQ Accordion
@@ -69,13 +112,156 @@ if (!isOpen) item.classList.add('open');
 });
 });
 
-// Search tags interaction
-document.querySelectorAll('.search-tag').forEach(tag => {
-tag.addEventListener('click', () => {
-const input = document.querySelector('.search-box input');
-input.value = tag.textContent;
-input.focus();
+
+
+// =========================
+// RESOURCE SEARCH
+// =========================
+
+const searchInput = document.querySelector('.search-box input');
+const searchTags = document.querySelectorAll('.search-tag');
+
+
+// =========================
+// POPULAR SEARCHES
+// =========================
+
+searchTags.forEach(tag => {
+
+  tag.addEventListener('click', () => {
+
+    const searchTerm = tag.textContent.trim().toLowerCase();
+
+    // CV Templates
+    if (searchTerm.includes('cv')) {
+      window.location.href = 'doctemplates.html#CV';
+      return;
+    }
+
+    // Duolingo
+    if (searchTerm.includes('duolingo')) {
+      window.location.href = 'language.html#DUOLINGO';
+      return;
+    }
+
+    // IELTS
+    if (searchTerm.includes('ielts')) {
+      window.location.href = 'language.html#IELTS-prep';
+      return;
+    }
+
+    // Interview Tips
+    if (searchTerm.includes('interview')) {
+      window.location.href = 'resources.html#interview-tips';
+      return;
+    }
+
+  });
+
 });
+
+
+// =========================
+// SEARCH CURRENT PAGE
+// =========================
+
+function searchResources() {
+
+  const searchTerm = searchInput.value.trim().toLowerCase();
+
+  if (!searchTerm) {
+    return;
+  }
+
+  // Elements we want the search to look through
+  const searchableElements = document.querySelectorAll(
+    'h1, h2, h3, h4, p, li, .learn-title, .learn-desc, .video-title, .article-title, .deadline-title, .deadline, .faq-question, .faq-answer, .cta-title, .cta-desc'
+  );
+
+  let foundElement = null;
+
+  // Search through the actual text on this page
+  for (const element of searchableElements) {
+
+    const text = element.textContent
+      .toLowerCase()
+      .trim();
+
+    if (text.includes(searchTerm)) {
+      foundElement = element;
+      break;
+    }
+  }
+
+
+  // =========================
+  // IF NOTHING IS FOUND
+  // =========================
+
+  if (!foundElement) {
+
+    alert("Whatever you're looking for is not here yet.");
+
+    return;
+  }
+
+
+  // =========================
+  // FIND THE BEST PLACE TO SCROLL TO
+  // =========================
+
+  // If the matching text is inside a section/card
+  // that has an ID, use that larger container.
+  const destination =
+    foundElement.closest(
+      'section[id], .learn-card[id], .video-card[id], .article-card[id], .faq-item[id], .deadline-card[id]'
+    ) || foundElement;
+
+
+  // Scroll to the matching content
+  destination.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+
+
+  // Briefly highlight the result
+  destination.style.outline = '3px solid #2563eb';
+  destination.style.outlineOffset = '6px';
+
+  setTimeout(() => {
+    destination.style.outline = '';
+    destination.style.outlineOffset = '';
+  }, 2000);
+}
+
+
+// =========================
+// ENTER KEY
+// =========================
+
+searchInput.addEventListener('keydown', event => {
+
+  if (event.key === 'Enter') {
+
+    event.preventDefault();
+
+    searchResources();
+
+  }
+
+});
+
+// -------------------------
+// SEARCH WITH ENTER
+// -------------------------
+
+searchInput.addEventListener('keydown', (event) => {
+
+  if (event.key === 'Enter') {
+    searchResources();
+  }
+
 });
 
 // Card hover effects enhancement
