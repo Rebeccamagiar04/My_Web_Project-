@@ -12,62 +12,139 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
      <!--link CSS file-->
      <link rel="stylesheet"
 href="resources.css">
-<style>
-.question {
-  display: none;
-}
-
-.question.active {
-  display: block;
-}
-</style>
-
-</head>
-
-<body>
-
-    <!-- NAVBAR -->
- <header id="header">
-        <nav class="navbar">
-        <div class="hamburger" id="Hamburger" aria-label="Toggle menu">   ☰
-    </div>
-           <div class="nav-links" id="navLinks">
-    <div class="close-btn" id="closeMenu">&times;</div>
-              <ul>
-                <li><a class="active" href="home.html">Home</a></li>
-                <li><a  href="scholarship.html">Scholarships</a></li>
-                <li><a class="active" href="resources.html">Resources</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">FAQ</a></li>
-            </ul>
-            </div>
-
-                 <a href="home.html" class="logo">
-                <i class="fa-regular fa-heart"></i>
-                <div>
-                    <h2>Hope Horizon</h2>
-                </div>
-                </a>
   
-            <div class="nav-actions">
+</head>
+  
+  <body id="resources-page">
 
-                <button class="login-btn">
-                    <i class="fa-regular fa-user"></i>
-                    Register
-                </button>
-            </div>
+  <!-- ================= SITE HEADER & NAVIGATION ================= -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Brand Logo -->
+    <a href="home.html" class="logo">
+      <span class="logo-icon">🎓</span>
+      <span class="logo-text">Portico Kakuma</span>
+    </a>
 
-        </nav>
-    </header>
+    <!-- Desktop Navigation Links -->
+    <nav class="main-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="scholarship.html" class="nav-link">Scholarships</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
+    <div class="header-actions">
+      <!-- Notification System -->
+      <div class="notification-wrapper">
+        <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-badge">3</span>
+        </button>
+        
+        <!-- Notification Dropdown -->
+        <div class="notif-dropdown" id="notifDropdown">
+          <div class="notif-header">
+            <h3>Notifications</h3>
+          </div>
+          <ul class="notif-list">
+            <li>
+              <strong>Chevening Scholarship</strong>
+              <p>Deadline approaching on 06 Oct 2026.</p>
+            </li>
+            <li>
+              <strong>DAAD Scholarship</strong>
+              <p>New application guidance added.</p>
+            </li>
+            <li>
+              <strong>Welcome Corps on Campus</strong>
+              <p>Check updated details on eligibility.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">Portico Kakuma</span>
+      </div>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="mobile-nav-list">
+        
+        <!-- HOME PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <ul class="sub-nav-list">
+            <li><a href="home.html#how-it-works">A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">Application Essentials</a></li>
+            <li><a href="home.html#common-documents">Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">Tips for Successful Application</a></li>
+          </ul>
+        </li>
+
+        <!-- SCHOLARSHIPS PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+          <ul class="sub-nav-list">
+            <li><a href="scholarship.html#scholarship-search">Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-results">Scholarship Listings</a></li>
+          </ul>
+        </li>
+
+        <!-- RESOURCES PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
+          <ul class="sub-nav-list">
+            <li><a href="resources.html#deadlines-section">Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">Latest Articles & Tips</a></li>
+            <li><a href="resources.html#keep-growing">Keep Growing While You Wait</a></li>
+          </ul>
+        </li>
+
+        <!-- ABOUT PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
+          <ul class="sub-nav-list">
+            <li><a href="about.html#mission-vision">Mission & Vision</a></li>
+            
+            <li><a href="about.html#what-we-do">What We Do</a></li>
+            <li><a href="about.html#our-story">Our Story</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+</header>
+
+
 
   <!-- HERO SECTION -->
-<div class="main-wrapper">
+<main class="main-wrapper">
   
   <!-- Main Content -->
 <div class="main-content">
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero" id="res-hero">
 
 <div class="hero-left">
   
@@ -83,10 +160,9 @@ href="resources.css">
 <div class="popular-searches">
 <span class="popular-label">Popular searches:</span>
 <span class="search-tag">CV Templates</span>
-<span class="search-tag">Motivation Letter</span>
+<span class="search-tag">Duolingo</span>
 <span class="search-tag">IELTS Preparation</span>
 <span class="search-tag">Interview Tips</span>
-<span class="search-tag">Personal Statement</span>
 </div>
 
 </div>
@@ -96,7 +172,7 @@ href="resources.css">
 
 
 <!-- Upcoming Deadlines -->
-<section style="margin-bottom: 32px;">
+<section style="margin-bottom: 32px;" id="deadlines-section">
   
 <div class="section-header">
   
@@ -262,8 +338,12 @@ href="resources.css">
 
 </section>
 
+  <div class="scholarship-seal"> 
+    <img src="scholarship-seal.jpg" alt="scholarship seal">
+  </div>
+
 <!-- What to Learn -->
-<section style="margin-bottom: 32px;">
+<section style="margin-bottom: 32px;" id="featured-resources">
   
 <div class="section-header">
 <h2 class="section-title">What do you want to learn today?</h2>
@@ -271,7 +351,7 @@ href="resources.css">
 
 <div class="learn-grid">
   
-<div class="learn-card">
+<div class="learn-card" id="videos">
   
 <div class="learn-icon blue">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -285,7 +365,7 @@ href="resources.css">
 
 </div>
 
-<div class="learn-card">
+<div class="learn-card" id="journey">
   
 <div class="learn-icon orange">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -299,7 +379,7 @@ href="resources.css">
 
 </div>
 
-<div class="learn-card">
+<div class="learn-card" id="documents">
   
 <div class="learn-icon green">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -313,7 +393,7 @@ href="resources.css">
 
 </div>
 
-<div class="learn-card">
+<div class="learn-card" id="language">
   
 <div class="learn-icon purple">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -327,7 +407,7 @@ href="resources.css">
 
 </div>
 
-<div class="learn-card">
+<div class="learn-card" id="faqs">
   
 <div class="learn-icon pink">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -341,7 +421,7 @@ href="resources.css">
 
 </div>
 
-<div class="learn-card">
+<div class="learn-card" id="digital-skills">
   
 <div class="learn-icon brown">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -361,7 +441,7 @@ href="resources.css">
 
 <!--VIDEO SECTION-->
 <!-- Featured Video Tutorials -->
-<section style="margin-bottom: 32px;" class="video-section">
+<section style="margin-bottom: 32px;" class="video-section" id="featured-videos">
   
 <div class="section-header">
 <h2 class="section-title">Featured Video Tutorials</h2>
@@ -370,7 +450,7 @@ href="resources.css">
 
 <div class="videos-grid">
   
-<div class="video-card">
+<div class="video-card" id="motivation-let">
 
     <iframe
         width="100%"
@@ -385,10 +465,21 @@ href="resources.css">
     <div class="video-info">
         <h3 class="video-title">How to Write a Winning Motivation Letter.</h3>
     </div>
-
+  
+    <div class="summary">
+  <li><b><u>Key Takeaways</u></b>
+    <ul>Hook the reader with a memorable opening.</ul>
+  <ul>Align your goals with the sponsor's mission.</ul>
+    <ul>Connect achievements to future purpose.</ul>
+    <ul>Paint a vision of future financial impact.</ul>
+    <ul>Proofread and respect specific.</ul>
+  
+  </li>
+</div>
+  
 </div>
 
-<div class="video-card">
+<div class="video-card" id="application-steps">
 
 <iframe 
 width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -396,10 +487,19 @@ width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="
     <div class="video-info">
         <h3 class="video-title">Scholarship application step-by-step.</h3>
     </div>
+  <div class="summary">
+  <li><b><u>Key Takeaways</u></b>
+    <ul>Start application early.</ul>
+    <ul>Have a holistic review and well rounded profile.</ul>
+    <ul>Credential evaluation and documentation.</ul>
+    <ul>Program-specific requirements(Reach out to institutions and proffesors).</ul>
+    <ul>Financial aid and universoty resources.</ul>
+  </li>
 
+  </div>
 </div>
 
-<div class="video-card">
+<div class="video-card" id="interview-tips">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/q6323JL8a24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -407,27 +507,27 @@ width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="
         <h3 class="video-title">How to prepare for scholarship interviews.</h3>
     </div>
 
-</div>
-<button class="videos-nav">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-</button>
+<div class="summary">
+<li><b><u>Key Takeaways</u></b>
 
-<div>
-<h><b><u>Key Takeaways</u></b></h>
+<ul>Thorough preparation is key.</ul>
+  <ul>Highlight merit and need.</ul>
+  <ul>Demonstrate alignment with institutional values.</ul>
+  <ul>Turning weakness into growth.</ul>
+  <ul>Asking smart closing questions.</ul>
+</li>
 
-<p>Be able to explain your academic goals.<br>
-Support answers with real examples.<br>
-Research the scholarship before the interview.<br>
-Stay consistent with what you wrote in your application.<br>
-Prepare thoughtful questions for the interviewers.</p>
+  
 </div>
+</div>
+
 
 </div>
 
 </section>
 
 <!-- Latest Articles -->
-<section style="margin-bottom: 32px;">
+<section style="margin-bottom: 32px;" id="articles-section">
   
 <div class="section-header">
   
@@ -437,7 +537,7 @@ Prepare thoughtful questions for the interviewers.</p>
 </div>
 
   <!--ARTICLE 1-->
-<div class="article-card">
+<div class="article-card" id="article-1">
 <div class="article-thumb">
 <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop" alt="Article">
 <span class="article-badge">Article</span>
@@ -453,7 +553,7 @@ Prepare thoughtful questions for the interviewers.</p>
 </div>
 
   <!--ARTICLE 2-->
-<div class="article-card">
+<div class="article-card" id="article-2">
 <div class="article-thumb">
 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop" alt="Article">
 <span class="article-badge">Article</span>
@@ -469,7 +569,7 @@ Prepare thoughtful questions for the interviewers.</p>
 </div>
 
   <!--ARTICLE 3--> 
-<div class="article-card">
+<div class="article-card" id="article-3">
 <div class="article-thumb">
 <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=350&fit=crop" alt="Article">
 <span class="article-badge">Article</span>
@@ -485,7 +585,7 @@ Prepare thoughtful questions for the interviewers.</p>
 </div>
 
    <!--ARTICLE 4-->
-<div class="article-card">
+<div class="article-card" id="article-4">
 <div class="article-thumb">
 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop" alt="Article">
 <span class="article-badge">Article</span>
@@ -508,7 +608,7 @@ Prepare thoughtful questions for the interviewers.</p>
 </section>
 
 <!-- CTA Banner -->
-<section class="cta-banner">
+<section class="cta-banner" id="keep-growing">
   
 <div class="cta-left">
   
@@ -579,7 +679,7 @@ Join thousands of students who are preparing today for a better tomorrow.</b>
 </div>
 
 <!-- FAQ -->
-<div class="sidebar-card">
+<div class="sidebar-card" id="frequently-questions">
   
 <h3 class="sidebar-title">Frequently Asked Questions</h3>
 
@@ -601,70 +701,6 @@ Most scholarships are open to students who meet specific eligibility criteria su
 
 </div>
 
-<div class="faq-item">
-  
-<div class="faq-question">
-  
-<span>What documents are usually required?</span>
-
-<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-
-</div>
-
-<div class="faq-answer">
-Common documents include academic transcripts, CV/resume, motivation letter, recommendation letters, language test scores, and proof of identity.
-</div>
-
-</div>
-
-<div class="faq-item">
-  
-<div class="faq-question">
-  
-<span>Can I apply for multiple scholarships?</span>
-
-<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-
-</div>
-
-<div class="faq-answer">
-Yes, you can apply for multiple scholarships simultaneously. In fact, it is recommended to increase your chances of receiving funding.
-</div>
-
-</div>
-
-<div class="faq-item">
-  
-<div class="faq-question">
-  
-<span>Do I need IELTS to apply?</span>
-
-<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-
-</div>
-
-<div class="faq-answer">
-Many scholarships require English proficiency proof. IELTS, TOEFL, and Duolingo are commonly accepted. Some scholarships may waive this requirement.
-</div>
-
-</div>
-
-<div class="faq-item">
-  
-<div class="faq-question">
-  
-<span>How are scholarship recipients selected?</span>
-
-<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-
-</div>
-
-<div class="faq-answer">
-Selection is based on academic merit, leadership potential, community involvement, quality of application materials, and sometimes interviews.
-</div>
-
-</div>
-
 </div>
 
 <a href="FAQs.html" class="view-all" style="margin-top: 16px; justify-content: center;">View all FAQs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
@@ -672,6 +708,8 @@ Selection is based on academic merit, leadership potential, community involvemen
 </div>
 
 </aside>
+  
+</main>
 
 
 
@@ -700,11 +738,10 @@ Selection is based on academic merit, leadership potential, community involvemen
         </div>
 
     </footer>
+  
     
-
-</div>
-</div>
   <script type="module" src="resources.js"></script>
+    
 </body>
   
     </html>
