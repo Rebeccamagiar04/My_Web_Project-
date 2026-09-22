@@ -1,0 +1,212 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5fbff;
+    color: #123b67;
+    line-height: 1.7;
+}
+
+main {
+    width: 100%;
+}
+
+
+
+/* =========================
+   APPLICATION GUIDE
+========================= */
+
+.application-guide {
+    max-width: 950px;
+    margin: 55px auto;
+    padding: 0 25px;
+}
+
+.application-guide > h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #082f52;
+}
+
+.application-guide > p {
+    margin-bottom: 12px;
+    color: #46617c;
+}
+
+
+/* =========================
+   GUIDE SECTIONS
+========================= */
+
+.guide-section {
+    background: white;
+    margin-top: 28px;
+    padding: 30px 32px;
+    border-left: 4px solid #0b4d84;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(8, 47, 82, 0.06);
+}
+
+.guide-section h2 {
+    font-family: Georgia, serif;
+    color: #082f52;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.guide-section p {
+    color: #46617c;
+    margin-bottom: 15px;
+}
+
+.guide-section ul {
+    margin: 10px 0 18px 22px;
+}
+
+.guide-section li {
+    margin-bottom: 7px;
+    color: #355873;
+}
+
+.guide-section a {
+    color: #0b4d84;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.guide-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   COMMON MISTAKES
+========================= */
+
+.common-mistakes {
+    background: #eaf6ff;
+    padding: 65px 25px 70px;
+    margin-top: 70px;
+}
+
+.section-header {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: #082f52;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: #46617c;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   MISTAKE GROUPS
+========================= */
+
+.mistake-group {
+    max-width: 900px;
+    margin: 18px auto;
+    background: white;
+    padding: 24px 28px;
+    border-radius: 6px;
+}
+
+.mistake-group h3 {
+    font-family: Georgia, serif;
+    color: #0b4d84;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.mistake-group ul {
+    margin-left: 20px;
+}
+
+.mistake-group li {
+    color: #46617c;
+    margin-bottom: 6px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .guide-intro {
+        padding: 50px 18px 45px;
+    }
+
+    .guide-intro h1 {
+        font-size: 32px;
+    }
+
+    .guide-intro p {
+        font-size: 15px;
+    }
+
+    .application-guide {
+        margin: 40px auto;
+        padding: 0 16px;
+    }
+
+    .application-guide > h2 {
+        font-size: 26px;
+    }
+
+    .guide-section {
+        padding: 23px 20px;
+        margin-top: 22px;
+    }
+
+    .guide-section h2 {
+        font-size: 21px;
+    }
+
+    .guide-section p,
+    .guide-section li {
+        font-size: 15px;
+    }
+
+    .common-mistakes {
+        padding: 45px 16px 50px;
+        margin-top: 45px;
+    }
+
+    .section-header h2 {
+        font-size: 27px;
+    }
+
+    .mistake-group {
+        padding: 20px;
+    }
+
+    .mistake-group h3 {
+        font-size: 19px;
+    }
+
+    .mistake-group li {
+        font-size: 15px;
+    }
+}
