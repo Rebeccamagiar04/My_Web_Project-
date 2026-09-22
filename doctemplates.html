@@ -13,18 +13,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
      <link rel="stylesheet"
 href="doctemplates.css">
 <style>
-.question {
-  display: none;
-}
-
-.question.active {
-  display: block;
-}
 </style>
 
 </head>
 
-<body>
+<body id="doc-templates">
   <section class="templates-section">
 
   <!-- PAGE TITLE -->
@@ -46,7 +39,8 @@ href="doctemplates.css">
 
       <!-- ACADEMIC CV -->
       <div class="template-card active"
-           data-document="Academic_CV_Writting.pdf" data-reminder="academic-cv">
+           data-document="Academic_CV_Writting.pdf" data-reminder="academic-cv"
+        id="CV">
 
         <div class="template-preview">
           <img
@@ -64,7 +58,8 @@ href="doctemplates.css">
       <!-- MOTIVATION LETTER -->
       <div class="template-card"
            data-document="Motivation_Letter_Example.pdf"
-      data-reminder="motivation-letter">
+      data-reminder="motivation-letter"
+        id="motivation-letter">
 
         <div class="template-preview">
           <img
@@ -117,7 +112,8 @@ href="doctemplates.css">
 
       <!-- PERSONAL STATEMENT -->
       <div class="template-card"
-           data-document="personal statement guide.pdf" data-reminder="personal-statement">
+           data-document="personal statement guide.pdf" data-reminder="personal-statement"
+        id="personal-statement">
 
         <div class="template-preview">
           <img
@@ -150,7 +146,8 @@ href="doctemplates.css">
 
       <!--PROFESSIONAL CV-->
       <div class="template-card"
-           data-document="Professional_CV_Template_Editable.pdf" data-reminder="professional-cv">
+           data-document="Professional_CV_Template_Editable.pdf" data-reminder="professional-cv"
+            id="P-CV">
 
         <div class="template-preview">
           <img
@@ -320,12 +317,624 @@ href="doctemplates.css">
   
 </div>
 
+</section>
+
+  
+
+        <section class="document-guide">
+
+            <div class="guide-container">
+
+                <div class="guide-heading">
+                    <h5 class="section-label"><u>DOCUMENT GUIDE</u></h5>
+                  
+                    <p class="guide-intro">
+                        Explore the documents you may need when preparing
+                        scholarship and university applications.
+                    </p>
+                </div>
 
 
-  </section>
+                <!-- ================= CATEGORY SELECTOR ================= -->
+
+                <div class="category-section">
+
+                    <h2>Choose a category</h2>
+
+                    <p class="category-hint">
+                        Swipe through the categories and tap one to view its documents.
+                    </p>
+
+
+                    <div class="category-selector-wrapper">
+
+                        <button
+                            class="category-scroll-btn category-scroll-left"
+                            type="button"
+                            aria-label="Scroll categories left">
+                            &#10094;
+                        </button>
+
+
+                        <div
+                            class="category-selector"
+                            id="categorySelector"
+                            role="tablist"
+                            aria-label="Document categories">
+
+                            <button
+                                class="category-item active"
+                                type="button"
+                                data-category="identification"
+                                role="tab"
+                              aria-selected="true">
+                                Identification &amp; Status
+                            </button>
+
+                            <button
+                                class="category-item"
+                                type="button"
+                                data-category="academic"
+                                role="tab"
+                              aria-selected="false">
+                                Academic Documents
+                            </button>
+
+                            <button
+                                class="category-item"
+                                type="button"
+                                data-category="language"
+                                role="tab"
+                              aria-selected="false">
+                                Language Proficiency
+                            </button>
+
+                            <button
+                                class="category-item"
+                                type="button"
+                                data-category="essays"
+                                role="tab"
+                              aria-selected="false">
+                                Essays &amp; Statements
+                            </button>
+
+                            <button
+                                class="category-item"
+                                type="button"
+                                data-category="recommendations"
+                                role="tab"
+                              aria-selected="false">
+                                Recommendations
+                            </button>
+
+                            <button
+                                class="category-item"
+                                type="button"
+                                data-category="experience"
+                                role="tab"
+                              aria-selected="false">
+                                Experience &amp; Portfolio
+                            </button>
+
+                            <button
+                                class="category-item"
+                                type="button"
+                                data-category="health"
+                                role="tab"
+                              aria-selected="false">
+                                Health &amp; Travel
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            class="category-scroll-btn category-scroll-right"
+                            type="button"
+                            aria-label="Scroll categories right">
+                            &#10095;
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ACTIVE CATEGORY CONTENT ================= -->
+
+                <div class="document-content" id="documentContent">
+
+
+                    <!-- IDENTIFICATION & STATUS -->
+
+                    <article
+                        class="category-content active"
+                        data-content="identification">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">01</p>
+
+                            <h2>Identification &amp; Status</h2>
+
+                        </div>
+
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>Passport</li>
+                                <li>Refugee identification document</li>
+                                <li>UNHCR documentation</li>
+                                <li>National identification card</li>
+                                <li>Birth certificate</li>
+                                <li>Proof of nationality</li>
+                                <li>Proof of legal residence</li>
+                                <li>Other official identification documents, where applicable</li>
+                            </ul>
+
+                        </div>
+
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Documents that may be used to confirm your
+                                    <strong>identity, nationality, or legal status.</strong>
+                                </p>
+                            </div>
+
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>University applications</li>
+                                    <li>Scholarship applications</li>
+                                    <li>Visa applications</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>
+                                        <strong>Don't have one of these documents?</strong>
+                                        Check whether the institution accepts alternative documentation.
+                                    </li>
+
+                                    <li>
+                                        <strong>Check your name carefully</strong>
+                                        and make sure it is consistent across your documents.
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ACADEMIC DOCUMENTS -->
+
+                    <article
+                        class="category-content"
+                        data-content="academic">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">02</p>
+
+                            <h2>Academic Documents</h2>
+
+                        </div>
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>Secondary school certificate</li>
+                                <li>Academic results slip</li>
+                                <li>Academic transcript</li>
+                                <li>School leaving certificate</li>
+                                <li>Diploma or degree certificate</li>
+                                <li>Grading scale</li>
+                                <li>Other academic records, where applicable</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Documents that show your educational background,
+                                    academic results, qualifications, and previous study.
+                                </p>
+                            </div>
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>University admission</li>
+                                    <li>Scholarship applications</li>
+                                    <li>Academic verification</li>
+                                </ul>
+                            </div>
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>Keep clear digital copies of your academic documents.</li>
+                                    <li>Check whether documents need to be translated or certified.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- LANGUAGE PROFICIENCY -->
+
+                    <article
+                        class="category-content"
+                        data-content="language">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">03</p>
+
+                            <h2>Language Proficiency</h2>
+
+                        </div>
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>IELTS results</li>
+                                <li>TOEFL results</li>
+                                <li>Duolingo English Test results</li>
+                                <li>Other accepted language-test results</li>
+                                <li>Proof of English-medium education, where accepted</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Documents that show your ability to study or communicate
+                                    in the language required by a university or scholarship.
+                                </p>
+                            </div>
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>University admission</li>
+                                    <li>Scholarship applications</li>
+                                    <li>Meeting language requirements</li>
+                                </ul>
+                            </div>
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>Check which language tests your institution accepts.</li>
+                                    <li>Check the required score and validity period before testing.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ESSAYS & STATEMENTS -->
+
+                    <article
+                        class="category-content"
+                        data-content="essays">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">04</p>
+
+                            <h2>Essays &amp; Statements</h2>
+
+                        </div>
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>Motivation letter</li>
+                                <li>Personal statement</li>
+                                <li>Statement of purpose</li>
+                                <li>Study plan</li>
+                                <li>Scholarship essays</li>
+                                <li>Other written responses requested by the provider</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Written documents that help an institution understand
+                                    your goals, experiences, motivation, and plans for the future.
+                                </p>
+                            </div>
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>Scholarship applications</li>
+                                    <li>University applications</li>
+                                    <li>Explaining your academic or career goals</li>
+                                </ul>
+                            </div>
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>Answer the exact question being asked.</li>
+                                    <li>Use specific experiences rather than general statements.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- RECOMMENDATIONS -->
+
+                    <article
+                        class="category-content"
+                        data-content="recommendations">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">05</p>
+
+                            <h2>Recommendations</h2>
+
+                        </div>
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>Recommendation letters</li>
+                                <li>Academic references</li>
+                                <li>Teacher or counsellor references</li>
+                                <li>Employer references, where applicable</li>
+                                <li>Referee contact information</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Letters or references from people who can speak about
+                                    your academic background, character, skills, or experience.
+                                </p>
+                            </div>
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>Scholarship applications</li>
+                                    <li>University admission</li>
+                                    <li>Supporting your experience and achievements</li>
+                                </ul>
+                            </div>
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>Ask your referee early rather than waiting until the deadline.</li>
+                                    <li>Choose someone who knows your work or experience well.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- EXPERIENCE & PORTFOLIO -->
+
+                    <article
+                        class="category-content"
+                        data-content="experience">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">06</p>
+
+                            <h2>Experience &amp; Portfolio</h2>
+
+                        </div>
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>CV or résumé</li>
+                                <li>Work experience records</li>
+                                <li>Volunteer certificates</li>
+                                <li>Leadership certificates</li>
+                                <li>Portfolio</li>
+                                <li>Awards and achievements</li>
+                                <li>Proof of extracurricular activities</li>
+                                <li>Research work or publications, where applicable</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Documents and materials that show what you have done
+                                    outside your formal academic records.
+                                </p>
+                            </div>
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>Scholarship applications</li>
+                                    <li>University applications</li>
+                                    <li>Showing skills, leadership, or experience</li>
+                                </ul>
+                            </div>
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>Keep certificates and evidence of important activities in one place.</li>
+                                    <li>Focus on experiences that are relevant to the application.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- HEALTH & TRAVEL -->
+
+                    <article
+                        class="category-content"
+                        data-content="health">
+
+                        <div class="content-heading">
+
+                            <p class="content-number">07</p>
+
+                            <h2>Health &amp; Travel</h2>
+
+                        </div>
+
+                        <div class="document-list-section">
+
+                            <h3>Documents you may need</h3>
+
+                            <ul class="document-list">
+                                <li>Medical examination form or certificate</li>
+                                <li>Vaccination records</li>
+                                <li>Health insurance documents</li>
+                                <li>Visa documents</li>
+                                <li>Admission or offer letter</li>
+                                <li>Proof of funds, where required</li>
+                                <li>Accommodation confirmation</li>
+                                <li>Travel insurance, where required</li>
+                                <li>Visa photographs</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="guide-explanation">
+
+                            <div class="guide-block">
+                                <h3>What is it?</h3>
+
+                                <p>
+                                    Documents that may be required when preparing for
+                                    travel, visa processing, health checks, or relocation for study.
+                                </p>
+                            </div>
+
+                            <div class="guide-block">
+                                <h3>What may you need them for?</h3>
+
+                                <ul>
+                                    <li>Visa applications</li>
+                                    <li>Travel preparation</li>
+                                    <li>University or scholarship requirements</li>
+                                </ul>
+                            </div>
+
+                            <div class="guide-tip">
+
+                                <h3>💡 Tips</h3>
+
+                                <ul>
+                                    <li>Check the current requirements for your destination.</li>
+                                    <li>Start preparing travel documents early if you are admitted.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+       </div>
+
+            </div>
+        </section>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   
   <script type="module" src="doctemplates.js"></script>
 </body>
-          </html>
+    </html>
