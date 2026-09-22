@@ -50,6 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+/* =========================================================
+   DOCUMENT CATEGORY LINKS
+   ========================================================= */
+
+const documentCards = document.querySelectorAll(".document-card");
+
+documentCards.forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        const category = card.dataset.category;
+
+        if (category) {
+            window.location.href = `doctemplates.html?category=${category}`;
+        }
+
+    });
+
+});
+
+
 // =========================================================
 // IMPACT STATS SLIDER
 // =========================================================
