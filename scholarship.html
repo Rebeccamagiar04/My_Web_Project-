@@ -12,48 +12,130 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
      <!--link CSS file-->
      <link rel="stylesheet"
 href="scholarship.css">
-<style>
-.question {
-  display: none;
-}
-
-.question.active {
-  display: block;
-}
-</style>
-
+  
 </head>
-<body>
+  
+  <body>
 
-     <!-- NAVBAR -->
-    <header>
-        <nav class="navbar">
-            <div class="hamburger" id="Hamburger">   ☰
+  <!-- ================= SITE HEADER & NAVIGATION ================= -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Brand Logo -->
+    <a href="home.html" class="logo">
+      <span class="logo-icon">🎓</span>
+      <span class="logo-text">Portico Kakuma</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="main-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="scholarship.html" class="nav-link">Scholarships</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
+    <div class="header-actions">
+      <!-- Notification System -->
+      <div class="notification-wrapper">
+        <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-badge">3</span>
+        </button>
+        
+        <!-- Notification Dropdown -->
+        <div class="notif-dropdown" id="notifDropdown">
+          <div class="notif-header">
+            <h3>Notifications</h3>
+          </div>
+          <ul class="notif-list">
+            <li>
+              <strong>Chevening Scholarship</strong>
+              <p>Deadline approaching on 06 Oct 2026.</p>
+            </li>
+            <li>
+              <strong>DAAD Scholarship</strong>
+              <p>New application guidance added.</p>
+            </li>
+            <li>
+              <strong>Welcome Corps on Campus</strong>
+              <p>Check updated details on eligibility.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
-           <div class="nav-links" id="navLinks">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a class="active" href="scholarship.html">Scholarships</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">FAQ</a></li>
-            </ul>
-            </div>
-             <div class="logo">
-                <i class="fa-regular fa-heart"></i>
-                <div>
-                    <h2>Hope Horizon</h2>
-                </div>
-            </div>
-            <div class="nav-actions">
-                <button class="login-btn">
-                    <i class="fa-regular fa-user"></i>
-                    Sign In / Register
-                </button>
-            </div>
+  </div>
 
-        </nav>
-    </header>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">Portico Kakuma</span>
+      </div>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="mobile-nav-list">
+        
+        <!-- HOME PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <ul class="sub-nav-list">
+            <li><a href="home.html#how-it-works">A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">Application Essentials</a></li>
+            <li><a href="home.html#common-documents">Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">Tips for Successful Application</a></li>
+          </ul>
+        </li>
+
+        <!-- SCHOLARSHIPS PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+          <ul class="sub-nav-list">
+            <li><a href="scholarship.html#scholarship-search">Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-results">Scholarship Listings</a></li>
+          </ul>
+        </li>
+
+        <!-- RESOURCES PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
+          <ul class="sub-nav-list">
+            <li><a href="resources.html#deadlines-section">Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">Latest Articles & Tips</a></li>
+            <li><a href="resources.html#keep-growing">Keep Growing While You Wait</a></li>
+          </ul>
+        </li>
+
+        <!-- ABOUT PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
+          <ul class="sub-nav-list">
+            <li><a href="about.html#mission-vision">Mission & Vision</a></li>
+            
+            <li><a href="about.html#what-we-do">What We Do</a></li>
+            <li><a href="about.html#our-story">Our Story</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+</header>
+
+
 
     <!-- HERO -->
     <section class="heroScholarship">
@@ -66,8 +148,7 @@ href="scholarship.css">
             </h1>
 
             <p>
-                Discover a variety of scholarships that welcome refugee students
-                and open new doors.
+                Discover a variety of scholarships that welcome refugee students.
             </p>
 
             <div class="verified-badge">
@@ -142,7 +223,8 @@ href="scholarship.css">
             <label for="fundedFilter">Funding</label>
 
             <select id="fundedFilter">
-                <option value="">Fully funded</option>
+               <option value="">Select Funding type</option>
+                <option value="Fully Funded">Fully funded</option>
                 <option value="Partially Funded">Partially Funded</option>                           <option value="Sponsorship model">Sponsorship model</option>
               <option value="Significant Funding">Significant Funding</option>
               <option value="Varies">Varies</option>
@@ -172,13 +254,10 @@ href="scholarship.css">
   <div class="heroScholarship-image">
 
   <img src="S-hero.png" alt="Student">
-
-     </div>
     
-    <!--FUTURE NOTE-->
-    <div class="future-note">
-                Your future is waiting ♡
-    </div>
+  </div>
+
+  
   
       <!-- =========================
      SCHOLARSHIP RESULTS
@@ -196,7 +275,7 @@ href="scholarship.css">
     <div class="scholarship-layout">
 
         <!-- Scholarship Cards -->
-        <div class="scholarship-grid" id="scholarshipGrid">
+         <div class="scholarship-grid" id="scholarshipGrid">
 
             <!-- Your scholarship cards go here -->
       
@@ -831,7 +910,7 @@ href="scholarship.css">
 
                 </div>
 
-          </div>
+          </>
 
     </div>
 
