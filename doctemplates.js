@@ -404,3 +404,148 @@ if (firstReminder) {
 // Load Academic CV PDF
  loadPDF(firstCard.dataset.document, 1);
 }
+
+/* =========================================================
+   DOCUMENTS & TEMPLATES PAGE
+   ========================================================= */
+
+
+/* ================= ELEMENTS ================= */
+
+const categorySelector = document.getElementById("categorySelector");
+const categoryItems = document.querySelectorAll(".category-item");
+const categoryContents = document.querySelectorAll(".category-content");
+
+const leftScrollButton = document.querySelector(".category-scroll-left");
+const rightScrollButton = document.querySelector(".category-scroll-right");
+
+
+/* ================= VALID CATEGORIES ================= */
+
+const validCategories = [
+    "identification",
+    "academic",
+    "language",
+    "essays",
+    "recommendations",
+    "experience",
+    "health"
+];
+
+
+/* ================= SELECT CATEGORY ================= */
+
+function selectCategory(category) {
+
+    if (!validCategories.includes(category)) {
+        category = "identification";
+    }
+
+
+    /* Update category buttons */
+
+    categoryItems.forEach((item) => {
+
+        const isActive = item.dataset.category === category;
+
+        item.classList.toggle("active", isActive);
+
+        item.setAttribute(
+            "aria-selected",
+            isActive ? "true" : "false"
+        );
+
+    });
+
+
+    /* Update document content */
+
+    categoryContents.forEach((content) => {
+
+        const isActive = content.dataset.content === category;
+
+        content.classList.toggle("active", isActive);
+
+    });
+
+
+    /* Bring selected category into view */
+
+    const selectedItem = document.querySelector(
+        `.category-item[data-category="${category}"]`
+    );
+
+    if (selectedItem) {
+
+        selectedItem.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        });
+
+    }
+
+}
+
+
+/* ================= CATEGORY CLICKS ================= */
+
+categoryItems.forEach((item) => {
+
+    item.addEventListener("click", () => {
+
+        const category = item.dataset.category;
+
+        selectCategory(category);
+
+    });
+
+});
+
+
+/* ================= URL CATEGORY ================= */
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const requestedCategory = urlParams.get("category");
+
+
+if (requestedCategory && validCategories.includes(requestedCategory)) {
+
+    selectCategory(requestedCategory);
+
+} else {
+
+    selectCategory("identification");
+
+}
+
+
+/* ================= SCROLL BUTTONS ================= */
+
+if (leftScrollButton) {
+
+    leftScrollButton.addEventListener("click", () => {
+
+        categorySelector.scrollBy({
+            left: -250,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+if (rightScrollButton) {
+
+    rightScrollButton.addEventListener("click", () => {
+
+        categorySelector.scrollBy({
+            left: 250,
+            behavior: "smooth"
+        });
+
+    });
+
+}
