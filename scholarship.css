@@ -701,6 +701,10 @@ nav{position: relative;}
 
 
 /* ================= GRID ================= */
+.scholarship-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
 
 .content-area{
     flex:1;
@@ -716,7 +720,6 @@ nav{position: relative;}
     border-radius:18px;
     box-shadow:0 8px 25px rgba(0,0,0,0.06);
     transition:0.3s;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .scholarship-card:hover{
