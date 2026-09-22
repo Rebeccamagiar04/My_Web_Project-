@@ -475,3 +475,557 @@ line-height: 1.5;
 .reminder-box li:last-child {
   margin-bottom: 0;
 }
+
+/* =========================================================
+   DOCUMENTS & TEMPLATES PAGE
+   ========================================================= */
+
+
+/* ================= PAGE BACKGROUND ================= */
+
+.documents-page {
+    background: #eef7fc;
+    min-height: 100vh;
+    padding: 70px 20px 90px;
+}
+
+.document-guide {
+    width: 100%;
+   border: 1px solid #cfc4d9;
+  border-radius: 5px;
+}
+
+.guide-container {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+
+
+/* ================= DOCUMENT GUIDE HEADING ================= */
+
+.guide-heading {
+    margin-bottom: 42px;
+    color: #000000;
+}
+
+.section-label {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #08306B;
+    text-transform: uppercase;
+}
+
+.guide-intro {
+    max-width: 720px;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #000000;
+}
+
+
+/* ================= CATEGORY SECTION ================= */
+
+.category-section {
+    margin-bottom: 45px;
+}
+
+.category-section h2 {
+    margin: 0 0 8px;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #102f43;
+}
+
+.category-hint {
+    margin: 0 0 22px;
+    color: #000000;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+
+/* ================= CATEGORY SELECTOR ================= */
+
+.category-selector-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+
+/*
+   The category names scroll horizontally.
+   Scrolling does NOT automatically change the
+   active document content.
+*/
+
+.category-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex: 1;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    padding: 5px 2px 10px;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-selector::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ================= CATEGORY BUTTONS ================= */
+
+.category-item {
+    flex: 0 0 auto;
+
+    border: 1px solid #cbdfe9;
+    background: rgba(255, 255, 255, 0.72);
+
+    color: #000000;
+
+    padding: 11px 18px;
+
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.category-item:hover {
+    background: #ffffff;
+    border-color: #9fc8da;
+    color: #164e68;
+}
+
+.category-item:active {
+    transform: scale(0.98);
+}
+
+
+/*
+   This is the category whose CONTENT is currently displayed.
+*/
+
+.category-item.active {
+    background: #174f6b;
+    border-color: #174f6b;
+    color: #ffffff;
+}
+
+
+/* ================= CATEGORY SCROLL BUTTONS ================= */
+
+.category-scroll-btn {
+    flex: 0 0 auto;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #c7dce6;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    color: #174f6b;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.category-scroll-btn:hover {
+    background: #ffffff;
+    border-color: #9fc8da;
+}
+
+.category-scroll-btn:active {
+    transform: scale(0.94);
+}
+
+
+/* ================= DOCUMENT CONTENT ================= */
+
+.document-content {
+    background: #ffffff;
+
+    border: 1px solid #d9e8ef;
+    border-radius: 18px;
+
+    padding: 42px 46px;
+
+    box-shadow: 0 8px 28px rgba(31, 78, 103, 0.06);
+}
+
+
+/* ================= CATEGORY CONTENT ================= */
+
+.category-content {
+    display: none;
+}
+
+.category-content.active {
+    display: block;
+}
+
+
+/* ================= CONTENT HEADING ================= */
+
+.content-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid #e1edf2;
+
+    margin-bottom: 30px;
+}
+
+.content-number {
+    margin: 0;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    color: #4c9bc0;
+
+    letter-spacing: 0.08em;
+}
+
+.content-heading h2 {
+    margin: 0;
+
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    line-height: 1.25;
+
+    color: #102f43;
+}
+
+
+/* ================= DOCUMENT LIST ================= */
+
+.document-list-section {
+    margin-bottom: 38px;
+}
+
+.document-list-section h3,
+.guide-block h3,
+.guide-tip h3 {
+    margin: 0 0 14px;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    color: #183e52;
+}
+
+.document-list {
+    margin: 0;
+    padding-left: 22px;
+
+    columns: 2;
+    column-gap: 50px;
+}
+
+.document-list li {
+    break-inside: avoid;
+
+    margin-bottom: 10px;
+
+    color: #000000;
+
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+
+/* ================= EXPLANATION AREA ================= */
+
+.guide-explanation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 55px;
+    row-gap: 30px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #e1edf2;
+}
+
+.guide-block {
+    min-width: 0;
+}
+
+.guide-block p {
+    margin: 0;
+
+    color: #000000;
+
+    font-size: 0.94rem;
+    line-height: 1.75;
+}
+
+.guide-block ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.guide-block li {
+    margin-bottom: 8px;
+
+    color: #000000;
+
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+
+
+/* ================= TIPS ================= */
+
+.guide-tip {
+    grid-column: 1 / -1;
+
+    padding: 20px 22px;
+
+    background: #f1f9fd;
+
+    border-left: 4px solid #5ba8c9;
+    border-radius: 0 10px 10px 0;
+}
+
+.guide-tip h3 {
+    margin-bottom: 10px;
+}
+
+.guide-tip ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.guide-tip li {
+    margin-bottom: 7px;
+
+    color: #000000;
+
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.guide-tip li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ================= FOCUS STATES ================= */
+
+.category-item:focus-visible,
+.category-scroll-btn:focus-visible {
+    outline: 3px solid rgba(76, 155, 192, 0.3);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .documents-page {
+        padding: 55px 18px 70px;
+    }
+
+    .document-content {
+        padding: 35px 30px;
+    }
+
+    .document-list {
+        columns: 1;
+    }
+
+    .guide-explanation {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .guide-tip {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .documents-page {
+        padding: 42px 14px 60px;
+    }
+
+    .guide-heading {
+        margin-bottom: 34px;
+    }
+
+    .guide-intro {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .category-section {
+        margin-bottom: 32px;
+    }
+
+    .category-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .category-hint {
+        font-size: 0.86rem;
+        margin-bottom: 17px;
+    }
+
+
+    /* Hide the arrows on small screens.
+       The user can swipe the category selector naturally. */
+
+    .category-scroll-btn {
+        display: none;
+    }
+
+    .category-selector-wrapper {
+        display: block;
+    }
+
+    .category-selector {
+        width: 100%;
+        gap: 8px;
+        padding-bottom: 8px;
+    }
+
+    .category-item {
+        padding: 10px 15px;
+        font-size: 0.84rem;
+    }
+
+
+    /* ================= DOCUMENT CONTENT ================= */
+
+    .document-content {
+        padding: 28px 21px;
+        border-radius: 14px;
+    }
+
+    .content-heading {
+        gap: 11px;
+        padding-bottom: 18px;
+        margin-bottom: 25px;
+    }
+
+    .content-heading h2 {
+        font-size: 1.4rem;
+    }
+
+    .document-list-section {
+        margin-bottom: 30px;
+    }
+
+    .document-list-section h3,
+    .guide-block h3,
+    .guide-tip h3 {
+        font-size: 0.95rem;
+    }
+
+    .document-list {
+        padding-left: 19px;
+    }
+
+    .document-list li {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    .guide-explanation {
+        padding-top: 25px;
+        gap: 25px;
+    }
+
+    .guide-block p,
+    .guide-block li {
+        font-size: 0.9rem;
+    }
+
+    .guide-tip {
+        padding: 17px 18px;
+    }
+
+    .guide-tip li {
+        font-size: 0.88rem;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .documents-page {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .document-content {
+        padding: 24px 17px;
+    }
+
+    .content-heading h2 {
+        font-size: 1.25rem;
+    }
+
+    .category-item {
+        padding: 9px 13px;
+        font-size: 0.8rem;
+    }
+
+}
