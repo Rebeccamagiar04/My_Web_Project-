@@ -258,6 +258,14 @@ line-height: 1.5;
   text-decoration: underline;
 }
 
+.test-logo {
+  width: 110px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 18px;
+}
+
 
 /* =========================
    COMPARISON TABLE
@@ -1088,4 +1096,4 @@ line-height: 1.5;
         font-size: 12.5px;
     }
 
-  }
+    }
