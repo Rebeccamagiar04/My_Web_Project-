@@ -20,8 +20,8 @@ body {
 }
 
 a {
+    color: #800080;
     text-decoration: none;
-    color: inherit;
 }
 
 button {
@@ -50,7 +50,7 @@ h2 {
 }
 
 p {
-    color: #46617c;
+    color: #000000;
 }
 
 
@@ -349,7 +349,7 @@ p {
 
   transition: color 0.2s ease;
 
-  background:#0C4A7A;
+  background: #90D5ff;
 }
 
 .group-title:hover {
@@ -489,7 +489,7 @@ p {
     font-size: 19px;
     font-weight: 500;
 
-    color: #16486f;
+    color: #000000;
 }
 
 .welcome-content h1 {
@@ -509,7 +509,7 @@ p {
 
     line-height: 1.7;
 
-    color: #355873;
+    color: #000000;
 }
 
 
@@ -627,6 +627,23 @@ section {
     color: #103e69;
 }
 
+
+/* =========================
+   HERO IMAGE
+   ========================= */
+
+.sep-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sep-image img {
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
 /* =========================================================
    8. WHY HOPE HORIZON
@@ -762,7 +779,7 @@ section {
 
     font-size: 13px;
 
-    color: #52708c;
+    color: #000000;
 }
 
 .application-card li::before {
@@ -922,7 +939,7 @@ section {
 
     font-size: 14px;
 
-    color: #49677f;
+    color: #000000;
 }
 
 .tips-list li::before {
@@ -970,7 +987,7 @@ section {
 }
 
 .impact-section h2,
-.impact-section .eyebrow {
+.impact-section {
     color: white;
 }
 
@@ -1099,6 +1116,9 @@ section {
 
 .final-cta .primary-btn {
     margin-top: 20px;
+    background-color: #A3C1E0;
+    border-radius: 20px;
+    font-size: 20px;
 }
 
 
