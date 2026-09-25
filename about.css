@@ -1234,204 +1234,138 @@ margin-bottom: 0;
 }
 
 /* =========================================================
-WHAT WE DO
+WHAT WE DO & OUR GOALS TABLE
 ========================================================= */
 
-.services {
-background: #f8fbff;
+.services-goals {
+    background: #ffffff;
 }
 
-.service-list {
-max-width: 850px;
-
-margin: auto;
-
-list-style: none;
-
+.table-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
 }
 
-.service-list li {
-display: flex;
-align-items: center;
-
-gap: 18px;
-
-padding: 18px 0;
-
-border-bottom: 1px solid var(--border-light);
-
-color: var(--text-medium);
-
-font-size: 1rem;
-
-transition: 0.3s;
-
+.services-goals-table {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-collapse: collapse;
 }
 
-.service-list li:last-child {
-border-bottom: none;
+/* TABLE HEADINGS */
+
+.services-goals-table thead {
+    background: #0B2A43;
 }
 
-.service-list li:hover {
-padding-left: 10px;
+.services-goals-table thead th {
+    padding: 18px 22px;
+
+    background: #0B2A43;
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    border: 1px solid #000000;
 }
 
-.service-list i {
-width: 38px;
-height: 38px;
+/* TABLE BODY */
 
-display: flex;
-justify-content: center;
-align-items: center;
+.services-goals-table tbody td {
+    padding: 18px 22px;
 
-flex-shrink: 0;
+    background: #ffffff;
+    color: #17212B;
 
-background: var(--blue-soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
 
-color: var(--primary);
-
-border-radius: 50%;
-
-font-size: 0.9rem;
-
+    border: 1px solid #000000;
 }
 
-/* =========================================================
-GOALS
-========================================================= */
+/* ALTERNATING ROWS */
 
-.goals {
-background: #FAE8ED
+.services-goals-table tbody tr:nth-child(even) td {
+    background: #F3F8FC;
 }
 
-.goal-list {
-max-width: 850px;
+/* ORANGE CHECK ICON */
 
-margin: auto;
-
+.services-goals-table td i {
+    color: #F5A400;
+    margin-right: 10px;
 }
 
-.goal-item {
-display: flex;
-align-items: center;
+/* HOVER */
 
-gap: 25px;
-
-padding: 20px 0;
-
-border-bottom: 1px solid var(--border);
-
+.services-goals-table tbody tr:hover td {
+    background: #FFF8E8;
 }
-
-.goal-item:last-child {
-border-bottom: none;
-}
-
-.goal-number {
-min-width: 45px;
-
-font-size: 0.85rem;
-
-font-weight: 700;
-
-color: var(--primary);
-
-}
-
-.goal-item p {
-color: var(--text-medium);
-
-font-size: 1rem;
-
-}
-
-
-/*SEPERATING GOALS AND VALUES*/
-.about-img {
-overflow: hidden;
-
-border-radius: 20px;
-
-}
-
-.about-img img {
-display: block;
-
-width: 100%;
-
-border-radius: 20px;
-
-transition: 0.5s;
-
-}
-
-.about-img img:hover {
-transform: scale(1.04);
-}
-
-/* =========================================================
+  /* =========================================================
 VALUES
 ========================================================= */
 
 .values {
-background: var(--blue-light);
+    background: var(--blue-light);
 }
 
 .values-grid {
-max-width: 1150px;
+    max-width: 1150px;
 
-margin: auto;
+    margin: auto;
 
-display: grid;
-grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 
-gap: 20px;
-
+    gap: 20px;
 }
 
 .value-item {
-text-align: center;
+    text-align: center;
 
-padding: 25px 15px;
-  
-background: #FFA500;
+    padding: 25px 15px;
 
+    background: #ffffff;
+
+    border-radius: 12px;
 }
 
 .value-item i {
-width: 55px;
-height: 55px;
+    width: 55px;
+    height: 55px;
 
-display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-margin: 0 auto 18px;
+    margin: 0 auto 18px;
 
-border-radius: 50%;
+    border-radius: 50%;
 
-background: #ffffff;
+    background: #FFA500;
 
-color: var(--primary);
+    color: #ffffff;
 
-font-size: 1.25rem;
-
+    font-size: 1.25rem;
 }
 
 .value-item h3 {
-color: var(--text-dark);
+    color: var(--text-dark);
 
-font-size: 1rem;
+    font-size: 1rem;
 
-margin-bottom: 8px;
-
+    margin-bottom: 8px;
 }
 
 .value-item p {
-color: var(--text-light);
+    color: var(--text-light);
 
-font-size: 0.85rem;
-
+    font-size: 0.85rem;
 }
 
 
