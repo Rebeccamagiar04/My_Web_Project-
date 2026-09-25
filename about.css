@@ -38,7 +38,10 @@ img {
    2. GENERAL TYPOGRAPHY
    ========================================================= */
 
-h1,
+h1{
+  color: #ffffff;
+}
+
 h2,
 h3 {
     font-family: serif, Georgia, "Times New Roman";
@@ -904,79 +907,102 @@ p {
 }
 
 /* =========================================================
-BY THE NUMBERS
+   BY THE NUMBERS
 ========================================================= */
 
 .numbers {
-background: #ffffff;
+    background: #f8fbff;
+    padding: 90px 6%;
 }
 
 .numbers-grid {
-max-width: 1200px;
-margin: auto;
+    max-width: 1200px;
+    margin: 45px auto 0;
 
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-
-border-top: 1px solid var(--border-light);
-border-bottom: 1px solid var(--border-light);
-
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
 }
 
+/* Individual statistic */
 .number-item {
-padding: 35px 22px;
+    background: #ffffff;
 
-text-align: center;
+    padding: 32px 20px;
 
-border-right: 1px solid var(--border-light);
+    text-align: center;
 
-transition: 0.3s;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
 
-}
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.05);
 
-.number-item:last-child {
-border-right: none;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
 }
 
 .number-item:hover {
-background: var(--blue-pale);
+    transform: translateY(-5px);
+
+    border-color: #cfe0f5;
+
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.09);
 }
 
+/* Icon */
 .number-item i {
-font-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-color: var(--primary);
+    width: 52px;
+    height: 52px;
 
-margin-bottom: 18px;
+    margin-bottom: 18px;
 
+    border-radius: 50%;
+
+    background: var(--blue-soft);
+    color: var(--primary);
+
+    font-size: 1.35rem;
 }
 
+/* Number */
 .number-item h3 {
-font-size: 1.45rem;
+    margin-bottom: 10px;
 
-margin-bottom: 10px;
+    color: var(--text-dark);
 
-color: var(--text-dark);
-
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
+/* Description */
 .number-item p {
-color: var(--text-light);
+    margin: 0;
 
-font-size: 0.9rem;
+    color: var(--text-light);
 
+    font-size: 0.88rem;
+    line-height: 1.6;
 }
 
+/* Source */
 .numbers-source {
-text-align: center;
+    max-width: 700px;
 
-margin-top: 25px;
+    margin: 30px auto 0;
 
-font-size: 0.78rem;
+    text-align: center;
 
-color: #94a3b8;
+    color: #94a3b8;
 
+    font-size: 0.78rem;
+    line-height: 1.5;
 }
+
 
 /* =========================================================
 MISSION & VISION
@@ -1003,8 +1029,8 @@ background: #ffffff;
 padding: 42px;
 
 border: 1px solid var(--border);
-
-border-radius: 20px;
+background:#FFA500;
+border-radius: 50px 0;
 
 box-shadow: 0 8px 30px rgba(37, 99, 235, 0.05);
 
@@ -1054,12 +1080,165 @@ font-size: 0.98rem;
 margin-bottom: 0;
 }
 
+
+/* =========================================================
+   MY STORY
+========================================================= */
+
+.story {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 90px 6%;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    background: #ffffff;
+}
+
+
+/* IMAGE */
+
+.story-image {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+}
+
+.story-image img {
+    width: 100%;
+    height: 600px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 22px;
+
+    transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.03);
+}
+
+
+/* CONTENT */
+
+.story-content {
+    max-width: 650px;
+}
+
+.story-content .small-label {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--primary);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.story-content h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+
+    line-height: 1.15;
+
+    color: var(--text-dark);
+
+    margin-bottom: 28px;
+}
+
+
+.story-content p {
+    margin-bottom: 20px;
+
+    color: var(--text-medium);
+
+    font-size: 0.98rem;
+
+    line-height: 1.85;
+}
+
+
+/* HIGHLIGHT */
+
+.story-highlight {
+    margin: 30px 0;
+
+    padding: 25px 28px;
+
+    background: var(--blue-soft);
+
+    border-left: 4px solid var(--primary);
+
+    border-radius: 0 14px 14px 0;
+}
+
+
+.story-highlight i {
+    color: var(--primary);
+
+    font-size: 1.2rem;
+
+    margin-bottom: 10px;
+}
+
+
+.story-highlight p {
+    margin: 0;
+
+    color: var(--text-dark);
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+}
+
+
+.story-highlight strong {
+    color: var(--primary);
+}
+
+
+/* FINAL MESSAGE */
+
+.story-ending {
+    display: block;
+
+    margin-top: 30px;
+
+    padding: 20px 0 0 20px;
+
+    border-left: 4px solid var(--primary);
+
+    color: var(--primary);
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+}
+
 /* =========================================================
 WHAT WE DO
 ========================================================= */
 
 .services {
-background: #ffffff;
+background: #f8fbff;
 }
 
 .service-list {
@@ -1122,7 +1301,7 @@ GOALS
 ========================================================= */
 
 .goals {
-background: var(--blue-pale);
+background: #FAE8ED
 }
 
 .goal-list {
@@ -1166,6 +1345,30 @@ font-size: 1rem;
 
 }
 
+
+/*SEPERATING GOALS AND VALUES*/
+.about-img {
+overflow: hidden;
+
+border-radius: 20px;
+
+}
+
+.about-img img {
+display: block;
+
+width: 100%;
+
+border-radius: 20px;
+
+transition: 0.5s;
+
+}
+
+.about-img img:hover {
+transform: scale(1.04);
+}
+
 /* =========================================================
 VALUES
 ========================================================= */
@@ -1190,6 +1393,8 @@ gap: 20px;
 text-align: center;
 
 padding: 25px 15px;
+  
+background: #FFA500;
 
 }
 
@@ -1229,148 +1434,150 @@ font-size: 0.85rem;
 
 }
 
-/* =========================================================
-OUR STORY
-========================================================= */
 
-.story {
-background: #ffffff;
-
-max-width: 1300px;
-
-margin: auto;
-
-display: grid;
-
-grid-template-columns: 1fr 1fr;
-
-gap: 70px;
-
-align-items: center;
-
-}
-
-.story-image {
-overflow: hidden;
-
-border-radius: 20px;
-
-}
-
-.story-image img {
-display: block;
-
-width: 100%;
-
-border-radius: 20px;
-
-transition: 0.5s;
-
-}
-
-.story-image img:hover {
-transform: scale(1.04);
-}
-
-.story-content h2 {
-font-size: 2.2rem;
-
-color: var(--text-dark);
-
-margin-bottom: 25px;
-
-}
-
-.story-content p {
-margin-bottom: 20px;
-
-color: var(--text-light);
-
-line-height: 1.9;
-
-}
-
-.story-content strong {
-display: block;
-
-margin-top: 25px;
-
-padding-left: 20px;
-
-border-left: 4px solid var(--primary);
-
-font-size: 1.1rem;
-
-color: var(--primary);
-
-}
 
 /* =========================================================
-CALL TO ACTION
+   CALL TO ACTION
 ========================================================= */
 
 .about-cta {
-background: var(--blue-light);
+    background: #071426;
+
+    padding: 80px 6%;
+
+    position: relative;
+    overflow: hidden;
 }
+
+
+/* Subtle background glow */
+
+.about-cta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    background: rgba(37, 99, 235, 0.12);
+
+    border-radius: 50%;
+
+    top: -220px;
+    right: -100px;
+
+    filter: blur(10px);
+}
+
+
+/* CTA content */
 
 .cta-content {
-max-width: 1100px;
+    max-width: 1100px;
 
-margin: auto;
+    margin: auto;
 
-display: flex;
+    display: flex;
 
-justify-content: space-between;
+    justify-content: space-between;
 
-align-items: center;
+    align-items: center;
 
-gap: 40px;
+    gap: 45px;
 
+    position: relative;
+    z-index: 1;
 }
+
+
+/* Small label */
+
+.cta-content .small-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #93c5fd;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* Heading */
 
 .cta-content h2 {
-color: var(--text-dark);
+    color: #ffffff;
 
-font-size: 2rem;
+    font-size: clamp(2rem, 4vw, 2.7rem);
 
-margin-bottom: 10px;
+    line-height: 1.2;
 
+    margin-bottom: 14px;
+
+    max-width: 650px;
 }
+
+
+/* Description */
 
 .cta-content p {
-color: var(--text-light);
+    color: #b8c7d9;
 
-max-width: 600px;
+    max-width: 600px;
 
+    font-size: 0.98rem;
+
+    line-height: 1.7;
+
+    margin: 0;
 }
 
+
+/* Button */
+
 .primary-btn {
-display: inline-block;
+    display: inline-block;
 
-background: var(--primary);
+    background: #ffffff;
 
-color: #ffffff;
+    color: var(--primary);
 
-padding: 14px 28px;
+    padding: 14px 28px;
 
-border-radius: 10px;
+    border-radius: 10px;
 
-font-weight: 600;
+    font-weight: 600;
 
-text-decoration: none;
+    text-decoration: none;
 
-white-space: nowrap;
+    white-space: nowrap;
 
-transition: 0.3s;
+    border: 1px solid #ffffff;
 
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .primary-btn:hover {
-background: var(--primary-dark);
+    background: var(--blue-soft);
 
-transform: translateY(-3px);
+    color: var(--primary-dark);
 
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
 
 /* =========================================================
 FOOTER
@@ -1497,17 +1704,37 @@ TABLET
 .values-grid {
     grid-template-columns: repeat(3, 1fr);
 }
+  
+.about-cta {
+        padding: 70px 6%;
+    }
+ .cta-content {
+        flex-direction: column;
 
-.cta-content {
-    flex-direction: column;
+        align-items: flex-start;
 
-    text-align: center;
+        gap: 30px;
+    }
+
 }
 
-.cta-content p {
-    margin: auto;
-}
+@media (max-width: 900px) {
 
+    .story {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 75px 6%;
+    }
+
+    .story-image img {
+        height: 420px;
+    }
+
+    .story-content {
+        max-width: 750px;
+    }
 }
 
 /* =========================================================
@@ -1628,11 +1855,11 @@ MOBILE NAVIGATION
 /* Sections */
 
 section {
-    padding: 70px 6%;
+    padding: 65px 6%;
 }
 
 .section-heading {
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .section-heading h2 {
@@ -1641,24 +1868,38 @@ section {
 
 
 /* Numbers */
+    .numbers {
+        padding: 65px 6%;
+    }
 
-.numbers-grid {
-    grid-template-columns: 1fr;
+    .numbers-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
 
-    border-top: none;
-}
+        margin-top: 35px;
+    }
 
-.number-item {
-    border-right: none;
+    .number-item {
+        padding: 28px 20px;
+    }
 
-    border-bottom: 1px solid var(--border-light);
+    .number-item i {
+        width: 48px;
+        height: 48px;
 
-    padding: 30px 20px;
-}
+        margin-bottom: 15px;
 
-.number-item:last-child {
-    border-bottom: none;
-}
+        font-size: 1.2rem;
+    }
+
+    .number-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .number-item p {
+        font-size: 0.86rem;
+    }
+
 
 
 /* Mission */
@@ -1669,6 +1910,41 @@ section {
     text-align: left;
 }
 
+    .story {
+        padding: 60px 6%;
+
+        gap: 35px;
+    }
+
+    .story-image {
+        border-radius: 16px;
+    }
+
+    .story-image img {
+        height: 330px;
+
+        border-radius: 16px;
+    }
+
+    .story-content h2 {
+        font-size: 1.9rem;
+
+        margin-bottom: 22px;
+    }
+
+    .story-content p {
+        font-size: 0.93rem;
+
+        line-height: 1.8;
+    }
+
+    .story-highlight {
+        padding: 20px;
+    }
+
+    .story-ending {
+        font-size: 0.98rem;
+    }
 
 /* Values */
 
@@ -1677,28 +1953,33 @@ section {
 }
 
 .value-item {
-    padding: 15px 20px;
-}
-
-
-/* Story */
-
-.story {
-    text-align: left;
-
-    gap: 40px;
-}
-
-.story-content h2 {
-    font-size: 1.9rem;
+    padding: 20px;
 }
 
 
 /* CTA */
 
-.cta-content h2 {
-    font-size: 1.65rem;
-}
+.about-cta {
+        padding: 60px 6%;
+    }
+
+    .cta-content {
+        gap: 25px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.9rem;
+    }
+
+    .cta-content p {
+        font-size: 0.92rem;
+    }
+
+    .primary-btn {
+        width: 100%;
+
+        text-align: center;
+    }
 
 
 /* Footer */
@@ -1743,4 +2024,4 @@ SMALL PHONES
     min-width: 35px;
 }
 
-}
+   }
