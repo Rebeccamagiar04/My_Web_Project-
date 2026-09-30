@@ -1,57 +1,51 @@
-/* =========================================
-   APPLICATION GUIDES - STEP NAVIGATION
-   ========================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Get all guide cards
+    // Get page elements
     const cards = document.querySelectorAll(".guide-card");
-
-    // Get progress buttons
     const progressSteps = document.querySelectorAll(".progress-step");
-
-    // Get navigation buttons
     const nextButton = document.getElementById("nextStep");
     const previousButton = document.getElementById("previousStep");
-
-    // Current step
     const currentStepDisplay = document.getElementById("currentStep");
 
-    // Start at step 1
     let currentStep = 1;
-
-    // Total number of steps
     const totalSteps = cards.length;
 
 
-    /* =========================================
-       SHOW A PARTICULAR STEP
-       ========================================= */
+    // Show the selected step
+    function showStep(step, shouldScroll = true) {
 
-  // @ts-ignore
-    function showStep(step) {
-
-        // Remove active class from every card
         cards.forEach(card => {
             card.classList.remove("active");
         });
 
-        // Add active class to the selected card
         const selectedCard = document.querySelector(
             `.guide-card[data-card="${step}"]`
         );
 
         if (selectedCard) {
             selectedCard.classList.add("active");
+
+            // Scroll to the new step
+            if (shouldScroll) {
+                const headerOffset = 20;
+
+                const cardPosition =
+                    selectedCard.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerOffset;
+
+                window.scrollTo({
+                    top: cardPosition,
+                    behavior: "smooth"
+                });
+            }
         }
 
 
-        // Update progress circles
+        // Update progress indicator
         progressSteps.forEach(progressStep => {
 
-            const stepNumber = Number(
-                progressStep.dataset.step
-            );
+            const stepNumber = Number(progressStep.dataset.step);
 
             progressStep.classList.remove("active");
 
@@ -62,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        // Update "STEP X OF 12"
+        // Update step number inside the card
         const stepNumberText = document.querySelector(
             `.guide-card[data-card="${step}"] .step-number`
         );
@@ -73,25 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        // Update bottom counter
+        // Update step counter
         if (currentStepDisplay) {
             currentStepDisplay.textContent = step;
         }
 
 
-        // Disable Back button on first step
+        // Enable or disable the Back button
         if (previousButton) {
-
-            if (step === 1) {
-                previousButton.disabled = true;
-            } else {
-                previousButton.disabled = false;
-            }
-
+            previousButton.disabled = step === 1;
         }
 
 
-        // Change Next button on final step
+        // Update the Next button
         if (nextButton) {
 
             if (step === totalSteps) {
@@ -111,15 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         }
-
     }
 
 
-
-    /* =========================================
-       NEXT BUTTON
-       ========================================= */
-
+    // Next Step button
     if (nextButton) {
 
         nextButton.addEventListener("click", () => {
@@ -137,11 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-    /* =========================================
-       PREVIOUS BUTTON
-       ========================================= */
-
+    // Previous Step button
     if (previousButton) {
 
         previousButton.addEventListener("click", () => {
@@ -159,11 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-    /* =========================================
-       PROGRESS CIRCLE BUTTONS
-       ========================================= */
-
+    // Progress step buttons
     progressSteps.forEach(progressStep => {
 
         progressStep.addEventListener("click", () => {
@@ -181,11 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
-    /* =========================================
-       INITIALIZE
-       ========================================= */
-
-    showStep(currentStep);
+    // Show the first step without scrolling on page load
+    showStep(currentStep, false);
 
 });
