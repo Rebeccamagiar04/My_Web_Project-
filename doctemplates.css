@@ -1,58 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-html{
-    scroll-behavior:smooth;
-}
+/* =========================================================
+GLOBAL
+========================================================= */
+
 :root {
---primary: #1a56db;
---primary-light: #e8effd;
---primary-hover: #1e429f;
---text-dark: #111827;
---text-medium: #374151;
---text-light: #6b7280;
---text-lighter: #9ca3af;
---bg-white: #ffffff;
---bg-light: #f8fafc;
---bg-card: #ffffff;
---border: #e5e7eb;
---border-light: #f1f5f9;
---green: #059669;
---green-light: #d1fae5;
---orange: #d97706;
---orange-light: #fef3c7;
---red: #dc2626;
---red-light: #fee2e2;
---purple: #7c3aed;
---purple-light: #ede9fe;
---pink: #db2777;
---pink-light: #fce7f3;
---teal: #0d9488;
---teal-light: #ccfbf1;
+--navy: #071a2b;
+--deep-blue: #0b2742;
+--blue: #16466d;
+--light-blue: #eef6fc;
+--soft-blue: #dcecf8;
+
+--text: #17212b;
+--muted: #66727d;
+--border: #dce3e8;
+--white: #ffffff;
+
+--light-purple: #eee6f7;
+--purple-text: #5c4770;
+
+--orange: #d98a24;
+
+--viewer: #20252b;
+
+--shadow: 0 10px 30px rgba(7, 26, 43, 0.08);
+--radius: 18px;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+html {
+scroll-behavior: smooth;
 }
 
 body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-color: var(--text-dark);
-background: var(--bg-light);
-line-height: 1.5;
+font-family: 'Poppins', sans-serif;
+color: var(--text);
+background: var(--white);
+line-height: 1.6;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-color: var(--text-dark);
-background: var(--bg-light);
-line-height: 1.5;
+img {
+display: block;
+max-width: 100%;
 }
-/* =====================================================
-   TEMPLATES & DOCUMENTS
-   ===================================================== */
+
+button,
+a {
+font-family: inherit;
+}
+
+a {
+text-decoration: none;
+}
+
+button {
+border: none;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 16px;
+
+    background: #f4f7fb;
+    color: #123b67;
+
+    border: 1px solid #d9e2ec;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.back-button i {
+    font-size: 13px;
+}
+
+.back-button:hover {
+    background: #123b67;
+    color: #ffffff;
+    border-color: #123b67;
+    transform: translateX(-2px);
+}
+
+/* =========================================================
+PAGE INTRO
+========================================================= */
+
+.document-resources {
+width: 100%;
+overflow: hidden;
+}
+
+.resources-intro {
+background: var(--navy);
+color: var(--white);
+padding: 90px 30px 85px;
+}
+
+.resources-intro-inner {
+max-width: 1100px;
+margin: 0 auto;
+}
+
+.resources-intro .section-label {
+margin-bottom: 18px;
+}
+
+.section-label {
+color: var(--orange);
+font-size: 0.76rem;
+font-weight: 700;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+}
+
+.resources-intro h1 {
+max-width: 780px;
+font-size: clamp(2.4rem, 5vw, 4.2rem);
+line-height: 1.08;
+font-weight: 600;
+letter-spacing: -1.5px;
+margin-bottom: 24px;
+}
+
+.intro-text {
+max-width: 680px;
+color: #d7e1ea;
+font-size: 1.05rem;
+line-height: 1.8;
+}
+
+/*TEMPLATES SECTION*/
 
 .templates-section {
   width: 100%;
@@ -61,32 +154,6 @@ line-height: 1.5;
   padding: 70px 30px;
   box-sizing: border-box;
 }
-
-
-/* =========================
-   PAGE HEADER
-   ========================= */
-
-.templates-header {
-  margin-bottom: 45px;
-}
-
-.templates-header h2 {
-  font-size: 42px;
-  color: #0b1f3a;
-  margin: 0 0 12px;
-  font-weight: 700;
-}
-
-.templates-header p {
-  max-width: 650px;
-  font-size: 17px;
-  line-height: 1.7;
-  color: #667085;
-  margin: 0;
-}
-
-
 /* =========================
    BROWSE TEMPLATES
    ========================= */
@@ -191,22 +258,37 @@ line-height: 1.5;
 /* =========================
    PDF DOCUMENT VIEWER
    ========================= */
-
 .document-viewer {
+/* Allow scrolling when document is larger than screen */
+  overflow: auto;
+
   width: 100%;
   height: 720px;
 
   background: #20252b;
 
   border-radius: 50px 0;
-  padding: 20px;
+  padding: 15px;
 
   box-sizing: border-box;
-
-  /* Allow scrolling when document is larger than screen */
-  overflow: auto;
 }
 
+/* =========================================================
+   WIDER DOCUMENT VIEWER
+========================================================= */
+
+.document-viewer-section {
+    width: calc(100% + 140px);
+    margin-left: -70px;
+    margin-right: -70px;
+}
+
+.document-viewer {
+    width: 100%;
+    height: 720px;
+    overflow: auto;
+    border-radius: 50px 0;
+}
 
 /* =========================
    PDF PAGES
@@ -219,7 +301,7 @@ line-height: 1.5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 
@@ -287,155 +369,6 @@ line-height: 1.5;
   padding: 40px 20px;
 }
 
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 700px) {
-
-  .document-viewer {
-    height: 700px;
-    padding: 12px;
-
-    overflow-x: auto;
-    overflow-y: auto;
-  }
-
-  #pdf-container canvas {
-    width: auto;
-    max-width: none;
-  }
-
-}
-
-
-
-/* =====================================================
-   BACKGROUND / VISUAL AREA
-   ===================================================== */
-
-/*
-   We'll use this later when we add the laptop image.
-
-   The image can sit subtly behind the Templates section
-   without interfering with the document viewer.
-*/
-
-.templates-section {
-  position: relative;
-  overflow: hidden;
-}
-
-
-/* =====================================================
-   RESPONSIVE DESIGN
-   ===================================================== */
-
-@media (max-width: 1000px) {
-
-  .template-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .more-templates .template-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-}
-
-
-@media (max-width: 700px) {
-
-  .templates-section {
-    padding: 50px 18px;
-  }
-
-  .templates-header h2 {
-    font-size: 32px;
-  }
-
-  .templates-header p {
-    font-size: 15px;
-  }
-
-  .template-cards {
-    display: flex;
-    overflow-x: auto;
-    gap: 14px;
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
-  }
-
-  .template-card {
-    min-width: 175px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-  }
-
-  .template-preview {
-    height: 160px;
-  }
-
-  .document-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .document-header h3 {
-    font-size: 20px;
-  }
-
-  .download-btn {
-    width: 100%;
-  }
-  
-  .document-viewer {
-  width: calc(100% + 36px);
-  margin-left: -18px;
-
-  height: 600px;
-  padding: 8px;
-
-  overflow-x: auto;
-  overflow-y: auto;
-
-  touch-action: pan-x pan-y;
-  }
-
-  #pdf-container canvas {
-    width: auto;
-    max-width: none;
-  }
-
-  .more-templates .template-cards {
-    display: flex;
-    overflow-x: auto;
-  }
-
-}
-
-
-@media (max-width: 450px) {
-
-  .templates-header h2 {
-    font-size: 28px;
-  }
-
-  .template-card {
-    min-width: 155px;
-  }
-
-  .template-preview {
-    height: 145px;
-  }
-
-  .document-viewer {
-    height: 500px;
-  }
-
-}
-
 /* =====================================================
    DOCUMENT REMINDERS
    ===================================================== */
@@ -476,556 +409,444 @@ line-height: 1.5;
   margin-bottom: 0;
 }
 
+
 /* =========================================================
-   DOCUMENTS & TEMPLATES PAGE
-   ========================================================= */
-
-
-/* ================= PAGE BACKGROUND ================= */
-
-.documents-page {
-    background: #eef7fc;
-    min-height: 100vh;
-    padding: 70px 20px 90px;
-}
+DOCUMENT GUIDE
+========================================================= */
 
 .document-guide {
-    width: 100%;
-   border: 1px solid #cfc4d9;
-  border-radius: 5px;
+background: var(--light-blue);
+padding: 90px 30px 100px;
 }
 
 .guide-container {
-    width: min(1100px, 100%);
-    margin: 0 auto;
+max-width: 1200px;
+margin: 0 auto;
 }
-
-
-/* ================= DOCUMENT GUIDE HEADING ================= */
 
 .guide-heading {
-    margin-bottom: 42px;
-    color: #000000;
+max-width: 760px;
+margin-bottom: 50px;
 }
 
-.section-label {
-    margin: 0 0 12px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #08306B;
-    text-transform: uppercase;
+.guide-heading .section-label {
+margin-bottom: 10px;
+}
+
+.guide-heading h2 {
+color: var(--navy);
+font-size: clamp(2rem, 4vw, 3rem);
+line-height: 1.2;
+font-weight: 600;
+margin-bottom: 16px;
 }
 
 .guide-intro {
-    max-width: 720px;
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: #000000;
+color: var(--muted);
+max-width: 700px;
+line-height: 1.8;
 }
 
-
-/* ================= CATEGORY SECTION ================= */
+/* =========================================================
+CATEGORY SELECTOR
+========================================================= */
 
 .category-section {
-    margin-bottom: 45px;
+margin-bottom: 40px;
 }
 
-.category-section h2 {
-    margin: 0 0 8px;
-    font-size: 1.55rem;
-    font-weight: 700;
-    color: #102f43;
+.category-section > h3 {
+color: var(--navy);
+font-size: 1.15rem;
+font-weight: 600;
+margin-bottom: 5px;
 }
 
 .category-hint {
-    margin: 0 0 22px;
-    color: #000000;
-    font-size: 0.92rem;
-    line-height: 1.6;
+color: var(--muted);
+font-size: 0.84rem;
+margin-bottom: 18px;
 }
-
-
-/* ================= CATEGORY SELECTOR ================= */
 
 .category-selector-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+position: relative;
+display: flex;
+align-items: center;
+gap: 10px;
 }
 
-
-/*
-   The category names scroll horizontally.
-   Scrolling does NOT automatically change the
-   active document content.
-*/
-
 .category-selector {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    flex: 1;
-    min-width: 0;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-
-    padding: 5px 2px 10px;
-
-    -webkit-overflow-scrolling: touch;
+display: flex;
+gap: 10px;
+width: 100%;
+overflow-x: auto;
+scroll-behavior: smooth;
+scrollbar-width: none;
+padding: 3px 1px 10px;
 }
 
 .category-selector::-webkit-scrollbar {
-    display: none;
+display: none;
 }
 
-
-/* ================= CATEGORY BUTTONS ================= */
-
 .category-item {
-    flex: 0 0 auto;
-
-    border: 1px solid #cbdfe9;
-    background: rgba(255, 255, 255, 0.72);
-
-    color: #000000;
-
-    padding: 11px 18px;
-
-    border-radius: 30px;
-
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-
-    white-space: nowrap;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+flex: 0 0 auto;
+padding: 11px 17px;
+border: 1px solid #cbdce9;
+border-radius: 9px;
+background: var(--white);
+color: var(--blue);
+font-size: 0.8rem;
+font-weight: 600;
+cursor: pointer;
+white-space: nowrap;
+transition:
+background 0.2s ease,
+color 0.2s ease,
+border-color 0.2s ease;
 }
 
 .category-item:hover {
-    background: #ffffff;
-    border-color: #9fc8da;
-    color: #164e68;
+border-color: var(--blue);
 }
-
-.category-item:active {
-    transform: scale(0.98);
-}
-
-
-/*
-   This is the category whose CONTENT is currently displayed.
-*/
 
 .category-item.active {
-    background: #174f6b;
-    border-color: #174f6b;
-    color: #ffffff;
+background: var(--deep-blue);
+border-color: var(--deep-blue);
+color: var(--white);
 }
 
-
-/* ================= CATEGORY SCROLL BUTTONS ================= */
-
 .category-scroll-btn {
-    flex: 0 0 auto;
-
-    width: 38px;
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #c7dce6;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.9);
-
-    color: #174f6b;
-
-    font-size: 1rem;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+flex-shrink: 0;
+width: 38px;
+height: 38px;
+border: 1px solid #cbdce9;
+border-radius: 50%;
+background: var(--white);
+color: var(--blue);
+cursor: pointer;
+transition: 0.2s ease;
 }
 
 .category-scroll-btn:hover {
-    background: #ffffff;
-    border-color: #9fc8da;
+background: var(--deep-blue);
+color: var(--white);
+border-color: var(--deep-blue);
 }
 
-.category-scroll-btn:active {
-    transform: scale(0.94);
-}
-
-
-/* ================= DOCUMENT CONTENT ================= */
+/* =========================================================
+DOCUMENT CONTENT
+========================================================= */
 
 .document-content {
-    background: #ffffff;
-
-    border: 1px solid #d9e8ef;
-    border-radius: 18px;
-
-    padding: 42px 46px;
-
-    box-shadow: 0 8px 28px rgba(31, 78, 103, 0.06);
+background: var(--white);
+border-radius: 22px;
+padding: 38px;
+box-shadow: 0 8px 30px rgba(7, 26, 43, 0.06);
 }
 
-
-/* ================= CATEGORY CONTENT ================= */
-
 .category-content {
-    display: none;
+display: none;
 }
 
 .category-content.active {
-    display: block;
+display: block;
 }
 
-
-/* ================= CONTENT HEADING ================= */
-
 .content-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 15px;
-
-    padding-bottom: 22px;
-
-    border-bottom: 1px solid #e1edf2;
-
-    margin-bottom: 30px;
+display: flex;
+align-items: flex-start;
+gap: 18px;
+padding-bottom: 25px;
+border-bottom: 1px solid var(--border);
+margin-bottom: 30px;
 }
 
 .content-number {
-    margin: 0;
-
-    font-size: 0.8rem;
-    font-weight: 700;
-
-    color: #4c9bc0;
-
-    letter-spacing: 0.08em;
+flex-shrink: 0;
+color: var(--orange);
+font-size: 0.8rem;
+font-weight: 700;
+letter-spacing: 1px;
+padding-top: 6px;
 }
 
 .content-heading h2 {
-    margin: 0;
-
-    font-size: clamp(1.55rem, 3vw, 2rem);
-    line-height: 1.25;
-
-    color: #102f43;
+color: var(--navy);
+font-size: 1.7rem;
+line-height: 1.3;
+font-weight: 600;
 }
-
-
-/* ================= DOCUMENT LIST ================= */
 
 .document-list-section {
-    margin-bottom: 38px;
+margin-bottom: 32px;
 }
 
-.document-list-section h3,
-.guide-block h3,
-.guide-tip h3 {
-    margin: 0 0 14px;
-
-    font-size: 1rem;
-    font-weight: 700;
-
-    color: #183e52;
+.document-list-section h3 {
+color: var(--navy);
+font-size: 1rem;
+font-weight: 600;
+margin-bottom: 12px;
 }
 
 .document-list {
-    margin: 0;
-    padding-left: 22px;
-
-    columns: 2;
-    column-gap: 50px;
+padding-left: 20px;
 }
 
 .document-list li {
-    break-inside: avoid;
-
-    margin-bottom: 10px;
-
-    color: #000000;
-
-    font-size: 0.95rem;
-    line-height: 1.55;
+margin-bottom: 8px;
+color: #46535e;
+font-size: 0.88rem;
 }
 
-
-/* ================= EXPLANATION AREA ================= */
-
 .guide-explanation {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    column-gap: 55px;
-    row-gap: 30px;
-
-    padding-top: 30px;
-
-    border-top: 1px solid #e1edf2;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 18px;
+margin-top: 30px;
 }
 
 .guide-block {
-    min-width: 0;
+padding: 22px;
+border-radius: 13px;
+background: #f5f9fc;
+border: 1px solid #e2ebf1;
+}
+
+.guide-block h4 {
+color: var(--navy);
+font-size: 0.9rem;
+font-weight: 600;
+margin-bottom: 8px;
 }
 
 .guide-block p {
-    margin: 0;
-
-    color: #000000;
-
-    font-size: 0.94rem;
-    line-height: 1.75;
+color: var(--muted);
+font-size: 0.82rem;
+line-height: 1.7;
 }
-
-.guide-block ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.guide-block li {
-    margin-bottom: 8px;
-
-    color: #000000;
-
-    font-size: 0.94rem;
-    line-height: 1.55;
-}
-
-
-/* ================= TIPS ================= */
 
 .guide-tip {
-    grid-column: 1 / -1;
-
-    padding: 20px 22px;
-
-    background: #f1f9fd;
-
-    border-left: 4px solid #5ba8c9;
-    border-radius: 0 10px 10px 0;
+margin-top: 20px;
+padding: 18px 20px;
+border-left: 4px solid var(--orange);
+border-radius: 0 10px 10px 0;
+background: #fffaf3;
+color: #5e5142;
+font-size: 0.83rem;
+line-height: 1.7;
 }
 
-.guide-tip h3 {
-    margin-bottom: 10px;
-}
-
-.guide-tip ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.guide-tip li {
-    margin-bottom: 7px;
-
-    color: #000000;
-
-    font-size: 0.92rem;
-    line-height: 1.6;
-}
-
-.guide-tip li:last-child {
-    margin-bottom: 0;
-}
-
-
-/* ================= FOCUS STATES ================= */
+/* =========================================================
+FOCUS / ACCESSIBILITY
+========================================================= */
 
 .category-item:focus-visible,
-.category-scroll-btn:focus-visible {
-    outline: 3px solid rgba(76, 155, 192, 0.3);
-    outline-offset: 3px;
+.category-scroll-btn:focus-visible,
+.download-btn:focus-visible,
+.template-card:focus-visible {
+outline: 3px solid rgba(217, 138, 36, 0.35);
+outline-offset: 3px;
 }
 
-
 /* =========================================================
-   TABLET
-   ========================================================= */
+TABLET
+========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 1050px) {
 
-    .documents-page {
-        padding: 55px 18px 70px;
-    }
+.template-cards {
+    grid-template-columns: repeat(4, 1fr);
+}
 
-    .document-content {
-        padding: 35px 30px;
-    }
+.resources-intro {
+    padding-top: 75px;
+    padding-bottom: 70px;
+}
 
-    .document-list {
-        columns: 1;
-    }
-
-    .guide-explanation {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .guide-tip {
-        grid-column: auto;
-    }
+.templates-section {
+    padding-top: 70px;
+}
 
 }
 
-
 /* =========================================================
-   MOBILE
-   ========================================================= */
+MOBILE
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    .documents-page {
-        padding: 42px 14px 60px;
+.resources-intro {
+    padding: 65px 20px 60px;
+}
+
+.resources-intro h1 {
+    font-size: 2.25rem;
+    letter-spacing: -0.8px;
+}
+
+.intro-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.templates-section {
+    padding: 55px 18px 70px;
+}
+
+.templates-header {
+    margin-bottom: 28px;
+}
+
+.templates-header h2,
+.guide-heading h2 {
+    font-size: 2rem;
+}
+
+.templates-header > p:last-child,
+.guide-intro {
+    font-size: 0.85rem;
+}
+
+/* Horizontal template cards on small screens */
+.template-cards {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 3px 2px 12px;
+    margin-right: -18px;
+    scrollbar-width: none;
+}
+
+.template-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.template-card {
+    flex: 0 0 150px;
+}
+
+.template-preview {
+    height: 145px;
+}
+
+.template-card h4 {
+    font-size: 0.76rem;
+    min-height: 54px;
+}
+
+.document-viewer-section {
+    margin-top: 35px;
+    padding: 16px;
+    border-radius: 18px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.document-viewer {
+    height: 550px;
+    border-radius: 50px 0;
+    padding: 12px;
     }
 
-    .guide-heading {
-        margin-bottom: 34px;
-    }
+.document-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
 
-    .guide-intro {
-        font-size: 0.95rem;
-        line-height: 1.7;
-    }
+.document-header h3 {
+    font-size: 1.25rem;
+}
 
-    .category-section {
-        margin-bottom: 32px;
-    }
+.download-btn {
+    width: 100%;
+}
 
-    .category-section h2 {
-        font-size: 1.3rem;
-    }
+.reminder-box {
+    padding: 18px;
+}
 
-    .category-hint {
-        font-size: 0.86rem;
-        margin-bottom: 17px;
-    }
+.reminder-box li {
+    font-size: 0.78rem;
+}
 
+.document-guide {
+    padding: 60px 18px 70px;
+}
 
-    /* Hide the arrows on small screens.
-       The user can swipe the category selector naturally. */
+.guide-heading {
+    margin-bottom: 35px;
+}
 
-    .category-scroll-btn {
-        display: none;
-    }
+.category-selector-wrapper {
+    gap: 6px;
+}
 
-    .category-selector-wrapper {
-        display: block;
-    }
+.category-scroll-btn {
+    width: 34px;
+    height: 34px;
+}
 
-    .category-selector {
-        width: 100%;
-        gap: 8px;
-        padding-bottom: 8px;
-    }
+.category-selector {
+    gap: 8px;
+}
 
-    .category-item {
-        padding: 10px 15px;
-        font-size: 0.84rem;
-    }
+.category-item {
+    padding: 9px 13px;
+    font-size: 0.74rem;
+}
 
+.document-content {
+    padding: 22px 18px;
+    border-radius: 17px;
+}
 
-    /* ================= DOCUMENT CONTENT ================= */
+.content-heading {
+    gap: 12px;
+    margin-bottom: 25px;
+}
 
-    .document-content {
-        padding: 28px 21px;
-        border-radius: 14px;
-    }
+.content-heading h2 {
+    font-size: 1.35rem;
+}
 
-    .content-heading {
-        gap: 11px;
-        padding-bottom: 18px;
-        margin-bottom: 25px;
-    }
+.guide-explanation {
+    grid-template-columns: 1fr;
+}
 
-    .content-heading h2 {
-        font-size: 1.4rem;
-    }
-
-    .document-list-section {
-        margin-bottom: 30px;
-    }
-
-    .document-list-section h3,
-    .guide-block h3,
-    .guide-tip h3 {
-        font-size: 0.95rem;
-    }
-
-    .document-list {
-        padding-left: 19px;
-    }
-
-    .document-list li {
-        font-size: 0.9rem;
-        margin-bottom: 8px;
-    }
-
-    .guide-explanation {
-        padding-top: 25px;
-        gap: 25px;
-    }
-
-    .guide-block p,
-    .guide-block li {
-        font-size: 0.9rem;
-    }
-
-    .guide-tip {
-        padding: 17px 18px;
-    }
-
-    .guide-tip li {
-        font-size: 0.88rem;
-    }
+.guide-block {
+    padding: 18px;
+}
 
 }
 
-
 /* =========================================================
-   VERY SMALL SCREENS
-   ========================================================= */
+VERY SMALL PHONES
+========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
 
-    .documents-page {
-        padding-left: 11px;
-        padding-right: 11px;
-    }
+.resources-intro h1 {
+    font-size: 2rem;
+}
 
-    .document-content {
-        padding: 24px 17px;
-    }
+.template-card {
+    flex-basis: 140px;
+}
 
-    .content-heading h2 {
-        font-size: 1.25rem;
-    }
+.document-viewer {
+    height: 460px;
+}
 
-    .category-item {
-        padding: 9px 13px;
-        font-size: 0.8rem;
-    }
+.content-heading {
+    flex-direction: column;
+    gap: 4px;
+}
+
+.content-number {
+    padding-top: 0;
+}
 
 }
