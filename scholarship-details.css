@@ -1,0 +1,224 @@
+/* =====================================================
+   GLOBAL & RESET STYLES
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.5;
+    padding: 30px 20px;
+}
+
+/* =====================================================
+   PAGE CONTAINER (FLAT, NO CARDS, NO SHADOWS)
+===================================================== */
+.scholarship-details-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* =====================================================
+   INDIVIDUAL SCHOLARSHIP SECTION
+===================================================== */
+.scholarship-detail {
+    background: #ffffff;
+    border: none;
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+/* =====================================================
+   HEADER & ACCENT BAR
+===================================================== */
+.detail-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    padding-top: 15px;
+}
+
+/* Yellow accent line above headings matching the screenshot */
+.detail-header::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #f59e0b;
+    border-radius: 2px;
+    margin-bottom: 8px;
+}
+
+.detail-label {
+    display: none; /* Hidden to match clean single-page look */
+}
+
+.detail-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.banner-study-level {
+    font-size: 1.1rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* =====================================================
+   METADATA LIST (CLEAN TEXT, NO BOXES/SHADOWS)
+===================================================== */
+.detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: transparent;
+    padding: 0;
+    border: none;
+    margin-bottom: 32px;
+}
+
+.detail-meta div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    color: #374151;
+}
+
+.detail-meta i {
+    color: #111827;
+    font-size: 1.2rem;
+    width: 24px;
+}
+
+.detail-meta strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+.detail-meta span {
+    color: #4b5563;
+}
+
+/* =====================================================
+   LARGE READABLE CONTENT SECTIONS
+===================================================== */
+.detail-section {
+    margin-bottom: 28px;
+}
+
+.detail-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+    border-left: none; /* Removed border bar */
+    padding-left: 0;
+}
+
+/* Large introductory text matching screenshot */
+.detail-section p {
+    color: #2b2b2b;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+/* Second paragraph styling for lighter text */
+.detail-section p + p {
+    color: #6b7280;
+    font-size: 1.15rem;
+}
+
+.detail-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.detail-section ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: #2b2b2b;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.detail-section ul li::before {
+    content: "•";
+    color: #111827;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.detail-section ul li strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+/* =====================================================
+   LINK STYLE (TEXT WITH UNDERLINE)
+===================================================== */
+.official-link {
+    display: inline-block;
+    color: #111827;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+    background: none;
+    padding: 0;
+    margin-top: 10px;
+    transition: color 0.2s ease;
+}
+
+.official-link:hover {
+    color: #f59e0b;
+}
+
+.official-link i {
+    font-size: 1rem;
+    margin-left: 6px;
+}
+
+/* =====================================================
+   MOBILE OPTIMIZATION
+===================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .detail-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .detail-section h2 {
+        font-size: 1.35rem;
+    }
+
+    .detail-section p,
+    .detail-section ul li,
+    .official-link {
+        font-size: 1.1rem;
+    }
+}
