@@ -784,7 +784,83 @@ line-height: 1.6;
         font-size: 0.84rem;
     }
 }
+  
+/* =====================================================
+OPEN OPPORTUNITIES BUTTON
+===================================================== */
 
+.open-opportunities-wrapper {
+width: 100%;
+max-width: 1120px;
+margin: -25px auto 35px;
+display: flex;
+justify-content: flex-end;
+}
+
+#openOpportunitiesBtn {
+height: 44px;
+padding: 0 18px;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+
+border: 1px solid #d5dce5;
+border-radius: 10px;
+
+background: #0b1;
+color: #ffffff;
+
+font-family: inherit;
+font-size: 0.85rem;
+font-weight: 600;
+
+cursor: pointer;
+
+transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+
+}
+
+#openOpportunitiesBtn:hover {
+background: #f0f6ff;
+border-color: #2563eb;
+color: #2563eb;
+}
+
+#openOpportunitiesBtn:active {
+transform: scale(0.97);
+}
+
+#openOpportunitiesBtn.active {
+background: #ffffff;
+border-color: #0b1f3a;
+color: #0b1;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+.open-opportunities-wrapper {
+    width: calc(100% - 24px);
+    margin: -15px auto 28px;
+    justify-content: center;
+}
+
+#openOpportunitiesBtn {
+    width: 100%;
+    height: 46px;
+}
+
+}
+  
 /* =========================
    HERO IMAGE
    ========================= */
@@ -802,83 +878,311 @@ line-height: 1.6;
 }
 
 
+  /* ==============================
+   SCHOLARSHIP CARDS
+============================== */
 
-/* ================= GRID ================= */
-  .scholarship-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+    align-items: stretch;
+}
 
+.scholarship-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 490px;
+    padding: 0 22px 24px;
+    overflow: hidden;
 
-/* CARD */
-
-.scholarship-card{
     background: #ffffff;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.06);
-    transition:0.3s;
+    border: 1px solid #e6ebf1;
+    border-radius: 4px;
+
+    box-shadow: 0 5px 18px rgba(27, 57, 85, 0.06);
+    transition: box-shadow 0.25s ease;
 }
 
-.scholarship-card:hover{
-    transform:translateY(-6px);
+.scholarship-card:hover {
+    box-shadow: 0 12px 28px rgba(27, 57, 85, 0.12);
 }
 
-.card-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
+
+/* ==============================
+   COLORED TITLE BANNER
+============================== */
+
+.scholarship-card .card-top {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    min-height: 0;
+    margin: 0 -22px;
+    padding: 24px 22px 18px;
+
+    background: #12345f;
+    color: #ffffff;
 }
 
-.card-top i{
-    color:#aaa;
-    cursor:pointer;
+/* Alternating banner colors */
+
+.scholarship-card:nth-child(3n + 2) .card-top {
+    background: #263444;
 }
 
-.funded{
-    background:#dcfce7;
-    color:#166534;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
+.scholarship-card:nth-child(3n) .card-top {
+    background: #302f50;
 }
 
-.partial{
-    background:#dbeafe;
-    color:#1d4ed8;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
+
+/* ==============================
+   FUNDING LABEL
+============================== */
+
+.scholarship-card .funded,
+.scholarship-card .partial {
+    position: absolute;
+    top: 12px;
+    left: 22px;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0;
+    background: transparent;
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
-.scholarship-card h3{
-    margin-bottom:8px;
+
+/* ==============================
+   COUNTRY FLAG / BOOKMARK
+============================== */
+
+.scholarship-card .card-top > i {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+
+    color: #ffffff;
+    font-size: 20px;
 }
 
-.scholarship-card p{
-    font-size:13px;
-    color:#555;
-    margin-bottom:12px;
+
+/* ==============================
+   SCHOLARSHIP TITLE
+============================== */
+
+.scholarship-card > h3 {
+    position: relative;
+    z-index: 1;
+
+    margin: 24px 0 8px;
+
+    color: #2784cc;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
 }
 
-.card-info{
-    display:flex;
-    justify-content:space-between;
-    font-size:12px;
-    color:#666;
-    margin-bottom:10px;
+
+/* ==============================
+   SHORT DESCRIPTION
+============================== */
+
+.scholarship-card > p {
+    margin: 0 0 16px;
+
+    color: #626a75;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-.deadline{
-    font-size:12px;
-    color:#ef4444;
-    margin-bottom:10px;
+
+/* ==============================
+   SCHOLARSHIP INFORMATION
+============================== */
+
+.scholarship-card .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 0;
+    padding: 0;
 }
 
-.scholarship-card a{
-    text-decoration:none;
-    color:#4f46e5;
-    font-weight:500;
-    font-size:13px;
+.scholarship-card .card-info span {
+    color: #626a75;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==============================
+   STUDY LOCATION / FUNDING LABEL
+============================== */
+
+.scholarship-card .card-info::before {
+    content: "Study opportunity";
+
+    display: block;
+    margin: 0 0 4px;
+
+    color: #35343c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+
+/* ==============================
+   DEADLINE
+============================== */
+
+.scholarship-card .deadline {
+    margin-top: 18px;
+    padding-top: 14px;
+
+    color: #5f6875;
+    font-size: 13px;
+    line-height: 1.6;
+
+    border-top: 1px solid #edf0f4;
+}
+
+
+/* ==============================
+   VIEW DETAILS LINK
+============================== */
+
+.scholarship-card > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: auto;
+    padding: 11px 14px;
+
+    color: #ffffff;
+    background: #2784cc;
+    border: 1px solid #2784cc;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background 0.2s ease;
+}
+
+.scholarship-card > a:hover {
+    color: #ffffff;
+    background: #176cae;
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 1000px) {
+    .scholarship-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .scholarship-card > h3 {
+        font-size: 20px;
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 650px) {
+    .scholarship-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .scholarship-card {
+        min-height: 0;
+        padding: 0 18px 20px;
+        border-radius: 4px;
+    }
+
+    .scholarship-card .card-top {
+        margin: 0 -18px;
+        padding: 24px 18px 18px;
+    }
+
+    .scholarship-card .funded,
+    .scholarship-card .partial {
+        left: 18px;
+    }
+
+    .scholarship-card .card-top > i {
+        right: 18px;
+    }
+
+    .scholarship-card > h3 {
+        margin-top: 22px;
+        font-size: 21px;
+    }
+
+    .scholarship-card > p {
+        font-size: 13px;
+    }
+
+    .scholarship-card .card-info::before {
+        font-size: 20px;
+    }
+}
+
+
+/* ==============================
+   VERY SMALL PHONES
+============================== */
+
+@media (max-width: 380px) {
+    .scholarship-card {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .scholarship-card .card-top {
+        margin-right: -14px;
+        margin-left: -14px;
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .scholarship-card .funded,
+    .scholarship-card .partial {
+        left: 14px;
+    }
+
+    .scholarship-card .card-top > i {
+        right: 14px;
+    }
 }
 
 
@@ -1105,4 +1409,5 @@ line-height: 1.6;
     .quote-panel{
         order:-1;
     }
+}
     }
