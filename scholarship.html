@@ -249,6 +249,14 @@ href="scholarship.css">
 
 </section>
 
+<!-- OPEN OPPORTUNITIES BUTTON -->
+<div class="open-opportunities-wrapper">
+    <button type="button" id="openOpportunitiesBtn">
+        <i class="fa-solid fa-door-open"></i>
+        Currently Open
+    </button>
+</div>
+
   
 <!--IMAGE 1-->
   <div class="heroScholarship-image">
@@ -278,74 +286,164 @@ href="scholarship.css">
          <div class="scholarship-grid" id="scholarshipGrid">
 
             <!-- Your scholarship cards go here -->
-      
- <!-- CARD 1 -->
-                <div
+
+  
+<!-- CARD 1: DAAD SCHOLARSHIP -->
+<div
     class="scholarship-card"
     data-name="DAAD Scholarship"
     data-country="Germany"
     data-level="Master's"
     data-funded="Fully Funded"
+    data-status="open"
+    id="DAAD"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>DAAD Scholarship</h3>
+        <h3>DAAD Scholarship</h3>
 
-                    <p>
-                        Master's programs in Germany for refugee students.
-                    </p>
+        <p>Master's</p>
 
-                    <div class="card-info">
-                        <span>📍 Germany</span>
-                        <span>🎓 Master's</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline: 15 Nov 2026
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-      
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Study at German universities through DAAD scholarship
+            programmes. Eligibility, funding and deadlines vary
+            by programme.
+        </p> 
+        </div>
 
-                <!-- CARD 2 -->
-                <div
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>German Universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Germany</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: 15 Nov 2026</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=DAAD-details">View Details →</a>
+</div>
+
+</div>
+
+           
+
+<!--CARD 2-->
+<div
     class="scholarship-card"
     data-name="University of Ottawa refugee Scholarship"
     data-country="Canada"
     data-level="Bachelor's"
     data-funded="Partially Funded"
+    data-status="closed"
+    id="University-of-Ottawa"
 >
 
-                    <div class="card-top">
-                        <span class="partial">Partial Funding</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
 
-                    <h3>University of Ottawa Refugee Scholarship</h3>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <p>
-                        Supporting refugee students in Canada.
-                    </p>
+        <h3>University of ottawa refugee Scholarship</h3>
 
-                    <div class="card-info">
-                        <span>📍 Canada</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <p>Bachelor's</p>
 
-                    <div class="deadline">
-                        📅 Deadline: 31 Dec 2026
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                     <a href="#">View Details →</a>
+    </div>
 
-                </div>
-                
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Supporting refugee students in Canada.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Partial Funding</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>University-of-Ottawa</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Canada</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: 31 Dec 2026</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=ottawa">View Details →</a>
+</div>
+
+</div>
+
+
                 <!-- CARD 3 -->
           <div
     class="scholarship-card"
@@ -353,31 +451,73 @@ href="scholarship.css">
     data-country="Global University placement"
     data-level="Bachelor's"
     data-funded="Fully Funded"
+    data-status="open"
+    id="DAFI"
 >
-          
-          <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
 
-                    <h3>UNHCR DAFI Scholarship</h3>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <p>
-                        Global access to higher education.
-                    </p>
+        <h3>UNHCR DAFI scholarship</h3>
 
-                    <div class="card-info">
-                        <span>🌍 Multiple Countries</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <p>Bachelor's</p>
 
-                    <div class="deadline">
-                        📅 Deadline: Varies
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <a href="#">View Details →</a>
+    </div>
 
-                </div>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="card-labels">
+          <p class="scholarship-description">
+          Global access to higher education.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Different Universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+                  <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Multiple countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: varies</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=dafi">View Details →</a>
+</div>
+
+    </div>
+     
 
                 <!-- CARD 4 -->
                 <div
@@ -386,31 +526,73 @@ href="scholarship.css">
     data-country="Europe"
     data-level="Master's"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="Erasmus-Mundus"
 >
+           
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+        <h3>Erasmus Mundus</h3>
 
-                    <h3>Erasmus Mundus</h3>
+        <p>Master's</p>
 
-                    <p>
-                        Study across Europe with full funding.
-                    </p>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="card-info">
-                        <span>📍 Europe</span>
-                        <span>🎓 Master's</span>
-                    </div>
+    </div>
 
-                    <div class="deadline">
-                        📅 Deadline: 20 Jan 2027
-                    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
+        <div class="card-labels">
+          <p class="scholarship-description">            
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Europian universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Europe</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: 20 Jan 2027</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=erasmus">View Details →</a>
+    </div>
+
+</div>
 
                 <!-- CARD 5 -->
                 <div
@@ -419,34 +601,73 @@ href="scholarship.css">
     data-country="United Kingdom"
     data-level="Master's"
     data-funded="Fully Funded"
+    data-status="open"
+    id="Chevening"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Chevening Refugee Scholarship</h3>
+        <h3>Chevening Refugee Scholarship</h3>
 
-                    <p>
-                        UK scholarships for future leaders.
-                    </p>
+        <p>Master's</p>
 
-                    <div class="card-info">
-                        <span>📍 United Kingdom</span>
-                        <span>🎓 Master's</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline: 05 Nov 2026
-                    </div>
+    </div>
 
-                    
-           <a href="https://www.chevening.org/scholarships/">
-             View Details →</a>
-  
-  
-                </div>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="card-labels">
+          <p class="scholarship-description">UK scholarships for future leaders.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>UK Universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>United Kingdom</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: 5 Nov 2026</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=chevening">View Details →</a>
+</div>
+
+</div>
+           
 
                 <!-- CARD 6 -->
                 <div
@@ -455,98 +676,221 @@ href="scholarship.css">
     data-country="Sweden"
     data-level="Master's"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="Sweedish-Institute"
 >
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+        <h3>Sweedish Institute Scholarship</h3>
 
-                    <h3>Swedish Institute Scholarship</h3>
+        <p>Master's</p>
 
-                    <p>
-                        Fully funded opportunities in Sweden.
-                    </p>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="card-info">
-                        <span>📍 Sweden</span>
-                        <span>🎓 Master's</span>
-                    </div>
+    </div>
 
-                    <div class="deadline">
-                        📅 Deadline: 10 Jan 2027
-                    </div>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                    <a href="#">View Details →</a>
+        <div class="card-labels">
+          <p class="scholarship-description">                        Fully funded opportunities in Sweden.
+        </p> 
+        </div>
 
-                </div>
-                
-                <!-- CARD 7-->
-                <div
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Sweedish Universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Sweeden</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: 10 Jan 2027</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=swedish-institute">View Details →</a>
+</div>
+
+</div>
+
+       <!-- CARD 7-->
+<div
     class="scholarship-card"
     data-name="WUSC-Student Refugee Program"
     data-country="Canada"
     data-level="Bachelor's"
     data-funded="Sponsorship model"
+    data-status="closed"
+    id="WUSC"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Sponsorship model</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>WUSC Student Refugee Program(SRP)</h3>
+        <h3>WUSC-Student Refugee Program </h3>
 
-                    <p>
-                      Sponsors refugee students to pursue undergraduate degrees in Canada through university sponsorship.
-                      </p>
+        <p>Bachelor's</p>
 
-                    <div class="card-info">
-                        <span>📍 Canada</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline:varies
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Sponsors refugee students to pursue undergraduate degrees in Canada through university sponsorship.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>sponsorship-model</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Canadian Universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Canada</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: varies</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=wusc">View Details →</a>
+</div>
+
+</div>
+
               <!-- CARD 8 -->
                 <div
     class="scholarship-card"
     data-name="Elimisha Kakuma"
     data-country="Global University placement"
-    data-level="Master's"
+    data-level="Bachelor's"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="Elimisha"
 >
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+        <h3>Elimisha Kakuma</h3>
 
-                    <h3>Elimisha Kakuma</h3>
+        <p>Bachelor's</p>
 
-                    <p>
-                       Helps talented refugee youth access university scholarships and global education opportunities.
-                    </p>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="card-info">
-                        <span>📍 Global University Placement</span>
-                        <span>🎓 college access pathway</span>
-                    </div>
+    </div>
 
-                    <div class="deadline">
-                        📅 Deadline:varies
-                    </div>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                    <a href="#">View Details →</a>
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Helps talented refugee youth access university scholarships and global education opportunities.
+        </p> 
+        </div>
 
-                </div>
-                
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>college access pathway</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Global University Placement</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: varies</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=elimisha">View Details →</a>
+</div>
+
+</div>
+
                 <!-- CARD 9 -->
                 <div
     class="scholarship-card"
@@ -554,32 +898,74 @@ href="scholarship.css">
     data-country="Germany, Canada, Europe"
     data-level="Bachelor's"
     data-funded="Fully Funded"
->
+    data-status="closed"
+    id="Malengo"
+>   
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Malengo Program</h3>
+        <h3>Malengo Program</h3>
 
-                    <p>
-                        Supports displaced students to access university education and relocation pathways abroad.
-                    </p>
+        <p>Bachelor's</p>
 
-                    <div class="card-info">
-                        <span>📍 Germany/Canada/Europe</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline: varies
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
+        <div class="card-labels">
+          <p class="scholarship-description">
+          Supports displaced students to access university education and relocation pathways abroad.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Different universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Germany/Canada/Europe</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: varies</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=malengo">View Details →</a>
+</div>
+
+</div>
+
                 <!-- CARD 10 -->
                 <div
     class="scholarship-card"
@@ -587,32 +973,76 @@ href="scholarship.css">
     data-country="Global University placement"
     data-level="Master's, Bachelor's"
     data-funded="Fully Funded"
+    data-status="open"
+    id="Mastercard"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Mastercard Foundation Scholars Program</h3>
+        <h3>Mastercard Foundation Scholars Program</h3>
 
-                    <p>
-                        Provides fully funded education and leadership development for academically talented African students.
-                    </p>
+        <p>Master's/Bachelor's</p>
 
-                    <div class="card-info">
-                        <span>📍 Multiple Countries</span>
-                        <span>🎓 Bachelor's/Master's</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline: varies by University
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+  <div class="card-info">
 
-                </div>
-                
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Provides fully funded education and leadership development for academically talented African students.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Multiple universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's/Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Multiple countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: varies by university</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=mastercard">View Details →</a>
+</div>
+
+</div>
+
+           
+                           
                 <!-- CARD 11 -->
                 <div
     class="scholarship-card"
@@ -620,32 +1050,75 @@ href="scholarship.css">
     data-country="Global University placement"
     data-level="Highschool(IB)"
     data-funded="Fully Funded"
+    data-status="open"
+    id="UWC"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>United World Colleges</h3>
+        <h3>United World Colleges</h3>
 
-                    <p>
-                      Offers scholarships for exceptional students to complete the International Baccalaureate programme.  
-                    </p>
+        <p>Highschool(IB)</p>
 
-                    <div class="card-info">
-                        <span>📍Multiple Countries</span>
-                        <span>🎓 Highschool(IB)</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline: varies by national committee
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Offers scholarships for exceptional students to complete the International Baccalaureate programme.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Multiple Countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Global placement</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>  📅 Deadline: varies by national committee</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=uwc"=>View Details →</a>
+          
+   </div>
+ </div>
+
+           
                 <!-- CARD 12 -->
                 <div
     class="scholarship-card"
@@ -653,264 +1126,533 @@ href="scholarship.css">
     data-country="Italy"
     data-level="Master's"
     data-funded="Fully Funded"
+    data-status="open"
+    id="UNICORE"
 >
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+        <h3>University Corridors for refugees</h3>
 
-                    <h3>University Corridors for refugees</h3>
+        <p>Master's</p>
 
-                    <p>
-                      Provides refugee students with scholarships to pursue master's degrees at Italian universities.
-                    </p>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="card-info">
-                        <span>📍 Italy</span>
-                        <span>🎓 Master
-                        's</span>
-                    </div>
+    </div>
 
-                    <div class="deadline">
-                        📅 Deadline: Jan-Apr
-                    </div>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                    <a href="#">View Details →</a>
+        <div class="card-labels">
+          <p class="scholarship-description">
+      Provides refugee students with scholarships to pursue master's degrees at Italian universities.
+        </p> 
+        </div>
 
-                </div>
-                
-                <!-- CARD 13 -->
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Italian universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Italy</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>📅 Deadline: Jan-Apr</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=university-corridors">View Details →</a>
+</div>
+
+</div>
+                           <!-- CARD 13 -->
                 <div
     class="scholarship-card"
     data-name="Southern New Hampshire University"
     data-country="Online"
     data-level="Bachelor's"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="SNHU"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Southern New Hampshire University</h3>
+        <h3>Southern New Hampshire University</h3>
 
-                    <p>
-                        Offers affordable online degree opportunities and scholarships for displaced learners.
-                    </p>
+        <p>Bachelor's</p>
 
-                    <div class="card-info">
-                        <span>📍 Mostly online</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <span class="country-flag">🇩🇪</span>
 
-                    <div class="deadline">
-                        📅 Deadline: Rolling admissions
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
-                <!-- CARD 14 -->
-                <div
+        <div class="card-labels">
+          <p class="scholarship-description">
+            Offers affordable online degree opportunities and scholarships for displaced learners.
+        </p> 
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fully Funded</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Southern New Hampshire University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Mostly online</span>
+        </div>
+
+        <div class="scholarship-detail">
+         
+          <p>        📅 Deadline: Rolling admissions</p>
+
+        </div>
+
+        <a href="scholarship-details.html?id=snhu">View Details →</a>
+</div>
+
+</div>
+          
+                <!-- CARD 14: INSTITUTE OF INTERNATIONAL EDUCATION -->
+<div
     class="scholarship-card"
     data-name="Institute of International Education"
     data-country="Global University placement"
     data-level="Bachelor's"
     data-funded="Varies"
+    data-status="closed"
+    id="IIE"
 >
 
-                    <div class="card-top">
-                        <span class="funded">varies</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Institute of International Education</h3>
+        <h3>Institute of International Education</h3>
 
-                    <p>
-                        Supports displaced students through emergency scholarships and higher education opportunities.
-                    </p>
+        <p>Bachelor's</p>
 
-                    <div class="card-info">
-                        <span>📍 Multiple Countries</span>
-                        <span>🎓 Bachelor's and Master's</span>
-                    </div>
+        <span class="country-flag">🌍</span>
 
-                    <div class="deadline">
-                        📅 Deadline: varies
-                     by program</div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
-                <!-- CARD 15 -->
-                <div
+        <div class="card-labels">
+            <p class="scholarship-description">
+                Supports displaced students through emergency
+                scholarships and higher education opportunities.
+            </p>
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding varies by program</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Multiple universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Multiple Countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <p>📅 Deadline: Varies by program</p>
+        </div>
+
+        <a href="scholarship-details.html?id=iie">View Details →</a>
+
+    </div>
+
+</div>
+
+
+<!-- CARD 15: COLUMBIA UNIVERSITY -->
+<div
     class="scholarship-card"
     data-name="Columbia University"
     data-country="United States of America"
     data-level="Bachelor's"
     data-funded="Significant Funding"
+    data-status="closed"
+    id="Columbia-University"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Significant/Full Support</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Columbia University</h3>
+        <h3>Columbia University</h3>
 
-                    <p>
-                        Provides financial aid and support for displaced students through partner initiatives.
-                    </p>
+        <p>Bachelor's</p>
 
-                    <div class="card-info">
-                        <span>📍 USA</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <span class="country-flag">🇺🇸</span>
 
-                    <div class="deadline">
-                   📅 Deadline: University Admission Cycle </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
-                <!-- CARD 16 -->
-                <div
+        <div class="card-labels">
+            <p class="scholarship-description">
+                Provides financial aid and support for displaced
+                students through relevant university and partner
+                initiatives.
+            </p>
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Significant Funding</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Columbia University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <p>📅 Deadline: University admission cycle</p>
+        </div>
+
+        <a href="scholarship-details.html?id=columbia">View Details →</a>
+
+    </div>
+
+</div>
+
+
+<!-- CARD 16: PAUL AND DAISY SOROS FELLOWSHIP -->
+<div
     class="scholarship-card"
-    data-name="Paul and Daisy soros fellowship for new Americans"
+    data-name="Paul and Daisy Soros Fellowship for New Americans"
     data-country="United States of America"
     data-level="Master's"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="Paul and Daisy Soros"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Paul and Daisy soros fellowship for New Americans</h3>
+        <h3>Paul and Daisy Soros Fellowship for New Americans</h3>
 
-                    <p>
-                     Supports outstanding immigrants and refugees pursuing graduate studies in the United States. 
-                    </p>
+        <p>Master's</p>
 
-                    <div class="card-info">
-                        <span>📍 USA</span>
-                        <span>🎓 Graduate</span>
-                    </div>
+        <span class="country-flag">🇺🇸</span>
 
-                    <div class="deadline">
-                        📅 Deadline: late October
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
-                <!-- CARD 17 -->
-                <div
+        <div class="card-labels">
+            <p class="scholarship-description">
+                Supports eligible immigrants and children of
+                immigrants pursuing graduate studies in the
+                United States.
+            </p>
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Fellowship funding</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Eligible US graduate institutions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Graduate Studies</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligible New Americans</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <p>📅 Deadline: Usually late October</p>
+        </div>
+
+        <a href="scholarship-details.html?id=soros"=>View Details →</a>
+
+    </div>
+
+</div>
+
+
+<!-- CARD 17: STIPENDIUM HUNGARICUM -->
+<div
     class="scholarship-card"
-    data-name="Stipendum Hungaricum"
+    data-name="Stipendium Hungaricum"
     data-country="Hungary"
     data-level="All Levels"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="Stipendum-Hungaricum"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Stipendum Hungaricum</h3>
+        <h3>Stipendium Hungaricum</h3>
 
-                    <p>
-                        Hungary's government scholarship covering tuition, accommodation and living expenses.
-                    </p>
+        <p>All Levels</p>
 
-                    <div class="card-info">
-                        <span>📍 Hungary</span>
-                        <span>🎓 All Levels</span>
-                    </div>
+        <span class="country-flag">🇭🇺</span>
 
-                    <div class="deadline">
-                        📅 Deadline: usually January
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
-                <!-- CARD 18 -->
-                <div
+        <div class="card-labels">
+            <p class="scholarship-description">
+                Hungary's government scholarship program supports
+                eligible international students pursuing higher
+                education at participating Hungarian institutions.
+            </p>
+        </div>
+
+        <div class="provider-name">
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Scholarship funding</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Hungarian Universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Multiple Study Levels</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various Fields of Study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligible International Students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Hungary</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <p>📅 Deadline: Usually January</p>
+        </div>
+
+        <a href="scholarship-details.html?id=stipendium">View Details →</a>
+
+    </div>
+
+</div>
+
+
+<!-- CARD 18: STUDY IN ROMANIA GOVERNMENT SCHOLARSHIP -->
+<div
     class="scholarship-card"
-    data-name="Study in Romania"
+    data-name="Study in Romania Government Scholarship"
     data-country="Romania"
     data-level="All Levels"
     data-funded="Fully Funded"
+    data-status="closed"
+    id="Study in Romania"
 >
 
-                    <div class="card-top">
-                        <span class="funded">Fully Funded</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
 
-                    <h3>Study in Romania[Government scholarship]</h3>
+        <h3>Study in Romania Government Scholarship</h3>
 
-                    <p>
-                        Romanian Government scholarship covering tuition, accommodation and monthly stipend for international students.
-                    </p>
+        <p>All Levels</p>
 
-                    <div class="card-info">
-                        <span>📍 Romania</span>
-                        <span>🎓 All Levels</span>
-                    </div>
+        <span class="country-flag">🇷🇴</span>
 
-                    <div class="deadline">
-                        📅 Deadline: usually 31 March
-                    </div>
+    </div>
 
-                    <a href="#">View Details →</a>
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
 
-                </div>
-                
-                <!-- CARD 19 -->        
-                <div
-    class="scholarship-card"
-    data-name="Welcome Corps on Campus"
-    data-country="United States of America"
-    data-level="Bachelor's"
-    data-funded="Sponsorship model"
->
+        <div class="card-labels">
+            <p class="scholarship-description">
+                Romanian Government scholarships support eligible
+                international students pursuing studies at
+                participating Romanian universities.
+            </p>
+        </div>
 
-                    <div class="card-top">
-                        <span class="funded">Sponsorship model</span>
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
+        <div class="provider-name">
+        </div>
 
-                    <h3>Welcome Corps on Campus (WCC)</h3>
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Scholarship funding</span>
+        </div>
 
-                    <p>
-                      Supports refugee students through sponsorship and relocation pathways to study at participating universities in the United States.
-                      </p>
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Romanian Universities</span>
+        </div>
 
-                    <div class="card-info">
-                        <span>📍USA</span>
-                        <span>🎓 Bachelor's</span>
-                    </div>
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Multiple Study Levels</span>
+        </div>
 
-                    <div class="deadline">
-                        📅 Deadline:temporarily suspended
-                    </div>
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields of Study</span>
+        </div>
 
-                    <a href="#">View Details →</a>
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligible International Students</span>
+        </div>
 
-                </div>
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Romania</span>
+        </div>
 
-          </>
+        <div class="scholarship-detail">
+            <p>📅 Deadline: Usually around March</p>
+        </div>
+
+        <a href="scholarship-details.html?id=romania">View Details →</a>
+
+    </div>
+
+</div>
+
+
+
+          </div>
 
     </div>
 
@@ -991,4 +1733,4 @@ href="scholarship.css">
 
     <script type="module" src="scholarship.js"></script>
     </body>
-</html>
+            </html>
