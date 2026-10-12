@@ -486,7 +486,7 @@ p {
     overflow: hidden;
     display: grid;
     place-items: center;
-    background-color: #0b1320;
+    background-color: #ffffff;
     isolation: isolate;
 }
 
@@ -524,7 +524,7 @@ p {
 .welcome-content h1 {
     margin: 0 0 20px;
     color: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: serif, Georgia, "Times New Roman";
     font-size: 54px;
     font-weight: 700;
     line-height: 1.15;
@@ -535,7 +535,7 @@ p {
     max-width: 650px;
     margin: 0 auto;
     color: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: serif, Georgia, "Times New Roman";
     font-size: 16px;
     line-height: 1.8;
 }
@@ -568,9 +568,7 @@ p {
     .welcome-content h1 {
         font-size: 34px;
     }
-}
-
-
+   }
 
 
 
