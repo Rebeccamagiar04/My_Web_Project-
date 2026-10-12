@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    font-family: sans-serif, arial, Helvetica;
+    font-family: serif, arial, Helvetica;
     color: #123b67;
     background: #ffffff;
     line-height: 1.6;
@@ -51,6 +51,7 @@ h2 {
 
 p {
     color: #000000;
+    font-size: 15px;
 }
 
 
@@ -466,33 +467,138 @@ p {
   }
 }
 
-/* ================= WELCOME SECTION ================= */
+
+/* ================= WELCOME VIDEO SECTION ================= */
 
 .welcome-section {
-    padding: 65px 7% 60px;
-    background: #083c69;
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0b1320;
+    isolation: isolate;
 }
 
+/* Background video */
+.welcome-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 0;
+    filter: none;
+    transform: none;
+    z-index: -2;
+}
+
+/* Darken the video without blurring it */
+.welcome-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Centered welcome text */
 .welcome-content {
-    max-width: 850px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 24px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
 }
 
 .welcome-content h1 {
-    margin: 0 0 16px;
-    font-size: 30px;
-    line-height: 1.15;
+    margin: 0 0 20px;
     color: #ffffff;
+    font-family: serif, Georgia, "Times New Roman";
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.welcome-content h1 span {
+    color: #9ed5ff;
 }
 
 .welcome-content p {
-    max-width: 720px;
-    margin: 0;
-    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
     color: #ffffff;
+    font-family: serif, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
 }
 
+/* Laptop screens */
+@media (min-width: 1100px) {
+    .welcome-section {
+        height: 85vh;
+    }
+
+    .welcome-content {
+        max-width: 850px;
+    }
+}
+
+/* Tablets and phones */
+@media (max-width: 768px) {
+    .welcome-section {
+        height: 80vh;
+        height: 80svh;
+        min-height: 480px;
+        padding: 30px 6%;
+    }
+
+    .welcome-content h1 {
+        font-size: clamp(36px, 9vw, 52px);
+        margin-bottom: 16px;
+    }
+
+    .welcome-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .welcome-section {
+        min-height: 440px;
+    }
+
+    .welcome-content {
+        padding: 0 10px;
+    }
+
+    .welcome-content h1 {
+        font-size: 34px;
+    }
+
+    .welcome-content p {
+        font-size: 18px;
+    }
+}
+
+
+
+
 /* =========================================================
-   5. HERO / GIRL IMAGE
+   5. HERO / PORTICO IMAGE
    ========================================================= */
 
 .hero-image {
@@ -592,15 +698,15 @@ margin-bottom: 12px;
 border-radius: 50%;
   
 background: #0c477a;
-color: white;
+color: #ffffff;
 
 font-size: 22px;
 }
 
 .process-card h3 {
-font-family: Arial, Helvetic, sans-serif;
+font-family: serif, Helvetic, sans-serif;
 
-font-size: 16px;
+font-size: 18px;
 font-weight: 600;
 
 color: #103e69;
@@ -609,6 +715,7 @@ color: #103e69;
 .card-content {
 display: none;
 margin-top: 15px;
+font-size: 14px;
 }
 
 .process-card.active .card-content {
@@ -665,14 +772,14 @@ display: block;
 }
 
 .why-card h2 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 13px;
 }
 
 .why-card p {
-    max-width: 760px;
+    max-width: 780px;
 
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.75;
 }
 
@@ -687,124 +794,305 @@ display: block;
     background: #75b9e8;
 }
 
-
-/* =========================================================
-   9. APPLICATION SECTION
-   ========================================================= */
+/* =========================================
+   APPLICATION ESSENTIALS — TIMELINE ALIGNMENT FIX
+   ========================================= */
 
 .application-section {
     padding: 65px 7% 75px;
+    background: #ffffff;
+}
 
-    background: #f5fbff;
+.application-section .section-heading {
+    margin-bottom: 30px;
 }
 
 .application-section .section-heading h2 {
-    font-size: 42px;
+    font-size: clamp(30px, 3vw, 42px);
 }
 
-.application-section .section-heading p {
-    margin-top: 8px;
-}
-
+/* Timeline and guide layout */
 .application-layout {
     display: flex;
     align-items: stretch;
-
     gap: 25px;
 }
 
 .application-cards {
-    flex: 1;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.application-card {
-    padding: 25px;
-
-    background: #ffffff;
-
-    border: 1px solid #cfe3f2;
-
-    border-radius: 9px;
-}
-
-.application-card-header {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 15px;
-}
-
-.application-card-header .card-icon {
-    flex-shrink: 0;
-
-    margin-bottom: 0;
-}
-
-.application-card-header h3 {
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 16px;
-
-    color: #123f69;
-}
-
-.application-card ul {
-    list-style: none;
-}
-
-.application-card li {
     position: relative;
-
-    padding-left: 22px;
-
-    margin-bottom: 7px;
-
-    font-size: 13px;
-
-    color: #000000;
+    display: block;
+    flex: 1;
+    min-width: 0;
 }
 
-.application-card li::before {
-    content: "✓";
-
+/* 1. POSITION THE TRACK EXACTLY WHERE THE MILESTONES LIVE */
+.application-progress-line {
     position: absolute;
-
-    left: 0;
-
-    font-weight: bold;
-
-    color: #1261a0;
+    top: 25px;
+    bottom: 25px;
+    left: 28px; /* Centers the 22px wide bar right under the icons */
+    width: 22px;
+    background: #d5e5f1;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
 }
 
-.guide-link {
-    width: 145px;
+.application-progress-fill {
+    width: 100%;
+    height: 0;
+    background: #1261a0;
+    border-radius: 20px;
+    transition: height 0.12s linear;
+}
+
+/* Stack the three cards vertically and push text out of the way of the bar */
+.application-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 0 8px 75px; /* Leaves clean breathing room for the icons */
+    position: relative;
+    font-size: 14px;
+}
+
+/* Individual timeline cards */
+.application-card {
+    position: relative;
+    z-index: 2; /* Ensures cards stay above the background track */
+}
+
+/* 2. PIN THE MILESTONES DIRECTLY OVER THE LINE */
+.application-milestone {
+    position: absolute;
+    left: -47px; /* Pulls the icon back to center precisely over the 28px line track */
+    top: 15px;
+    z-index: 3; /* Sits on top of both the line and the card */
+
+    width: 56px;
+    height: 56px;
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    border: 5px solid #1261a0;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1261a0;
+
+    font-size: 22px;
+    line-height: 1;
+}
+
+/* Card headings */
+.application-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    min-height: 46px;
+}
+
+.application-card-header h3 {
+    margin: 0;
+    font-family: serif, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 1.35;
+    color: #123f69;
+}
+
+/* Checklist text */
+.application-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.application-card li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #000000;
+}
+
+.application-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #1261a0;
+    font-weight: bold;
+}
+
+.application-card li:last-child {
+    margin-bottom: 0;
+}
+
+/* Complete Application Guide link */
+.guide-link {
+    flex: 0 0 145px;
+    width: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
 
     border-left: 1px solid #b9d1e2;
-
     color: #0b4f88;
-
     font-size: 14px;
     font-weight: 600;
-
-    line-height: 1.4;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .guide-link:hover {
     color: #06375e;
+}
+
+
+/* Tablet and mobile */
+@media (max-width: 700px) {
+    .application-section {
+        padding: 45px 6% 50px;
+    }
+
+    .application-layout {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .application-card-list {
+        padding-left: 52px;
+        gap: 15px;
+    }
+
+    .application-progress-line {
+        left: 28px;
+        width: 22px;
+    }
+
+    .application-card {
+        padding: 20px 17px;
+    }
+
+    .application-milestone {
+        left: -40px;
+        width: 40px;
+        height: 40px;
+        border-width: 4px;
+        font-size: 18px;
+    }
+
+    .application-card-header h3 {
+        font-size: 17px;
+    }
+
+    .application-card li {
+        font-size: 14px;
+        padding-left: 40px;
+    }
+
+    .guide-link {
+        flex: auto;
+        width: 100%;
+        min-height: 45px;
+        padding: 14px;
+        border-left: none;
+        border-top: 1px solid #b9d1e2;
+        text-align: center;
+    }
+}
+
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .application-section {
+        padding: 40px 6% 50px;
+    }
+
+    .application-section .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .application-layout {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .application-card-list {
+        padding-left: 52px;
+        gap: 14px;
+    }
+
+    .application-progress-line {
+        left: 28px;
+        width: 22px;
+    }
+
+    .application-card {
+        padding: 20px 17px;
+    }
+
+    
+    .application-milestone {
+          left: -40px;
+          top: 20px;
+          width: 40px;
+          height: 40px;
+          border-width: 4px;
+          font-size: 18px;
+}
+
+
+    .application-card-header h3 {
+        font-size: 17px;
+    }
+
+    .application-card li {
+        font-size: 15px;
+    }
+
+    .guide-link {
+        width: auto;
+        min-height: 45px;
+        padding: 12px;
+        border-left: none;
+        border-top: 1px solid #b9d1e2;
+        text-align: center;
+    }
+}
+
+  /* Container must be relative so absolute positioning works inside it */
+.application-cards {
+    position: relative;
+}
+
+/* The background track line */
+.application-progress-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px; /* Adjust this to line up with your milestone icons */
+    width: 22px; /* Increased width so it's not too narrow */
+    background-color: #e2e8f0; /* Light background color for the unfilled track */
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* The active fill line that grows as you scroll */
+.application-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Starts at 0, updated by JS */
+    background-color: #0066cc; /* Change to your primary brand/accent color */
+    border-radius: 4px;
+    transition: height 0.1s ease-out; /* Smooths out the animation */
 }
 
 
@@ -814,8 +1102,11 @@ display: block;
 
 .documents-section {
     padding: 70px 7% 80px;
-    background: #eaf6ff;
+    background: #ffffff;
 }
+
+
+/* ================= SECTION HEADING ================= */
 
 .documents-heading {
     display: flex;
@@ -829,25 +1120,24 @@ display: block;
     max-width: 620px;
     margin-top: 10px;
     color: #58738a;
+    line-height: 1.7;
 }
 
 .templates-link {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-
     white-space: nowrap;
 
     color: #0b5591;
     font-size: 14px;
     font-weight: 600;
-
     text-decoration: none;
 
     border-bottom: 1px solid #0b5591;
     padding-bottom: 4px;
 
-    transition: 0.2s ease;
+    transition: color 0.2s ease, gap 0.2s ease;
 }
 
 .templates-link:hover {
@@ -856,19 +1146,20 @@ display: block;
 }
 
 
-/* ================= DOCUMENT CARDS ================= */
+/* ================= DOCUMENT GRID ================= */
 
 .document-cards {
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
+    align-items: stretch;
 }
+
+
+/* ================= DOCUMENT CARDS ================= */
 
 .document-card {
     position: relative;
-
     min-height: 150px;
 
     display: flex;
@@ -876,32 +1167,28 @@ display: block;
     align-items: center;
     justify-content: center;
 
+    padding: 25px 15px;
     text-align: center;
 
-    padding: 25px 15px;
-
-    background: #ffffff;
-
-    border: 1px solid #c8e0f0;
+    background: #cfe5f5;
+    border: 1px solid #073b65;
     border-radius: 10px;
 
     cursor: pointer;
-
     overflow: hidden;
 
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
 
-/* Small accent at the top of each card */
+/* Top accent line */
 
 .document-card::before {
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 0;
 
@@ -911,15 +1198,16 @@ display: block;
     background: #0b5591;
 
     transform: scaleX(0);
-
     transform-origin: left;
 
     transition: transform 0.25s ease;
 }
 
-.document-card:hover {
-    transform: translateY(-5px);
 
+/* Hover effects */
+
+.document-card:hover {
+    transform: translateY(-4px);
     border-color: #9fc8e5;
 
     box-shadow: 0 8px 20px rgba(11, 85, 145, 0.10);
@@ -930,7 +1218,15 @@ display: block;
 }
 
 
-/* ================= DOCUMENT ICON ================= */
+/* Keyboard accessibility */
+
+.document-card:focus-visible {
+    outline: 3px solid #7864a6;
+    outline-offset: 3px;
+}
+
+
+/* ================= DOCUMENT ICONS ================= */
 
 .document-icon {
     width: 48px;
@@ -941,29 +1237,183 @@ display: block;
     justify-content: center;
 
     margin-bottom: 14px;
-
     border-radius: 50%;
 
     background: #eaf4fb;
-
     color: #0b5591;
 
     font-size: 20px;
 }
 
 
-/* ================= DOCUMENT TITLE ================= */
+/* ================= DOCUMENT TITLES ================= */
 
 .document-card h3 {
     margin: 0;
 
-    font-family: Arial, Helvetica, sans-serif;
-
+    font-family: serif, Georgia;
     font-size: 14px;
-
-    line-height: 1.35;
+    font-weight: 600;
+    line-height: 1.4;
 
     color: #16486f;
+}
+
+
+/* ================= WORD MESSAGE CARDS ================= */
+
+.document-message {
+    min-height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #f5f1fa;
+    border: 1px solid #e5dcf2;
+    border-radius: 10px;
+
+    color: #70569c;
+
+    font-family: serif, Georgia;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Subtle hover effect */
+
+.document-message:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(75, 55, 110, 0.08);
+}
+
+
+/* ================= CODED HEART ICON ================= */
+
+.document-message .fa-heart {
+    color: #e57391;
+    font-size: 28px;
+}
+
+
+/* ================= TABLET RESPONSIVENESS ================= */
+
+@media (max-width: 768px) {
+
+    .documents-section {
+        padding: 55px 5% 65px;
+    }
+
+    .documents-heading {
+        gap: 20px;
+    }
+
+    .document-cards {
+        gap: 13px;
+    }
+
+    .document-card,
+    .document-message {
+        min-height: 140px;
+    }
+
+    .document-card {
+        padding: 20px 12px;
+    }
+
+    .document-message {
+        padding: 16px;
+        font-size: 21px;
+    }
+}
+
+
+/* ================= MOBILE RESPONSIVENESS ================= */
+
+@media (max-width: 600px) {
+
+    .documents-section {
+        padding: 45px 5% 55px;
+    }
+
+    .documents-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 25px;
+    }
+
+    .documents-intro {
+        font-size: 14px;
+    }
+
+    .templates-link {
+        font-size: 13px;
+    }
+
+    .document-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .document-card {
+        min-height: 135px;
+        padding: 18px 8px;
+    }
+
+    .document-icon {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 11px;
+        font-size: 18px;
+    }
+
+    .document-card h3 {
+        font-size: 13px;
+    }
+
+    .document-message {
+        min-height: 135px;
+        padding: 12px 6px;
+        font-size: 19px;
+    }
+
+    .document-message .fa-heart {
+        font-size: 25px;
+    }
+}
+
+
+/* ================= SMALL PHONE SCREENS ================= */
+
+@media (max-width: 360px) {
+
+    .document-cards {
+        gap: 8px;
+    }
+
+    .document-card {
+        padding: 15px 5px;
+    }
+
+    .document-card h3 {
+        font-size: 12px;
+    }
+
+    .document-message {
+        padding: 10px 4px;
+        font-size: 17px;
+    }
 }
 
 
@@ -1078,7 +1528,7 @@ display: block;
 .stat strong {
     display: block;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: serif, Georgia, "Times New Roman";
 
     font-size: 39px;
 
@@ -1600,4 +2050,4 @@ display: block;
         min-height: 135px;
     }
 
-}
+   }
