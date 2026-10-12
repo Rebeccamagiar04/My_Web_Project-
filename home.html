@@ -139,11 +139,28 @@ href="home.css">
 
     <main>
 
-      <!-- ================= WELCOME SECTION ================= -->
+<!-- ================= WELCOME SECTION ================= -->
 <section class="welcome-section">
 
+    <!-- Direct HTML5 Background Video -->
+    <video 
+        id="welcome-video"
+        class="welcome-video" 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        aria-hidden="true">
+        <source src="welcome-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="welcome-overlay"></div>
+
+    <!-- Welcome Content -->
     <div class="welcome-content">
-      <h1>Hi, <span id="userName">candidate</span> 👋</h1>
+        <h1>Hi, <span id="userName">candidate</span> 👋</h1>
 
         <p>
             We're glad you're here. This is a space created to help you
@@ -153,6 +170,9 @@ href="home.css">
     </div>
 
 </section>
+
+
+
 
   <!-- ================= HOW IT WORKS ================= -->
 <section class="how-it-works" id="how-it-works">
@@ -260,93 +280,105 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
         </section>
 
 
-        <!-- ================= APPLICATION STEPS ================= -->
-        <section class="application-section" id="application-essentials">
 
-            <div class="section-heading">
+<!-- ================= APPLICATION STEPS ================= -->
+<section class="application-section" id="application-essentials">
 
-                <h2 class="eyebrow">APPLICATION ESSENTIALS</h2>
+    <div class="section-heading">
+        <h2 class="eyebrow">APPLICATION ESSENTIALS</h2>
+    </div>
 
+    <div class="application-layout">
+
+        <div class="application-cards">
+
+            <!-- Vertical progress line -->
+            <div class="application-progress-line">
+                <div class="application-progress-fill"></div>
             </div>
 
+            <!-- Timeline stages -->
+            <div class="application-card-list">
 
-            <div class="application-layout">
+                <!-- STAGE 1: BEFORE YOU APPLY -->
+                <article class="application-card">
 
-                <div class="application-cards">
+                    <div class="application-milestone">♙</div>
 
-                    <!-- Before You Apply -->
-                    <article class="application-card">
-
+                    <div class="application-card-content">
                         <div class="application-card-header">
-                            <div class="card-icon">♙</div>
-
                             <h3>Before You Apply</h3>
                         </div>
 
                         <ul>
-                            <li>Check eligibility</li>
-                            <li>Research the scholarship</li>
-                            <li>Check deadlines</li>
-                            <li>Understand the requirements</li>
-                            <li>Prepare necessary documents</li>
+                            <li>Check eligibility requirements of each scholarship.</li>
+                            <li>Do thorough research on each scholarship to make sure it aligns with your goals.</li>
+                            <li>Check deadlines and make sure you keep time.</li>
+                            <li>Read and understand the requirements of each program.</li>
+                            <li>Prepare necessary documents in advance. Make sure they are properly scanned.</li>
                         </ul>
+                    </div>
 
-                    </article>
+                </article>
 
+                <!-- STAGE 2: WHILE APPLYING -->
+                <article class="application-card">
 
-                    <!-- While Applying -->
-                    <article class="application-card">
+                    <div class="application-milestone">▤</div>
 
+                    <div class="application-card-content">
                         <div class="application-card-header">
-                            <div class="card-icon">▤</div>
-
                             <h3>While Applying</h3>
                         </div>
 
                         <ul>
-                            <li>Follow the instructions</li>
-                            <li>Complete every required field</li>
-                            <li>Tailor your essays</li>
-                            <li>Upload the correct documents</li>
-                            <li>Use accurate information</li>
-                            <li>Keep your application consistent</li>
+                            <li>Follow the instructions carefully so you do not regret mistakes later.</li>
+                            <li>Complete every required field. Incomplete applications can cost you the opportunity.</li>
+                            <li>Tailor your essays to each program. This helps you use your time effectively.</li>
+                            <li>Upload the correct documents in the required formats, such as PDF or Word.</li>
+                            <li>Use accurate information. Proofread your application and ask others for feedback.</li>
+                            <li>Keep your application consistent.</li>
                         </ul>
+                    </div>
 
-                    </article>
+                </article>
 
+                <!-- STAGE 3: BEFORE YOU SUBMIT -->
+                <article class="application-card">
 
-                    <!-- Before You Submit -->
-                    <article class="application-card">
+                    <div class="application-milestone">➤</div>
 
+                    <div class="application-card-content">
                         <div class="application-card-header">
-                            <div class="card-icon">➤</div>
-
                             <h3>Before You Submit</h3>
                         </div>
 
                         <ul>
-                            <li>Proofread your application</li>
-                            <li>Check your documents</li>
-                            <li>Check file format and size</li>
-                            <li>Verify personal information</li>
-                            <li>Make sure nothing is missing</li>
-                            <li>Save a copy</li>
-                            <li>Submit before the deadline</li>
+                            <li>Proofread your application carefully.</li>
+                            <li>Check your documents to make sure they are readable and properly uploaded.</li>
+                            <li>Check file format and size restrictions.</li>
+                            <li>Verify your personal information. Small mistakes can cause major issues later.</li>
+                            <li>Make sure nothing is missing. Check your application portal regularly for missing items.</li>
+                            <li>Save a copy of each document.</li>
+                            <li>Submit before the deadline. Do not assume a scholarship will extend its deadline for you.</li>
                         </ul>
+                    </div>
 
-                    </article>
-
-                </div>
-
-
-                <a href="guide.html" class="guide-link">
-                    View Complete<br>
-                    Application Guide →
-                </a>
+                </article>
 
             </div>
+        </div>
 
-        </section>
+        <!-- Complete application guide -->
+        <a href="guide.html" class="guide-link">
+            View Complete<br>
+            Application Guide →
+        </a>
+
+    </div>
+
+</section>
+
 
       <!-- ================= HERO IMAGE ================= -->
 <section class="home-image">
@@ -357,82 +389,121 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 </section>
 
 
-      <!-- ================= DOCUMENT CATEGORIES ================= -->
+<!-- ================= DOCUMENT CATEGORIES ================= -->
 <section class="documents-section" id="common-documents">
 
     <div class="section-heading documents-heading">
-
         <div>
-            <p class="eyebrow">DOCUMENTS YOU MAY NEED</p>
-
             <h2>Prepare the Right Documents</h2>
 
             <p class="documents-intro">
-                Explore the common document categories you may need when prepairing a scholarship application.
+                Explore the common documents required during the application process.
             </p>
         </div>
 
         <a href="doctemplates.html" class="templates-link">
-            View Document List <i class="fa-solid fa-arrow-right"></i>
+            View Document List
+            <i class="fa-solid fa-arrow-right"></i>
         </a>
-
     </div>
-
 
     <div class="document-cards">
 
-        <article class="document-card" data-category="identification" tabindex="0">
+        <!-- 1. Identification -->
+        <article class="document-card"
+                 data-category="identification"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-regular fa-id-card"></i>
             </div>
             <h3>Identification</h3>
         </article>
 
-        <article class="document-card" data-category="academic" tabindex="0">
+        <!-- ALL -->
+        <div class="document-message">ALL</div>
+
+        <!-- THE -->
+        <div class="document-message">THE</div>
+
+        <!-- 2. Academic Documents -->
+        <article class="document-card"
+                 data-category="academic"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-solid fa-graduation-cap"></i>
             </div>
             <h3>Academic Documents</h3>
         </article>
 
-        <article class="document-card" data-category="language" tabindex="0">
+        <!-- 3. Language Proficiency -->
+        <article class="document-card"
+                 data-category="language"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-solid fa-language"></i>
             </div>
             <h3>Language Proficiency</h3>
         </article>
 
-        <article class="document-card" data-category="essays" tabindex="0">
+        <!-- BEST -->
+        <div class="document-message">BEST</div>
+
+        <!-- AS -->
+        <div class="document-message">AS</div>
+
+        <!-- 4. Essays & Statements -->
+        <article class="document-card"
+                 data-category="essays"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-solid fa-file-lines"></i>
             </div>
             <h3>Essays &amp; Statements</h3>
         </article>
 
-        <article class="document-card" data-category="recommendations" tabindex="0">
+        <!-- 5. Recommendations -->
+        <article class="document-card"
+                 data-category="recommendations"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-solid fa-user-check"></i>
             </div>
             <h3>Recommendations</h3>
         </article>
 
-        <article class="document-card" data-category="experience" tabindex="0">
+        <!-- YOU -->
+        <div class="document-message">YOU</div>
+
+        <!-- PREPARE  -->
+        <div class="document-message">PREPARE </div>
+
+        <!-- 6. Experience & Portfolio -->
+        <article class="document-card"
+                 data-category="experience"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-solid fa-briefcase"></i>
             </div>
             <h3>Experience &amp; Portfolio</h3>
         </article>
 
-        <article class="document-card" data-category="health" tabindex="0">
+        <!-- 7. Health & Travel -->
+        <article class="document-card"
+                 data-category="health"
+                 tabindex="0">
             <div class="document-icon">
                 <i class="fa-solid fa-heart-pulse"></i>
             </div>
             <h3>Health &amp; Travel</h3>
         </article>
 
-    </div>
+<!-- Heart icon -->
+<div class="document-message">
+    <i class="fa-solid fa-heart"></i>
+</div>
 
-</section>
+
+</section>    
 
 
         <!-- ================= TIPS ================= -->
@@ -573,7 +644,7 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
             <div class="logo">
                 <span class="logo-icon">🎓</span>
-                <span>Portico Kakuma</span>
+                <span>Hope Horizon</span>
             </div>
 
             <p>Scholarships without borders.</p>
@@ -595,7 +666,7 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
             <p>Contact us at: <a href="mailto:rebeccamagiar04@gmail.com">rebeccamagiar04@gmail.com</a></p>
 
-        
+            <p>⌖ 123 Hope Street, Global City</p>
 
             <div class="social-links">
                 <a href="#">Facebook</a>
@@ -608,14 +679,13 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
 
         <div class="copyright">
-            ©. All rights reserved.
+            © 2025 Hope Horizon. All rights reserved.
         </div>
 
     </footer>
 
-
+  
     <script src="home.js"></script>
-
 
 </body>
     </html>
