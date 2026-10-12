@@ -65,6 +65,39 @@ processCards.forEach(card => {
 });
 
 
+
+ //============= APPLICATION ESSENTIALS PROGRESS =============//
+
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("#application-essentials");
+    const timeline = section?.querySelector(".application-cards");
+    const track = section?.querySelector(".application-progress-line");
+    const fill = section?.querySelector(".application-progress-fill");
+
+    if (!section || !timeline || !track || !fill) return;
+
+    function updateApplicationProgress() {
+        const timelineRect = timeline.getBoundingClientRect();
+        const triggerPoint = window.innerHeight * 0.65;
+
+        let progress =
+            (triggerPoint - timelineRect.top) / timelineRect.height;
+
+        progress = Math.max(0, Math.min(1, progress));
+
+        fill.style.height = `${progress * 100}%`;
+    }
+
+    window.addEventListener("scroll", updateApplicationProgress, {
+        passive: true
+    });
+
+    window.addEventListener("resize", updateApplicationProgress);
+
+    updateApplicationProgress();
+});
+
+
 /* =========================================================
    DOCUMENT CATEGORY LINKS
    ========================================================= */
@@ -217,3 +250,4 @@ showStat(0);
 // =========================================================
 
 window.addEventListener("resize", updateStatsForScreen);
+
