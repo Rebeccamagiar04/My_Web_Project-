@@ -470,107 +470,91 @@ p {
 
 /* ================= WELCOME VIDEO SECTION ================= */
 
+.welcome-section,
+.welcome-section * {
+    box-sizing: border-box;
+}
+
 .welcome-section {
     position: relative;
     width: 100%;
-    height: 85vh;
-    min-height: 500px;
+    /* Fallback, then stable viewport units for mobile browsers */
+    min-height: clamp(320px, 55vh, 520px);
+    min-height: clamp(320px, 55svh, 520px);
+    height: auto;
+    padding: 48px 24px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     background-color: #0b1320;
     isolation: isolate;
 }
 
-/* Background video */
 .welcome-video {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     border: 0;
-    filter: none;
-    transform: none;
-    z-index: -2;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Darken the video without blurring it */
 .welcome-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.30);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
 }
 
-/* Centered welcome text */
 .welcome-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     max-width: 800px;
-    padding: 0 24px;
     margin: 0 auto;
     text-align: center;
     color: #ffffff;
+    overflow-wrap: anywhere;
 }
 
 .welcome-content h1 {
     margin: 0 0 20px;
     color: #ffffff;
-    font-family: serif, Georgia, "Times New Roman";
-    font-size: clamp(38px, 6vw, 68px);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 54px;
     font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.5px;
-}
-
-.welcome-content h1 span {
-    color: #9ed5ff;
+    letter-spacing: 0;
 }
 
 .welcome-content p {
     max-width: 650px;
     margin: 0 auto;
     color: #ffffff;
-    font-family: serif, Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
     line-height: 1.8;
-}
-
-/* Laptop screens */
-@media (min-width: 1100px) {
-    .welcome-section {
-        height: 85vh;
-    }
-
-    .welcome-content {
-        max-width: 850px;
-    }
 }
 
 /* Tablets and phones */
 @media (max-width: 768px) {
     .welcome-section {
-        height: 80vh;
-        height: 80svh;
-        min-height: 480px;
-        padding: 30px 6%;
+        min-height: clamp(300px, 50vh, 420px);
+        min-height: clamp(300px, 50svh, 420px);
+        padding: 36px 24px;
     }
 
     .welcome-content h1 {
-        font-size: clamp(36px, 9vw, 52px);
+        font-size: 40px;
         margin-bottom: 16px;
     }
 
     .welcome-content p {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.7;
     }
 }
@@ -578,21 +562,15 @@ p {
 /* Small phones */
 @media (max-width: 400px) {
     .welcome-section {
-        min-height: 440px;
-    }
-
-    .welcome-content {
-        padding: 0 10px;
+        padding: 32px 20px;
     }
 
     .welcome-content h1 {
         font-size: 34px;
     }
-
-    .welcome-content p {
-        font-size: 18px;
-    }
 }
+
+
 
 
 
