@@ -1,0 +1,348 @@
+
+/* =========================================
+   PORTICO KAKUMA — SIMPLE SUPPORT PAGE
+   No cards, no boxed layouts
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: serif, Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #333a35;
+    line-height: 1.75;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+  
+  font-size: 14px;
+  
+  }
+
+.support-page {
+    width: min(100% - 40px, 800px);
+    margin: 0 auto;
+    padding: 55px 0 40px;
+}
+
+
+/* =========================================
+   INTRODUCTION
+   ========================================= */
+
+.support-intro {
+    margin-bottom: 35px;
+}
+
+
+.support-intro h1 {
+    color: #292f2b;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+    margin-bottom: 13px;
+}
+
+.support-intro > p {
+    max-width: 650px;
+    color: #687069;
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   DISCLAIMER
+   Simple text with a subtle left accent
+   ========================================= */
+
+.support-disclaimer {
+    padding: 4px 0 4px 18px;
+    border-left: 3px solid #c9a66b;
+    margin-bottom: 45px;
+}
+
+.disclaimer-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+}
+
+.disclaimer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #917448;
+    border-radius: 50%;
+    color: #917448;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.disclaimer-heading h2 {
+    color: #4b4a40;
+    font-size: 1rem;
+}
+
+.support-disclaimer p {
+    color: #66665c;
+    font-size: 0.89rem;
+}
+
+.support-disclaimer p + p {
+    margin-top: 9px;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+.support-section {
+    margin-bottom: 43px;
+    scroll-margin-top: 25px;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2,
+.support-safety h2 {
+    color: #303731;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.section-heading > p {
+    color: #737a73;
+    font-size: 0.93rem;
+}
+
+
+/* =========================================
+   CONTACT DIRECTORY
+   Plain text, no cards or backgrounds
+   ========================================= */
+
+.contact-card {
+    padding: 20px 0;
+    border-bottom: none;
+}
+
+.contact-card:first-of-type {
+    padding-top: 0;
+}
+
+.contact-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.contact-icon {
+    display: none;
+}
+
+.contact-title h3,
+.community-card h3 {
+    color: #303731;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.contact-role {
+    color: #7a817a;
+    font-size: 0.86rem;
+}
+
+.contact-description,
+.community-card > p {
+    color: #626a63;
+    font-size: 0.92rem;
+    border-bottom: none;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    border-top: none;
+}
+
+.contact-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.88rem;
+    border-bottom: none;
+}
+
+.contact-link span:first-child {
+    color: #777e77;
+}
+
+.contact-link span:last-child {
+    color: #39744c;
+    overflow-wrap: anywhere;
+}
+
+.contact-link:hover span:last-child {
+    text-decoration: underline;
+}
+
+.contact-note,
+.community-note {
+    margin-top: 10px;
+    color: #858b85;
+    font-size: 0.8rem;
+}
+
+
+
+/* =========================================
+   WHATSAPP COMMUNITIES
+   Plain text links
+   ========================================= */
+
+.community-card {
+    padding: 19px 0;
+    border-bottom: none;
+}
+
+.community-card:first-of-type {
+    padding-top: 0;
+}
+
+.community-icon {
+    display: none;
+}
+
+.community-card h3 {
+    margin-bottom: 5px;
+}
+
+.community-card > p {
+    margin-bottom: 10px;
+}
+
+.community-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #347447;
+    font-size: 0.91rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.community-button:hover {
+    text-decoration-color: currentColor;
+}
+
+.community-note {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   SAFETY REMINDER
+   Simple text section
+   ========================================= */
+
+.support-safety {
+    padding: 5px 0 25px;
+}
+
+.support-safety h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.support-safety ul {
+    padding-left: 20px;
+    color: #626a63;
+    font-size: 0.9rem;
+}
+
+.support-safety li {
+    padding-left: 3px;
+    margin-bottom: 7px;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.support-footer {
+    border-top: none;
+    padding-top: 17px;
+}
+
+.support-footer p {
+    color: #858b85;
+    font-size: 0.82rem;
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+a:focus-visible {
+    outline: 2px solid #39744c;
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+    .support-page {
+        width: calc(100% - 32px);
+        padding-top: 35px;
+    }
+
+    .support-intro h1 {
+        font-size: 2rem;
+    }
+
+    .support-disclaimer {
+        padding-left: 13px;
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.28rem;
+    }
+
+    .contact-link {
+        flex-direction: column;
+        gap: 0;
+    }
+}
