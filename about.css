@@ -471,79 +471,81 @@ p {
 
 
 /* =========================================================
-   ABOUT HERO
+   ABOUT HERO — COMPLETE RESPONSIVE STYLING
 ========================================================= */
+
+/* ================= BASIC HERO ================= */
+
+.about-hero,
+.about-hero * {
+    box-sizing: border-box;
+}
 
 .about-hero {
     position: relative;
+    width: 100%;
+    min-height: 0;
     overflow: hidden;
 
     background: #071426;
     color: #ffffff;
 
-    min-height: 360px;
-
     display: flex;
     align-items: center;
+
+    isolation: isolate;
 }
 
-
-/* SUBTLE BLUE GLOW */
+/* ================= BACKGROUND BLUE GLOW ================= */
 
 .about-hero::before {
     content: "";
-
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    width: clamp(300px, 42vw, 520px);
+    height: clamp(300px, 42vw, 520px);
 
-    right: 3%;
+    right: 2%;
     top: 50%;
 
     transform: translateY(-50%);
 
     background: rgba(37, 99, 235, 0.10);
-
     border-radius: 50%;
-
     filter: blur(90px);
 
     pointer-events: none;
+    z-index: 0;
 }
 
-
-/* =========================================================
-   HERO CONTAINER
-========================================================= */
+/* ================= HERO CONTAINER ================= */
 
 .about-container {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 
     width: 100%;
-    max-width: 1180px;
-
+    max-width: 1280px;
     margin: 0 auto;
 
-    padding: 55px 5%;
+    padding: clamp(30px, 3.5vw, 48px)
+             clamp(24px, 5vw, 65px);
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.05fr)
+                           minmax(0, 0.95fr);
 
     align-items: center;
-
-    gap: 45px;
+    gap: clamp(24px, 3.5vw, 48px);
 }
 
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
+/* ================= HERO TEXT ================= */
 
 .about-text {
+    width: 100%;
     max-width: 560px;
+    min-width: 0;
 }
 
 .section-tag {
@@ -553,57 +555,51 @@ p {
 
     font-size: 0.78rem;
     font-weight: 700;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 
     margin-bottom: 8px;
 }
 
+/* MAIN HEADING */
 
 .about-text h1 {
     margin: 10px 0 18px;
 
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-
-    line-height: 1.08;
+    font-size: clamp(2.4rem, 3.7vw, 3.5rem);
+    line-height: 1.1;
 
     font-weight: 700;
-
     letter-spacing: -1px;
+
+    overflow-wrap: break-word;
 }
 
+/* DESCRIPTION */
 
 .about-text p {
     max-width: 530px;
 
-    margin: 0 0 28px;
+    margin: 0 0 26px;
 
     color: #cbd5e1;
 
-    font-size: 0.98rem;
-
-    line-height: 1.7;
+    font-size: clamp(0.94rem, 1.05vw, 1rem);
+    line-height: 1.75;
 }
 
-
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
+/* ================= HERO BUTTONS ================= */
 
 .hero-buttons {
     display: flex;
-
     align-items: center;
+    flex-wrap: wrap;
 
-    gap: 22px;
+    gap: 16px 22px;
 }
-
 
 .primary-Abtn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
@@ -615,86 +611,73 @@ p {
     border-radius: 8px;
 
     font-weight: 600;
-
     text-decoration: none;
 
-    transition: 0.25s ease;
+    transition: background 0.25s ease,
+                transform 0.25s ease;
 }
-
 
 .primary-Abtn:hover {
     background: #1d4ed8;
-
     transform: translateY(-2px);
 }
-
 
 .secondary-Abtn {
     color: #ffffff;
 
     font-weight: 600;
-
     text-decoration: none;
 
-    transition: 0.25s ease;
+    transition: color 0.25s ease;
 }
-
 
 .secondary-Abtn:hover {
     color: #60a5fa;
 }
 
-
-/* =========================================================
-   HERO IMAGE — DESKTOP
-========================================================= */
+/* ================= HERO IMAGE ================= */
 
 .about-image {
     position: relative;
 
-    min-height: 320px;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
-
-/* SOFT GLOW BEHIND IMAGE */
+/* GLOW BEHIND IMAGE */
 
 .about-image::before {
     content: "";
 
     position: absolute;
 
-    width: 390px;
-    height: 390px;
+    width: clamp(240px, 29vw, 390px);
+    aspect-ratio: 1 / 1;
 
     background: rgba(37, 99, 235, 0.14);
 
     border-radius: 50%;
-
     filter: blur(65px);
 
     z-index: 0;
+    pointer-events: none;
 }
 
-
-/* IMAGE */
+/* GRADUATION CAP AND BOOKS */
 
 .about-image img {
     position: relative;
-
-    z-index: 2;
+    z-index: 1;
 
     display: block;
 
     width: 100%;
-
-    max-width: 450px;
-
+    max-width: clamp(320px, 34vw, 440px);
     height: auto;
 
     object-fit: contain;
@@ -702,13 +685,9 @@ p {
     animation: aboutFloat 5s ease-in-out infinite;
 }
 
-
-/* =========================================================
-   SUBTLE IMAGE MOVEMENT
-========================================================= */
+/* ================= FLOATING ANIMATION ================= */
 
 @keyframes aboutFloat {
-
     0% {
         transform: translateY(0);
     }
@@ -722,31 +701,54 @@ p {
     }
 }
 
+/* =========================================================
+   MEDIUM DESKTOPS
+   1101px – 1200px
+========================================================= */
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+    .about-container {
+        gap: 28px;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .about-text h1 {
+        font-size: clamp(2.4rem, 3.5vw, 3rem);
+    }
+
+    .about-image img {
+        max-width: 380px;
+    }
+}
 
 /* =========================================================
-   TABLET
+   TABLETS AND SMALL LAPTOPS
+   601px – 900px
 ========================================================= */
 
 @media (max-width: 900px) {
-
     .about-hero {
-        min-height: auto;
+        min-height: 0;
     }
 
     .about-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 24px;
+
+        padding: 48px 6% 38px;
 
         text-align: center;
-
-        gap: 25px;
-
-        padding: 65px 6%;
     }
 
     .about-text {
         max-width: 700px;
-
         margin: 0 auto;
+    }
+
+    .about-text h1 {
+        font-size: clamp(2.4rem, 5vw, 3.2rem);
     }
 
     .about-text p {
@@ -759,150 +761,176 @@ p {
     }
 
     .about-image {
-        min-height: auto;
-
         order: 2;
+        margin-top: 0;
     }
 
     .about-image img {
-        max-width: 400px;
+        max-width: clamp(300px, 48vw, 400px);
+    }
+
+    .about-image::before {
+        width: clamp(250px, 38vw, 340px);
+        filter: blur(60px);
     }
 }
 
-
 /* =========================================================
-   MOBILE
+   MOBILE PHONES
+   401px – 600px
 ========================================================= */
 
 @media (max-width: 600px) {
+    .about-hero::before {
+        width: 300px;
+        height: 300px;
 
-    .about-hero {
-        min-height: auto;
+        right: -100px;
+        top: 45%;
+
+        filter: blur(75px);
     }
 
     .about-container {
         display: flex;
-
         flex-direction: column;
 
         gap: 20px;
 
-        padding: 55px 22px 45px;
+        padding: 42px 22px 34px;
     }
-
 
     /* TEXT FIRST */
 
     .about-text {
         width: 100%;
+        max-width: 480px;
 
         text-align: center;
     }
 
-
     .section-tag {
         font-size: 0.72rem;
-
         letter-spacing: 1.8px;
-
         margin-bottom: 7px;
     }
 
-
     .about-text h1 {
-        font-size: 2.35rem;
+        font-size: clamp(2.1rem, 7vw, 2.5rem);
 
-        line-height: 1.1;
-
+        line-height: 1.12;
         letter-spacing: -0.7px;
 
-        margin: 9px 0 18px;
+        margin: 9px 0 16px;
     }
-
 
     .about-text p {
         width: 100%;
+        max-width: 460px;
 
         font-size: 0.92rem;
-
         line-height: 1.7;
 
-        margin-bottom: 25px;
+        margin: 0 auto 22px;
     }
-
 
     /* BUTTONS */
 
     .hero-buttons {
         justify-content: center;
-
-        gap: 15px;
+        gap: 14px;
     }
-
 
     .primary-Abtn {
         padding: 12px 20px;
-
         font-size: 0.88rem;
     }
-
 
     .secondary-Abtn {
         font-size: 0.88rem;
     }
 
-
-    /* GRADUATION IMAGE BELOW TEXT */
+    /* IMAGE BELOW TEXT */
 
     .about-image {
         order: 2;
 
         width: 100%;
+        min-height: 0;
 
-        min-height: auto;
-
-        margin-top: 5px;
+        margin-top: 0;
     }
-
 
     .about-image img {
         width: 100%;
-
         max-width: 320px;
 
         animation: none;
     }
 
-
     .about-image::before {
-        width: 280px;
-        height: 280px;
-
-        filter: blur(55px);
+        width: 270px;
+        filter: blur(50px);
     }
 }
 
-
 /* =========================================================
    SMALL PHONES
+   400px AND BELOW
 ========================================================= */
 
 @media (max-width: 400px) {
-
     .about-container {
-        padding: 48px 18px 40px;
+        padding: 36px 18px 30px;
+        gap: 18px;
     }
 
     .about-text h1 {
-        font-size: 2.15rem;
+        font-size: 2.05rem;
+        line-height: 1.12;
     }
 
     .about-text p {
         font-size: 0.88rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .primary-Abtn {
+        padding: 11px 16px;
+        font-size: 0.85rem;
+    }
+
+    .secondary-Abtn {
+        font-size: 0.85rem;
     }
 
     .about-image img {
         max-width: 285px;
+    }
+
+    .about-image::before {
+        width: 230px;
+        filter: blur(45px);
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .about-image img {
+        animation: none;
+    }
+
+    .primary-Abtn,
+    .secondary-Abtn {
+        transition: none;
     }
 }
 
@@ -1029,7 +1057,7 @@ background: #ffffff;
 padding: 42px;
 
 border: 1px solid var(--border);
-background:#FFA500;
+background: #e5dcf2;
 border-radius: 50px 0;
 
 box-shadow: 0 8px 30px rgba(37, 99, 235, 0.05);
@@ -1958,4 +1986,4 @@ SMALL PHONES
     min-width: 35px;
 }
 
-   }
+       }
