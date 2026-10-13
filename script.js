@@ -421,3 +421,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+document.getElementById("guestBtn").addEventListener("click", () => {
+    const name = localStorage.getItem("questionnaireName") || "Guest";
+
+    localStorage.setItem("questionnaireName", name);
+
+    window.location.href = "home.html";
+});
+
