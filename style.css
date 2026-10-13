@@ -21,8 +21,8 @@
     #progress-bar {
       width: 0%;
       height: 100%;
-      background: purple;
-      background: linear-gradient(90deg, #a855f7, #ec4899);
+      background: #16486f;
+      background: linear-gradient(90deg, #16486f, #0ea5e9);
       box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
       transition: width 0.3s ease;
     }
@@ -36,7 +36,7 @@
   display: block;
 }
 .q-body{
-  background-color: #C8A2C8; /* lilac color background*/
+  background-color: #eaf4fb; /* light blue color background*/
 }
 .questionnare {
   margin: 0;
@@ -75,7 +75,7 @@ label {
   font-size:20px;
   border: none;
   border-radius: 3px;
-  background-color: #FF007F;
+  background-color: #16486f;
   color: white;
 }
 .next-btn, .prev-btn {
@@ -85,7 +85,7 @@ label {
 
   border: none;
   border-radius: 6px;
-  background-color: purple;
+  background-color: #16486f;
   color: white;
 }
 
@@ -100,9 +100,72 @@ label {
 
   border: none;
   border-radius: 6px;
-  background-color: pink;
+  background-color: #0ea5e9;
   color: black; 
  }
+
+
+/* GUEST VISITOR OPTION */
+.guest-visitor-section {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.guest-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    color: #8b8b98;
+    font-size: 13px;
+}
+
+.guest-divider::before,
+.guest-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #dedee7;
+}
+
+.guest-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d6d6e2;
+    border-radius: 8px;
+    background: transparent;
+    color: #26345b;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.guest-btn:hover {
+    background: #f3f3fa;
+    border-color: #a8a9c5;
+}
+
+.guest-btn:active {
+    transform: scale(0.98);
+}
+
+.guest-btn:focus-visible {
+    outline: 2px solid #6675c9;
+    outline-offset: 3px;
+}
+
+.guest-note {
+    margin: 10px 0 0;
+    color: #858595;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
  
   body{
     margin:0;
