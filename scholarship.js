@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =====================================================
@@ -870,4 +872,138 @@ document.addEventListener('DOMContentLoaded', () => {
 
     displayCurrentPage();
 
+  
+    /* =========================================
+       SCHOLARSHIP STATISTICS
+    ========================================= */
+
+    async function loadScholarshipStats() {
+        try {
+            const [
+                { getApps, initializeApp },
+                { getFirestore, doc, getDoc }
+            ] = await Promise.all([
+                import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js"),
+                import("https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js")
+            ]);
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
+                authDomain: "first-webproject-865a5.firebaseapp.com",
+                projectId: "first-webproject-865a5",
+                storageBucket: "first-webproject-865a5.firebasestorage.app",
+                messagingSenderId: "586929157801",
+                appId: "1:586929157801:web:46dcd3fee9343ba6895bb8",
+                measurementId: "G-DHPQ1CL34X"
+            };
+
+            const app = getApps().length
+                ? getApps()[0]
+                : initializeApp(firebaseConfig);
+
+            const db = getFirestore(app);
+
+            const statsRef = doc(db, "publicStats", "community");
+            const snapshot = await getDoc(statsRef);
+
+            if (!snapshot.exists()) {
+                console.error("Missing Firestore document: publicStats/community");
+                return;
+            }
+
+            const stats = snapshot.data();
+
+            const registered = Number(stats.registeredUsers) || 0;
+            const guests = Number(stats.guestUsers) || 0;
+            const total = Number(stats.totalUsers) || registered + guests;
+            const females = Number(stats.femaleUsers) || 0;
+            const males = Number(stats.maleUsers) || 0;
+
+            function animateCounter(element, target) {
+                if (!element) return;
+
+                const duration = 1000;
+                const startTime = performance.now();
+
+                function update(now) {
+                    const progress = Math.min(
+                        (now - startTime) / duration,
+                        1
+                    );
+
+                    const eased = 1 - Math.pow(1 - progress, 3);
+
+                    element.textContent = Math.round(
+                        target * eased
+                    ).toLocaleString();
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            // Match the IDs in your actual HTML.
+            animateCounter(
+                document.getElementById("registeredUsers"),
+                registered
+            );
+
+            animateCounter(
+                document.getElementById("guestUsers"),
+                guests
+            );
+
+            animateCounter(
+                document.getElementById("totalUsers"),
+                total
+            );
+
+            animateCounter(
+                document.getElementById("femaleCount"),
+                females
+            );
+
+            animateCounter(
+                document.getElementById("maleCount"),
+                males
+            );
+
+            // Match the pie chart ID in your HTML.
+            const chart = document.getElementById("userPieChart");
+            const chartTotal = registered + guests;
+
+            if (chart) {
+                if (chartTotal > 0) {
+                    const registeredPercent =
+                        (registered / chartTotal) * 100;
+
+                    chart.style.background = `conic-gradient(
+                        #4359B8 0% ${registeredPercent}%,
+                        #D99757 ${registeredPercent}% 100%
+                    )`;
+                } else {
+                    chart.style.background =
+                        "conic-gradient(#d1d5db 0% 100%)";
+                }
+
+                chart.setAttribute(
+                    "aria-label",
+                    `Registered users: ${registered}; guest users: ${guests}; total users: ${total}`
+                );
+            }
+
+        } catch (error) {
+            console.error("Could not load scholarship statistics:", error);
+        }
+    }
+
+    loadScholarshipStats();
+
+  
 });
+
+
+
