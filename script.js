@@ -1,24 +1,35 @@
-// Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-    
 
-  import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  updateProfile
+  // 1. FIREBASE IMPORTS//
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    updateProfile,
+    signInAnonymously
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
-  
-  
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  //FIREBASE CONFIGURATION
-  const firebaseConfig = {
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    serverTimestamp,
+    increment
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+
+/* =====================================================
+   2. FIREBASE CONFIGURATION
+===================================================== */
+
+const firebaseConfig = {
     apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
     authDomain: "first-webproject-865a5.firebaseapp.com",
     projectId: "first-webproject-865a5",
@@ -26,111 +37,270 @@
     messagingSenderId: "586929157801",
     appId: "1:586929157801:web:46dcd3fee9343ba6895bb8",
     measurementId: "G-DHPQ1CL34X"
-  };
-  
-  
-  // Initialize Firebase
- const app = initializeApp(firebaseConfig);
- getAnalytics(app);
+};
 
-  //INITIALIZE AUTHENTICATION
-  const auth = getAuth(app);
 
-  //CREATE ACCOUNT EMAIL/password
-  const signupBtn = document.getElementById("createAccount");
-  const googleBtn = document.getElementById("googleLogin");
-  const loginBtn = document.getElementById("login-btn");
+/* =====================================================
+   3. INITIALIZE FIREBASE
+===================================================== */
 
-// SIGNUP
+const app = initializeApp(firebaseConfig);
+
+getAnalytics(app);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+/* =====================================================
+   SAVE QUESTIONNAIRE GENDER TO FIRESTORE
+===================================================== */
+
+
+async function saveGenderToFirestore(user, gender) {
+    if (!user || !gender) return;
+
+    const genderRef = doc(db, "Gender", user.uid);
+    const statsRef = doc(db, "publicStats", "community");
+
+    const newGender = gender.trim().toLowerCase();
+    const genderSnapshot = await getDoc(genderRef);
+
+    const oldGender = genderSnapshot.exists()
+        ? String(genderSnapshot.data().gender || "").trim().toLowerCase()
+        : null;
+
+    // Do not count the same gender answer twice.
+    if (oldGender === newGender) return;
+
+    const changes = {};
+
+    // Remove the previous gender from its count, if applicable.
+    if (oldGender === "female") {
+        changes.femaleUsers = increment(-1);
+    } else if (oldGender === "male") {
+        changes.maleUsers = increment(-1);
+    }
+
+    // Add the new gender to its count, if applicable.
+    if (newGender === "female") {
+        changes.femaleUsers = increment(1);
+    } else if (newGender === "male") {
+        changes.maleUsers = increment(1);
+    }
+
+    await setDoc(genderRef, {
+        gender: newGender,
+        timestamp: serverTimestamp()
+    }, { merge: true });
+
+    // Update statistics only when a countable gender changes.
+    if (Object.keys(changes).length > 0) {
+        await setDoc(statsRef, changes, { merge: true });
+    }
+}
+
+
+
+
+/* =====================================================
+   4. AUTHENTICATION BUTTONS
+===================================================== */
+
+const signupBtn = document.getElementById("createAccount");
+const googleBtn = document.getElementById("googleLogin");
+const loginBtn = document.getElementById("login-btn");
+const guestBtn = document.getElementById("guestBtn");
+
+
+/* =====================================================
+   5. SAVE USERS TO FIRESTORE
+   Each Firebase UID gets one document in Users.
+===================================================== */
+
+
+async function saveUserToFirestore(user, userType) {
+    if (!user) return;
+
+    const userRef = doc(db, "Users", user.uid);
+    const statsRef = doc(db, "publicStats", "community");
+
+    const userSnapshot = await getDoc(userRef);
+
+    // This UID has already been counted.
+    if (userSnapshot.exists()) {
+        return;
+    }
+
+    // Save the new user record.
+    await setDoc(userRef, {
+        userType: userType,
+        createdAt: serverTimestamp()
+    });
+
+    // Increment the correct community totals.
+    const changes = {
+        totalUsers: increment(1)
+    };
+
+    if (userType === "registered") {
+        changes.registeredUsers = increment(1);
+    } else if (userType === "guest") {
+        changes.guestUsers = increment(1);
+    } else {
+        return;
+    }
+
+    await setDoc(statsRef, changes, { merge: true });
+}
+
+
+
+/* =====================================================
+   6. SIGNUP WITH EMAIL AND PASSWORD
+===================================================== */
+
 if (signupBtn) {
-  signupBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
+    signupBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
 
-    const nameInput = document.getElementById("name");
-    const name = nameInput ? nameInput.value.trim() : "";
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
 
-    if (!name) {
-      alert("Please go back to Question 1 and enter your name.");
-      return;
-    }
+        const name = nameInput ? nameInput.value.trim() : "";
+        const email = emailInput ? emailInput.value.trim() : "";
+        const password = passwordInput ? passwordInput.value : "";
 
-    try {
-      // 1. Save to localStorage immediately so the next page can read it right away
-      localStorage.setItem("questionnaireName", name);
-
-      // 2. Create the Firebase user
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      // 3. Update the profile on Firebase
-      await updateProfile(userCredential.user, {
-        displayName: name
-      });
-      console.log("NAME SAVED:", name);
-
-      alert("Account created successfully!");
-
-      // 4. Redirect to home page
-      window.location.href = "home.html";
-
-    } catch (error) {
-      alert(getFriendlyError(error.code));
-    }
-  });
-}
-
-
-   // GOOGLE SIGN-IN
-if (googleBtn) {
-  googleBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const provider = new GoogleAuthProvider();
-
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        if (result.user) {
-
-          const user = result.user;
-
-          console.log("Signed in as:", user.email);
-          console.log("Google displayName:", user.displayName);
-
-          // Save Google's name for home.html
-          if (user.displayName) {
-            localStorage.setItem("questionnaireName", user.displayName);
-            console.log("NAME SAVED:", user.displayName);
-          }
-
-          alert("Signed in with Google!");
-
-          window.location.href = "home.html";
+        if (!name) {
+            alert("Please go back to Question 1 and enter your name.");
+            return;
         }
-      })
-      .catch((error) => {
-        console.error(
-          "Google sign-in error:",
-          error.code,
-          error.message
-        );
-      });
-  });
+
+        if (!emailInput || !passwordInput) {
+            alert("The email or password field could not be found.");
+            return;
+        }
+
+        try {
+            // Save the name for home.html.
+            localStorage.setItem("questionnaireName", name);
+
+            // Create the Firebase account.
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            // Update the user's Firebase profile.
+            await updateProfile(userCredential.user, {
+                displayName: name
+            });
+
+            console.log("NAME SAVED:", name);
+
+            
+const user = userCredential.user;
+
+// Record the registered user.
+await saveUserToFirestore(user, "registered");
+
+// Save the questionnaire gender.
+const gender = localStorage.getItem("questionnaireGender");
+
+if (gender) {
+    await saveGenderToFirestore(user, gender);
 }
 
-   // LOGIN
+
+            alert("Account created successfully!");
+
+            // Redirect to the home page.
+            window.location.href = "home.html";
+
+        } catch (error) {
+            console.error("Signup error:", error.code, error.message);
+            alert(getFriendlyError(error.code));
+        }
+    });
+}
+
+
+/* =====================================================
+   7. GOOGLE SIGN-IN
+===================================================== */
+
+if (googleBtn) {
+    googleBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        try {
+            const provider = new GoogleAuthProvider();
+
+            const result = await signInWithPopup(auth, provider);
+
+            const user = result.user;
+
+            
+await saveUserToFirestore(user, "registered");
+
+const gender = localStorage.getItem("questionnaireGender");
+
+if (gender) {
+    await saveGenderToFirestore(user, gender);
+}
+
+
+            console.log("Signed in as:", user.email);
+            console.log("Google displayName:", user.displayName);
+
+            if (user.displayName) {
+                localStorage.setItem(
+                    "questionnaireName",
+                    user.displayName
+                );
+
+                console.log("NAME SAVED:", user.displayName);
+            }
+
+            alert("Signed in with Google!");
+
+            window.location.href = "home.html";
+
+        } catch (error) {
+            console.error(
+                "Google sign-in error:",
+                error.code,
+                error.message
+            );
+
+            alert(getFriendlyError(error.code));
+        }
+    });
+}
+
+
+/* =====================================================
+   8. LOGIN WITH EMAIL AND PASSWORD
+===================================================== */
+
 if (loginBtn) {
     loginBtn.addEventListener("click", async (e) => {
         e.preventDefault();
 
         console.log("Login button clicked");
 
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+
+        if (!emailInput || !passwordInput) {
+            alert("The email or password field could not be found.");
+            return;
+        }
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
 
         try {
             const userCredential = await signInWithEmailAndPassword(
@@ -145,12 +315,18 @@ if (loginBtn) {
             console.log("Logged in user:", user);
             console.log("Firebase displayName:", user.displayName);
 
-            // Save the user's name for home.html
+            // Save the user's name for home.html.
             if (user.displayName) {
-                localStorage.setItem("questionnaireName", user.displayName);
+                localStorage.setItem(
+                    "questionnaireName",
+                    user.displayName
+                );
+
                 console.log("NAME SAVED:", user.displayName);
             } else {
-                console.log("This account does not have a displayName.");
+                console.log(
+                    "This account does not have a displayName."
+                );
             }
 
             alert("Login successful!");
@@ -158,37 +334,122 @@ if (loginBtn) {
             window.location.href = "home.html";
 
         } catch (error) {
-            console.error("Firebase Error:", error.code);
-            console.error(error.message);
+            console.error(
+                "Firebase Error:",
+                error.code,
+                error.message
+            );
 
             alert(getFriendlyError(error.code));
         }
     });
 }
-  
-    
- //FRIENDLY ERROR MESSAGE
-  function getFriendlyError(code) {
-  switch(code) {
-    case "auth/email-already-in-use":
-      return "This email already has an account.";
 
-    case "auth/weak-password":
-      return "Password must be at least 6 characters.";
 
-    case "auth/invalid-email":
-      return "Please enter a valid email.";
+/* =====================================================
+   9. CONTINUE AS GUEST
+===================================================== */
 
-    default:
-      return "Something went wrong. Try again.";
-  }
-  }
-  
-//STYLING PROGRESS BAR AND MOVING QUESTIONS
-const questions = document.querySelectorAll(".question");
-if (questions.length > 0) {
-    showQuestion(0);
+if (guestBtn) {
+    guestBtn.addEventListener("click", async () => {
+        try {
+            guestBtn.disabled = true;
+            guestBtn.textContent = "Please wait...";
+
+            // Create or sign in to a Firebase anonymous account.
+            const result = await signInAnonymously(auth);
+
+      
+const user = result.user;
+
+// Record the guest identity.
+await saveUserToFirestore(user, "guest");
+
+// Save the questionnaire gender.
+const gender = localStorage.getItem("questionnaireGender");
+
+if (gender) {
+    await saveGenderToFirestore(user, gender);
 }
+
+
+            window.location.href = "home.html";
+
+        } catch (error) {
+            console.error(
+                "Guest sign-in failed:",
+                error.code,
+                error.message
+            );
+
+            alert(
+    "Error code: " + (error.code || "unknown") +
+    "\nMessage: " + error.message
+);
+
+            guestBtn.disabled = false;
+            guestBtn.textContent = "Continue as Guest";
+        }
+    });
+}
+
+
+/* =====================================================
+   10. FRIENDLY ERROR MESSAGES
+===================================================== */
+
+function getFriendlyError(code) {
+    switch (code) {
+        case "auth/email-already-in-use":
+            return "This email already has an account.";
+
+        case "auth/weak-password":
+            return "Password must be at least 6 characters.";
+
+        case "auth/invalid-email":
+            return "Please enter a valid email.";
+
+        case "auth/invalid-credential":
+        case "auth/wrong-password":
+        case "auth/user-not-found":
+            return "Incorrect email or password. Please try again.";
+
+        case "auth/popup-closed-by-user":
+            return "The sign-in window was closed before sign-in finished.";
+
+        case "auth/popup-blocked":
+            return "Your browser blocked the sign-in window. Please allow pop-ups and try again.";
+
+        case "auth/network-request-failed":
+            return "Network error. Check your internet connection and try again.";
+
+        default:
+            return "Something went wrong. Please try again.";
+    }
+}
+
+
+/* =====================================================
+   11. QUESTIONNAIRE AND PROGRESS BAR
+===================================================== */
+
+
+/* =====================================================
+   SAVE GENDER ANSWER TEMPORARILY
+===================================================== */
+
+const genderOptions = document.querySelectorAll(
+    'input[name="gender"]'
+);
+
+genderOptions.forEach((option) => {
+    option.addEventListener("change", () => {
+        localStorage.setItem("questionnaireGender", option.value);
+    });
+});
+
+
+const questions = document.querySelectorAll(".question");
 const startBtn = document.getElementById("start-btn");
 const nextBtns = document.querySelectorAll(".next-btn");
 const progressWrapper = document.getElementById("progress-wrapper");
@@ -196,237 +457,282 @@ const progressBar = document.getElementById("progress-bar");
 
 let currentQuestion = 0;
 
-// Show one question at a time
+
+// Show one question at a time.
 function showQuestion(index) {
-  questions.forEach(q => q.style.display = "none");
+    if (questions.length === 0) return;
 
-questions[index].style.display = "block";
+    if (index < 0 || index >= questions.length) return;
 
-  // 👇 AUTO FOCUS INPUT
-  const input = questions[index].querySelector(
-  'input[type="text"], input[type="email"], input[type="password"], textarea'
-);
-  if (input) {
-    setTimeout(() => {
-      input.focus();
-    }, 100);
-}
-}
-
-//function of previous button
-function prevHandler() {
-  if (currentQuestion > 1) {
-    currentQuestion--;
-    showQuestion(currentQuestion);
-    updateProgressBar();
-  }
-}
-// Update progress bar
-function updateProgressBar() {
-  const totalQuestions = questions.length - 1; // exclude welcome page
-  const progressPercent = (currentQuestion / totalQuestions) * 100;
-  progressBar.style.width = progressPercent + "%";
-}
-
-// Start button → move from welcome → first question
-// first question (skip welcome)
-
-    showQuestion(currentQuestion); // Show welcome page
-
-    startBtn.addEventListener("click", () => {
-        currentQuestion = 1; // Move to first question
-        showQuestion(currentQuestion);
-        progressWrapper.style.display = "block";
-        updateProgressBar();
+    questions.forEach((question) => {
+        question.style.display = "none";
     });
 
+    questions[index].style.display = "block";
 
-// NEXT HANDLER (keyboard-safe)
-function nextHandler() {
-  const currentQ = questions[currentQuestion];
-  const nextBtn = currentQ.querySelector(".next-btn");
+    // Automatically focus the first relevant input.
+    const input = questions[index].querySelector(
+        'input[type="text"], input[type="email"], input[type="password"], textarea'
+    );
 
-  // 🚫 BLOCK if button is disabled
-  if (nextBtn && nextBtn.disabled) return;
-
-  if (document.activeElement) {
-    document.activeElement.blur();
-  }
-  //force keyboard to close
-  document.body.focus();
-  
-  setTimeout(() => {
-
-    currentQuestion++;
-    
-    if (currentQuestion < questions.length) {
-      showQuestion(currentQuestion);
-      updateProgressBar();
-    } else {
-      alert("You have completed all questions!");
+    if (input) {
+        setTimeout(() => {
+            input.focus();
+        }, 100);
     }
-
-  }, 300);
 }
 
-document.querySelectorAll(".prev-btn").forEach(btn => {
-  btn.addEventListener("click", prevHandler);
+
+// Update progress bar.
+function updateProgressBar() {
+    if (!progressBar || questions.length <= 1) return;
+
+    const totalQuestions = questions.length - 1;
+
+    const progressPercent =
+        (currentQuestion / totalQuestions) * 100;
+
+    progressBar.style.width = progressPercent + "%";
+}
+
+
+// Start button: move from welcome page to the first question.
+if (startBtn) {
+    startBtn.addEventListener("click", () => {
+        if (questions.length <= 1) return;
+
+        currentQuestion = 1;
+
+        showQuestion(currentQuestion);
+
+        if (progressWrapper) {
+            progressWrapper.style.display = "block";
+        }
+
+        updateProgressBar();
+    });
+}
+
+
+// Previous button handler.
+function prevHandler() {
+    if (currentQuestion > 1) {
+        currentQuestion--;
+
+        showQuestion(currentQuestion);
+
+        updateProgressBar();
+    }
+}
+
+
+// Next button handler.
+function nextHandler() {
+    if (questions.length === 0) return;
+
+    const currentQ = questions[currentQuestion];
+
+    if (!currentQ) return;
+
+    const nextBtn = currentQ.querySelector(".next-btn");
+
+    // Do not proceed if the next button is disabled.
+    if (nextBtn && nextBtn.disabled) return;
+
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
+
+    // Close the keyboard on mobile devices.
+    document.body.focus();
+
+    setTimeout(() => {
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+            showQuestion(currentQuestion);
+
+            updateProgressBar();
+        } else {
+            alert("You have completed all questions!");
+        }
+    }, 300);
+}
+
+
+// Attach previous button handlers.
+document.querySelectorAll(".prev-btn").forEach((btn) => {
+    btn.addEventListener("click", prevHandler);
 });
-// Next buttons → move to next question
+
+
+// Attach next button handlers.
 nextBtns.forEach((btn) => {
-  btn.addEventListener("click",nextHandler);
+    btn.addEventListener("click", nextHandler);
 });
 
-//disable next button so that user may not skip answering the questions
-questions.forEach(question => {
 
-  const nextBtn = question.querySelector(".next-btn");
+// Initialize the welcome page only when questions exist.
+if (questions.length > 0) {
+    showQuestion(0);
+}
 
-  if (!nextBtn) return;
 
-    const inputs = question.querySelectorAll(
-        'input, textarea'
-  )
+/* =====================================================
+   12. DISABLE NEXT UNTIL AN ANSWER IS PROVIDED
+===================================================== */
 
-  function validateQuestion() {
+questions.forEach((question) => {
+    const nextBtn = question.querySelector(".next-btn");
 
-    // radio or checkbox selected?
-    const choiceSelected = question.querySelector(
-      'input[type="radio"]:checked, input[type="checkbox"]:checked'
-    );
+    if (!nextBtn) return;
 
-    // text typed?
-    const textInput = question.querySelector(
-      'input[type="text"], textarea'
-    );
+    const inputs = question.querySelectorAll("input, textarea");
 
-   const textFilled =
-      textInput && textInput.value.trim().length > 0;
+    function validateQuestion() {
+        // Has the user selected a radio button or checkbox?
+        const choiceSelected = question.querySelector(
+            'input[type="radio"]:checked, input[type="checkbox"]:checked'
+        );
 
-    // enable if ANY valid answer exists
-    nextBtn.disabled = !(choiceSelected || textFilled);
-  }
-   inputs.forEach(input => {
-    input.addEventListener("input", validateQuestion);
-    input.addEventListener("change", validateQuestion);
-  });
-  // ✅ run once initially (so button starts disabled)
-  validateQuestion();
+        // Has the user entered text?
+        const textInput = question.querySelector(
+            'input[type="text"], textarea'
+        );
+
+        const textFilled =
+            textInput && textInput.value.trim().length > 0;
+
+        // Enable if at least one valid answer exists.
+        nextBtn.disabled = !(choiceSelected || textFilled);
+    }
+
+    inputs.forEach((input) => {
+        input.addEventListener("input", validateQuestion);
+        input.addEventListener("change", validateQuestion);
+    });
+
+    // Run validation initially.
+    validateQuestion();
 });
-// HANDLE "OTHER" CHECKBOXES
+
+
+/* =====================================================
+   13. HANDLE "OTHER" CHECKBOXES
+===================================================== */
+
 const otherCheckboxes = document.querySelectorAll(
-  'input[type="checkbox"][data-target]'
+    'input[type="checkbox"][data-target]'
 );
 
 otherCheckboxes.forEach((checkbox) => {
-  const textbox = document.getElementById(checkbox.dataset.target);
-  if (!textbox) return;
-
-  checkbox.addEventListener("change", () => {
-    // show/hide textbox
-    textbox.style.display = checkbox.checked ? "block" : "none";
-
-    if (!checkbox.checked) {
-      textbox.value = "";
-    }
-  });
-});
-
-// VALIDATE BEFORE MOVING NEXT
-nextBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const question = btn.closest(".question");
-    if (!question) return;
-
-    const otherCheckboxes = question.querySelectorAll(
-      'input[type="checkbox"][data-target]'
+    const textbox = document.getElementById(
+        checkbox.dataset.target
     );
 
-    for (let checkbox of otherCheckboxes) {
-      const textbox = document.getElementById(checkbox.dataset.target);
-      if (checkbox.checked && textbox.value.trim() === "") {
-        alert("Please explain your 'Other' selection");
-        textbox.focus();
-        return;
-      }
-    }
-  });
+    if (!textbox) return;
+
+    checkbox.addEventListener("change", () => {
+        // Show or hide the explanation textbox.
+        textbox.style.display = checkbox.checked ? "block" : "none";
+
+        if (!checkbox.checked) {
+            textbox.value = "";
+        }
+    });
 });
-  
-  
-  //password viscibility
-  const password = document.getElementById("password");
+
+
+/* =====================================================
+   14. VALIDATE "OTHER" BEFORE MOVING TO THE NEXT QUESTION
+===================================================== */
+
+nextBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        const question = btn.closest(".question");
+
+        if (!question) return;
+
+        const checkboxes = question.querySelectorAll(
+            'input[type="checkbox"][data-target]'
+        );
+
+        for (const checkbox of checkboxes) {
+            const textbox = document.getElementById(
+                checkbox.dataset.target
+            );
+
+            if (
+                checkbox.checked &&
+                textbox &&
+                textbox.value.trim() === ""
+            ) {
+                // Prevent moving forward until the explanation is entered.
+                e.stopImmediatePropagation();
+
+                alert("Please explain your 'Other' selection.");
+
+                textbox.focus();
+
+                return;
+            }
+        }
+    });
+});
+
+
+/* =====================================================
+   15. PASSWORD VISIBILITY
+===================================================== */
+
+const password = document.getElementById("password");
 const showPassword = document.getElementById("showPassword");
 
-showPassword.addEventListener("change", () => {
-  if (showPassword.checked) {
-    password.type = "text";   // show password
-  } else {
-    password.type = "password"; // hide password
-  };
-});
+if (showPassword && password) {
+    showPassword.addEventListener("change", () => {
+        password.type = showPassword.checked ? "text" : "password";
+    });
+}
 
 
+// =====================================================
+   16. HAMBURGER MENU
+ //
 
-document.addEventListener("DOMContentLoaded", () => { // Fixed capitalization of 'document'
+document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("Hamburger");
     const navLinks = document.getElementById("navLinks");
+    const closeMenu = document.getElementById("closeMenu");
 
     if (hamburger && navLinks) {
         hamburger.addEventListener("click", (e) => {
             e.stopPropagation();
+
             navLinks.classList.toggle("active");
         });
 
-        // Close when clicking a link
-        navLinks.querySelectorAll("a").forEach(link => {
+        // Close the menu when a navigation link is clicked.
+        navLinks.querySelectorAll("a").forEach((link) => {
             link.addEventListener("click", () => {
                 navLinks.classList.remove("active");
             });
         });
 
-        // Close when clicking outside
+        // Close the menu using the close button, if present.
+        if (closeMenu) {
+            closeMenu.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        }
+
+        // Close the menu when clicking outside it.
         document.addEventListener("click", (e) => {
-            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            if (
+                !navLinks.contains(e.target) &&
+                !hamburger.contains(e.target)
+            ) {
                 navLinks.classList.remove("active");
             }
         });
-
-        // MOVED INSIDE: Safe from scope errors
-        document.getElementById("closeMenu")?.addEventListener("click", () => {
-            navLinks.classList.remove("active");
-        });
     }
 });
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const faqs = document.querySelectorAll(".faq-item");
-    
-
-    faqs.forEach(item => {
-
-        const question = item.querySelector(".faq-question");
-
-        question.addEventListener("click", () => {
-
-            console.log("Clicked!");
-
-            item.classList.toggle("active");
-
-        });
-
-    });
-
-});
-
-document.getElementById("guestBtn").addEventListener("click", () => {
-    const name = localStorage.getItem("questionnaireName") || "Guest";
-
-    localStorage.setItem("questionnaireName", name);
-
-    window.location.href = "home.html";
-});
-
