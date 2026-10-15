@@ -1349,8 +1349,8 @@ MOBILE
 
 .quote-panel{
     flex:1;
-    background:linear-gradient(135deg,#4f46e5,#9333ea);
-    color:white;
+    background:linear-gradient(135deg,#fbcfe8,#ccfbf1);
+    color:black;
     padding:25px;
     border-radius:20px;
     display:flex;
@@ -1410,4 +1410,382 @@ MOBILE
         order:-1;
     }
 }
+}
+
+/* =========================================
+   SCHOLARSHIP STATISTICS SECTION
+========================================= */
+
+.scholarship-stats {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 75px 7% 65px;
+    color: #ffffff;
+    font-family: serif, Arial, Helvetica, sans-serif;
+
+    /* Replace with the path to your selected
+       misty mountain background image */
+    background-image:
+        linear-gradient(
+            rgba(24, 29, 34, 0.78),
+            rgba(24, 29, 34, 0.86)
+        ),
+        url("grey-bkg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+   SECTION INTRODUCTION
+========================================= */
+
+.scholarship-stats .stats-intro {
+    max-width: 760px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.scholarship-stats .stats-intro h2 {
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-family: serif, Arial, Helvetica, sans-serif, Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.scholarship-stats {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #e0e3e6;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   COMMUNITY STATISTICS
+========================================= */
+
+.scholarship-stats .community-stats {
+    max-width: 950px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.scholarship-stats .community-stats h3,
+.scholarship-stats .gender-stats h3 {
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(23px, 3vw, 30px);
+    font-weight: 500;
+}
+
+.scholarship-stats {
+    margin-bottom: 35px;
+    color: #d2d7db;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   PIE CHART AND LEGEND
+========================================= */
+
+.scholarship-stats .user-stats-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(40px, 8vw, 100px);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.scholarship-stats .user-chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Pie chart base.
+   JavaScript will set its conic-gradient
+   when the Firebase totals are available. */
+
+.scholarship-stats .user-pie-chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(180px, 23vw, 245px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    background: conic-gradient(
+        #dba66d 0deg 180deg,
+        #8299b4 180deg 360deg
+    );
+
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+    transition: background 0.5s ease;
+}
+
+/* Inner circle creates the doughnut effect */
+
+.scholarship-stats .chart-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 62%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #30363c;
+    text-align: center;
+}
+
+.scholarship-stats .chart-total {
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+
+.scholarship-stats .chart-total-label {
+    margin-top: 7px;
+    color: #d4d9de;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   PIE CHART LEGEND
+========================================= */
+
+.scholarship-stats .user-chart-legend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    min-width: 220px;
+}
+
+.scholarship-stats .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
+}
+
+.scholarship-stats .legend-color {
+    display: block;
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    margin-top: 5px;
+    border-radius: 50%;
+}
+
+.scholarship-stats .registered-color {
+    background: #dba66d;
+}
+
+.scholarship-stats .guests-color {
+    background: #8299b4;
+}
+
+.scholarship-stats .legend-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.scholarship-stats .legend-label {
+    color: #e1e5e9;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.scholarship-stats .legend-number {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   GENDER STATISTICS
+========================================= */
+
+.scholarship-stats .gender-stats {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.scholarship-stats .gender-stats-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: clamp(55px, 12vw, 150px);
+    margin-top: 40px;
+}
+
+.scholarship-stats .gender-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+    gap: 10px;
+}
+
+.scholarship-stats .gender-number {
+    color: #ffffff;
+    font-size: clamp(48px, 7vw, 72px);
+    font-weight: 600;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.18);
+}
+
+.scholarship-stats .gender-label {
+    color: #e2c5a5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   STATISTICS DISCLAIMER
+========================================= */
+
+.scholarship-stats .stats-note {
+    max-width: 650px;
+    margin: 55px auto 0;
+    color: #cbd1d6;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .scholarship-stats {
+        padding: 60px 6% 55px;
+        background-position: center;
+    }
+
+    .scholarship-stats .stats-intro {
+        margin-bottom: 45px;
+    }
+
+    .scholarship-stats .user-stats-content {
+        gap: 35px;
+    }
+
+    .scholarship-stats .user-chart-legend {
+        min-width: 180px;
+        gap: 25px;
+    }
+
+    .scholarship-stats .legend-label {
+        font-size: 14px;
+    }
+
+    .scholarship-stats .legend-number {
+        font-size: 25px;
+    }
+
+    .scholarship-stats .gender-stats-content {
+        gap: 55px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 520px) {
+
+    .scholarship-stats {
+        padding: 50px 6% 45px;
+        background-position: center;
+    }
+
+    .scholarship-stats .stats-intro {
+        margin-bottom: 40px;
+    }
+
+    .scholarship-stats .stats-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .scholarship-stats .section-description {
+        margin-bottom: 28px;
+        font-size: 14px;
+    }
+
+    .scholarship-stats .community-stats {
+        margin-bottom: 55px;
+    }
+
+    .scholarship-stats .user-stats-content {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .scholarship-stats .user-pie-chart {
+        width: 190px;
+    }
+
+    .scholarship-stats .user-chart-legend {
+        width: min(100%, 240px);
+        min-width: 0;
+        gap: 20px;
+    }
+
+    .scholarship-stats .legend-number {
+        font-size: 24px;
+    }
+
+    .scholarship-stats .gender-stats-content {
+        gap: 35px;
+        margin-top: 32px;
+    }
+
+    .scholarship-stats .gender-stat {
+        min-width: 110px;
+    }
+
+    .scholarship-stats .gender-number {
+        font-size: 48px;
+    }
+
+    .scholarship-stats .gender-label {
+        font-size: 17px;
+    }
+
+    .scholarship-stats .stats-note {
+        margin-top: 45px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scholarship-stats .user-pie-chart {
+        transition: none;
+    }
     }
