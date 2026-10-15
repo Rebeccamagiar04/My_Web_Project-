@@ -51,7 +51,7 @@ h2 {
 
 p {
     color: #000000;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 
@@ -568,7 +568,7 @@ p {
     .welcome-content h1 {
         font-size: 34px;
     }
-   }
+}
 
 
 
@@ -724,6 +724,7 @@ display: block;
 
 .why-section {
     padding: 65px 7%;
+    font-size: 15px;
 
     background: #ffffff;
 }
@@ -733,7 +734,8 @@ display: block;
     flex-direction: column;
 
     gap: 0;
-
+    font-size: 15px;
+  
     max-width: 1050px;
 }
 
@@ -755,7 +757,8 @@ display: block;
 .why-card p {
     max-width: 780px;
 
-    font-size: 14px;
+    font-size: 15px;
+  
     line-height: 1.75;
 }
 
@@ -770,10 +773,25 @@ display: block;
     background: #75b9e8;
 }
 
-/* =========================================
-   APPLICATION ESSENTIALS — TIMELINE ALIGNMENT FIX
-   ========================================= */
+/* WHY HOPE HORIZON — FONT SIZES */
 
+.why-section {
+    font-size: 15px;
+}
+
+.why-section .why-card p {
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.why-section .why-card h2 {
+    font-size: 28px;
+}
+
+
+/* =========================================
+   APPLICATION TIMELINE — CONSISTENT ALIGNMENT
+   ========================================= */
 .application-section {
     padding: 65px 7% 75px;
     background: #ffffff;
@@ -787,13 +805,6 @@ display: block;
     font-size: clamp(30px, 3vw, 42px);
 }
 
-/* Timeline and guide layout */
-.application-layout {
-    display: flex;
-    align-items: stretch;
-    gap: 25px;
-}
-
 .application-cards {
     position: relative;
     display: block;
@@ -801,12 +812,12 @@ display: block;
     min-width: 0;
 }
 
-/* 1. POSITION THE TRACK EXACTLY WHERE THE MILESTONES LIVE */
+/* Background progress track */
 .application-progress-line {
     position: absolute;
     top: 25px;
     bottom: 25px;
-    left: 28px; /* Centers the 22px wide bar right under the icons */
+    left: 28px;
     width: 22px;
     background: #d5e5f1;
     border-radius: 20px;
@@ -815,7 +826,11 @@ display: block;
     pointer-events: none;
 }
 
+/* Animated progress fill */
 .application-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 0;
     background: #1261a0;
@@ -823,28 +838,27 @@ display: block;
     transition: height 0.12s linear;
 }
 
-/* Stack the three cards vertically and push text out of the way of the bar */
+/* Timeline cards */
 .application-card-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 8px 0 8px 75px; /* Leaves clean breathing room for the icons */
+    padding: 8px 0 8px 75px;
     position: relative;
     font-size: 14px;
 }
 
-/* Individual timeline cards */
+/* Individual cards */
 .application-card {
     position: relative;
-    z-index: 2; /* Ensures cards stay above the background track */
+    z-index: 2;
 }
 
-/* 2. PIN THE MILESTONES DIRECTLY OVER THE LINE */
+/* Milestones centered on the track */
 .application-milestone {
     position: absolute;
-    left: -47px; /* Pulls the icon back to center precisely over the 28px line track */
+    left: -47px;
     top: 15px;
-    z-index: 3; /* Sits on top of both the line and the card */
+    z-index: 3;
 
     width: 56px;
     height: 56px;
@@ -908,6 +922,52 @@ display: block;
     margin-bottom: 0;
 }
 
+
+
+
+
+/* =========================================
+   TABLET — 701px TO 900px
+   ========================================= */
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .application-card-list {
+        padding-left: 62px;
+    }
+
+    .application-progress-line {
+        left: 20px;
+    }
+
+    .application-milestone {
+        left: -42px;
+        width: 44px;
+        height: 44px;
+        border-width: 4px;
+        font-size: 19px;
+    }
+
+    .application-card {
+        padding: 20px 15px;
+    }
+
+    .application-card-header h3 {
+        font-size: 18px;
+    }
+
+    .application-card li {
+        font-size: 14px;
+    }
+
+    .guide-link {
+        flex-basis: 120px;
+        width: 120px;
+        padding: 15px 10px;
+    }
+}
+
+
+
 /* Complete Application Guide link */
 .guide-link {
     flex: 0 0 145px;
@@ -927,6 +987,51 @@ display: block;
 
 .guide-link:hover {
     color: #06375e;
+}
+
+/* 1201px and above */
+@media (min-width: 1201px) {
+    .application-card-list {
+        padding-left: 75px;
+    }
+
+    .application-progress-line {
+        left: 28px;
+        width: 22px;
+    }
+
+    .application-milestone {
+        left: -47px;
+        width: 56px;
+        height: 56px;
+        border-width: 5px;
+        font-size: 22px;
+    }
+}
+
+/* 901px–1200px */
+@media (min-width: 901px) and (max-width: 1200px) {
+    .application-card-list {
+        padding-left: 70px;
+    }
+
+    .application-progress-line {
+        left: 24px;
+        width: 22px;
+    }
+
+    .application-milestone {
+        left: -45px;
+        width: 50px;
+        height: 50px;
+        border-width: 4px;
+        font-size: 20px;
+    }
+
+    .guide-link {
+        flex-basis: 125px;
+        width: 125px;
+    }
 }
 
 
@@ -1040,35 +1145,6 @@ display: block;
         border-top: 1px solid #b9d1e2;
         text-align: center;
     }
-}
-
-  /* Container must be relative so absolute positioning works inside it */
-.application-cards {
-    position: relative;
-}
-
-/* The background track line */
-.application-progress-line {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 20px; /* Adjust this to line up with your milestone icons */
-    width: 22px; /* Increased width so it's not too narrow */
-    background-color: #e2e8f0; /* Light background color for the unfilled track */
-    border-radius: 4px;
-    z-index: 1;
-}
-
-/* The active fill line that grows as you scroll */
-.application-progress-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%; /* Starts at 0, updated by JS */
-    background-color: #0066cc; /* Change to your primary brand/accent color */
-    border-radius: 4px;
-    transition: height 0.1s ease-out; /* Smooths out the animation */
 }
 
 
@@ -1251,7 +1327,7 @@ display: block;
     border: 1px solid #e5dcf2;
     border-radius: 10px;
 
-    color: #70569c;
+    color: #16486f;
 
     font-family: serif, Georgia;
     font-size: 24px;
@@ -1295,6 +1371,7 @@ display: block;
     }
 
     .document-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 13px;
     }
 
@@ -1375,6 +1452,7 @@ display: block;
 @media (max-width: 360px) {
 
     .document-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
     }
 
@@ -1423,7 +1501,7 @@ display: block;
 
     padding-left: 43px;
 
-    font-size: 14px;
+    font-size: 15px;
 
     color: #000000;
 }
@@ -1800,7 +1878,7 @@ display: block;
 
     .home-image {
         width: 100%;
-
+        border-radius: 10px;
         overflow: hidden;
     }
 
