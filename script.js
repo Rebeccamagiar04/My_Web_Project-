@@ -1,5 +1,6 @@
-
-  // 1. FIREBASE IMPORTS//
+/* =====================================================
+   1. FIREBASE IMPORTS
+===================================================== */
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
@@ -695,9 +696,9 @@ if (showPassword && password) {
 }
 
 
-// =====================================================
+/* =====================================================
    16. HAMBURGER MENU
- //
+===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("Hamburger");
