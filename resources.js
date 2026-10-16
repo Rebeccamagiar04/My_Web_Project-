@@ -112,157 +112,27 @@ if (!isOpen) item.classList.add('open');
 });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
 
+    const faqs = document.querySelectorAll(".faq-item");
+    
 
-// =========================
-// RESOURCE SEARCH
-// =========================
+    faqs.forEach(item => {
 
-const searchInput = document.querySelector('.search-box input');
-const searchTags = document.querySelectorAll('.search-tag');
+        const question = item.querySelector(".faq-question");
 
+        question.addEventListener("click", () => {
 
-// =========================
-// POPULAR SEARCHES
-// =========================
+            console.log("Clicked!");
 
-searchTags.forEach(tag => {
+            item.classList.toggle("active");
 
-  tag.addEventListener('click', () => {
+        });
 
-    const searchTerm = tag.textContent.trim().toLowerCase();
-
-    // CV Templates
-    if (searchTerm.includes('cv')) {
-      window.location.href = 'doctemplates.html#CV';
-      return;
-    }
-
-    // Duolingo
-    if (searchTerm.includes('duolingo')) {
-      window.location.href = 'language.html#DUOLINGO';
-      return;
-    }
-
-    // IELTS
-    if (searchTerm.includes('ielts')) {
-      window.location.href = 'language.html#IELTS-prep';
-      return;
-    }
-
-    // Interview Tips
-    if (searchTerm.includes('interview')) {
-      window.location.href = 'resources.html#interview-tips';
-      return;
-    }
-
-  });
+    });
 
 });
 
-
-// =========================
-// SEARCH CURRENT PAGE
-// =========================
-
-function searchResources() {
-
-  const searchTerm = searchInput.value.trim().toLowerCase();
-
-  if (!searchTerm) {
-    return;
-  }
-
-  // Elements we want the search to look through
-  const searchableElements = document.querySelectorAll(
-    'h1, h2, h3, h4, p, li, .learn-title, .learn-desc, .video-title, .article-title, .deadline-title, .deadline, .faq-question, .faq-answer, .cta-title, .cta-desc'
-  );
-
-  let foundElement = null;
-
-  // Search through the actual text on this page
-  for (const element of searchableElements) {
-
-    const text = element.textContent
-      .toLowerCase()
-      .trim();
-
-    if (text.includes(searchTerm)) {
-      foundElement = element;
-      break;
-    }
-  }
-
-
-  // =========================
-  // IF NOTHING IS FOUND
-  // =========================
-
-  if (!foundElement) {
-
-    alert("Whatever you're looking for is not here yet.");
-
-    return;
-  }
-
-
-  // =========================
-  // FIND THE BEST PLACE TO SCROLL TO
-  // =========================
-
-  // If the matching text is inside a section/card
-  // that has an ID, use that larger container.
-  const destination =
-    foundElement.closest(
-      'section[id], .learn-card[id], .video-card[id], .article-card[id], .faq-item[id], .deadline-card[id]'
-    ) || foundElement;
-
-
-  // Scroll to the matching content
-  destination.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center'
-  });
-
-
-  // Briefly highlight the result
-  destination.style.outline = '3px solid #2563eb';
-  destination.style.outlineOffset = '6px';
-
-  setTimeout(() => {
-    destination.style.outline = '';
-    destination.style.outlineOffset = '';
-  }, 2000);
-}
-
-
-// =========================
-// ENTER KEY
-// =========================
-
-searchInput.addEventListener('keydown', event => {
-
-  if (event.key === 'Enter') {
-
-    event.preventDefault();
-
-    searchResources();
-
-  }
-
-});
-
-// -------------------------
-// SEARCH WITH ENTER
-// -------------------------
-
-searchInput.addEventListener('keydown', (event) => {
-
-  if (event.key === 'Enter') {
-    searchResources();
-  }
-
-});
 
 // Card hover effects enhancement
 document.querySelectorAll('.deadline-card, .video-card, .article-card, .learn-card').forEach(card => {
@@ -417,4 +287,3 @@ if (challengeElement) {
     challengeElement.textContent =
         getDailyContent(challenges);
 }
-
