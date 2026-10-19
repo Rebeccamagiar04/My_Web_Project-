@@ -1,4 +1,3 @@
-
 /* =========================================
    PORTICO KAKUMA — SIMPLE SUPPORT PAGE
    No cards, no boxed layouts
@@ -17,7 +16,7 @@ html {
 body {
     font-family: serif, Arial, Helvetica, sans-serif;
     background: #ffffff;
-    color: #333a35;
+    color: #000000;
     line-height: 1.75;
 }
 
@@ -27,15 +26,14 @@ a {
 }
 
 p {
-  
-  font-size: 14px;
-  
-  }
+    font-size: 15px;
+}
 
 .support-page {
     width: min(100% - 40px, 800px);
     margin: 0 auto;
     padding: 55px 0 40px;
+    transition: width 0.2s ease, padding 0.2s ease;
 }
 
 
@@ -47,7 +45,6 @@ p {
     margin-bottom: 35px;
 }
 
-
 .support-intro h1 {
     color: #292f2b;
     font-size: clamp(2rem, 5vw, 2.7rem);
@@ -58,7 +55,7 @@ p {
 
 .support-intro > p {
     max-width: 650px;
-    color: #687069;
+    color: #000000;
     font-size: 1rem;
 }
 
@@ -96,12 +93,12 @@ p {
 }
 
 .disclaimer-heading h2 {
-    color: #4b4a40;
+    color: #000000;
     font-size: 1rem;
 }
 
 .support-disclaimer p {
-    color: #66665c;
+    color: #000000;
     font-size: 0.89rem;
 }
 
@@ -125,21 +122,21 @@ p {
 
 .section-heading h2,
 .support-safety h2 {
-    color: #303731;
+    color: #000000;
     font-size: 1.4rem;
     line-height: 1.4;
     margin-bottom: 5px;
 }
 
 .section-heading > p {
-    color: #737a73;
+    color: #000000;
     font-size: 0.93rem;
 }
 
 
 /* =========================================
-   CONTACT DIRECTORY
-   Plain text, no cards or backgrounds
+   CONTACT DIRECTORY & PROGRAMME CARDS
+   Plain text entries, no background grids
    ========================================= */
 
 .contact-card {
@@ -158,27 +155,24 @@ p {
     margin-bottom: 10px;
 }
 
-.contact-icon {
-    display: none;
-}
-
 .contact-title h3,
 .community-card h3 {
-    color: #303731;
+    color: #000000;
     font-size: 1.05rem;
     font-weight: 600;
 }
 
 .contact-role {
-    color: #7a817a;
+    color: #000000;
     font-size: 0.86rem;
 }
 
 .contact-description,
 .community-card > p {
-    color: #626a63;
+    color: #000000;
     font-size: 0.92rem;
     border-bottom: none;
+    margin-bottom: 8px;
 }
 
 .contact-details {
@@ -187,41 +181,38 @@ p {
     align-items: flex-start;
     gap: 5px;
     border-top: none;
+    margin-bottom: 5px;
+}
+
+.detail-label {
+    color: #777e77;
+    font-size: 0.88rem;
+    font-weight: 500;
 }
 
 .contact-link {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    display: inline-flex;
     font-size: 0.88rem;
-    border-bottom: none;
-}
-
-.contact-link span:first-child {
-    color: #777e77;
-}
-
-.contact-link span:last-child {
     color: #39744c;
     overflow-wrap: anywhere;
+    margin-bottom: 5px;
 }
 
-.contact-link:hover span:last-child {
+.contact-link:hover {
     text-decoration: underline;
 }
 
 .contact-note,
 .community-note {
-    margin-top: 10px;
-    color: #858b85;
+    margin-top: 5px;
+    color: #2B2B2B;
     font-size: 0.8rem;
 }
 
 
-
 /* =========================================
    WHATSAPP COMMUNITIES
-   Plain text links
+   Plain text inline links
    ========================================= */
 
 .community-card {
@@ -262,14 +253,9 @@ p {
     text-decoration-color: currentColor;
 }
 
-.community-note {
-    margin-bottom: 0;
-}
-
 
 /* =========================================
    SAFETY REMINDER
-   Simple text section
    ========================================= */
 
 .support-safety {
@@ -294,22 +280,7 @@ p {
 
 
 /* =========================================
-   FOOTER
-   ========================================= */
-
-.support-footer {
-    border-top: none;
-    padding-top: 17px;
-}
-
-.support-footer p {
-    color: #858b85;
-    font-size: 0.82rem;
-}
-
-
-/* =========================================
-   ACCESSIBILITY
+   ACCESSIBILITY & FOCUS
    ========================================= */
 
 a:focus-visible {
@@ -319,9 +290,10 @@ a:focus-visible {
 
 
 /* =========================================
-   MOBILE
+   RESPONSIVENESS (MOBILE / TABLET / DESKTOP)
    ========================================= */
 
+/* Mobile viewports */
 @media (max-width: 480px) {
     .support-page {
         width: calc(100% - 32px);
@@ -341,8 +313,70 @@ a:focus-visible {
         font-size: 1.28rem;
     }
 
-    .contact-link {
-        flex-direction: column;
-        gap: 0;
+    .contact-details {
+        gap: 2px;
+    }
+}
+
+/* Small tablet viewports (600px and up) */
+@media (min-width: 600px) {
+    .support-page {
+        width: min(100% - 40px, 740px);
+        padding: 60px 0 45px;
+    }
+
+    .support-intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-heading h2 {
+        font-size: 1.35rem;
+    }
+}
+
+/* Medium screens (900px and up) */
+@media (min-width: 900px) {
+    .support-page {
+        width: min(100% - 60px, 860px);
+        padding: 70px 0 50px;
+    }
+
+    .support-intro h1 {
+        font-size: 2.9rem;
+    }
+
+    .section-heading h2,
+    .support-safety h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-card, .community-card {
+        padding: 24px 0;
+    }
+}
+
+/* Wide screens (1100px and up) */
+@media (min-width: 1100px) {
+    .support-page {
+        width: min(100% - 80px, 920px);
+        padding: 85px 0 60px;
+    }
+
+    .support-intro h1 {
+        font-size: 3.2rem;
+        margin-bottom: 16px;
+    }
+
+    .support-intro > p {
+        font-size: 1.05rem;
+    }
+
+    .support-disclaimer {
+        margin-bottom: 55px;
+        padding-left: 22px;
+    }
+
+    .support-section {
+        margin-bottom: 55px;
     }
 }
