@@ -56,7 +56,7 @@ p {
 
 
 /* ==========================================================================
-   PORTICO KAKUM - HEADER & NAVIGATION STYLES
+   PORTICO KAKUMA - HEADER & NAVIGATION STYLES
    ========================================================================== */
 .site-header {
   background-color: #ffffff;
@@ -76,14 +76,19 @@ p {
   justify-content: space-between;
 }
 
+/* Brand Logo */
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #1e293b;
   text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-image {
+  display: block;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
 }
 
 .min-nav {
@@ -169,39 +174,40 @@ p {
   border-bottom: none;
 }
 
-
-
 /* =========================================================
    MOBILE MENU / HAMBURGER
    ========================================================= */
 
-/* Hamburger button */
 .hamburger-btn {
   display: none;
   width: 42px;
   height: 42px;
   padding: 0;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #1e293b;
-  cursor: pointer;
 
   align-items: center;
   justify-content: center;
 
-  font-size: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+
+  background: #0b1730;
+  color: #f8fafc;
+
+  cursor: pointer;
+  font-size: 1.3rem;
   line-height: 1;
 
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    color 0.2s ease;
 }
 
-.hamburger-btn:hover {
-  background-color: #f8fafc;
-  border-color: #cbd5e1;
+.hamburger-btn:hover,
+.hamburger-btn:focus-visible {
+  background: #142441;
+  border-color: #d9955b;
+  color: #e5a36c;
 }
 
 .hamburger-btn:active {
@@ -217,21 +223,26 @@ p {
   position: fixed;
   top: 0;
   right: -100%;
-  width: min(310px, 88vw);
-  height: 100vh;
 
-  background-color: #ffffff;
+  width: min(320px, 88vw);
+  height: 100vh;
+  height: 100dvh;
+
+  background: #0b1730;
+  color: #f8fafc;
 
   z-index: 1200;
 
-  box-shadow: -8px 0 30px rgb(15, 23, 42, 0.12);
+  box-shadow: -12px 0 35px rgba(0, 0, 0, 0.28);
 
   display: flex;
   flex-direction: column;
 
+  overflow: hidden;
+
   transition: right 0.3s ease;
 
-  overflow: hidden;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .mobile-drawer.open {
@@ -245,39 +256,59 @@ p {
 
 .drawer-header {
   min-height: 72px;
-  padding: 0 1.25rem;
+  padding: 0 1.2rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
 
-  border-bottom: 1px solid #e2e8f0;
-  background-color: #ffffff;
+  background: #0b1730;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+/* Brand */
 
-/* Brand inside drawer */
 .drawer-header .logo {
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  min-width: 0;
+  font-size: 1.05rem;
+}
+
+.drawer-header {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.drawer-header .logo-text {
+  color: #f8fafc;
+  font-weight: 650;
+  letter-spacing: 0.01em;
 }
 
 
 /* Close button */
+
 .close-drawer-btn {
+  flex-shrink: 0;
+
   width: 38px;
   height: 38px;
+  padding: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
 
-  border: 1px solid #e2e8f0;
-  border-radius: 9px;
-
-  background-color: #ffffff;
-  color: #475569;
+  background: transparent;
+  color: #ffffff;
 
   font-size: 1.25rem;
   line-height: 1;
@@ -290,10 +321,11 @@ p {
     border-color 0.2s ease;
 }
 
-.close-drawer-btn:hover {
-  background-color: #f8fafc;
-  color: #1e293b;
-  border-color: #cbd5e1;
+.close-drawer-btn:hover,
+.close-drawer-btn:focus-visible {
+  background: rgba(217, 149, 91, 0.10);
+  color: #e5a36c;
+  border-color: rgba(217, 149, 91, 0.55);
 }
 
 
@@ -302,17 +334,30 @@ p {
    ========================================================= */
 
 .drawer-content {
-  padding: 1.25rem;
+  flex: 1;
+  min-height: 0;
+  padding: 1rem 1.1rem 1.5rem;
 
   overflow-y: auto;
-  flex: 1;
-
-  /* Makes scrolling feel nicer on mobile */
+  overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: #34445f transparent;
+}
+
+.drawer-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.drawer-content::-webkit-scrollbar-thumb {
+  background: #34445f;
+  border-radius: 4px;
 }
 
 
 /* Navigation list */
+
 .mobile-nav-list {
   list-style: none;
   padding: 0;
@@ -325,74 +370,166 @@ p {
    ========================================================= */
 
 .nav-group {
-  margin-bottom: 1.4rem;
-  padding-bottom: 1.1rem;
+  margin: 0;
+  padding: 0.15rem 0 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
 
-  border-bottom: 1px solid #f1f5f9;
+.nav-group + .nav-group {
+  padding-top: 0.7rem;
 }
 
 .nav-group:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 
-/* Main group link */
+/* Main navigation links */
+
 .group-title {
-  display: block;
+  position: relative;
 
-  padding: 0.65rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 
-  color: #ffffff;
+  padding: 0.7rem 0.8rem;
+
+  background: transparent;
+  border-radius: 6px;
+
+  color: #f8fafc;
   text-decoration: none;
 
-  font-size: 20px;
-  font-weight: 700;
-
-  transition: color 0.2s ease;
-
-  background: #90D5ff;
-}
-
-.group-title:hover {
-  color: #2563eb;
-}
-
-
-/* Sub-navigation */
-.sub-nav-list {
-  list-style: none;
-
-  padding: 0.25rem 0 0 0.75rem;
-  margin: 0;
-}
-
-
-/* Individual links */
-.sub-nav-list li {
-  margin: 0.15rem 0;
-}
-
-.sub-nav-list li a {
-  display: block;
-
-  padding: 0.65rem 0.75rem;
-
-  color: #000000;
-  text-decoration: none;
-
-  font-size: 0.92rem;
-  font-weight: 500;
-
-  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
 
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
-.sub-nav-list li a:hover {
-  background-color: #f1f5f9;
-  color: #2563eb;
+/* Mobile drawer navigation icons */
+.group-title > i {
+  width: 20px;
+  flex-shrink: 0;
+  color: #F2A6B8;
+  font-size: 1.05rem;
+  text-align: center;
+  filter: drop-shadow(0 0 4px rgba(242, 166, 184, 0.2));
+  transition:
+    color 0.2s ease,
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Icon hover, focus, and active states */
+.group-title:hover > i,
+.group-title:focus-visible > i,
+.group-title.active > i,
+.group-title[aria-current="page"] > i {
+  color: #FFC1D0;
+  filter: drop-shadow(0 0 6px rgba(255, 193, 208, 0.35));
+  transform: translateX(2px);
+}
+
+/* Hover, keyboard focus and active page */
+
+.group-title:hover,
+.group-title:focus-visible,
+.group-title.active,
+.group-title[aria-current="page"] {
+  color: #e5a36c;
+  background: rgba(217, 149, 91, 0.08);
+}
+
+/* Small orange indicator */
+
+.group-title::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+
+  width: 2px;
+  border-radius: 2px;
+
+  background: #d9955b;
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.group-title:hover::before,
+.group-title:focus-visible::before,
+.group-title.active::before,
+.group-title[aria-current="page"]::before {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   SUB-NAVIGATION
+   ========================================================= */
+
+.sub-nav-list {
+  list-style: none;
+
+  margin: 0.2rem 0 0.15rem;
+  padding: 0 0 0 1.1rem;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.sub-nav-list li {
+  margin: 0;
+}
+
+/* Individual subsection links */
+
+.sub-nav-list li a {
+  position: relative;
+
+  display: block;
+  padding: 0.55rem 0.65rem;
+
+  color: #b9c5d7;
+  background: transparent;
+
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+
+  border-radius: 4px;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Subtle orange active and hover states */
+
+.sub-nav-list li a:hover,
+.sub-nav-list li a:focus-visible,
+.sub-nav-list li a.active,
+.sub-nav-list li a[aria-current="location"] {
+  color: #f0b27e;
+  background: rgba(217, 149, 91, 0.08);
+}
+
+.sub-nav-list li a:focus-visible,
+.group-title:focus-visible,
+.close-drawer-btn:focus-visible,
+.hamburger-btn:focus-visible {
+  outline: 2px solid #d9955b;
+  outline-offset: 2px;
 }
 
 
@@ -406,10 +543,11 @@ p {
   position: fixed;
   inset: 0;
 
-  background: rgb(15, 23, 42, 0.42);
+  background: #142441;
 
   z-index: 1150;
 
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 }
 
@@ -423,7 +561,6 @@ p {
    ========================================================= */
 
 @media (max-width: 768px) {
-
   .main-nav {
     display: none;
   }
@@ -433,7 +570,7 @@ p {
   }
 
   .header-container {
-    padding: 0.75rem 1rem;
+    padding: 0.2rem 1rem;
   }
 
   .header-actions {
@@ -447,7 +584,6 @@ p {
    ========================================================= */
 
 @media (max-width: 400px) {
-
   .hamburger-btn {
     width: 40px;
     height: 40px;
@@ -461,9 +597,38 @@ p {
     padding: 0 1rem;
   }
 
-  
   .drawer-content {
-    padding: 1rem;
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .group-title {
+    padding: 0.65rem 0.7rem;
+    font-size: 0.96rem;
+  }
+
+  .sub-nav-list {
+    padding-left: 0.8rem;
+  }
+
+  .sub-nav-list li a {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.84rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-btn,
+  .mobile-drawer,
+  .close-drawer-btn,
+  .group-title,
+  .group-title::before,
+  .sub-nav-list li a {
+    transition: none;
   }
 }
 
@@ -606,96 +771,162 @@ section {
 }
 
 .section-heading h2 {
-    font-size: clamp(32px, 3vw, 45px);
+    font-size: clamp(32px , 3vw, 45px);
 }
 
 .section-heading > p:last-child {
     margin-top: 8px;
 }
-
-
-/*
-=========================================================
-7. HOW IT WORKS
-========================================================= */
+/* ========================================
+   HOW IT WORKS
+======================================== */
 
 .how-it-works {
-padding: 65px 7% 70px;
-
-background: #eaf6ff;
+    padding: 55px 7% 65px;
+    background: #fff;
 }
 
+/* Section heading */
+.how-it-works .section-heading {
+    margin-bottom: 35px;
+}
+
+.how-it-works .section-heading h2 {
+    margin: 0;
+    font-family: serif, Arial, Georgia, "Times New Roman", sans-serif;
+    font-size: clamp(25px, 2.5vw, 32px);
+    font-weight: 600;
+    line-height: 1.3;
+    color: #123f69;
+    text-align: center;
+}
+
+/* Numbered rows */
 .process-cards {
-display: grid;
-
-grid-template-columns: repeat(4, 1fr);
-
-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
+/* Individual step */
 .process-card {
-min-height: 130px;
-
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-text-align: center;
-
-background: rgb(255, 255, 255, 0.45);
-
-border: 1px solid #cfe5f5;
-
-border-radius: 10px;
-
-transition:
-transform 0.25s ese,
-box-shdow 0.25s ese;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: start;
+    padding: 22px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d5e5f1;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-.process-card:hover {
-transform: trnslteY(-5px);
-
-box-shadow:
-0 12px 25px rgb(22, 75, 115, 0.08);
+.process-card:first-child {
+    padding-top: 0;
 }
 
-.card-icon {
-width: 46px;
-height: 46px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-margin-bottom: 12px;
-
-border-radius: 50%;
-  
-background: #0c477a;
-color: #ffffff;
-
-font-size: 22px;
+.process-card:last-child {
+    border-bottom: none;
 }
 
-.process-card h3 {
-font-family: serif, Helvetic, sans-serif;
-
-font-size: 18px;
-font-weight: 600;
-
-color: #103e69;
+/* Step numbers */
+.step-number {
+    font-family: serif, Georgia, "Times New Roman", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #1261a0;
 }
 
-.card-content {
-display: none;
-margin-top: 15px;
-font-size: 14px;
+/* Step content */
+.process-content {
+    min-width: 0;
+    text-align: left;
 }
 
-.process-card.active .card-content {
-display: block;
+.process-content h3 {
+    margin: 0 0 8px;
+    font-family: serif, Georgia, "Times New Roman", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #123f69;
+}
+
+.process-content p {
+    margin: 0;
+    font-family: serif, Georgia, "Times New Roman", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #000000;
+    text-align: left;
+}
+
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .how-it-works {
+        padding: 50px 6%;
+    }
+
+    .process-card {
+        grid-template-columns: 42px minmax(0, 1fr);
+        column-gap: 16px;
+        padding: 20px 0;
+    }
+
+    .process-content h3 {
+        font-size: 19px;
+    }
+
+    .process-content p {
+        font-size: 16px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+    .how-it-works {
+        padding: 40px 6% 50px;
+    }
+
+    .how-it-works .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .how-it-works .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .process-card {
+        grid-template-columns: 34px minmax(0, 1fr);
+        column-gap: 12px;
+        padding: 18px 0;
+    }
+
+    .step-number {
+        font-size: 16px;
+    }
+
+    .process-content h3 {
+        margin-bottom: 6px;
+        font-size: 18px;
+    }
+
+    .process-content p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
 }
 
 
@@ -784,17 +1015,17 @@ display: block;
     line-height: 1.75;
 }
 
-.why-section .why-card h2 {
-    font-size: 28px;
+.why-section .why-card {
+  font-size: 28px;
 }
 
+/* ========================================
+   APPLICATION ESSENTIALS — TIMELINE
+======================================== */
 
-/* =========================================
-   APPLICATION TIMELINE — CONSISTENT ALIGNMENT
-   ========================================= */
 .application-section {
     padding: 65px 7% 75px;
-    background: #ffffff;
+    background: #fff;
 }
 
 .application-section .section-heading {
@@ -805,6 +1036,12 @@ display: block;
     font-size: clamp(30px, 3vw, 42px);
 }
 
+.application-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+}
+
 .application-cards {
     position: relative;
     display: block;
@@ -812,12 +1049,12 @@ display: block;
     min-width: 0;
 }
 
-/* Background progress track */
+/* Vertical timeline track */
 .application-progress-line {
     position: absolute;
     top: 25px;
     bottom: 25px;
-    left: 28px;
+    left: 8px;
     width: 22px;
     background: #d5e5f1;
     border-radius: 20px;
@@ -826,7 +1063,7 @@ display: block;
     pointer-events: none;
 }
 
-/* Animated progress fill */
+/* Animated progress inside the track */
 .application-progress-fill {
     position: absolute;
     top: 0;
@@ -838,25 +1075,26 @@ display: block;
     transition: height 0.12s linear;
 }
 
-/* Timeline cards */
+/* Three timeline stages */
 .application-card-list {
     display: flex;
     flex-direction: column;
-    padding: 8px 0 8px 75px;
+    gap: 24px;
+    padding: 8px 0 8px 55px;
     position: relative;
     font-size: 14px;
 }
 
-/* Individual cards */
 .application-card {
     position: relative;
     z-index: 2;
+    min-width: 0;
 }
 
-/* Milestones centered on the track */
+/* Stage milestone circles */
 .application-milestone {
     position: absolute;
-    left: -47px;
+    left: -64px;
     top: 15px;
     z-index: 3;
 
@@ -870,14 +1108,14 @@ display: block;
 
     border: 5px solid #1261a0;
     border-radius: 50%;
-    background: #ffffff;
+    background: #fff;
     color: #1261a0;
 
     font-size: 22px;
     line-height: 1;
 }
 
-/* Card headings */
+/* Stage headings */
 .application-card-header {
     display: flex;
     align-items: center;
@@ -888,13 +1126,13 @@ display: block;
 
 .application-card-header h3 {
     margin: 0;
-    font-family: serif, Arial, Helvetica, sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 20px;
     line-height: 1.35;
     color: #123f69;
 }
 
-/* Checklist text */
+/* Checklist */
 .application-card ul {
     list-style: none;
     margin: 0;
@@ -903,11 +1141,11 @@ display: block;
 
 .application-card li {
     position: relative;
-    padding-left: 18px;
+    padding-left: 22px;
     margin-bottom: 10px;
     font-size: 15px;
     line-height: 1.65;
-    color: #000000;
+    color: #000;
 }
 
 .application-card li::before {
@@ -922,25 +1160,115 @@ display: block;
     margin-bottom: 0;
 }
 
+/* Complete application guide link */
+.guide-link {
+    flex: 0 0 145px;
+    width: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    padding: 20px;
+    border-left: 1px solid #b9d1e2;
 
+    color: #0b4f88;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+}
 
+.guide-link:hover {
+    color: #06375e;
+}
 
-/* =========================================
-   TABLET — 701px TO 900px
-   ========================================= */
+/* ========================================
+   LARGE SCREENS — ABOVE 1200px
+======================================== */
+
+@media (min-width: 1201px) {
+    .application-card-list {
+        padding-left: 75px;
+    }
+
+    .application-progress-line {
+        left: 28px;
+        width: 22px;
+    }
+
+    .application-milestone {
+        left: -64px;
+        width: 56px;
+        height: 56px;
+        border-width: 5px;
+        font-size: 22px;
+    }
+}
+
+/* ========================================
+   LAPTOPS — 901px TO 1200px
+======================================== */
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .application-card-list {
+        padding-left: 70px;
+        gap: 22px;
+    }
+
+    .application-progress-line {
+        left: 24px;
+        width: 22px;
+    }
+
+    .application-milestone {
+        left: -60px;
+        width: 50px;
+        height: 50px;
+        border-width: 4px;
+        font-size: 20px;
+    }
+
+    .application-card-header h3 {
+        font-size: 19px;
+    }
+
+    .application-card li {
+        font-size: 14px;
+    }
+
+    .guide-link {
+        flex-basis: 125px;
+        width: 125px;
+        padding: 15px 10px;
+    }
+}
+
+/* ========================================
+   TABLETS — 701px TO 900px
+======================================== */
 
 @media (min-width: 701px) and (max-width: 900px) {
+    .application-section {
+        padding: 55px 5% 65px;
+    }
+
+    .application-layout {
+        gap: 16px;
+    }
+
     .application-card-list {
         padding-left: 62px;
+        gap: 22px;
     }
 
     .application-progress-line {
         left: 20px;
+        width: 22px;
     }
 
     .application-milestone {
-        left: -42px;
+        left: -53px;
         width: 44px;
         height: 44px;
         border-width: 4px;
@@ -966,133 +1294,13 @@ display: block;
     }
 }
 
+/* ========================================
+   MOBILE — 601px TO 700px
+======================================== */
 
-
-/* Complete Application Guide link */
-.guide-link {
-    flex: 0 0 145px;
-    width: 145px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-
-    border-left: 1px solid #b9d1e2;
-    color: #0b4f88;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.5;
-    text-align: center;
-}
-
-.guide-link:hover {
-    color: #06375e;
-}
-
-/* 1201px and above */
-@media (min-width: 1201px) {
-    .application-card-list {
-        padding-left: 75px;
-    }
-
-    .application-progress-line {
-        left: 28px;
-        width: 22px;
-    }
-
-    .application-milestone {
-        left: -47px;
-        width: 56px;
-        height: 56px;
-        border-width: 5px;
-        font-size: 22px;
-    }
-}
-
-/* 901px–1200px */
-@media (min-width: 901px) and (max-width: 1200px) {
-    .application-card-list {
-        padding-left: 70px;
-    }
-
-    .application-progress-line {
-        left: 24px;
-        width: 22px;
-    }
-
-    .application-milestone {
-        left: -45px;
-        width: 50px;
-        height: 50px;
-        border-width: 4px;
-        font-size: 20px;
-    }
-
-    .guide-link {
-        flex-basis: 125px;
-        width: 125px;
-    }
-}
-
-
-/* Tablet and mobile */
 @media (max-width: 700px) {
     .application-section {
         padding: 45px 6% 50px;
-    }
-
-    .application-layout {
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .application-card-list {
-        padding-left: 52px;
-        gap: 15px;
-    }
-
-    .application-progress-line {
-        left: 28px;
-        width: 22px;
-    }
-
-    .application-card {
-        padding: 20px 17px;
-    }
-
-    .application-milestone {
-        left: -40px;
-        width: 40px;
-        height: 40px;
-        border-width: 4px;
-        font-size: 18px;
-    }
-
-    .application-card-header h3 {
-        font-size: 17px;
-    }
-
-    .application-card li {
-        font-size: 14px;
-        padding-left: 40px;
-    }
-
-    .guide-link {
-        flex: auto;
-        width: 100%;
-        min-height: 45px;
-        padding: 14px;
-        border-left: none;
-        border-top: 1px solid #b9d1e2;
-        text-align: center;
-    }
-}
-
-
-/* Mobile layout */
-@media (max-width: 600px) {
-    .application-section {
-        padding: 40px 6% 50px;
     }
 
     .application-section .section-heading h2 {
@@ -1101,49 +1309,103 @@ display: block;
 
     .application-layout {
         flex-direction: column;
-        gap: 15px;
+        gap: 18px;
     }
 
     .application-card-list {
-        padding-left: 52px;
-        gap: 14px;
+        padding: 8px 0 8px 52px;
+        gap: 20px;
     }
 
     .application-progress-line {
         left: 28px;
         width: 22px;
+        top: 25px;
+        bottom: 25px;
     }
 
     .application-card {
-        padding: 20px 17px;
+        padding: 20px 14px;
     }
 
-    
     .application-milestone {
-          left: -40px;
-          top: 20px;
-          width: 40px;
-          height: 40px;
-          border-width: 4px;
-          font-size: 18px;
-}
+        left: -33px;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+        border-width: 4px;
+        font-size: 18px;
+    }
 
+    .application-card-header {
+        min-height: 40px;
+        margin-bottom: 16px;
+    }
 
     .application-card-header h3 {
         font-size: 17px;
     }
 
     .application-card li {
-        font-size: 15px;
+        padding-left: 22px;
+        font-size: 14px;
     }
 
     .guide-link {
-        width: auto;
+        flex: auto;
+        width: 100%;
+        box-sizing: border-box;
         min-height: 45px;
-        padding: 12px;
+        padding: 14px;
         border-left: none;
         border-top: 1px solid #b9d1e2;
         text-align: center;
+    }
+}
+
+/* ========================================
+   SMALL PHONES — 400px AND BELOW
+======================================== */
+
+@media (max-width: 400px) {
+    .application-section {
+        padding: 40px 5% 45px;
+    }
+
+    .application-card-list {
+        padding-left: 44px;
+        gap: 18px;
+    }
+
+    .application-progress-line {
+        left: 12px;
+        width: 22px;
+    }
+
+    .application-card {
+        padding: 18px 9px;
+    }
+
+    .application-milestone {
+        left: -39px;
+        top: 20px;
+        width: 36px;
+        height: 36px;
+        border-width: 4px;
+        font-size: 16px;
+    }
+
+    .application-card-header h3 {
+        font-size: 16px;
+    }
+
+    .application-card li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .guide-link {
+        padding: 12px;
     }
 }
 
@@ -1171,7 +1433,7 @@ display: block;
 .documents-intro {
     max-width: 620px;
     margin-top: 10px;
-    color: #58738a;
+    color: #000000;
     line-height: 1.7;
 }
 
@@ -1222,8 +1484,7 @@ display: block;
     padding: 25px 15px;
     text-align: center;
 
-    background: #cfe5f5;
-    border: 1px solid #073b65;
+    background: #eaf4fb;
     border-radius: 10px;
 
     cursor: pointer;
@@ -1353,7 +1614,7 @@ display: block;
 /* ================= CODED HEART ICON ================= */
 
 .document-message .fa-heart {
-    color: #e57391;
+    color: #800020;
     font-size: 28px;
 }
 
