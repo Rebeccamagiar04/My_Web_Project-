@@ -20,12 +20,15 @@ href="home.css">
   <!-- ================= SITE HEADER & NAVIGATION ================= -->
 <header class="site-header">
   <div class="header-container">
-    <!-- Brand Logo -->
-    <a href="home.html" class="logo">
-      <span class="logo-icon">🎓</span>
-      <span class="logo-text">Portico Kakuma</span>
-    </a>
-
+<!-- Brand Logo -->
+<p class="logo">
+  <img
+    src="logo.png"
+    alt="Portico Kakuma"
+    class="logo-image"
+  >Portico Kakuma
+</p>
+    
     <!-- Desktop Navigation Links -->
     <nav class="main-nav">
       <a href="home.html" class="nav-link">Home</a>
@@ -75,7 +78,6 @@ href="home.css">
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
       <div class="logo">
-        <span class="logo-icon">🎓</span>
         <span class="logo-text">Portico Kakuma</span>
       </div>
       <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
@@ -87,7 +89,7 @@ href="home.css">
       <ul class="mobile-nav-list">
         
         <!-- HOME PAGE & SECTIONS -->
-        <li class="nav-group">
+        <li class="nav-group" class="active">
           <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
           <ul class="sub-nav-list">
             <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
@@ -102,8 +104,9 @@ href="home.css">
         <li class="nav-group">
           <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
           <ul class="sub-nav-list">
-            <li><a href="scholarship.html#scholarship-search">2.0Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
             <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
+            <li><a href="scholarship.html#scholarship-stats">2.2 Our community</a></li>
           </ul>
         </li>
 
@@ -171,73 +174,78 @@ href="home.css">
 
 </section>
 
-
-
-
-  <!-- ================= HOW IT WORKS ================= -->
+<!-- ================= HOW IT WORKS ================= -->
 <section class="how-it-works" id="how-it-works">
 
     <div class="section-heading">
-        <p class="eyebrow">HOW IT WORKS</p>
         <h2>A Simple 4-Step Process</h2>
     </div>
 
     <div class="process-cards">
 
+        <!-- STEP 1: SEARCH -->
         <div class="process-card">
-            <div class="card-icon">⌕</div>
-            <h3>Search</h3>
-            <div class="card-content">
+            <div class="step-number">01</div>
+
+            <div class="process-content">
+                <h3>Search</h3>
                 <p>
-                    Explore the <a href="scholarship.html">scholarships</a>
-                    section to discover opportunities that match your
-                    education level, interests, and eligibility.
+                    Explore the scholarships page 
+                    to find opportunities that match your educational goals.
+                    Review the eligibility requirements carefully and research
+                    each scholarship program thoroughly before applying.
                 </p>
             </div>
         </div>
 
+        <!-- STEP 2: PREPARE -->
         <div class="process-card">
-            <div class="card-icon">▤</div>
-            <h3>Prepare</h3>
-            <div class="card-content">
+            <div class="step-number">02</div>
+
+            <div class="process-content">
+                <h3>Prepare</h3>
                 <p>
-                    Use the <a href="resources.html">resources</a> section
-                    to find the documents, guides, and tools you need to
-                    prepare a strong application.
+                  Use the resources section to understand the application process and familiarise yourself with the available tools. Prepare the required documents and follow the relevant guidance before starting your application.
                 </p>
             </div>
         </div>
 
+        <!-- STEP 3: APPLY -->
         <div class="process-card">
-            <div class="card-icon">➤</div>
-            <h3>Apply</h3>
-            <div class="card-content">
+            <div class="step-number">03</div>
+
+            <div class="process-content">
+                <h3>Apply</h3>
                 <p>
-                    Follow the official application links and submit your
-                    application carefully before the deadline.
+                    Apply only after researching the program thoroughly and understanding its requirements. Always use official application links and beware of scams or suspicious scholarship offers.
                 </p>
             </div>
         </div>
 
+           <!-- STEP 4: TRACK -->
         <div class="process-card">
-            <div class="card-icon">↗</div>
-            <h3>Track</h3>
-            <div class="card-content">
+            <div class="step-number">04</div>
+
+            <div class="process-content">
+                <h3>Track</h3>
                 <p>
-                    Download the application
-                    <a href="doctemplates.html#checklist">checklist</a>
-                    template from Resources to track your applications
-                    and deadlines. Check your email regularly for updates.
+                    Check your email regularly, including your spam folder.
+                    Stay in contact with the admissions team and provide
+                    any additional documents they request.
                 </p>
             </div>
         </div>
 
     </div>
 
+      
+
+  
+
 </section>
       
 <section class="sep-image">
-    <img src="Croome_Court_2016_017.jpg" alt="Porch of a building" id="portico-image">
+    <img src="ipe-portico.jpg" alt="Porch of a building" id="portico-image">
 </section>
       
 
@@ -581,8 +589,6 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
             <div class="section-heading">
 
-                <p class="eyebrow">OUR IMPACT</p>
-
                 <h2>Making a difference, one student at a time.</h2>
 
             </div>
@@ -596,18 +602,18 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
 
                 <div class="stat active">
-                    <strong>10+</strong>
+                    <strong>50+</strong>
                     <span>Scholarships Listed</span>
                 </div>
 
                 <div class="stat">
-                    <strong>50+</strong>
-                    <span>Universities Covered</span>
+                    <strong>150+</strong>
+                    <span>Countries</span>
                 </div>
 
                 <div class="stat">
-                    <strong>20+</strong>
-                    <span>Countries</span>
+                    <strong>100+</strong>
+                    <span>Universities Covered</span>
                 </div>
 
                 <div class="stat">
@@ -688,4 +694,4 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
     <script src="home.js"></script>
 
 </body>
-                        </html>
+            </html>
