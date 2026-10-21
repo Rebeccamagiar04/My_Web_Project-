@@ -50,21 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ================= HOW IT WORKS =================
-
-const processCards = document.querySelectorAll('.process-card');
-
-processCards.forEach(card => {
-
-    card.addEventListener('click', () => {
-
-        card.classList.toggle('active');
-
-    });
-
-});
-
-
 
  //============= APPLICATION ESSENTIALS PROGRESS =============//
 
