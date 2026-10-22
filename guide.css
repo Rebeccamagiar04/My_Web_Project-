@@ -1,6 +1,6 @@
-/* =========================
-   GENERAL
-========================= */
+/* =====================================================
+   PORTICO KAKUMA — SCHOLARSHIP APPLICATION GUIDE
+=================================================== */
 
 * {
     box-sizing: border-box;
@@ -11,7 +11,6 @@
 body {
     font-family: Arial, sans-serif;
     background: #f5fbff;
-    color: #123b67;
     line-height: 1.7;
 }
 
@@ -40,7 +39,7 @@ main {
 
 .application-guide > p {
     margin-bottom: 12px;
-    color: #46617c;
+    color: #000000;
 }
 
 
@@ -65,7 +64,7 @@ main {
 }
 
 .guide-section p {
-    color: #46617c;
+    color: #000000;
     margin-bottom: 15px;
 }
 
@@ -75,12 +74,12 @@ main {
 
 .guide-section li {
     margin-bottom: 7px;
-    color: #355873;
+    color: #000000;
 }
 
 .guide-section a {
     color: #0b4d84;
-    font-weight: bold;
+    font-weight: 500px;
     text-decoration: none;
 }
 
@@ -94,7 +93,7 @@ main {
 ========================= */
 
 .common-mistakes {
-    background: #eaf6ff;
+    background: #ffffff;
     padding: 65px 25px 70px;
     margin-top: 70px;
 }
@@ -102,20 +101,21 @@ main {
 .section-header {
     max-width: 900px;
     margin: 0 auto 35px;
-    text-align: center;
+    text-align: left;
+    font-family:serif, Arial, Helvetica, sans-serif;
 }
 
 .section-header h2 {
-    font-family: Georgia, serif;
-    font-size: 32px;
+    font-family: serif, Arial, Helvetica, sans-serif, Georgia;
+    font-size: 30px;
     color: #082f52;
     margin-bottom: 12px;
 }
 
 .section-header p {
-    color: #46617c;
-    max-width: 700px;
-    margin: 0 auto;
+    color: #000000;
+    font-size: 15px;
+    font-family: serif, Arial, Arial, Helvetica, sans-serif;
 }
 
 
@@ -126,16 +126,17 @@ main {
 .mistake-group {
     max-width: 900px;
     margin: 18px auto;
-    background: white;
-    padding: 24px 28px;
-    border-radius: 6px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
 }
 
 .mistake-group h3 {
-    font-family: Georgia, serif;
-    color: #0b4d84;
+    font-family: serif, Arial, Georgia, sans-serif;
+    color: #123f69;
     font-size: 21px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    text-align: left;
 }
 
 .mistake-group ul {
@@ -143,8 +144,10 @@ main {
 }
 
 .mistake-group li {
-    color: #46617c;
-    margin-bottom: 6px;
+    color: #000000;
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-family:serif, Arial, Helvetica, sans-serif;
 }
 
 
@@ -190,8 +193,8 @@ main {
     }
 
     .common-mistakes {
-        padding: 45px 16px 50px;
-        margin-top: 45px;
+        padding: 12px;
+        margin-top: 20px;
     }
 
     .section-header h2 {
@@ -199,11 +202,12 @@ main {
     }
 
     .mistake-group {
-        padding: 20px;
+    margin: 18px auto;
+    padding: 0;
     }
 
     .mistake-group h3 {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .mistake-group li {
