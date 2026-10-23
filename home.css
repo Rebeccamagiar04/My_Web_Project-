@@ -1,57 +1,18 @@
-/* =========================================================
-   1. BASIC RESET
-   ========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
+*{
+    margin:0;
+    padding:0;
     box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-    font-family: serif, arial, Helvetica;
-    color: #123b67;
-    background: #ffffff;
-    line-height: 1.6;
-}
-
-a {
-    color: #2563eb;
-    text-decoration: none;
-}
-
-button {
-    font-family: inherit;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-
-/* =========================================================
-   2. GENERAL TYPOGRAPHY
-   ========================================================= */
-
-h1,
-h2,
-h3 {
-    font-family: serif, Georgia, "Times New Roman";
-    color: #0c3764;
-}
-
-h2 {
-    line-height: 1.2;
-}
-
-p {
-    color: #000000;
-    font-size: 14px;
+font-family: serif, 'Poppins', sans-serif;
+color: var(--text-dark);
+background: var(--white);
+line-height: 1.6;
 }
 
 
@@ -1126,7 +1087,7 @@ section {
 
 .application-card-header h3 {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: serif, Arial, Helvetica, Georgia, "Times New Roman", sans-serif;
     font-size: 20px;
     line-height: 1.35;
     color: #123f69;
@@ -1800,7 +1761,6 @@ section {
 
 .impact-section {
     padding: 55px 7% 45px;
-
     background:
         linear-gradient(
             110deg,
@@ -2013,93 +1973,11 @@ section {
     color: #afc3d3;
 }
 
-
-/* =========================================================
-   15. TABLET
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    .site-header {
-        padding: 0 5%;
-    }
-
-    .main-nav {
-        gap: 20px;
-    }
-
-    .welcome-section {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .process-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .application-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .document-cards {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .site-footer {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-
 /* =========================================================
    16. MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
-
-    /* -----------------------------------------------------
-       Header
-       ----------------------------------------------------- */
-
-    .site-header {
-        height: auto;
-
-        padding: 18px 5%;
-
-        flex-wrap: wrap;
-
-        gap: 18px;
-    }
-
-    .logo {
-        font-size: 21px;
-    }
-
-    .main-nav {
-        order: 3;
-
-        width: 100%;
-
-        overflow-x: auto;
-
-        justify-content: flex-start;
-
-        gap: 24px;
-
-        padding-bottom: 3px;
-    }
-
-    .main-nav a {
-        white-space: nowrap;
-
-        font-size: 13px;
-    }
-
-    .register-btn {
-        padding: 7px 15px;
-
-        font-size: 12px;
-    }
 
 
     /* -----------------------------------------------------
@@ -2304,65 +2182,3 @@ section {
         grid-column: auto;
     }
 }
-
-
-/* =========================================================
-   17. VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 420px) {
-
-    .welcome-content h1 {
-        font-size: 40px;
-    }
-
-    .process-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .document-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-     .document-card {
-        padding: 20px 8px;
-    }
-
-    .document-card h3 {
-        font-size: 13px;
-    }
-
-}
-
-/* ================= DOCUMENT RESPONSIVE ================= */
-
-@media (max-width: 900px) {
-
-    .document-cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-}
-
-
-@media (max-width: 650px) {
-
-    .documents-section {
-        padding: 55px 5% 65px;
-    }
-
-    .documents-heading {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .document-cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .document-card {
-        min-height: 135px;
-    }
-
-   }
