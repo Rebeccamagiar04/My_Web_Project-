@@ -27,7 +27,7 @@ const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const ADMIN_UID = "cjImzlagCxNFWDm2dEXwz2kwTbf1";
+const ADMIN_UID = "oyIoPemKV2Of7NeE8LF1XCsz9Bw1";
 
 const form = document.getElementById("notificationForm");
 const titleInput = document.getElementById("title");
