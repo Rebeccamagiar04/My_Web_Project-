@@ -178,6 +178,10 @@ form.addEventListener("submit", async event => {
 onAuthStateChanged(auth, user => {
   isAdmin = Boolean(user && user.uid === ADMIN_UID);
 
+  console.log("Signed-in user:", user?.uid);
+console.log("Expected admin UID:", ADMIN_UID);
+console.log("Is admin:", isAdmin);
+
   if (stopNotificationListener) {
     stopNotificationListener();
     stopNotificationListener = null;
