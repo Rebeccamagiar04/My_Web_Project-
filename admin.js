@@ -3,7 +3,9 @@ import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebase
 
 import {
   getAuth,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
@@ -16,6 +18,8 @@ import {
   doc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+/* FIREBASE CONFIGURATION */
 
 const firebaseConfig = {
   apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
@@ -33,6 +37,17 @@ const db = getFirestore(app);
 
 const ADMIN_UID = "cjImzlagCxNFWDm2dEXwz2kwTbf1";
 
+/* PAGE ELEMENTS */
+
+const loginSection = document.getElementById("loginSection");
+const loginForm = document.getElementById("loginForm");
+const loginEmail = document.getElementById("adminEmail");
+const loginPassword = document.getElementById("adminPassword");
+const loginButton = document.getElementById("loginButton");
+const loginStatus = document.getElementById("loginStatus");
+const logoutButton = document.getElementById("logoutButton");
+
+const adminPanel = document.getElementById("adminPanel");
 const form = document.getElementById("notificationForm");
 const titleInput = document.getElementById("title");
 const messageInput = document.getElementById("message");
@@ -43,10 +58,59 @@ const notificationList = document.getElementById("adminNotificationList");
 let isAdmin = false;
 let stopNotificationListener = null;
 
+/* STATUS MESSAGES */
+
+function showLoginStatus(message, isError = false) {
+  loginStatus.textContent = message;
+  loginStatus.style.color = isError ? "#b42318" : "#18713b";
+}
+
 function showStatus(message, isError = false) {
   status.textContent = message;
   status.style.color = isError ? "#b42318" : "#18713b";
 }
+
+/* LOGIN */
+
+loginForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  loginButton.disabled = true;
+  showLoginStatus("Signing in...");
+
+  try {
+    await signInWithEmailAndPassword(
+      auth,
+      loginEmail.value.trim(),
+      loginPassword.value
+    );
+  } catch (error) {
+    console.error("Admin login failed:", error.code, error.message);
+
+    showLoginStatus(
+      error.code === "auth/invalid-credential"
+        ? "Incorrect email or password."
+        : "Sign-in failed. Please check your details and try again.",
+      true
+    );
+  } finally {
+    loginButton.disabled = false;
+  }
+});
+
+/* LOG OUT */
+
+logoutButton.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    showLoginStatus("You have been signed out.");
+  } catch (error) {
+    console.error("Sign-out failed:", error);
+    showStatus("Could not sign out. Please try again.", true);
+  }
+});
+
+/* DISPLAY NOTIFICATIONS IN ADMIN PANEL */
 
 function renderAdminNotifications(snapshot) {
   notificationList.replaceChildren();
@@ -66,9 +130,7 @@ function renderAdminNotifications(snapshot) {
 
   items.forEach(notificationDoc => {
     const data = notificationDoc.data();
-
     const item = document.createElement("li");
-    item.style.marginBottom = "24px";
 
     const title = document.createElement("h3");
     title.textContent = data.title || "Notification";
@@ -77,11 +139,13 @@ function renderAdminNotifications(snapshot) {
     message.textContent = data.message || "";
 
     const state = document.createElement("p");
-    state.textContent = data.active === true ? "Status: Active" : "Status: Inactive";
+    state.textContent =
+      data.active === true ? "Status: Active" : "Status: Inactive";
 
     const toggleButton = document.createElement("button");
     toggleButton.type = "button";
-    toggleButton.textContent = data.active === true ? "Deactivate" : "Activate";
+    toggleButton.textContent =
+      data.active === true ? "Deactivate" : "Activate";
 
     toggleButton.addEventListener("click", async () => {
       if (!isAdmin || auth.currentUser?.uid !== ADMIN_UID) return;
@@ -93,13 +157,14 @@ function renderAdminNotifications(snapshot) {
           doc(db, "Notifications", notificationDoc.id),
           { active: data.active !== true }
         );
+
         showStatus(
           data.active === true
             ? "Notification deactivated."
             : "Notification activated."
         );
       } catch (error) {
-        console.error("Could not update notification:", error);
+        console.error("Notification update failed:", error);
         showStatus("Could not update notification.", true);
       } finally {
         toggleButton.disabled = false;
@@ -114,11 +179,11 @@ function renderAdminNotifications(snapshot) {
     deleteButton.addEventListener("click", async () => {
       if (!isAdmin || auth.currentUser?.uid !== ADMIN_UID) return;
 
-      const confirmed = confirm(
+      if (!confirm(
         `Permanently delete "${data.title || "Notification"}"? This cannot be undone.`
-      );
-
-      if (!confirmed) return;
+      )) {
+        return;
+      }
 
       deleteButton.disabled = true;
 
@@ -126,7 +191,7 @@ function renderAdminNotifications(snapshot) {
         await deleteDoc(doc(db, "Notifications", notificationDoc.id));
         showStatus("Notification permanently deleted.");
       } catch (error) {
-        console.error("Could not delete notification:", error);
+        console.error("Notification deletion failed:", error);
         showStatus("Could not delete notification.", true);
       } finally {
         deleteButton.disabled = false;
@@ -137,6 +202,8 @@ function renderAdminNotifications(snapshot) {
     notificationList.appendChild(item);
   });
 }
+
+/* POST A NOTIFICATION */
 
 form.addEventListener("submit", async event => {
   event.preventDefault();
@@ -169,47 +236,65 @@ form.addEventListener("submit", async event => {
     showStatus("Notification posted successfully!");
   } catch (error) {
     console.error("Notification posting failed:", error);
-    showStatus("Could not post notification. Check your access and connection.", true);
+    showStatus(
+      "Could not post notification. Check your connection and permissions.",
+      true
+    );
   } finally {
     postButton.disabled = false;
   }
 });
 
+/* CHECK AUTHENTICATION AND ADMIN UID */
+
 onAuthStateChanged(auth, user => {
   isAdmin = Boolean(user && user.uid === ADMIN_UID);
-
-  console.log("Signed-in user:", user?.uid);
-console.log("Expected admin UID:", ADMIN_UID);
-console.log("Is admin:", isAdmin);
 
   if (stopNotificationListener) {
     stopNotificationListener();
     stopNotificationListener = null;
   }
 
-  form.hidden = !isAdmin;
+  // Hide the admin panel until the correct account is verified.
+  adminPanel.hidden = !isAdmin;
+  loginSection.hidden = isAdmin;
   notificationList.replaceChildren();
 
   if (!isAdmin) {
-    notificationList.hidden = true;
-    showStatus(
+    showLoginStatus(
       user
-        ? "Access denied. This account is not authorized."
-        : "Please sign in with your administrator account.",
-      true
+        ? "This account is not authorized to manage notifications. Please sign in with the administrator account."
+        : "Sign in with your administrator email and password."
     );
+
+    // Sign out any authenticated non-admin account.
+    if (user) {
+      signOut(auth).catch(error => {
+        console.error("Could not sign out unauthorized account:", error);
+      });
+    }
+
     return;
   }
 
-  notificationList.hidden = false;
+  loginPassword.value = "";
   showStatus("Administrator access verified.");
 
+  // Load active and inactive notifications for the admin.
   stopNotificationListener = onSnapshot(
     collection(db, "Notifications"),
     renderAdminNotifications,
     error => {
-      console.error("Could not load admin notifications:", error);
-      showStatus("Could not load notifications. Check Firestore permissions.", true);
+      console.error(
+        "Could not load admin notifications:",
+        error.code,
+        error.message
+      );
+
+      showStatus(
+        "Could not load notifications. Check Firestore permissions.",
+        true
+      );
     }
   );
 });
