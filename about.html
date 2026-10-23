@@ -17,15 +17,18 @@ href="about.css">
   
   <body>
 
-  <!-- ================= SITE HEADER & NAVIGATION ================= -->
+    <!-- ================= SITE HEADER & NAVIGATION ================= -->
 <header class="site-header">
   <div class="header-container">
-    <!-- Brand Logo -->
-    <a href="home.html" class="logo">
-      <span class="logo-icon">🎓</span>
-      <span class="logo-text">Portico Kakuma</span>
-    </a>
-
+<!-- Brand Logo -->
+<p class="logo">
+  <img
+    src="logo.png"
+    alt="Portico Kakuma"
+    class="logo-image"
+  >Portico Kakuma
+</p>
+    
     <!-- Desktop Navigation Links -->
     <nav class="main-nav">
       <a href="home.html" class="nav-link">Home</a>
@@ -35,47 +38,39 @@ href="about.css">
     </nav>
 
     <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
-    <div class="header-actions">
-      <!-- Notification System -->
-      <div class="notification-wrapper">
-        <button class="icon-btn" id="notifToggle" aria-label="Notifications">
-          <i class="fa-regular fa-bell"></i>
-          <span class="notif-badge">3</span>
-        </button>
-        
-        <!-- Notification Dropdown -->
-        <div class="notif-dropdown" id="notifDropdown">
-          <div class="notif-header">
-            <h3>Notifications</h3>
-          </div>
-          <ul class="notif-list">
-            <li>
-              <strong>Chevening Scholarship</strong>
-              <p>Deadline approaching on 06 Oct 2026.</p>
-            </li>
-            <li>
-              <strong>DAAD Scholarship</strong>
-              <p>New application guidance added.</p>
-            </li>
-            <li>
-              <strong>Welcome Corps on Campus</strong>
-              <p>Check updated details on eligibility.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="header-actions">       
+       
+<!-- Notification System -->
+<div class="notification-wrapper">
+  <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+    <i class="fa-regular fa-bell"></i>
+    <span class="notif-badge" style="display: none;">0</span>
+  </button>
+
+  <div class="notif-dropdown" id="notifDropdown">
+    <div class="notif-header">
+      <h3>Notifications</h3>
+    </div>
+
+    <ul class="notif-list">
+      <!-- JavaScript loads notifications from Firestore here -->
+    </ul>
+  </div>
+</div>
+    
       <!-- Mobile Hamburger Button -->
       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-    </div>
+
+     </div>
   </div>
+  
 
   <!-- Mobile Navigation Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
       <div class="logo">
-        <span class="logo-icon">🎓</span>
         <span class="logo-text">Portico Kakuma</span>
       </div>
       <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
@@ -90,20 +85,21 @@ href="about.css">
         <li class="nav-group">
           <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
           <ul class="sub-nav-list">
-            <li><a href="home.html#how-it-works">A Simple 4-Step Process</a></li>
-            <li><a href="home.html#why-card">Why Portico Kakuma?</a></li>
-            <li><a href="home.html#application-essentials">Application Essentials</a></li>
-            <li><a href="home.html#common-documents">Common Document Categories</a></li>
-            <li><a href="home.html#tips-section">Tips for Successful Application</a></li>
+            <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">1.1 Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">1.2 Application Essentials</a></li>
+            <li><a href="home.html#common-documents">1.3 Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">1.4 Tips for Successful Application</a></li>
           </ul>
         </li>
 
         <!-- SCHOLARSHIPS PAGE & SECTIONS -->
-        <li class="nav-group">
-          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+        <li class="nav-group" >
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap" class="active"></i> Scholarships</a>
           <ul class="sub-nav-list">
-            <li><a href="scholarship.html#scholarship-search">Search Opportunities</a></li>
-            <li><a href="scholarship.html#scholarship-results">Scholarship Listings</a></li>
+            <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
+            <li><a href="scholarship.html#scholarship-stats">2.2 Our community</a></li>
           </ul>
         </li>
 
@@ -111,10 +107,10 @@ href="about.css">
         <li class="nav-group">
           <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
           <ul class="sub-nav-list">
-            <li><a href="resources.html#deadlines-section">Upcoming Scholarship Deadlines</a></li>
-            <li><a href="resources.html#featured-resources">Featured Resources</a></li>
-            <li><a href="resources.html#articles-section">Latest Articles & Tips</a></li>
-            <li><a href="resources.html#keep-growing">Keep Growing While You Wait</a></li>
+            <li><a href="resources.html#deadlines-section">3.0 Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">3.1 Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">3.2 Latest Articles & Tips</a></li>
+            <li><a href="resources.html#keep-growing">3.3 Keep Growing While You Wait</a></li>
           </ul>
         </li>
 
@@ -122,10 +118,10 @@ href="about.css">
         <li class="nav-group">
           <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
           <ul class="sub-nav-list">
-            <li><a href="about.html#mission-vision">Mission & Vision</a></li>
+            <li><a href="about.html#mission-vision">4.0 Mission & Vision</a></li>
             
-            <li><a href="about.html#what-we-do">What We Do</a></li>
-            <li><a href="about.html#our-story">Our Story</a></li>
+            <li><a href="about.html#what-we-do">4.1 What We Do</a></li>
+            <li><a href="about.html#our-story">4.2 Our Story</a></li>
           </ul>
         </li>
 
@@ -133,10 +129,10 @@ href="about.css">
     </div>
   </div>
   <div class="drawer-overlay" id="drawerOverlay"></div>
+  
 </header>
-
-
-
+    
+<main>
 
 <!-- ===================== ABOUT HERO ===================== -->
 
@@ -146,27 +142,17 @@ href="about.css">
 
         <div class="about-text">
 
-            <span class="section-tag">ABOUT US</span>
-
             <h1>
-                Empowering Dreams.
-                Creating Opportunities.
+                Get to know us
             </h1>
 
             <p>
-                Education has the power to transform lives. Our platform exists
-                to help refugee and underserved students discover scholarships,
-                access reliable information, and pursue higher education with
-                confidence.
+              This platform is a small project operated by one individual. We do not ask for money in exchange for our services so beware of scams. We also do not guarantee scholarships however we build confidence in application to ensure you get the scholarship with your own effort. Best of luck as you apply.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="scholarship.html" class="primary-Abtn">
-                    Explore Scholarships
-                </a>
-
-                <a href="#numbers" class="secondary-Abtn">
+                <a href="#numbers" class="primary-Abtn">
                     Learn More ↓
                 </a>
 
@@ -186,14 +172,11 @@ href="about.css">
 
 </section>
 
-
 <!-- ===================== BY THE NUMBERS ===================== -->
 
 <section class="numbers" id="numbers">
 
     <div class="section-heading">
-
-        <span class="small-label">THE CHALLENGE</span>
 
         <h2>By the Numbers</h2>
 
@@ -203,47 +186,43 @@ href="about.css">
 
     </div>
 
-
     <div class="numbers-grid">
 
         <div class="number-item">
 
             <i class="fa-solid fa-earth-africa"></i>
 
-            <h3>120+ Million</h3>
+            <h3>117.8 Million</h3>
 
             <p>
-                People are forcibly displaced around the world.
+                People were forcibly displaced worldwide at the end of 2025.
             </p>
 
         </div>
-
 
         <div class="number-item">
 
             <i class="fa-solid fa-user-graduate"></i>
 
-            <h3>Millions</h3>
+            <h3>11%</h3>
 
             <p>
-                Refugees aspire to pursue higher education every year.
+                Of refugees have access to higher education, according to UNHCR.
             </p>
 
         </div>
-
 
         <div class="number-item">
 
             <i class="fa-solid fa-chart-pie"></i>
 
-            <h3>~7%</h3>
+            <h3>44%</h3>
 
             <p>
-                Refugees currently enrolled in higher education globally.
+                Global higher-education enrolment among non-refugees, compared with 11% access among refugees.
             </p>
 
         </div>
-
 
         <div class="number-item">
 
@@ -252,11 +231,10 @@ href="about.css">
             <h3>15% by 2030</h3>
 
             <p>
-                UNHCR's global target through the 15by30 initiative.
+                UNHCR's global target for refugee youth access to higher education.
             </p>
 
         </div>
-
 
         <div class="number-item">
 
@@ -265,16 +243,25 @@ href="about.css">
             <h3>Our Role</h3>
 
             <p>
-                Connecting deserving students with scholarship opportunities.
+                Connecting students with scholarship and education opportunities.
             </p>
 
         </div>
 
     </div>
 
-
     <p class="numbers-source">
-        Figures based on publicly available information from UNHCR.
+        Sources:
+        <a href="https://www.unhcr.org/figures-at-a-glance.html"
+           target="_blank" rel="noopener noreferrer">
+            UNHCR Global Displacement Figures
+        </a>
+        and
+        <a href="https://www.unhcr.org/what-we-do/build-better-futures/education/higher-education-and-skills"
+           target="_blank" rel="noopener noreferrer">
+            UNHCR Higher Education and Skills
+        </a>.
+        Displacement figures are for the end of 2025; education figures reflect UNHCR's published reporting.
     </p>
 
 </section>
@@ -286,9 +273,7 @@ href="about.css">
 
     <div class="section-heading">
 
-        <span class="small-label">OUR PURPOSE</span>
-
-        <h2>Mission & Vision</h2>
+        <h2>OUR PURPOSE</h2>
 
     </div>
 
@@ -368,78 +353,24 @@ href="about.css">
 
     <div class="story-content">
 
-        <span class="small-label">OUR STORY</span>
 
         <h2>Why I Created Portico Kakuma</h2>
 
         <p>
-            Hi, my name is Atem Rebecca the founder of Portico Kakuma. After finishing high school,
-            I was determined to continue my education and like many
-            students in Kakuma, I knew about some of the common
-            scholarship opportunities available to refugees.
+         For refugee youth, dreaming of higher education often feels like reaching for something just out of reach. It isn’t a lack of ambition, or effort—it is the overwhelming barrier of invisible walls.</p>
+      <p>
+​Because opportunities are so limited and hard to find, many of us have grown accustomed to settling for less. We begin to make peace with whatever small options come our way, slowly accepting the idea that we are somehow meant to receive less than others. I strongly believe that no one should ever be forced to get used to being "less than." Your background or refugee status should never dictate the ceiling of your potential or lower the standard of what you deserve.</p>
+      <p>
+​For a long time, most of us in the community only knew about a few, well-trodden scholarship pathways. Because it was the only option widely known, thousands of brilliant, qualified applicants competed for a handful of spots every single cycle. For three straight years, I put my heart into applying through that same familiar route. And three times in a row, I received rejections. It left me feeling stuck, wondering if it was bad luck, or if my dreams were simply too big for my circumstances.</p>
+      <p>
+​It wasn't until later that I realized the real problem: we are limited not by our potential, but by a lack of information and access.</p>
+      <p>
+​There are many other global scholarships, university programs, and educational pathways out there worth pursuing. While some programs may offer different levels of support, being in a university anywhere means your dream is actively within reach. Yet most refugees never learn these opportunities exist. And for those who do, application processes can be so complex and rigid that many give up before even finishing.</p>
+      <p>
+<strong>
+​I built the resource I wish I had three years ago. My goal is to diversify your options and increase your chances of getting into a university </strong>
         </p>
 
-        <p>
-            I applied for one of them and placed most of my hopes
-            in that opportunity. I believed that if I worked hard
-            and made it through the process, university would finally
-            be within reach.
-        </p>
-
-        <p>
-            But I wasn't selected.
-        </p>
-
-        <p>
-            I decided to try again the following year. This time,
-            I was even more hopeful. I thought that surely this
-            would be my opportunity. But once again, I received
-            a rejection.
-        </p>
-
-        <div class="story-highlight">
-
-            <i class="fa-solid fa-quote-left"></i>
-
-            <p>
-                That was when I started asking myself:
-                <strong>Why did I only apply for one opportunity?</strong>
-            </p>
-
-        </div>
-
-        <p>
-            I realized that I had not known enough about the other
-            scholarships and pathways available to students like me.
-            I had become conditioned to think that the opportunity
-            I knew about was the best I could get.
-        </p>
-
-        <p>
-            That experience changed the way I looked at scholarship
-            opportunities. I realized that students shouldn't have
-            to put all their hopes into one application and only
-            discover other possibilities after receiving a rejection.
-        </p>
-
-        <p>
-            That's why I created <strong>Portico Kakuma</strong> —
-            to make scholarship opportunities easier to discover
-            and to encourage students to explore more than one path
-            toward higher education.
-        </p>
-
-        <p>
-            Being a refugee should not condition us to believe that
-            we have to settle for less. We can dream beyond our
-            circumstances, apply alongside our classmates, and pursue
-            opportunities that can take us where we want to go.
-        </p>
-
-        <strong class="story-ending">
-            I created this platform so that another student
-            doesn't have to learn that lesson the hard way.
-        </strong>
 
     </div>
 
@@ -460,7 +391,6 @@ href="about.css">
 
     <div class="section-heading">
 
-        <span class="small-label">HOW WE HELP</span>
 
         <h2>What We Do & Our Goals</h2>
 
@@ -567,8 +497,6 @@ href="about.css">
 
     <img src="angelinajolie.jpg" alt="Students pursuing their education">
 
-    <div class="image-break-overlay">
-    </div>
 
 </section>
     
@@ -577,8 +505,6 @@ href="about.css">
 <section class="values">
 
     <div class="section-heading">
-
-        <span class="small-label">WHAT GUIDES US</span>
 
         <h2>Our Values</h2>
 
@@ -666,8 +592,6 @@ href="about.css">
 
         <div>
 
-            <span class="small-label">TAKE THE NEXT STEP</span>
-
             <h2>Your Future Starts With One Opportunity</h2>
 
             <p>
@@ -685,7 +609,9 @@ href="about.css">
     </div>
 
 </section>
-
+  
+    
+</main>
 
 <!-- ===================== FOOTER ===================== -->
 
@@ -721,8 +647,7 @@ href="about.css">
 
 </footer>
 
-
 <script type="module" src="about.js"></script>
 
 </body>
-</html>
+                </html>
