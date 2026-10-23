@@ -17,7 +17,7 @@ href="home.css">
   
   <body>
 
-  <!-- ================= SITE HEADER & NAVIGATION ================= -->
+    <!-- ================= SITE HEADER & NAVIGATION ================= -->
 <header class="site-header">
   <div class="header-container">
 <!-- Brand Logo -->
@@ -38,41 +38,34 @@ href="home.css">
     </nav>
 
     <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
-    <div class="header-actions">
-      <!-- Notification System -->
-      <div class="notification-wrapper">
-        <button class="icon-btn" id="notifToggle" aria-label="Notifications">
-          <i class="fa-regular fa-bell"></i>
-          <span class="notif-badge">3</span>
-        </button>
-        
-        <!-- Notification Dropdown -->
-        <div class="notif-dropdown" id="notifDropdown">
-          <div class="notif-header">
-            <h3>Notifications</h3>
-          </div>
-          <ul class="notif-list">
-            <li>
-              <strong>Chevening Scholarship</strong>
-              <p>Deadline approaching on 06 Oct 2026.</p>
-            </li>
-            <li>
-              <strong>DAAD Scholarship</strong>
-              <p>New application guidance added.</p>
-            </li>
-            <li>
-              <strong>Welcome Corps on Campus</strong>
-              <p>Check updated details on eligibility.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="header-actions">       
+       
+<!-- Notification System -->
+<div class="notification-wrapper">
+  <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+    <i class="fa-regular fa-bell"></i>
+    <span class="notif-badge" style="display: none;">0</span>
+  </button>
+
+  <div class="notif-dropdown" id="notifDropdown">
+    <div class="notif-header">
+      <h3>Notifications</h3>
+    </div>
+
+    <ul class="notif-list">
+      <!-- JavaScript loads notifications from Firestore here -->
+    </ul>
+  </div>
+</div>
+    
       <!-- Mobile Hamburger Button -->
       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-    </div>
+
+     </div>
   </div>
+  
 
   <!-- Mobile Navigation Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
@@ -89,7 +82,7 @@ href="home.css">
       <ul class="mobile-nav-list">
         
         <!-- HOME PAGE & SECTIONS -->
-        <li class="nav-group" class="active">
+        <li class="nav-group">
           <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
           <ul class="sub-nav-list">
             <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
@@ -101,8 +94,8 @@ href="home.css">
         </li>
 
         <!-- SCHOLARSHIPS PAGE & SECTIONS -->
-        <li class="nav-group">
-          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+        <li class="nav-group" >
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap" class="active"></i> Scholarships</a>
           <ul class="sub-nav-list">
             <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
             <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
@@ -136,9 +129,8 @@ href="home.css">
     </div>
   </div>
   <div class="drawer-overlay" id="drawerOverlay"></div>
+  
 </header>
-
-
 
     <main>
 
@@ -163,7 +155,7 @@ href="home.css">
 
     <!-- Welcome Content -->
     <div class="welcome-content">
-        <h1>Hi, <span id="userName">candidate</span></h1>
+        <h1>Hi, <span id="userName">scholar</span></h1>
 
         <p>
             We're glad you're here. This is a space created to help you
@@ -640,7 +632,7 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
         </section>
 
-    </main>
+  </main>
 
 
     <!-- ================= FOOTER ================= -->
@@ -691,7 +683,7 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
     </footer>
 
   
-    <script src="home.js"></script>
-
-</body>
-            </html>
+    <script type="module" src="home.js"></script>
+ 
+  </body>
+    </html>
