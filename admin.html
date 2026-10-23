@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Portico Kakuma</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: serif, Arial, Georgia, Helvetica, "Times New Roman", sans-serif;
+      background: #f7f7f9;
+      color: #202033;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 24px;
+      background: white;
+      border: 1px solid #e4e4eb;
+      border-radius: 12px;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #17213b;
+    }
+
+    label {
+      display: block;
+      margin: 18px 0 6px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #c9c9d4;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 6px;
+      background: #17213b;
+      color: white;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #status {
+      margin-top: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    .back-link {
+      color: #17213b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Portico Kakuma Admin</h1>
+    <p>Post a notification for website visitors.</p>
+
+    <form id="notificationForm">
+      <label for="title">Notification title</label>
+      <input id="title" maxlength="120" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" maxlength="2000" required></textarea>
+
+      <button id="postButton" type="submit">Post Notification</button>
+      <p id="status" role="status"></p>
+    </form>
+
+    <p><a class="back-link" href="about.html">Return to About page</a></p>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
