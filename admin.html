@@ -67,40 +67,82 @@
       cursor: not-allowed;
     }
 
-    #status {
+    #status, #loginStatus {
       margin-top: 16px;
       overflow-wrap: anywhere;
     }
 
-    .back-link {
-      color: #17213b;
+    #adminPanel[hidden], #loginSection[hidden] {
+      display: none !important;
+    }
+
+    #adminNotificationList li {
+      margin-bottom: 24px;
+    }
+
+    #notificationManagement {
+      margin-top: 32px;
     }
   </style>
 </head>
 <body>
   <main>
     <h1>Portico Kakuma Admin</h1>
-    <p>Post a notification for website visitors.</p>
 
-    <form id="notificationForm">
-      <label for="title">Notification title</label>
-      <input id="title" maxlength="120" required>
+    <section id="loginSection">
+      <h2>Administrator Login</h2>
+      <p>Sign in with your authorized administrator account.</p>
 
-      <label for="message">Message</label>
-      <textarea id="message" maxlength="2000" required></textarea>
+      <form id="loginForm">
+        <label for="adminEmail">Email address</label>
+        <input
+          type="email"
+          id="adminEmail"
+          autocomplete="username"
+          required
+        >
 
-      <button id="postButton" type="submit">Post Notification</button>
-      <p id="status" role="status"></p>
-    </form>
+        <label for="adminPassword">Password</label>
+        <input
+          type="password"
+          id="adminPassword"
+          autocomplete="current-password"
+          required
+        >
 
-    
-<section id="notificationManagement">
-  <hr>
-  <h2>Manage Notifications</h2>
-  <p>Deactivate announcements you no longer want to display, or delete them permanently.</p>
-  <ul id="adminNotificationList"></ul>
-</section>
+        <button id="loginButton" type="submit">Log In</button>
+      </form>
 
+      <p id="loginStatus" role="status"></p>
+    </section>
+
+    <section id="adminPanel" hidden>
+      <p>Administrator access verified.</p>
+      <button id="logoutButton" type="button">Log Out</button>
+
+      <hr>
+
+      <h2>Post a Notification</h2>
+      <p>Post a notification for website visitors.</p>
+
+      <form id="notificationForm">
+        <label for="title">Notification title</label>
+        <input id="title" maxlength="120" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" maxlength="2000" required></textarea>
+
+        <button id="postButton" type="submit">Post Notification</button>
+        <p id="status" role="status"></p>
+      </form>
+
+      <section id="notificationManagement">
+        <hr>
+        <h2>Manage Notifications</h2>
+        <p>Deactivate announcements you no longer want to display, or delete them permanently.</p>
+        <ul id="adminNotificationList"></ul>
+      </section>
+    </section>
   </main>
 
   <script type="module" src="admin.js"></script>
