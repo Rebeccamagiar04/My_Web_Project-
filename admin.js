@@ -35,7 +35,7 @@ const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const ADMIN_UID = "cjImzlagCxNFWDm2dEXwz2kwTbf1";
+const ADMIN_UID = "BmnwopfyXgXq1ByvLtq3eAMbygC2";
 
 /* PAGE ELEMENTS */
 
