@@ -1,1 +1,988 @@
-hdhdhdh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <title>Scholarship info page</title>
+     
+     <!--link CSS file-->
+     <link rel="stylesheet"
+href="resources.css">
+  
+</head>
+  
+  <body>
+
+    <!-- ================= SITE HEADER & NAVIGATION ================= -->
+<header class="site-header">
+  <div class="header-container">
+<!-- Brand Logo -->
+<p class="logo">
+  <img
+    src="logo.png"
+    alt="Portico Kakuma"
+    class="logo-image"
+  >Portico Kakuma
+</p>
+    
+    <!-- Desktop Navigation Links -->
+    <nav class="main-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="scholarship.html" class="nav-link">Scholarships</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
+    <div class="header-actions">       
+       
+<!-- Notification System -->
+<div class="notification-wrapper">
+  <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+    <i class="fa-regular fa-bell"></i>
+    <span class="notif-badge" style="display: none;">0</span>
+  </button>
+
+  <div class="notif-dropdown" id="notifDropdown">
+    <div class="notif-header">
+      <h3>Notifications</h3>
+    </div>
+
+    <ul class="notif-list">
+      <!-- JavaScript loads notifications from Firestore here -->
+    </ul>
+  </div>
+</div>
+    
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+     </div>
+  </div>
+  
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <span class="logo-text">Portico Kakuma</span>
+      </div>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="mobile-nav-list">
+        
+        <!-- HOME PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <ul class="sub-nav-list">
+            <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">1.1 Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">1.2 Application Essentials</a></li>
+            <li><a href="home.html#common-documents">1.3 Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">1.4 Tips for Successful Application</a></li>
+          </ul>
+        </li>
+
+        <!-- SCHOLARSHIPS PAGE & SECTIONS -->
+        <li class="nav-group" >
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+          <ul class="sub-nav-list">
+            <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
+            <li><a href="scholarship.html#scholarship-stats">2.2 Our community</a></li>
+          </ul>
+        </li>
+
+        <!-- RESOURCES PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="resources.html" class="group-title" class="active"><i class="fa-solid fa-book-open"></i> Resources</a>
+          <ul class="sub-nav-list">
+            <li><a href="resources.html#deadlines-section">3.0 Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">3.1 Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">3.2 Latest Articles & Tips</a></li>
+            <li><a href="resources.html#keep-growing">3.3 Keep Growing While You Wait</a></li>
+          </ul>
+        </li>
+
+        <!-- ABOUT PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
+          <ul class="sub-nav-list">
+            <li><a href="about.html#mission-vision">4.0 Mission & Vision</a></li>
+            
+            <li><a href="about.html#what-we-do">4.1 What We Do</a></li>
+            <li><a href="about.html#our-story">4.2 Our Story</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  
+</header>
+
+
+
+  <!-- HERO SECTION -->
+<main class="main-wrapper">
+  
+  <!-- Main Content -->
+<div class="mainHero">
+  
+
+<!-- =====================================================
+     SCHOLARSHIP DEADLINE CALENDAR
+     ===================================================== -->
+
+<section class="deadline-calendar-section" id="deadlines-section">
+
+    <div class="deadline-calendar" id="deadline-calendar">
+
+        <!-- CALENDAR HEADER -->
+        <div class="calendar-header">
+
+            <button
+                type="button"
+                class="calendar-nav calendar-prev"
+                id="calendar-prev"
+                aria-label="Previous month"
+            >
+                &#10094;
+            </button>
+
+            <div class="calendar-month-info">
+                <h2 id="calendar-month">Loading month...</h2>
+                <p id="calendar-year"></p>
+            </div>
+
+            <button
+                type="button"
+                class="calendar-nav calendar-next"
+                id="calendar-next"
+                aria-label="Next month"
+            >
+                &#10095;
+            </button>
+
+        </div>
+
+        <!-- CALENDAR PAGE -->
+        <div class="calendar-page-wrapper" id="calendar-page-wrapper">
+
+            <div class="calendar-page" id="calendar-page">
+
+                <!-- WEEKDAY NAMES -->
+                <div class="calendar-weekdays" aria-hidden="true">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+
+                <!-- JAVASCRIPT WILL GENERATE ALL DATE CELLS HERE -->
+                <div
+                    class="calendar-days"
+                    id="calendar-days"
+                    aria-label="Calendar dates"
+                ></div>
+
+            </div>
+
+        </div>
+
+        <!-- CALENDAR LEGEND -->
+        <div class="calendar-legend">
+            <span class="calendar-legend-item">
+                <span class="legend-dot legend-deadline"></span>
+                Scholarship deadline
+            </span>
+
+            <span class="calendar-legend-item">
+                <span class="legend-dot legend-today"></span>
+                Today
+            </span>
+        </div>
+
+        <!-- SELECTED DATE DETAILS -->
+        <div
+            class="calendar-deadline-details"
+            id="calendar-deadline-details"
+            aria-live="polite"
+        >
+            <h3 id="selected-date-heading">
+                Select a date
+            </h3>
+
+            <p id="selected-date-message">
+                Choose a date on the calendar to view any scholarship deadlines.
+            </p>
+
+            <ul
+                class="calendar-deadline-list"
+                id="calendar-deadline-list"
+            ></ul>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- Upcoming Deadlines -->
+<section style="margin-bottom: 32px;" id="deadlines-section">
+  
+<div class="section-header">
+  
+<h2 class="section-title">Upcoming Scholarship Deadlines</h2>
+
+
+</div>
+
+<div class="deadlines-grid">
+
+    <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">06</div>
+<div class="month">Nov</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Lester B. Pearson</div>
+
+<div class="deadline">
+    Deadline: 06 Nov 2026, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2026-11-06T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=pearson">View Details....</a>
+  </div>
+
+    </div>
+  
+<div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">15</div>
+<div class="month">Nov</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Bowdoin College (undergraduate)</div>
+
+<div class="deadline">
+    Deadline: 15 Nov 2026, 11:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2026-11-15T11:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=bowdoin">View Details....</a>
+  </div>
+
+</div>
+
+      <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">19</div>
+<div class="month">Nov</div>
+</div>
+
+</div>
+
+<div class="deadline-title">University of Edinburgh(postgraduate)-MCF</div>
+
+<div class="deadline">
+    Deadline: 19 Nov 2026, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2026-11-19T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=edinburgh-mastercard">View Details....</a>
+  </div>
+
+      </div>
+
+  <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">30</div>
+<div class="month">Nov</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Berea College (undergraduate)</div>
+
+<div class="deadline">
+    Deadline: 30 Nov 2026, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2026-11-30T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=berea-college">View Details....</a>
+  </div>
+
+  </div>
+
+
+    <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">30</div>
+<div class="month">Nov</div>
+</div>
+
+</div>
+
+<div class="deadline-title">African Leadership University-MCF</div>
+
+<div class="deadline">
+    Deadline: 30 Nov 2026, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2026-11-30T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=alu-mastercard">View Details....</a>
+  </div>
+
+    </div>
+
+      <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">31</div>
+<div class="month">Dec</div>
+</div>
+
+</div>
+
+<div class="deadline-title">United World Colleges</div>
+
+<div class="deadline">
+    Deadline: 31 Dec 2026, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2026-12-31T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=uwc">View Details....</a>
+  </div>
+
+      </div>
+
+    <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">13</div>
+<div class="month">Jan</div>
+</div>
+
+</div>
+
+<div class="deadline-title">University of Edinburgh(undergraduate)</div>
+
+<div class="deadline">
+    Deadline: 13 Jan 2027, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2027-01-13T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=edinburgh-displaced">View Details....</a>
+  </div>
+
+    </div>
+
+    <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">15</div>
+<div class="month">Jan</div>
+</div>
+
+</div>
+
+<div class="deadline-title">University of Ottawa</div>
+
+<div class="deadline">
+    Deadline: 15 Jan 2027, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2027-01-15T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=ottawa">View Details....</a>
+  </div>
+
+    </div>
+
+    <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">20</div>
+<div class="month">Jan</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Chinese Government scholarships</div>
+
+<div class="deadline">
+    Deadline: 20 Jan 2027, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2027-01-20T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=chinese-government-scholarship">View Details....</a>
+  </div>
+
+    </div>
+
+    <div class="deadline-card">
+  
+<div class="deadline-date">
+  
+<div class="date-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+</div>
+
+<div class="date-text">
+<div class="day">31</div>
+<div class="month">Jan</div>
+</div>
+
+</div>
+
+<div class="deadline-title">Earth University-MCF</div>
+
+<div class="deadline">
+    Deadline: 31 Jan 2027, 00:00 UTC
+</div>
+
+<div class="countdown" data-deadline="2027-01-31T00:00:00Z">
+    Calculating...
+</div>
+  <div>
+<a href="scholarship-details.html?id=earth-mastercard">View Details....</a>
+  </div>
+
+    </div>
+
+
+</div>
+
+</section>
+
+  <section class="scholarship-seal"> 
+    <img src="scholarship-seal.jpg" alt="scholarship seal">
+  </section>
+
+<!-- What to Learn -->
+<section style="margin-bottom: 32px;" id="featured-resources">
+  
+<div class="section-header">
+<h2 class="section-title">What do you want to learn today?</h2>
+</div>
+
+<div class="learn-grid">
+  
+<div class="learn-card" id="videos">
+  
+<div class="learn-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+</div>
+
+<div class="learn-title">Video Tutorials</div>
+
+<div class="learn-desc">Curated videos on how to apply and build strong applications.</div>
+
+<a href="videotutorials.html" class="learn-link">Explore videos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card" id="journey">
+  
+<div class="learn-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+
+        <!-- Winding road -->
+        <path d="M5 21c2-4 6-4 6-8s-4-4-1-8"/>
+        
+        <!-- Destination -->
+        <circle cx="19" cy="5" r="2"/>
+    </svg>
+</div>
+
+<div class="learn-title">Application Journey</div>
+
+<div class="learn-desc">Follow the scholarship application process from finding opportunities to submitting your application.</div>
+
+<a href="applicationjourney.html" class="learn-link">Navigate process <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card" id="documents">
+  
+<div class="learn-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+</div>
+
+<div class="learn-title">Documents & Templates</div>
+
+<div class="learn-desc">Download ready-to-use templates and checklists.</div>
+
+<a href="doctemplates.html" class="learn-link">Explore templates <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card" id="language">
+  
+<div class="learn-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+</div>
+
+<div class="learn-title">English & Language</div>
+
+<div class="learn-desc">Improve your English for IELTS, TOEFL and other tests.</div>
+
+<a href="language.html" class="learn-link">Explore resources <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card" id="faqs">
+  
+<div class="learn-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+</div>
+
+<div class="learn-title">FAQs</div>
+
+<div class="learn-desc">Find answers to common questions about scholarships and applications.</div>
+
+<a href="FAQs.html" class="learn-link">Explore FAQs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+<div class="learn-card" id="support">
+  
+<div class="learn-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+</div>
+
+<div><span class="learn-title">Support contacts</span></div>
+
+<div class="learn-desc">Reach out to support teams when you need help with application. Join WhatsApp groups for updates.</div>
+
+<a href="support.html" class="learn-link">Learn more<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+</div>
+
+</section>
+
+<!--VIDEO SECTION-->
+<!-- Featured Video Tutorials -->
+<section style="margin-bottom: 32px;" class="video-section" id="featured-videos">
+  
+<div class="section-header">
+<h2 class="section-title">Featured Video Tutorials</h2>
+<a href="videotutorials.html" class="view-all">View all videos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+</div>
+
+<div class="videos-grid">
+  
+<div class="video-card" id="motivation-let">
+
+    <iframe
+        width="100%"
+        height="250"
+        src="https://www.youtube.com/embed/RcNa9k9BaPU"
+        title="How to Write a Winning Motivation Letter"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
+    <div class="video-info">
+        <h3 class="video-title">How to Write a Winning Motivation Letter.</h3>
+    </div>
+  
+    <div class="key-takeaways">
+  <li><b><u>Key Takeaways</u></b>
+    <ul>Hook the reader with a memorable opening.</ul>
+  <ul>Align your goals with the sponsor's mission.</ul>
+    <ul>Connect achievements to future purpose.</ul>
+    <ul>Paint a vision of future financial impact.</ul>
+    <ul>Proofread and respect specific.</ul>
+  
+  </li>
+</div>
+  
+</div>
+
+<div class="video-card" id="application-steps">
+
+<iframe 
+width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="video-info">
+        <h3 class="video-title">Scholarship application step-by-step.</h3>
+    </div>
+  <div class="key-takeaways">
+  <li><b><u>Key Takeaways</u></b>
+    <ul>Start application early.</ul>
+    <ul>Have a holistic review and well rounded profile.</ul>
+    <ul>Credential evaluation and documentation.</ul>
+    <ul>Program-specific requirements(Reach out to institutions and proffesors).</ul>
+    <ul>Financial aid and universoty resources.</ul>
+  </li>
+
+  </div>
+</div>
+
+<div class="video-card" id="interview-tips">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q6323JL8a24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="video-info">
+        <h3 class="video-title">How to prepare for scholarship interviews.</h3>
+    </div>
+
+<div class="key-takeaways">
+<li><b><u>Key Takeaways</u></b>
+
+<ul>Thorough preparation is key.</ul>
+  <ul>Highlight merit and need.</ul>
+  <ul>Demonstrate alignment with institutional values.</ul>
+  <ul>Turning weakness into growth.</ul>
+  <ul>Asking smart closing questions.</ul>
+</li>
+
+  
+</div>
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- Latest Articles -->
+<section id="articles-section" class="articles">
+
+    <div class="section-header">
+        <h2 class="section-title">Featured Articles</h2>
+    </div>
+
+    <div class="articles-list">
+      
+
+        <!-- Article 1 -->
+        <article class="article-card" id="article-1">
+            <div class="article-thumb">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop"
+                     alt="Student preparing college applications">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">Everything You Need to Know About the College Application Process</h3>
+                <p class="article-date">Feb 10, 2025</p>
+                <a class="article-link" href="https://www.sallie.com/resources/colleges/college-application-faqs" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card" id="article-2">
+            <div class="article-thumb">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=350&fit=crop"
+                     alt="Students studying together">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">How to Choose the Right Scholarship for You</h3>
+                <p class="article-date">April 28, 2025</p>
+                <a class="article-link" href="https://studyworkgrow.com/choosing-a-scholarship-thats-right-for-you/?hl=en-US" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card" id="article-3">
+            <div class="article-thumb">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=250&fit=crop"
+                     alt="Professional discussing scholarship applications">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">What Scholarship Committees Actually Look for Beyond the GPA</h3>
+                <p class="article-date">April 20, 2025</p>
+                <a class="article-link" href="https://thevillagemethod.org/what-scholarship-committees-actually-look-for-beyond-the-gpa/?hl=en-US" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card" id="article-4">
+            <div class="article-thumb">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop"
+                     alt="Students using technology for learning">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">School in Somaliland Prepares Students for Education Abroad</h3>
+                <p class="article-date">April 15, 2025</p>
+                <a class="article-link" href="https://learningenglish.voanews.com/a/school-in-somaliland-prepares-students-for-education-abroad/3399194.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+
+    </div>
+
+  
+</section>
+
+<div class="footer-note"><b>NOTE:The abovr  articles are not published by Portico Kakuma. They are purely for informational puposes. Credit to their respective owners.</b>
+</div>
+
+  <!-- =====================================================
+     MORE ARTICLES SECTION
+===================================================== -->
+
+<section id="articles-section" class="articles">
+  
+        <div class="section-header" class="section-title">
+        <h2 class="more-articles-heading">More Articles</h2>
+        </div>
+
+        <div class="more-articles-list">
+
+                <!-- Article 5 -->
+        <article class="article-card" id="article-5">
+            <div class="article-thumb">
+                <img src="somaligirlshappy.png"
+                     alt="hopeful stories">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">Against the Odds: Real Stories of Students Who Turned Scholarships into Second Chances</h3>
+                <a class="article-link" href="article1.html" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+
+                            <!-- Article 5 -->
+        <article class="article-card" id="article-5">
+            <div class="article-thumb">
+                <img src="graduate.jpg"
+                     alt="hopeful stories">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">How Learning Travels Through a Community.</h3>
+                <a class="article-link" href="article2.html" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="article-card" id="article-3">
+            <div class="article-thumb">
+                <img src="grant.jpg"
+                     alt="Professional discussing scholarship applications">
+                <span class="article-badge">Article</span>
+            </div>
+            <div class="article-info">
+                <h3 class="article-title">How Will You Pay for It? Funding Your Education Beyond Scholarships</h3>
+                <p class="article-date">September 14, 2026</p>
+                <a class="article-link" href="article3.html" target="_blank" rel="noopener noreferrer">View Details →</a>
+            </div>
+        </article>
+          
+        </div>
+
+    </section>
+
+
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  
+<!--Motivation section-->
+<div class="sidebar-card">
+  <div class="motivation-card">
+
+    <h3 class="sidebar-title">💜 Little Reminder</h3>
+
+    <p id="dailyMotivation">
+        Loading your motivation...
+    </p>
+
+</div>
+
+<div class="challenge-card">
+    <h3 class="sidebar-title">🧠 Daily Challenge</h3>
+
+    <p id="dailyChallenge">
+        Loading today's challenge...
+    </p>
+
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="sidebar-card" id="frequently-questions">
+  
+<h3 class="sidebar-title">Frequently Asked Questions</h3>
+
+<div class="faq-list">
+  
+<div class="faq-item">
+  
+<div class="faq-question">
+  
+<span>Who can apply for scholarships?</span>
+
+<svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+</div>
+
+<div class="faq-answer">
+Most scholarships are open to students who meet specific eligibility criteria such as academic performance, nationality, field of study, and financial need.
+</div>
+
+</div>
+
+</div>
+
+<a href="FAQs.html" class="view-all" style="margin-top: 16px; justify-content: center;">View all FAQs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+</div>
+
+</aside>
+
+  </>
+  
+</main>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <h2>Refugee Opportunities</h2>
+            <p>Scholarships without borders.</p>
+        </div> 
+        
+        <div class="footer-links">
+          <a href="home.html" class="active">Home</a>
+            <a href="scholarship.html">Scholarships</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <div class="socials">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+    </footer>
+  
+    
+  <script type="module" src="resources.js"></script>
+    
+  </body>
+  </html>
