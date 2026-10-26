@@ -1,1 +1,4101 @@
-gggcffhgg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <title>Scholarship info page</title>
+     
+     <!--link CSS file-->
+     <link rel="stylesheet"
+href="scholarship.css">
+  
+</head>
+  
+  <body>
+
+    <!-- ================= SITE HEADER & NAVIGATION ================= -->
+<header class="site-header">
+  <div class="header-container">
+<!-- Brand Logo -->
+<p class="logo">
+  <img
+    src="logo.png"
+    alt="Portico Kakuma"
+    class="logo-image"
+  >Portico Kakuma
+</p>
+    
+    <!-- Desktop Navigation Links -->
+    <nav class="main-nav">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="scholarship.html" class="nav-link">Scholarships</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- Header Actions (Notifications + Register + Hamburger Toggle) -->
+    <div class="header-actions">       
+       
+<!-- Notification System -->
+<div class="notification-wrapper">
+  <button class="icon-btn" id="notifToggle" aria-label="Notifications">
+    <i class="fa-regular fa-bell"></i>
+    <span class="notif-badge" style="display: none;">0</span>
+  </button>
+
+  <div class="notif-dropdown" id="notifDropdown">
+    <div class="notif-header">
+      <h3>Notifications</h3>
+    </div>
+
+    <ul class="notif-list">
+      <!-- JavaScript loads notifications from Firestore here -->
+    </ul>
+  </div>
+</div>
+    
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+     </div>
+  </div>
+  
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo">
+        <span class="logo-text">Portico Kakuma</span>
+      </div>
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <ul class="mobile-nav-list">
+        
+        <!-- HOME PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <ul class="sub-nav-list">
+            <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">1.1 Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">1.2 Application Essentials</a></li>
+            <li><a href="home.html#common-documents">1.3 Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">1.4 Tips for Successful Application</a></li>
+          </ul>
+        </li>
+
+        <!-- SCHOLARSHIPS PAGE & SECTIONS -->
+        <li class="nav-group" >
+          <a href="scholarship.html" class="group-title" class="active"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+          <ul class="sub-nav-list">
+            <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
+            <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
+            <li><a href="scholarship.html#scholarship-stats">2.2 Our community</a></li>
+          </ul>
+        </li>
+
+        <!-- RESOURCES PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
+          <ul class="sub-nav-list">
+            <li><a href="resources.html#deadlines-section">3.0 Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">3.1 Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">3.2 Latest Articles & Tips</a></li>
+            <li><a href="resources.html#keep-growing">3.3 Keep Growing While You Wait</a></li>
+          </ul>
+        </li>
+
+        <!-- ABOUT PAGE & SECTIONS -->
+        <li class="nav-group">
+          <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
+          <ul class="sub-nav-list">
+            <li><a href="about.html#mission-vision">4.0 Mission & Vision</a></li>
+            
+            <li><a href="about.html#what-we-do">4.1 What We Do</a></li>
+            <li><a href="about.html#our-story">4.2 Our Story</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  
+</header>
+
+
+<main>
+  
+    <!-- HERO -->
+    <section class="heroScholarship">
+
+        <div class="heroScholarship-content">
+
+            <h1>
+                Opportunities for<br>
+                you.
+            </h1>
+
+            <p>
+                This is an informational platform. You are adviced to visit official websites for further details. Good luck.
+            </p>
+
+            <div class="verified-badge">
+                <i class="fa-solid fa-heart"></i>
+                Curated with care. Verified for you.
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+     SCHOLARSHIP SEARCH
+========================= -->
+<section class="scholarship-search" id="scholarship-search">
+
+    <div class="search-heading">
+        <h2>Find an opportunity for you</h2>
+        <p>
+            Search scholarships by opportunity name, country, funding type, or study level.
+        </p>
+    </div>
+
+    <div class="search-controls">
+
+        <!-- Keyword Search -->
+        <div class="search-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="scholarshipSearch"
+                placeholder="Search scholarships, universities, or keywords..."
+                autocomplete="off"
+            >
+        </div>
+
+        <!-- Country -->
+        <div class="search-select">
+            <label for="countryFilter">Country</label>
+
+            <select id="countryFilter">
+              <option value="">All countries</option>
+                <option value="Global University placement">Global University placement</option>
+                <option value="Germany">Germany</option>
+                <option value="Canada">Canada</option>
+                <option value="Sweden">Sweden</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Romania">Romania</option>
+                <option value="Europe">Europe</option>
+                <option value="united states">United States of America</option>
+              <option value="Online">Online</option>
+              <option value="Kenya">Kenya</option>
+              <option value="IGAD Member states">IGAD Member states</option>
+              <option value="Italy">Italy</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Spain">Spain</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="Japan">Japan</option>
+              <option value="Turkey">Turkey</option>
+              <option value="China">China</option>
+            </select>
+        </div>
+
+        <!-- Study Level -->
+        <div class="search-select">
+            <label for="levelFilter">Study level</label>
+
+            <select id="levelFilter">
+                <option value="">All Levels</option>
+               <option value="training">Training</option>
+              <option 
+              value="Associate">Associate</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Bachelor's">Bachelor's</option>
+                <option value="Master's">Master's</option>
+                <option value="PhD">PhD</option>
+                <option value="Highschool(IB)">Highschool(IB)</option>
+            </select>
+        </div>
+
+      <!--FUNDED-->
+      <div class="search-select">
+            <label for="fundedFilter">Funding</label>
+
+            <select id="fundedFilter">
+               <option value="">Select Funding type</option>
+                <option value="Fully Funded">Fully funded</option>
+                <option value="Partially Funded">Partially Funded</option>                           <option value="Sponsorship model">Sponsorship model</option>
+              <option value="Significant Funding">Significant Funding</option>
+              <option value="Varies">Varies</option>
+            </select>
+      </div>
+
+        <!-- Search Button -->
+        <button type="button" id="SearchBtN">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+
+      <button type="button" id="resetSearchBtn">
+    <i class="fa-solid fa-rotate-left"></i>
+    Reset
+      </button>
+
+    </div>
+
+    <!-- Search message -->
+    <p id="searchMessage" class="search-message"></p>
+
+</section>
+
+<!-- OPEN OPPORTUNITIES BUTTON -->
+<div class="open-opportunities-wrapper">
+    <button type="button" id="openOpportunitiesBtn">
+        <i class="fa-solid fa-door-open"></i>
+        Currently Open
+    </button>
+</div>
+
+  
+<!--IMAGE 1-->
+  <div class="heroScholarship-image">
+
+  <img src="S-hero.png" alt="Student">
+    
+  </div>
+
+  
+  
+      <!-- =========================
+     SCHOLARSHIP RESULTS
+========================= -->
+<section class="scholarship-results" id="scholarship-results"> 
+
+    <div class="results-heading">
+        <div>
+            <h2>SCHOLARSHIP OPPORTUNITIES</h2>
+        </div>
+
+        <span id="resultsCount"></span>
+    </div>
+
+    <div class="scholarship-layout">
+
+        <!-- Scholarship Cards -->
+         <div class="scholarship-grid" id="scholarshipGrid">
+
+            <!-- Your scholarship cards go here -->
+
+ 
+<!-- 1.0 UNIVERSITY OF EDINBURGH — DISPLACED UNDERGRADUATE FUND -->
+<div
+    class="scholarship-card"
+    data-name="University of Edinburgh Displaced Undergraduate Fund"
+    data-country="United Kingdom"
+    data-level="Foundation, Bachelor's"
+    data-funded="Check Funding Coverage"
+    data-status="check"
+    id="EDINBURGH-DISPLACED"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>University of Edinburgh Displaced Undergraduate Fund</h3>
+
+        <p>Foundation / Bachelor's</p>
+
+        <span class="country-flag">🇬🇧</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Check current coverage and conditions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>University of Edinburgh</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Foundation pathway and undergraduate progression</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible undergraduate courses — check programme requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Displaced students; specific eligibility criteria apply</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Study destination: United Kingdom</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Deadline: Check for the next application round</span>
+        </div>
+
+        <a href="scholarship-details.html?id=edinburgh-displaced">
+            View Details →
+        </a>
+
+    </div>
+</div>
+       
+
+  
+
+<!-- 2.0 DAAD SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="DAAD Scholarship"
+    data-country="Germany"
+    data-level="Master's"
+    data-funded="Check Funding Coverage"
+    data-status="check"
+    id="DAAD"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>DAAD Scholarship</h3>
+
+        <p>Master's</p>
+
+        <span class="country-flag">🇩🇪</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Varies by scholarship programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Participating German universities and institutions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's — eligibility depends on the specific programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible fields vary by scholarship and course</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>International applicants; country-specific eligibility may apply</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study destination: Germany</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Deadline: Varies by programme; check the relevant call</span>
+        </div>
+
+        <a href="scholarship-details.html?id=daad">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+           
+
+
+<!-- 3.0 UNIVERSITY OF OTTAWA -->
+<div
+    class="scholarship-card"
+    data-name="University of Ottawa Refugee Scholarship"
+    data-country="Canada"
+    data-level="Bachelor's, Master's"
+    data-funded="Check Funding Coverage"
+    data-status="check"
+    id="University-of-Ottawa"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>University of Ottawa Refugee Scholarship</h3>
+
+        <p>Bachelor's / Master's</p>
+
+        <span class="country-flag">🇨🇦</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Confirm the award's coverage and conditions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>University of Ottawa</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate and graduate study — subject to the specific award</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible programmes depend on the award and course requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Refugee and displaced applicants: verify the award's eligibility criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study destination: Canada</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Deadline: 15 January 2027 — verify for the specific award</span>
+        </div>
+
+        <a href="scholarship-details.html?id=ottawa">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+
+
+<!-- 4.0 UNHCR DAFI SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="UNHCR DAFI Scholarship"
+    data-country="Global University placement"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="DAFI"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+      <h3>DAFI SCHOLARSHIP</h3>
+
+        <p>Bachelor's</p>
+
+        <span class="country-flag">🌎</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Scholarship support; coverage depends on the country programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Participating universities in eligible host countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's degree / undergraduate study</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible fields depend on local programme priorities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Refugees who meet the eligibility criteria in their country of asylum</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Participating countries; apply through the relevant country programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Deadline: Varies by country; check the local application announcement</span>
+        </div>
+
+        <a href="scholarship-details.html?id=dafi">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+     
+
+<!-- 5.0 KENYATTA UNIVERSITY REFUGEE SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="Kenyatta University Refugee Scholarship"
+    data-country="Kenya"
+    data-level="Diploma, Bachelor's"
+    data-funded="Partially Funded"
+    data-status="closed"
+    id="KU-REFUGEE"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>Kenyatta University Refugee Scholarship</h3>
+
+        <p>Diploma / Bachelor's</p>
+
+        <span class="country-flag">🇰🇪</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Tuition support only, according to the available notice</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Kenyatta University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Diploma and undergraduate degree study; specific year-of-study requirements may apply</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible fields depend on the programme and selection criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Needy refugee students who meet the stated eligibility criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Kenya — KU Dadaab Centre, according to the available notice</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>Deadline: The available notice dates to 2020; no current deadline confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=ku-refugee">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+
+<!-- 6.0 TAGDEV 2.0 SCHOLARSHIP — EGERTON UNIVERSITY -->
+<div
+    class="scholarship-card"
+    data-name="TAGDev 2.0 Scholarship"
+    data-country="Kenya"
+    data-level="Bachelor's, Master's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="TAGDEV-2"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>TAGDev 2.0 Scholarship</h3>
+
+        <p>Bachelor's / Selected Master's Programmes</p>
+
+        <span class="country-flag">🇰🇪</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Comprehensive scholarship support for eligible recipients; check the official award terms</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Egerton University and participating TAGDev 2.0 institutions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate and selected postgraduate programmes, subject to the call</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible agriculture-related and other designated programmes listed in the official call</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Applicants meeting the programme's academic, financial-need and nationality or displacement criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Kenya — participating university and programme requirements apply</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>Deadline: 2026/2027 application round closed, according to the information available</span>
+        </div>
+
+        <a href="scholarship-details.html?id=tagdev-2">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+  
+<!-- 7.0 ERASMUS MUNDUS JOINT MASTERS -->
+<div
+    class="scholarship-card"
+    data-name="Erasmus Mundus Scholarship"
+    data-country="Europe"
+    data-level="Master's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="Erasmus-Mundus"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>Erasmus Mundus Joint Masters Scholarship</h3>
+
+        <p>Master's</p>
+
+        <span class="country-flag">🇪🇺</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Competitive scholarships may cover participation costs and contribute to travel, visa and living expenses</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Joint programmes delivered by international consortia of universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Master's degree, usually requiring a bachelor's degree or equivalent</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Many subject areas, depending on the joint master's programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Applicants worldwide; academic and language requirements vary by programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study in at least two countries, according to the programme's mobility plan</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Deadline: Varies by programme; many applications open between October and January</span>
+        </div>
+
+        <a href="scholarship-details.html?id=erasmus">
+            View Details →
+        </a>
+
+    </div>
+</div>
+         
+
+
+<!-- 8.0 CHEVENING SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="Chevening Scholarship"
+    data-country="United Kingdom"
+    data-level="Master's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="Chevening"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>Chevening Scholarship</h3>
+
+        <p>Master's</p>
+
+        <span class="country-flag">🇬🇧</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="provider-name">
+            UK Government — Foreign, Commonwealth and Development Office (FCDO)
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Fully funded: tuition fees, living allowance and eligible travel costs</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Eligible UK universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>One-year taught Master's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Various eligible fields and approved Master's courses</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Citizens of eligible countries who meet academic, work experience and other requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study destination: United Kingdom</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>2027/2028 application deadline: 6 October 2026 — applications closed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=chevening">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+
+<!-- 9.0 IGAD REGIONAL SCHOLARSHIP PROGRAMME -->
+<div
+    class="scholarship-card"
+    data-name="IGAD Regional Scholarship Programme"
+    data-country="IGAD Member States"
+    data-level="Bachelor's, Master's"
+    data-funded="Partially Funded"
+    data-status="closed"
+    id="IGAD"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>IGAD Regional Scholarship Programme</h3>
+
+        <p>Undergraduate / Postgraduate</p>
+
+        <span class="country-flag">🌍</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="provider-name">
+            Intergovernmental Authority on Development (IGAD) — programme partners
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Financial support for eligible education expenses; coverage depends on the specific call</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Participating accredited higher education institutions in eligible countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate and postgraduate study, subject to the programme call</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible courses and fields are specified in each application announcement</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Refugees and displacement-affected applicants only if explicitly included in the call's eligibility criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Eligible IGAD Member States; host-country conditions apply</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>Deadline: Previous call closed; next intake not confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=igad">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+
+<!-- 10.0 MASTERCARD FOUNDATION SCHOLARS PROGRAM — USIU-AFRICA -->
+<div
+    class="scholarship-card"
+    data-name="Mastercard Foundation Scholars Program at USIU-Africa"
+    data-country="Kenya"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="USIU-MASTERCARD"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>Mastercard Foundation Scholars Program</h3>
+
+        <p>Bachelor's</p>
+
+        <span class="country-flag">🇰🇪</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="provider-name">
+            USIU-Africa and Mastercard Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Comprehensive scholarship support, subject to the programme's award terms</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>United States International University–Africa (USIU-Africa), Nairobi, Kenya</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate Bachelor's degrees</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible undergraduate programmes offered by USIU-Africa</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Young African applicants facing financial or social barriers; eligible refugees may apply subject to the current call's criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study destination: Nairobi, Kenya</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>Deadline: No confirmed open application call currently listed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=usiu-mastercard">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+
+      
+<!-- 11.0 SWEDISH INSTITUTE SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="Swedish Institute Scholarship for Global Professionals"
+    data-country="Sweden"
+    data-level="Master's"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="Sweedish-Institute"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>Swedish Institute Scholarship for Global Professionals</h3>
+
+        <p>Master's</p>
+
+        <span class="country-flag">🇸🇪</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="provider-name">
+            Swedish Institute (SI) — Swedish Government
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Full tuition, SEK 12,000 monthly living allowance and a one-time travel grant</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Participating Swedish universities offering SI-eligible Master's programmes</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Full-time Master's degree, usually lasting 1–2 years</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible fields include STEM, governance, public health, entrepreneurship and innovation; check the official programme list</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Citizens of eligible countries with qualifying work experience and leadership experience; a completed Bachelor's degree is required</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study destination: Sweden</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Master's application deadline: 15 January 2027; SI scholarship application period: expected February 2027</span>
+        </div>
+
+        <a href="scholarship-details.html?id=swedish-institute">
+            View Details →
+        </a>
+
+    </div>
+</div>
+     
+
+   
+<!-- 12.0 WUSC — STUDENT REFUGEE PROGRAM -->
+<div
+    class="scholarship-card"
+    data-name="WUSC Student Refugee Program"
+    data-country="Canada"
+    data-level="Bachelor's"
+    data-funded="Sponsorship model"
+    data-status="closed"
+    id="WUSC"
+>
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>WUSC Student Refugee Program (SRP)</h3>
+
+        <p>Bachelor's</p>
+
+        <span class="country-flag">🇨🇦</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="provider-name">
+            World University Service of Canada (WUSC) and participating Canadian universities and colleges
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Sponsorship includes financial and settlement support under the SRP model; exact coverage depends on programme arrangements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Participating Canadian universities and colleges</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate post-secondary study, usually at Bachelor's level</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible programmes depend on the participating institution and admission requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Eligible refugees who meet SRP requirements, including academic admission and refugee-status criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study destination: Canada; applications are coordinated through participating institutions in countries of asylum</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>Deadline: Varies by institution and cohort; no open application round confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=wusc">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+<!-- 13.0 ELIMISHA KAKUMA -->
+<div
+    class="scholarship-card"
+    data-name="Elimisha Kakuma"
+    data-country="Global University placement"
+    data-level="Bachelor's"
+    data-funded="Check Funding Coverage"
+    data-status="closed"
+    id="Elimisha"
+>
+    <div class="card-top">
+
+        <h3>Elimisha Kakuma</h3>
+
+        <p>Bachelor's</p>
+
+        <span class="country-flag">🌍</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Elimisha Kakuma
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Confirm the current scholarship package and coverage</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Depends on the university or college placement pathway</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate degree (Bachelor's), subject to the current programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Confirm available courses and university admission requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Check current criteria for Kakuma-based refugee students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Depends on the placement opportunity available</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: No current application deadline confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=elimisha">View Details →</a>
+
+    </div>
+</div>
+
+
+<!-- 14.0 MALENGO SCHOLARS PROGRAM -->
+<div
+    class="scholarship-card"
+    data-name="Malengo Program"
+    data-country="Germany"
+    data-level="Bachelor's"
+    data-funded="Partially Funded"
+    data-status="closed"
+    id="Malengo"
+>
+    <div class="card-top">
+
+        <h3>Malengo Scholars Program</h3>
+
+        <p>Bachelor's</p>
+
+        <span class="country-flag">🇩🇪</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Malengo
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: First-year living expenses, semester fees, travel, visa and application support; not full-degree funding</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Eligible German universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Approved English-taught Bachelor's programmes matching eligible secondary-school subjects</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Refugees registered in Uganda who meet the programme's UCE/UACE, academic, age and financial-need requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Germany</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: Applications currently closed; next round not confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=malengo">View Details →</a>
+
+    </div>
+</div>
+
+
+<!-- 15.0 MASTERCARD FOUNDATION SCHOLARS PROGRAM -->
+<div
+    class="scholarship-card"
+    data-name="Mastercard Foundation Scholars Program"
+    data-country="Global University placement"
+    data-level="Master's, Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="Mastercard"
+>
+    <div class="card-top">
+
+        <h3>Mastercard Foundation Scholars Program</h3>
+
+        <p>Master's / Bachelor's</p>
+
+        <span class="country-flag">🌎</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Mastercard Foundation and partner institutions
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Comprehensive financial, academic and personal support; coverage varies by partner</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Participating partner universities and organisations</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Bachelor's or Master's, depending on the partner</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Courses offered under each partner's scholarship programme</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: African applicants, including eligible refugees and displaced students; criteria vary by institution</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Partner institutions across Africa and other regions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: Varies by institution and programme; check individual calls</span>
+        </div>
+
+        <a href="scholarship-details.html?id=mastercard">View Details →</a>
+
+    </div>
+</div>
+           
+                           
+<!-- 16.0 UNITED WORLD COLLEGES -->
+<div
+    class="scholarship-card"
+    data-name="United World Colleges"
+    data-country="Global University placement"
+    data-level="Highschool(IB)"
+    data-funded="Check Funding Coverage"
+    data-status="open"
+    id="UWC"
+>
+    <div class="card-top">
+
+        <h3>United World Colleges</h3>
+
+        <p>High School (IB)</p>
+
+        <span class="country-flag">🌍</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: United World Colleges (UWC) and national committees
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Need-based full, partial or all-inclusive scholarships; coverage varies by placement</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: One of UWC's international schools and colleges</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Two-year International Baccalaureate Diploma Programme (IBDP)</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Study Areas: IB subjects across sciences, mathematics, humanities, languages and the arts</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Depends on application route, age, education level, residency or citizenship, and selection criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: UWC schools and colleges in multiple countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 UWC Kenya Entry 2027: Documents accepted 1–31 December 2026; other committees have different deadlines</span>
+        </div>
+
+        <a href="scholarship-details.html?id=uwc">View Details →</a>
+
+    </div>
+</div>
+
+           
+<!-- 17.0 UNICORE -->
+<div
+    class="scholarship-card"
+    data-name="University Corridors for Refugees"
+    data-country="Italy"
+    data-level="Master's"
+    data-funded="Check Funding Coverage"
+    data-status="closed"
+    id="UNICORE"
+>
+    <div class="card-top">
+
+        <h3>University Corridors for Refugees (UNICORE)</h3>
+
+        <p>Master's</p>
+
+        <span class="country-flag">🇮🇹</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: UNHCR, Italian universities and programme partners
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Tuition exemption, study grant and support for travel and visa expenses; benefits vary by university</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Participating Italian universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Master's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Selected English-taught Master's programmes listed by participating universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Recognized refugees residing in an eligible country, with a qualifying university degree, required academic results and English proficiency</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Italy</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: 17 April 2026 — current call closed; next round not confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=university-corridors">View Details →</a>
+
+    </div>
+</div>
+           
+<!-- 18.0 SNHU / GLOBAL EDUCATION MOVEMENT -->
+<div
+    class="scholarship-card"
+    data-name="Southern New Hampshire University GEM Scholarship"
+    data-country="Online"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="SNHU"
+>
+    <div class="card-top">
+
+        <h3>SNHU Global Education Movement (GEM)</h3>
+
+        <p>Bachelor's</p>
+
+        <span class="country-flag">💻</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Southern New Hampshire University (SNHU), Global Education Movement (GEM) and local partners
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Scholarship support with study laptop, internet/data support and academic services; confirm full cost coverage in each call</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Southern New Hampshire University, with local support through partner organisations</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate Bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Degrees available through the GEM programme; check the current call for specific majors</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Refugees meeting the current Kenya call's academic, language and selection requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Mode: Online U.S. degree with local learning support in Kakuma and other programme locations</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: 31 March 2026 — 2026 Kenya call closed; next intake not confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=snhu">View Details →</a>
+
+    </div>
+</div>
+
+
+<!-- =====================================================
+     19.0 UNIVERSITY OF THE PEOPLE (UoPeople)
+===================================================== -->
+<div
+    class="scholarship-card"
+    data-name="University of the People"
+    data-country="Online, United States of America"
+    data-level="Associate, Bachelor's"
+    data-funded="Tuition-Free, Financial Aid Available"
+    data-status="check"
+    id="UOPEOPLE"
+>
+    <div class="card-top">
+
+        <h3>University of the People</h3>
+
+        <p>Online Degrees</p>
+
+        <span class="country-flag">🌐</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of the People (UoPeople)
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Tuition-free education; application and course assessment fees apply</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: University of the People, an online university based in the United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Associate and Bachelor's degrees</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>Eligible Fields: Computer Science, Business Administration, Health Science and other available programmes</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: International applicants who meet the programme's education, English-language and admission requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-wifi"></i>
+            <span>Study Mode: 100% online, with asynchronous coursework; reliable internet access is required</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Financial Aid: Eligible students may apply for grants or scholarships toward fees; assistance is not guaranteed</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Estimated Computer Science Bachelor's cost: US$7,260 before any financial aid, based on current published fees</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: Depends on the programme and term; check the next available intake</span>
+        </div>
+
+        <a href="scholarship-details.html?id=uopeople">
+            View Details →
+        </a>
+
+    </div>
+</div>
+          
+<!-- 20.0 IIE ODYSSEY SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="IIE Odyssey Scholarship"
+    data-country="Global University placement"
+    data-level="Associate, Bachelor's, Master's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="IIE"
+>
+    <div class="card-top">
+
+        <h3>IIE Odyssey Scholarship</h3>
+
+        <p>Associate / Bachelor's / Master's</p>
+
+        <span class="country-flag">🌍</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Institute of International Education (IIE)
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Tuition, housing, living expenses, advising and additional student support</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Participating universities and colleges worldwide</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Associate, Bachelor's or Master's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Varies by participating institution and available placement</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Refugees and displaced students identified and nominated through IIE's partner organisations</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Multiple countries, depending on the university placement</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: Annual selection process; public deadline and current nomination availability not confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=iie">View Details →</a>
+
+    </div>
+</div>
+
+
+<!-- 21.0 COLUMBIA UNIVERSITY -->
+<div
+    class="scholarship-card"
+    data-name="Columbia University Scholarship for Displaced Students"
+    data-country="United States of America"
+    data-level="Bachelor's, Master's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="Columbia-University"
+>
+    <div class="card-top">
+
+        <h3>Columbia University Scholarship for Displaced Students (CUSDS)</h3>
+
+        <p>Bachelor's / Master's</p>
+
+        <span class="country-flag">🇺🇸</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Columbia Global and participating Columbia University schools
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Full tuition plus assistance with housing and other living expenses</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Participating schools and degree programmes at Columbia University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Eligible undergraduate and graduate degrees, depending on participating school</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Degree programmes offered by participating Columbia schools</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Displaced applicants meeting the programme's status requirements and the selected degree programme's admission criteria</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: New York City, United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Deadline: Not accepting applications for 2026–2027; next intake not confirmed</span>
+        </div>
+
+        <a href="scholarship-details.html?id=columbia">View Details →</a>
+
+    </div>
+</div>
+
+           
+<!-- =====================================================
+     22.0 UNIVERSITY OF LONDON REFUGEE AND DISPLACED PERSONS
+===================================================== -->
+<div
+    class="scholarship-card"
+    data-name="University of London Refugee and Displaced Persons Scholarships"
+    data-country="Online, United Kingdom"
+    data-level="Bachelor's, Master's"
+    data-funded="Course Fees"
+    data-status="closed"
+    id="UOL-REFUGEE"
+>
+    <div class="card-top">
+
+        <h3>University of London Refugee and Displaced Persons Scholarships</h3>
+
+        <p>Bachelor's / Master's</p>
+
+        <span class="country-flag">🌍</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of London
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Funding: Full course-fee scholarship for selected programmes; living costs are not covered by this award</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: University of London Worldwide and participating academic institutions</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Selected undergraduate and postgraduate degrees</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>Eligible Fields: Computer Science, Data Science, Cyber Security, Business, Law and other listed programmes</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>Eligibility: Applicants with formally documented refugee or displaced status who meet the academic and programme admission requirements</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Study Mode: Distance learning; applicants can study online from eligible locations</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Next Round: 2027/28 scholarships expected to be advertised from May–June 2027</span>
+        </div>
+
+        <a href="scholarship-details.html?id=uol-refugee">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+<!-- 23.0 STIPENDIUM HUNGARICUM -->
+<div
+    class="scholarship-card"
+    data-name="Stipendium Hungaricum"
+    data-country="Hungary"
+    data-level="Bachelor's, Master's, Doctoral"
+    data-funded="Tuition, Stipend, Accommodation Support"
+    data-status="closed"
+    id="Stipendum-Hungaricum"
+>
+    <div class="card-top">
+
+        <h3>Stipendium Hungaricum</h3>
+
+        <p>Bachelor's / Master's / Doctoral</p>
+
+        <span class="country-flag">🇭🇺</span>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Government of Hungary — Tempus Public Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Funding: Tuition waiver, monthly stipend, dormitory place or accommodation contribution, and medical insurance; additional costs may remain</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Participating Hungarian universities</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Bachelor's, Master's, doctoral and selected non-degree programmes</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible Fields: Courses available under the applicant's sending-country agreement, including selected computing and science programmes</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Eligibility: Citizens of eligible sending-partner countries who meet academic and programme requirements; nomination is required</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Hungary</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>📅 Previous deadline: 15 January 2026; next call expected in November 2026</span>
+        </div>
+
+        <a href="scholarship-details.html?id=stipendium">
+            View Details →
+        </a>
+
+    </div>
+</div>
+
+
+
+<!-- =====================================================
+     24.0 STUDY IN ROMANIA GOVERNMENT SCHOLARSHIP
+===================================================== -->
+<div
+    class="scholarship-card"
+    data-name="Study in Romania Government Scholarship"
+    data-country="Romania"
+    data-level="Bachelor's, Master's, Doctoral"
+    data-funded="Tuition, Stipend, Accommodation Support"
+    data-status="closed"
+    id="Study in Romania"
+>
+
+    <!-- COLOURED TITLE BANNER -->
+    <div class="card-top">
+
+        <h3>Study in Romania Government Scholarship</h3>
+
+        <p>Bachelor's, Master's, Doctoral</p>
+
+        <span class="country-flag">🇷🇴</span>
+
+    </div>
+
+    <!-- SCHOLARSHIP DETAILS -->
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Romanian Ministry of Foreign Affairs (MFA)
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Tuition fees, monthly stipend and accommodation
+                support under programme conditions. International travel
+                and some personal expenses are not covered.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Host Institutions: Participating accredited Romanian
+                universities
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Levels: Bachelor's, Master's and Doctoral degrees
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Eligible Fields: Most fields, excluding Medicine,
+                Dentistry and Pharmacy. Bachelor's and Master's
+                programmes are taught in Romanian.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Citizens of non-EU countries who meet the
+                academic and application requirements. A minimum
+                academic average equivalent to 7/10 is generally required.
+                A valid passport is required for the application.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Romania</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: 31 March 2026 — closed. The next application
+                round has not been confirmed.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=romania">View Details →</a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     25.0 UNIVERSITY OF EDINBURGH MASTERCARD FOUNDATION
+          SCHOLARS PROGRAM
+===================================================== -->
+<div
+    class="scholarship-card"
+    data-name="University of Edinburgh Mastercard Foundation Scholars Program"
+    data-country="United Kingdom, Online"
+    data-level="Master's, Postgraduate Diploma"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="edinburgh-mastercard"
+>
+
+    <div class="card-top">
+        <h3>University of Edinburgh Mastercard Foundation Scholars Program</h3>
+        <p>Master's, Postgraduate Diploma</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of Edinburgh and Mastercard Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Scholarship support for eligible scholars.
+                Coverage and support arrangements depend on the
+                on-campus or online study route.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Host Institution: University of Edinburgh
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Levels: On-campus Master's degrees and selected
+                online Master's degrees and postgraduate diplomas
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Eligible Fields: Selected programmes related to climate
+                justice, sustainability, environment, data science,
+                global health, food security, development and other
+                approved subject areas. Available courses vary by study
+                mode.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Applicants must meet the programme's
+                academic requirements, have faced significant barriers
+                to education or early-career opportunities, and
+                demonstrate leadership and commitment to positive
+                change. Applicants must meet the programme's African
+                country citizenship, residency or refugee-status
+                requirements. An undergraduate degree and final
+                official transcript are required for postgraduate entry.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+                Study Mode: On campus in Edinburgh, United Kingdom,
+                or online, depending on the selected programme
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: 26 October 2026, 5 p.m. UK time, for the
+                first application stage; 19 November 2026, 5 p.m. UK
+                time, for the main application. Invitation required.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=edinburgh-mastercard">View Details →</a>
+
+    </div>
+</div>
+
+
+
+
+<!-- =====================================================
+     26.0 UNIVERSITY OF TORONTO INTERNATIONAL SCHOLARSHIPS
+===================================================== -->
+<div
+    class="scholarship-card"
+    data-name="University of Toronto International Scholarships"
+    data-country="Canada"
+    data-level="Bachelor's"
+    data-funded="Varies"
+    data-status="check"
+    id="toronto"
+>
+
+    <div class="card-top">
+        <h3>University of Toronto International Scholarships</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇨🇦</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of Toronto
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Varies by award. The Lester B. Pearson
+                International Scholarship covers tuition, books,
+                incidental fees and residence support for four years.
+                Other entrance awards may provide partial funding.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Host Institution: University of Toronto
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Level: Bachelor's degree
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Eligible Fields: Various undergraduate programmes,
+                depending on the chosen degree and scholarship
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligible Applicants: International students applying
+                to eligible first-entry undergraduate programmes.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+                Study Destination: Toronto, Canada
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Varies by award. For the 2027 Pearson
+                intake, school nominations closed on 9 October 2026,
+                university admission applications were due by
+                16 October 2026, and the scholarship application
+                deadline is 6 November 2026 for nominated students.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=toronto">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 27.0 LESTER B. PEARSON INTERNATIONAL SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="Lester B. Pearson International Scholarship"
+    data-country="Canada"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="pearson"
+>
+
+    <div class="card-top">
+        <h3>Lester B. Pearson International Scholarship</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇨🇦</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of Toronto
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Tuition, books, incidental fees and residence
+                support for four years
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>University of Toronto</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Eligible first-entry undergraduate programmes</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                International students nominated by their secondary
+                school; exceptional academic achievement and leadership
+                required
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Toronto, Canada</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: 2027 entry — closed. School nominations
+                were due 9 October 2026; university admission
+                applications were due 16 October 2026. Scholarship
+                applications are due 6 November 2026 for nominated
+                students.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=pearson">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 28.0 KNIGHT-HENNESSY SCHOLARS -->
+<div
+    class="scholarship-card"
+    data-name="Knight-Hennessy Scholars"
+    data-country="United States of America"
+    data-level="Graduate"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="knight-hennessy"
+>
+
+    <div class="card-top">
+        <h3>Knight-Hennessy Scholars</h3>
+        <p>Graduate Studies</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Stanford University
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Graduate tuition, living stipend and
+                academic-related support for up to three years
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Stanford University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Levels: Master's, doctoral and other eligible
+                graduate degrees
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Eligible Fields: Multiple graduate programmes at
+                Stanford, subject to admission requirements
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Applicants from all countries</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Stanford, California, United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: 2027 intake closed. The next cycle's
+                deadline has not been confirmed.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=knight-hennessy">View Details →</a>
+
+    </div>
+</div>
+
+           
+
+<!-- 29.0 ELIMU SCHOLARSHIP PROGRAMME -->
+<div
+    class="scholarship-card"
+    data-name="Elimu Scholarship Programme"
+    data-country="Kenya"
+    data-level="Secondary"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="elimu"
+>
+
+    <div class="card-top">
+        <h3>Elimu Scholarship Programme</h3>
+        <p>Secondary School</p>
+        <span class="country-flag">🇰🇪</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Government of Kenya, through the Ministry of Education
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: School fees and other education-related support
+                as specified in the programme guidelines
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Participating Kenyan secondary schools</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Secondary education</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Secondary school studies</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Targeted learners from vulnerable and
+                disadvantaged households who meet the official criteria
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Kenya</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Previous application rounds closed;
+                the next intake has not been confirmed.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=elimu">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 30.0 M-PESA FOUNDATION ACADEMY -->
+<div
+    class="scholarship-card"
+    data-name="M-PESA Foundation Academy"
+    data-country="Kenya"
+    data-level="Secondary"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="mpesa-academy"
+>
+
+    <div class="card-top">
+        <h3>M-PESA Foundation Academy</h3>
+        <p>Secondary School</p>
+        <span class="country-flag">🇰🇪</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: M-PESA Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Fully funded secondary education, including
+                tuition, accommodation, meals and other student support
+                according to academy terms
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>M-PESA Foundation Academy, Thika, Kenya</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Secondary education</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Academy curriculum, leadership and entrepreneurship</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Kenyan and refugee students who meet
+                the academy's age, academic, leadership and financial
+                need requirements
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Thika, Kenya</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: 2026 intake closed. Check the official
+                academy website for the next admissions cycle.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=mpesa-academy">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 31.0 KIRON CAMPUS -->
+<div
+    class="scholarship-card"
+    data-name="Kiron Campus"
+    data-country="Online"
+    data-level="Online Courses"
+    data-funded="Free Learning"
+    data-status="check"
+    id="kiron"
+>
+
+    <div class="card-top">
+        <h3>Kiron Campus</h3>
+        <p>Online Courses</p>
+        <span class="country-flag">🌍</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Kiron Open Higher Education
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Free online learning resources; this is not
+                a full university scholarship
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Online learning platform</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Self-paced online courses</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Digital skills, business, technology and other subjects</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Designed especially to support refugees and underserved learners</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Online — accessible internationally where available</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Course and platform availability may vary;
+                check current registration access.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=kiron">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 32.0 BEREA COLLEGE -->
+<div
+    class="scholarship-card"
+    data-name="Berea College"
+    data-country="United States of America"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="berea-college"
+>
+
+    <div class="card-top">
+        <h3>Berea College</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Berea College
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: 100% funding for enrolled international
+                students, covering tuition, housing, food and fees.
+                Personal expenses and travel may require additional
+                funding.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Berea College, Kentucky, USA</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate bachelor's degrees</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Multiple majors, including computer science</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>International students</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Kentucky, United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Check the official admissions page for
+                the applicable entry year and application deadline.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=berea-college">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 33.0 BOWDOIN COLLEGE -->
+<div
+    class="scholarship-card"
+    data-name="Bowdoin College Financial Aid"
+    data-country="United States of America"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="bowdoin"
+>
+
+    <div class="card-top">
+        <h3>Bowdoin College Financial Aid</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Bowdoin College
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Need-based financial aid; eligible students
+                can receive support covering tuition, housing, meals
+                and other billed costs, based on demonstrated need.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Bowdoin College, Maine, USA</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Liberal arts and sciences, including computer science</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>Domestic and international applicants</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Brunswick, Maine, United States</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Check the official admissions calendar
+                for the intended entry year.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=bowdoin">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 34.0 SCHOLARSHIPS LISTED ON THE UNHCR WEBSITE -->
+<div
+    class="scholarship-card"
+    data-name="Scholarships Listed on the UNHCR Website"
+    data-country="Global University placement"
+    data-level="Varies"
+    data-funded="Varies"
+    data-status="check"
+    id="unhcr-scholarships"
+>
+
+    <div class="card-top">
+        <h3>Scholarships Listed on the UNHCR Website</h3>
+        <p>Multiple Education Levels</p>
+        <span class="country-flag">🌍</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Information Source: UNHCR
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Varies by scholarship; coverage may range
+                from partial assistance to full funding.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Providers: Universities, governments, foundations
+                and other scholarship organisations
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Levels: Undergraduate, postgraduate and
+                other levels, depending on the opportunity
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Fields of Study: Vary by scholarship programme
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Refugees and other applicants who
+                meet each scholarship's requirements
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+                Study Destinations: Multiple countries and online
+                programmes, where available
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Varies by scholarship. Check each
+                provider's official announcement for current dates.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=unhcr-scholarships">View Details →</a>
+
+    </div>
+</div>
+
+
+
+<!-- 35.0 EARTH UNIVERSITY — MASTERCARD FOUNDATION SCHOLARS PROGRAM -->
+<div
+    class="scholarship-card"
+    data-name="EARTH University Mastercard Foundation Scholars Program"
+    data-country="Costa Rica"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="EARTH-MASTERCARD"
+>
+
+    <div class="card-top">
+        <h3>EARTH University Mastercard Foundation Scholars Program</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇨🇷</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: EARTH University and Mastercard Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Comprehensive scholarship support, including
+                tuition, accommodation, meals, learning materials,
+                health insurance and other eligible expenses, subject
+                to programme terms
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: EARTH University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Field of Study: Agricultural Sciences, including
+                sustainability, agricultural production and rural
+                development
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Young people with leadership potential
+                and financial need who meet the university's
+                admission and scholarship criteria
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Costa Rica</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <span>
+                📅 Deadline: Check the official website for the
+                current application cycle.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=earth-mastercard">View Details →</a>
+
+    </div>
+</div>
+
+
+  
+<!-- 36.0 IMPERIAL COLLEGE LONDON — UNDERGRADUATE SANCTUARY SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="Imperial College London Undergraduate Sanctuary Scholarship"
+    data-country="United Kingdom"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="IMPERIAL-SANCTUARY"
+>
+    <div class="card-top">
+        <h3>Imperial College London Undergraduate Sanctuary Scholarship</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Imperial College London
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Full tuition fees and living-cost support,
+                subject to the scholarship's terms
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Imperial College London</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Field of Study: Eligible undergraduate courses at
+                Imperial College London, subject to the scheme's
+                course restrictions
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Applicants who meet the university's
+                sanctuary eligibility requirements and undergraduate
+                admission criteria
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: London, United Kingdom</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>
+                Deadline: The 2026/27 application round is closed.
+                Check the official website for the next round.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=imperial-sanctuary">
+            View Details →
+        </a>
+    </div>
+</div>
+         
+
+
+<!-- 37.0 ROWAN WILLIAMS CAMBRIDGE STUDENTSHIP -->
+<div
+    class="scholarship-card"
+    data-name="Rowan Williams Cambridge Studentship"
+    data-country="United Kingdom"
+    data-level="Master's,Doctoral"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="ROWAN-WILLIAMS-CAMBRIDGE"
+>
+    <div class="card-top">
+        <h3>Rowan Williams Cambridge Studentship</h3>
+        <p>Postgraduate</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of Cambridge
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Support for university fees and maintenance
+                costs, subject to the studentship's award terms
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: University of Cambridge</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Level: Eligible postgraduate courses; check
+                the current call for permitted degree routes
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Field of Study: Varies by eligible Cambridge course
+                and the studentship's selection criteria
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Applicants who meet the programme's
+                criteria for people displaced by conflict or
+                persecution; specific residency and course
+                requirements may apply
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Cambridge, United Kingdom</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Deadline: Check the official website for the next
+                application cycle and its eligibility requirements.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=rowan-williams-cambridge">
+            View Details →
+        </a>
+    </div>
+</div>
+
+
+     
+<!-- 38.0 HABESHA PROTECTION SCHOLARSHIP — USCRI -->
+<div
+    class="scholarship-card"
+    data-name="Habesha Protection Scholarship"
+    data-country="Mexico"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="HABESHA-PROTECTION"
+>
+    <div class="card-top">
+        <h3>Habesha Protection Scholarship — USCRI</h3>
+        <p>Higher Education</p>
+        <span class="country-flag">🇲🇽</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: U.S. Committee for Refugees and Immigrants
+            (USCRI), in partnership with the Habesha Project
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Scholarship and relocation-related support
+                may be provided under the programme; confirm the
+                specific costs covered in the current call
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Host Institution: Participating higher-education
+                institution in Mexico
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Level: Higher education; the available degree
+                route depends on the programme's current offer
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Field of Study: Depends on the participating
+                institution and eligible programme
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Refugees or people in need of
+                international protection who meet the programme's
+                selection, education and documentation requirements.
+                Applicants in Kenya should verify that the specific
+                call accepts applications from their country of
+                residence.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Mexico</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>
+                Status: The 2026 application round is listed as
+                closed. Check for a future call before applying.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=habesha-protection">
+            View Details →
+        </a>
+    </div>
+</div>
+      
+
+  
+<!-- 39.0 UNIVERSITY OF BARCELONA REFUGEE SUPPORT PROGRAMME -->
+<div
+    class="scholarship-card"
+    data-name="University of Barcelona Refugee Support Programme"
+    data-country="Spain"
+    data-level="Bachelor's,Master's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="UB-REFUGEE"
+>
+    <div class="card-top">
+        <h3>University of Barcelona Refugee Support Programme</h3>
+        <p>Bachelor's / Master's</p>
+        <span class="country-flag">🇪🇸</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: University of Barcelona
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Previous calls offered tuition support,
+                accommodation and a monthly allowance. Coverage
+                may vary in future calls.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: University of Barcelona</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Level: Previous pathways included a transition
+                course, the final two years of a bachelor's degree,
+                and master's study, subject to eligibility
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Field of Study: Depends on the degree pathway and
+                courses available in the relevant call
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Previous calls included eligible
+                refugees outside the European Union. Applicants
+                must meet the programme's protection, academic
+                and admission requirements.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Barcelona, Spain</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Deadline: No current deadline confirmed here.
+                Check the official website for a new call and
+                whether applicants residing in Kenya are eligible.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=ub-refugee">
+            View Details →
+        </a>
+    </div>
+</div>
+         
+           
+<!-- 40.0 UNIVERSITY OF MANCHESTER HUMANITARIAN SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="University of Manchester Humanitarian Scholarship"
+    data-country="United Kingdom"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="MANCHESTER-HUMANITARIAN"
+>
+    <div class="card-top">
+        <h3>University of Manchester — Humanitarian Scholarship</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+
+    <div class="card-info">
+          
+
+        <div class="provider-name">
+            The University of Manchester
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>Previous awards covered tuition, living costs and visa expenses</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Undergraduate bachelor's degrees</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>United Kingdom — international applicants may be eligible</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <span>Currently closed — check for a future application round</span>
+        </div>
+
+        <a href="scholarship-details.html?id=manchester-humanitarian">
+            View Details →
+        </a>
+    </div>
+</div>
+
+
+<!-- 41.0 FILMAID KENYA MEDIA TRAINING -->
+<div
+    class="scholarship-card"
+    data-name="FilmAid Kenya Media Training"
+    data-country="Kenya"
+    data-level="Training"
+    data-funded="Free Training"
+    data-status="check"
+    id="FILMAID-MEDIA-TRAINING"
+>
+    <div class="card-top">
+        <h3>FilmAid Kenya Media Training</h3>
+        <p>Skills Training</p>
+        <span class="country-flag">🇰🇪</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: FilmAid Kenya
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-camera"></i>
+            <span>
+                Training Areas: Film, storytelling, video production
+                and other media or creative skills, depending on
+                the available programme
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Cost: Training opportunities may be offered at no
+                cost to selected participants; confirm the terms
+                for each intake
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>
+                Eligibility: Depends on the specific training call,
+                age requirements and selection criteria
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+                Location: Kakuma and other programme locations,
+                depending on the training intake
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>
+                Note: This is skills training, not a university
+                scholarship or degree programme.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Deadline: No current intake confirmed. Check
+                FilmAid Kenya's official announcements.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=filmaid-media-training">
+            View Details →
+        </a>
+    </div>
+</div>
+
+
+ 
+<!-- 42.0 ASHESI UNIVERSITY MASTERCARD FOUNDATION SCHOLARS PROGRAM -->
+<div
+    class="scholarship-card"
+    data-name="Ashesi University Mastercard Foundation Scholars Program"
+    data-country="Ghana"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="ASHESI-MASTERCARD"
+>
+    <div class="card-top">
+        <h3>Ashesi University Mastercard Foundation Scholars Program</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇬🇭</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Ashesi University and Mastercard Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Comprehensive scholarship support may cover
+                tuition, accommodation, meals, learning materials
+                and other eligible costs, according to programme terms
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: Ashesi University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Fields of Study: Eligible undergraduate programmes,
+                including Computer Science and other available
+                degree options
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Academically qualified young people
+                with financial need and leadership potential who
+                meet the programme's admission and scholarship
+                criteria. Confirm eligibility for applicants
+                residing outside Ghana.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Ghana</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Deadline: Check Ashesi University's official website
+                for the current application cycle and deadlines.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=ashesi-mastercard">
+            View Details →
+        </a>
+    </div>
+</div>
+          
+
+
+<!-- 43.0 ALU MASTERCARD FOUNDATION SCHOLARS PROGRAM -->
+<div
+    class="scholarship-card"
+    data-name="African Leadership University Mastercard Foundation Scholars Program"
+    data-country="Rwanda"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="ALU-MASTERCARD"
+>
+    <div class="card-top">
+        <h3>ALU Mastercard Foundation Scholars Program</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇷🇼</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: African Leadership University and Mastercard Foundation
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Comprehensive scholarship support for
+                eligible scholars. Check the current award terms
+                for tuition, accommodation, meals, travel and
+                other covered expenses.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: African Leadership University (ALU)</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>
+                Fields of Study: Eligible undergraduate programmes;
+                confirm which degree options are available through
+                the current Scholars Program intake
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Applicants who meet ALU's academic
+                admission requirements and the Scholars Program's
+                financial-need, leadership and eligibility criteria.
+                Confirm country-of-residence requirements.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Kigali, Rwanda</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>
+                Deadline: Verify the January 2027 intake deadline
+                directly with ALU before applying; 30 November 2026
+                has not been confirmed here.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=alu-mastercard">
+            View Details →
+        </a>
+    </div>
+</div>
+
+           
+
+<!-- 44.0 UNIVERSITY OF TOMORROW SCHOLARSHIP — ICU -->
+<div
+    class="scholarship-card"
+    data-name="University of Tomorrow Scholarship"
+    data-country="Japan"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="ICU-UNIVERSITY-OF-TOMORROW"
+>
+    <div class="card-top">
+        <h3>University of Tomorrow Scholarship — ICU</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇯🇵</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: International Christian University (ICU), Japan
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Scholarship support may cover tuition,
+                university fees, accommodation and living expenses,
+                subject to the award's terms and renewal conditions
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: International Christian University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Fields of Study: Eligible undergraduate programmes
+                offered by ICU; check the scholarship guidelines
+                for any restrictions
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: International applicants who meet ICU's
+                admission requirements and the scholarship's
+                nationality, financial-need and academic criteria
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Tokyo, Japan</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Deadline: Check ICU's official website for the next
+                eligible application cycle and required deadlines.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=icu-university-of-tomorrow">
+            View Details →
+        </a>
+    </div>
+</div>
+
+           
+ 
+<!-- 45.0 ICU PEACE BELL SCHOLARSHIP -->
+<div
+    class="scholarship-card"
+    data-name="ICU Peace Bell Scholarship"
+    data-country="Japan"
+    data-level="Bachelor's"
+    data-funded="Tuition and Accommodation"
+    data-status="check"
+    id="ICU-PEACE-BELL"
+>
+    <div class="card-top">
+        <h3>ICU Peace Bell Scholarship</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇯🇵</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: International Christian University (ICU), Japan
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Covers the admission fee, tuition, facilities
+                fees, dormitory admission fee and on-campus accommodation
+                for four years, excluding July and August, subject to
+                the scholarship's conditions. Budget separately for
+                living costs not covered by the award.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Host Institution: International Christian University</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study Level: Undergraduate bachelor's degree</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Fields of Study: Eligible undergraduate programmes
+                at ICU, subject to current admission requirements
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: International applicants who meet ICU's
+                admission and scholarship requirements. Check the
+                current guidelines for nationality and residency
+                restrictions.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Tokyo, Japan</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-users"></i>
+            <span>
+                Awards: Approximately 14 recipients were expected
+                under the published scheme; confirm the number for
+                the next intake.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Deadline: Check ICU's official website for the next
+                application period and required admission deadlines.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=icu-peace-bell">
+            View Details →
+        </a>
+    </div>
+</div>
+ 
+
+
+<!-- =====================================================
+   46.0 TÜRKIYE SCHOLARSHIPS
+===================================================== -->
+
+<div
+    class="scholarship-card"
+    data-name="Türkiye Scholarships (Türkiye Bursları)"
+    data-country="Turkey"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="closed"
+    id="TURKIYE-BURSARI"
+>
+    <div class="card-top">
+        <h3>Türkiye Scholarships (Türkiye Bursları)</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇹🇷</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Presidency for Turks Abroad and Related
+            Communities (YTB), Government of Türkiye
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: University placement, tuition fees, monthly
+                stipend, accommodation, health insurance, Turkish-language
+                preparation and a round-trip flight ticket, subject
+                to the official scholarship terms
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Host Institution: Participating Turkish universities
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Level: Bachelor's degree
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Fields of Study: A wide range of eligible disciplines,
+                including engineering, computer science and information
+                technology, depending on available programmes
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: International applicants who meet the
+                nationality, academic achievement and other official
+                criteria. Undergraduate applicants generally must
+                be under 21 at the time specified in the guidelines.
+                Applicants should check how refugee status and
+                citizenship documents affect eligibility.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: Türkiye</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>
+                Next Cycle: The 2027 application period is expected
+                around January–February, but official dates have
+                not been confirmed. Check the official website.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=turkiye-burslari">
+            View Details →
+        </a>
+    </div>
+</div>
+
+
+
+<!-- ==========================================
+     47.0 CHINESE GOVERNMENT SCHOLARSHIP (CSC)
+===================================================== -->
+
+<div
+    class="scholarship-card"
+    data-name="Chinese Government Scholarship (CSC)"
+    data-country="China"
+    data-level="Bachelor's,Master's,Doctoral"
+    data-funded="Fully Funded"
+    data-status="check"
+    id="CHINESE-GOVERNMENT-SCHOLARSHIP"
+>
+    <div class="card-top">
+        <h3>Chinese Government Scholarship (CSC)</h3>
+        <p>Bachelor's / Master's / PhD</p>
+        <span class="country-flag">🇨🇳</span>
+    </div>
+
+    <div class="card-info">
+
+        <div class="provider-name">
+            Provider: Chinese Government, administered through
+            the China Scholarship Council (CSC)
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>
+                Funding: Depending on the scholarship route, may cover
+                tuition, university accommodation or an accommodation
+                subsidy, a living stipend and medical insurance.
+                International travel is not guaranteed under every route.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>
+                Host Institution: Participating Chinese universities
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                Study Level: Bachelor's, Master's, doctoral and
+                selected non-degree programmes, depending on the route
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-book-open"></i>
+            <span>
+                Fields of Study: Varies by university and scholarship
+                route; eligible options may include computer science,
+                information technology and engineering
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-globe"></i>
+            <span>
+                Eligibility: Requirements vary by route and university.
+                Undergraduate applicants generally need a high-school
+                qualification and must meet the applicable age limit,
+                often under 25. Refugees residing in Kenya should check
+                whether the chosen embassy or university route accepts
+                their nationality and travel documents.
+            </span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Study Destination: China</span>
+        </div>
+
+        <div class="scholarship-detail">
+            <i class="fa-solid fa-calendar"></i>
+            <span>
+                Deadline: Dates vary by embassy, nominating authority
+                and university. Check the relevant 2027 intake
+                announcement; no single general deadline is confirmed.
+            </span>
+        </div>
+
+        <a href="scholarship-details.html?id=chinese-government-scholarship">
+            View Details →
+        </a>
+    </div>
+</div>
+
+           
+          </div>
+
+    </div>
+
+    </section>
+
+  <!-- =========================
+     PAGINATION
+========================= -->
+<div class="scholarship-pagination" id="scholarshipPagination">
+
+    <button
+        type="button"
+        id="previousPageBtn"
+        class="pagination-btn"
+        disabled
+    >
+        <i class="fa-solid fa-chevron-left"></i>
+        Previous
+    </button>
+
+    <div
+        class="pagination-numbers"
+        id="paginationNumbers"
+        aria-label="Scholarship pages">
+    </div>
+
+    <button
+        type="button"
+        id="nextPageBtn"
+        class="pagination-btn"
+    >
+        Next
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+</div>
+      
+
+      <section>
+            <!-- QUOTE PANEL -->
+            <div class="quote-panel">
+
+                <i class="fa-solid fa-quote-left"></i>
+
+                <p>
+                    Education is the passport to the future,
+                    for tomorrow belongs to those who prepare
+                    for it today.
+                </p>
+
+                <h4>— Malcolm X</h4>
+
+                <div class="plant-icon">
+                    🌱
+                </div>
+
+            </div>
+
+    </section>
+
+    <!-- ================= SCHOLARSHIP STATISTICS ================= -->
+<section class="scholarship-stats" id="scholarship-stats">
+
+    <!-- SECTION INTRODUCTION -->
+    <div class="stats-intro">
+
+        <h2>Our Growing Community</h2>
+
+        <p class="stats-description">
+            Every number represents someone exploring opportunities,
+            pursuing education, and working toward a brighter future.
+        </p>
+    </div>
+
+
+    <!-- REGISTERED USERS AND GUESTS -->
+    <div class="community-stats">
+
+        <div class="user-stats-content">
+
+            <!-- PIE CHART -->
+            <div class="user-chart">
+
+                <div
+                    class="user-pie-chart"
+                    id="userPieChart"
+                    role="img"
+                    aria-label="Registered users and guest users"
+                >
+                    <div class="chart-center">
+                        <span class="chart-total" id="totalUsers">0</span>
+                        <span class="chart-total-label">Total users</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- CHART LEGEND -->
+            <div class="user-chart-legend">
+
+                <div class="legend-item">
+                    <span
+                        class="legend-color registered-color"
+                        aria-hidden="true"
+                    ></span>
+
+                    <div class="legend-details">
+                        <span class="legend-label">Registered users</span>
+                        <span class="legend-number" id="registeredUsers">0</span>
+                    </div>
+                </div>
+
+                <div class="legend-item">
+                    <span
+                        class="legend-color guests-color"
+                        aria-hidden="true"
+                    ></span>
+
+                    <div class="legend-details">
+                        <span class="legend-label">Guest users</span>
+                        <span class="legend-number" id="guestUsers">0</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- GENDER STATISTICS -->
+    <div class="gender-stats">
+
+        <div class="gender-stats-content">
+
+            <div class="gender-stat">
+                <span
+                    class="gender-number"
+                    id="femaleCount"
+                    data-target="0"
+                >0</span>
+
+                <span class="gender-label">Females</span>
+            </div>
+
+            <div class="gender-stat">
+                <span
+                    class="gender-number"
+                    id="maleCount"
+                    data-target="0"
+                >0</span>
+
+                <span class="gender-label">Males</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- STATISTICS DISCLAIMER -->
+    <p class="stats-note">
+        Statistics are based on available platform data and information
+        voluntarily shared by users.
+    </p>
+
+</section>     
+
+</main>
+  
+  <footer class="site-footer">
+    <div class="footer-container">
+        <!-- Footer Navigation Links -->
+        <div class="footer-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span class="divider">|</span>
+            <a href="/terms">Terms of Service</a>
+            <span class="divider">|</span>
+            <a href="/disclaimer">Disclaimer</a>
+        </div>
+
+        <!-- Contact Email -->
+        <p class="footer-contact">
+            Contact: <a href="mailto:porticokakuma@gmail.com">porticokakuma@gmail.com</a>
+        </p>
+
+        <!-- Copyright Line -->
+        <p class="footer-copyright">
+            &copy; 2026 Portico Kakuma. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<style>
+.site-footer {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-top: 1px solid #e5e5e5; /* Subtle border to separate from main page content */
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links .divider {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+.footer-contact {
+    margin: 8px 0;
+    color: #666666;
+}
+
+.footer-contact a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    margin: 8px 0 0 0;
+    color: #888888;
+    font-size: 13px;
+}
+</style>
+
+
+    <script type="module" src="scholarship.js"></script>
+    </body>
+                 
+  </html>
