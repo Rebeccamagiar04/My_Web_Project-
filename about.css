@@ -1160,15 +1160,17 @@ margin-bottom: 0;
     background: #ffffff;
 }
 
-.story-image {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto;
+  .story-image-break {
+  width: 100%;
+  overflow: hidden;
 }
 
+.story-image-break img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
 /* CONTENT */
 
@@ -1411,90 +1413,6 @@ VALUES
 }
 
 
-
-/* =========================================================
-   CALL TO ACTION
-========================================================= */
-
-.about-cta {
-    background: #e5dcf2;
-
-    padding: 80px 6%;
-
-    position: relative;
-    overflow: hidden;
-}
-
-
-/* Subtle background glow */
-
-.about-cta::before {
-    content: "";
-
-    position: absolute;
-
-    width: 380px;
-    height: 380px;
-
-    border-radius: 50%;
-
-    top: -220px;
-    right: -100px;
-
-    filter: blur(10px);
-}
-
-
-/* CTA content */
-
-.cta-content {
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 45px;
-
-    position: relative;
-    z-index: 1;
-}
-
-
-/* Heading */
-
-.cta-content h2 {
-    color: #ffffff;
-
-    font-size: clamp(2rem, 4vw, 2.7rem);
-
-    line-height: 1.2;
-
-    margin-bottom: 14px;
-
-    max-width: 650px;
-}
-
-
-/* Description */
-
-.cta-content p {
-    color: #000000;
-
-    max-width: 600px;
-
-    font-size: 0.98rem;
-
-    line-height: 1.7;
-
-    margin: 0;
-}
-
-
 /* =========================================================
 FOOTER
 ========================================================= */
@@ -1620,17 +1538,6 @@ TABLET
 .values-grid {
     grid-template-columns: repeat(3, 1fr);
 }
-  
-.about-cta {
-        padding: 70px 6%;
-    }
- .cta-content {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 30px;
-    }
 
 }
 
@@ -1784,31 +1691,6 @@ section {
 .value-item {
     padding: 20px;
 }
-
-
-/* CTA */
-
-.about-cta {
-        padding: 60px 6%;
-    }
-
-    .cta-content {
-        gap: 25px;
-    }
-
-    .cta-content h2 {
-        font-size: 1.9rem;
-    }
-
-    .cta-content p {
-        font-size: 0.92rem;
-    }
-
-    .primary-btn {
-        width: 100%;
-
-        text-align: center;
-    }
 
 
 /* Footer */
