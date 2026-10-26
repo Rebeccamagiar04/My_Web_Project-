@@ -27,6 +27,7 @@ a {
 
 p {
     font-size: 15px;
+    color: #000000;
 }
 
 .support-page {
@@ -215,43 +216,75 @@ p {
    Plain text inline links
    ========================================= */
 
-.community-card {
-    padding: 19px 0;
-    border-bottom: none;
+/* WHATSAPP COMMUNITY JOIN OPTIONS */
+
+.community-join-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.community-card:first-of-type {
-    padding-top: 0;
+.community-join-instruction {
+    margin: 0 0 4px;
+    line-height: 1.6;
 }
 
-.community-icon {
-    display: none;
-}
-
-.community-card h3 {
-    margin-bottom: 5px;
-}
-
-.community-card > p {
-    margin-bottom: 10px;
-}
-
-.community-button {
-    display: inline-flex;
+.community-join-options .community-button {
+    display: flex;
     align-items: center;
-    gap: 7px;
-    color: #347447;
-    font-size: 0.91rem;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
     font-weight: 600;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 4px;
-    transition: text-decoration-color 0.2s ease;
+    line-height: 1.5;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.community-button:hover {
-    text-decoration-color: currentColor;
+.community-join-options .whatsapp-messenger {
+    background-color: #25D366;
+    color: #102318;
 }
+
+.community-join-options .whatsapp-business {
+    background-color: #128C7E;
+    color: #FFFFFF;
+}
+
+.community-join-options .community-button:hover {
+    filter: brightness(0.94);
+    transform: translateY(-1px);
+}
+
+.community-join-options .community-button:focus-visible {
+    outline: 3px solid #F2A6B8;
+    outline-offset: 3px;
+}
+
+.community-join-options .community-note {
+    margin-top: 6px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.community-join-options .community-note a {
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .community-join-options .community-button {
+        padding: 13px 12px;
+        font-size: 14px;
+    }
+}
+
 
 
 /* =========================================
@@ -269,7 +302,7 @@ p {
 
 .support-safety ul {
     padding-left: 20px;
-    color: #626a63;
+    color: #000000;
     font-size: 0.9rem;
 }
 
