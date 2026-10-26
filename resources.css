@@ -656,19 +656,23 @@ html{
     position: relative;
     isolation: isolate;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     overflow: hidden;
+    color: #f4f0e8;
+    box-sizing: border-box;
 }
 
 .deadline-calendar {
-    width: 100% !important;
+   width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
+    box-sizing: border-box;
 
     background: url("backgroundres.png") center / cover no-repeat;
 
     border: 1px solid rgba(213, 174, 92, 0.35);
+    border-radius: 16px;
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
 }
 
