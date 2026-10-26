@@ -703,28 +703,6 @@ line-height: 1.6;
 }
 
 
-
-
-/* =========================================================
-   5. HERO / PORTICO IMAGE
-   ========================================================= */
-
-.hero-image {
-    width: 100%;
-
-    overflow: hidden;
-
-    background: #eef8ff;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-
-    display: block;
-}
-
-
 /* =========================================================
    6. GENERAL SECTIONS
    ========================================================= */
@@ -2021,17 +1999,18 @@ section {
        Leaf Image
        ----------------------------------------------------- */
 
-    .home-image {
-        width: 100%;
-        border-radius: 10px;
-        overflow: hidden;
-    }
+  .home-image {
+  width: 100%;
+  overflow: hidden;
+}
 
-    .home-image img {
-        width: 100%;
-
-        height: auto;
-    }
+.home-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
 
     /* -----------------------------------------------------
