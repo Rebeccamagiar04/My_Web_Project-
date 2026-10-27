@@ -83,23 +83,23 @@ href="home.css">
         
         <!-- HOME PAGE & SECTIONS -->
         <li class="nav-group">
-          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="home.html" class="group-title" class="active"><i class="fa-solid fa-house"></i> Home</a>
           <ul class="sub-nav-list">
-            <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
-            <li><a href="home.html#why-card">1.1 Why Portico Kakuma?</a></li>
-            <li><a href="home.html#application-essentials">1.2 Application Essentials</a></li>
-            <li><a href="home.html#common-documents">1.3 Common Document Categories</a></li>
-            <li><a href="home.html#tips-section">1.4 Tips for Successful Application</a></li>
+            <li><a href="home.html#how-it-works">1.1 A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">1.2 Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">1.3 Application Essentials</a></li>
+            <li><a href="home.html#common-documents">1.4 Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">1.5 Tips for Successful Application</a></li>
           </ul>
         </li>
 
         <!-- SCHOLARSHIPS PAGE & SECTIONS -->
         <li class="nav-group" >
-          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap" class="active"></i> Scholarships</a>
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
           <ul class="sub-nav-list">
-            <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
-            <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
-            <li><a href="scholarship.html#scholarship-stats">2.2 Our community</a></li>
+            <li><a href="scholarship.html#scholarship-search">2.1 Scholarship filters</a></li>
+            <li><a href="scholarship.html#scholarship-results">2.2 Scholarship List</a></li>
+            <li><a href="scholarship.html#scholarship-stats">2.3 Our community</a></li>
           </ul>
         </li>
 
@@ -107,10 +107,10 @@ href="home.css">
         <li class="nav-group">
           <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
           <ul class="sub-nav-list">
-            <li><a href="resources.html#deadlines-section">3.0 Upcoming Scholarship Deadlines</a></li>
-            <li><a href="resources.html#featured-resources">3.1 Featured Resources</a></li>
-            <li><a href="resources.html#articles-section">3.2 Latest Articles & Tips</a></li>
-            <li><a href="resources.html#keep-growing">3.3 Keep Growing While You Wait</a></li>
+            <li><a href="resources.html#deadlines-section">3.1 Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">3.2 Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">3.3 Featured articles</a></li>
+            <li><a href="resources.html#dailyMotivation">3.4 Motivation card</a></li>
           </ul>
         </li>
 
@@ -118,14 +118,22 @@ href="home.css">
         <li class="nav-group">
           <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
           <ul class="sub-nav-list">
-            <li><a href="about.html#mission-vision">4.0 Mission & Vision</a></li>
-            
-            <li><a href="about.html#what-we-do">4.1 What We Do</a></li>
-            <li><a href="about.html#our-story">4.2 Our Story</a></li>
+            <li><a href="about.html#mission-vision">4.1 Mission & Vision</a></li>
+            <li><a href="about.html#what-we-do">4.2 What We Do</a></li>
+            <li><a href="about.html#our-story">4.3 Our Story</a></li>
           </ul>
         </li>
 
       </ul>
+
+<!-- Logout Button: visible only to signed-in users -->
+<div class="drawer-logout" id="drawerLogoutContainer" hidden>
+    <button type="button" id="logoutBtn" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </button>
+</div>
+      
     </div>
   </div>
   <div class="drawer-overlay" id="drawerOverlay"></div>
@@ -133,6 +141,28 @@ href="home.css">
 </header>
 
     <main>
+  
+  <div class="terms-overlay" id="termsOverlay"></div>    
+<!-- Terms of Service Agreement Box -->
+<div class="terms-notice" id="termsNotice">
+
+  <h3>Terms of Service</h3>
+
+  <p>
+    By checking the box and pressing Continue, you agree to our
+    <a href="terms.html">Terms of Service</a>.
+  </p>
+
+  <label class="terms-checkbox">
+    <input type="checkbox" id="termsCheckbox">
+    I agree to the Terms of Service.
+  </label>
+
+  <button type="button" id="termsContinueBtn" disabled>
+    Continue
+  </button>
+
+</div>
 
 <!-- ================= WELCOME SECTION ================= -->
 <section class="welcome-section">
@@ -636,56 +666,96 @@ Keep looking. Keep preparing. Keep applying. Your circumstances today do not hav
 
 
     <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
-
-        <div class="footer-brand">
-
-            <div class="logo">
-                <span class="logo-icon">🎓</span>
-                <span>Hope Horizon</span>
-            </div>
-
-            <p>Scholarships without borders.</p>
-
-        </div>
-
-
+      <footer class="site-footer">
+    <div class="footer-container">
+        <!-- Footer Navigation Links -->
         <div class="footer-links">
-
-            <a href="home.html">Home</a>
-            <a href="scholarship.html">Scholarships</a>
-            <a href="resources.html">Resources</a>
-            <a href="about.html">About</a>
-
+            <a href="privacypolicy.html">Privacy Policy</a>
+            <span class="divider">|</span>
+            <a href="terms.html">Terms of Service</a>
+            <span class="divider">|</span>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
 
+        <!-- Contact Email -->
+        <p class="footer-contact">
+            Contact: <a href="mailto:porticokakuma@gmail.com">porticokakuma@gmail.com</a>
+        </p>
 
-        <div class="footer-contact">
-
-            <p>Contact us at: <a href="mailto:rebeccamagiar04@gmail.com">rebeccamagiar04@gmail.com</a></p>
-
-            <p>⌖ 123 Hope Street, Global City</p>
-
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">X</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-            </div>
-
+        <!-- Copyright Line -->
+        <p class="footer-copyright">
+            &copy; 2026 Portico Kakuma. All rights reserved.
+        </p>
+    </div>
+        <div class="footer-nav-links">
+    <a href="home.html">Home</a>
+    <a href="scholarship.html">Scholarships</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
         </div>
+</footer>
 
+<style>
+.site-footer {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 30px 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-top: 1px solid #e5e5e5; /* Subtle border to separate from main page content */
+    margin-top: 40px;
+}
 
-        <div class="copyright">
-            © 2025 Hope Horizon. All rights reserved.
-        </div>
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    </footer>
+.footer-links {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links .divider {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+.footer-contact {
+    margin: 8px 0;
+    color: #666666;
+}
+
+.footer-contact a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    margin: 8px 0 0 0;
+    color: #888888;
+    font-size: 13px;
+}
+</style>
 
   
     <script type="module" src="home.js"></script>
-    <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2026/10/26/05/20261026054648-9R701EZM.js" defer></script>
-      
+    <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script><script src="https://files.bpcontent.cloud/2026/10/26/05/20261026054648-9R701EZM.js" defer></script>
+ 
   </body>
-    </html>
+        </html>
