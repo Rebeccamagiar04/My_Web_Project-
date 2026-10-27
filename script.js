@@ -13,7 +13,8 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     updateProfile,
-    signInAnonymously
+    signInAnonymously,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
@@ -22,7 +23,8 @@ import {
     getDoc,
     setDoc,
     serverTimestamp,
-    increment
+    increment,
+    runTransaction
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 
@@ -116,43 +118,55 @@ const guestBtn = document.getElementById("guestBtn");
 
 /* =====================================================
    5. SAVE USERS TO FIRESTORE
-   Each Firebase UID gets one document in Users.
+   Each Firebase UID is counted only once.
+   User record and community statistics update together.
 ===================================================== */
-
 
 async function saveUserToFirestore(user, userType) {
     if (!user) return;
 
+    if (userType !== "registered" && userType !== "guest") {
+        return;
+    }
+
     const userRef = doc(db, "Users", user.uid);
     const statsRef = doc(db, "publicStats", "community");
 
-    const userSnapshot = await getDoc(userRef);
+    await runTransaction(db, async (transaction) => {
 
-    // This UID has already been counted.
-    if (userSnapshot.exists()) {
-        return;
-    }
+        // Read both documents before making any changes.
+        const userSnapshot = await transaction.get(userRef);
 
-    // Save the new user record.
-    await setDoc(userRef, {
-        userType: userType,
-        createdAt: serverTimestamp()
+        // This UID has already been counted.
+        if (userSnapshot.exists()) {
+            return;
+        }
+
+        const statsSnapshot = await transaction.get(statsRef);
+
+        const stats = statsSnapshot.exists()
+            ? statsSnapshot.data()
+            : {};
+
+        const totalUsers = Number(stats.totalUsers) || 0;
+        const registeredUsers = Number(stats.registeredUsers) || 0;
+        const guestUsers = Number(stats.guestUsers) || 0;
+
+        // Record the new user.
+        transaction.set(userRef, {
+            userType: userType,
+            createdAt: serverTimestamp()
+        });
+
+        // Update community statistics atomically.
+        transaction.set(statsRef, {
+            totalUsers: totalUsers + 1,
+            registeredUsers: registeredUsers +
+                (userType === "registered" ? 1 : 0),
+            guestUsers: guestUsers +
+                (userType === "guest" ? 1 : 0)
+        }, { merge: true });
     });
-
-    // Increment the correct community totals.
-    const changes = {
-        totalUsers: increment(1)
-    };
-
-    if (userType === "registered") {
-        changes.registeredUsers = increment(1);
-    } else if (userType === "guest") {
-        changes.guestUsers = increment(1);
-    } else {
-        return;
-    }
-
-    await setDoc(statsRef, changes, { merge: true });
 }
 
 
@@ -346,10 +360,11 @@ if (loginBtn) {
     });
 }
 
-
 /* =====================================================
-   9. CONTINUE AS GUEST
+   9. CONTINUE AS GUEST — REUSE EXISTING SESSION
 ===================================================== */
+
+const GUEST_EXPIRY_KEY = "porticoGuestExpiry";
 
 if (guestBtn) {
     guestBtn.addEventListener("click", async () => {
@@ -357,36 +372,42 @@ if (guestBtn) {
             guestBtn.disabled = true;
             guestBtn.textContent = "Please wait...";
 
-            // Create or sign in to a Firebase anonymous account.
-            const result = await signInAnonymously(auth);
+            let user = auth.currentUser;
 
-      
-const user = result.user;
+            // Reuse the existing anonymous account if available.
+            if (user && user.isAnonymous) {
+                console.log("Reusing existing guest account:", user.uid);
+            } else {
+                // Sign out a different account before continuing as guest.
+                if (user) {
+                    await signOut(auth);
+                }
 
-// Record the guest identity.
-await saveUserToFirestore(user, "guest");
+                const result = await signInAnonymously(auth);
+                user = result.user;
+            }
 
-// Save the questionnaire gender.
-const gender = localStorage.getItem("questionnaireGender");
-
-if (gender) {
-    await saveGenderToFirestore(user, gender);
-}
-
-
-            window.location.href = "home.html";
-
-        } catch (error) {
-            console.error(
-                "Guest sign-in failed:",
-                error.code,
-                error.message
+            // Start a fresh 24-hour guest session.
+            localStorage.setItem(
+                GUEST_EXPIRY_KEY,
+                String(Date.now() + 24 * 60 * 60 * 1000)
             );
 
-            alert(
-    "Error code: " + (error.code || "unknown") +
-    "\nMessage: " + error.message
-);
+            // Count this UID only if it has not been counted before.
+            await saveUserToFirestore(user, "guest");
+
+            const gender = localStorage.getItem("questionnaireGender");
+
+            if (gender) {
+                await saveGenderToFirestore(user, gender);
+            }
+
+            window.location.replace("home.html");
+
+        } catch (error) {
+            console.error("Guest sign-in failed:", error);
+
+            alert("Unable to continue as guest. Please try again.");
 
             guestBtn.disabled = false;
             guestBtn.textContent = "Continue as Guest";
@@ -402,7 +423,7 @@ if (gender) {
 function getFriendlyError(code) {
     switch (code) {
         case "auth/email-already-in-use":
-            return "This email already has an account.";
+            return "This email already has an account. Login instead";
 
         case "auth/weak-password":
             return "Password must be at least 6 characters.";
