@@ -6,8 +6,9 @@ Navigation + Authentication + Notifications
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
 import {
-getAuth,
-onAuthStateChanged
+    getAuth,
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
@@ -51,6 +52,36 @@ const hamburgerBtn = document.getElementById("hamburgerBtn");
 const closeDrawerBtn = document.getElementById("closeDrawerBtn");
 const mobileDrawer = document.getElementById("mobileDrawer");
 const drawerOverlay = document.getElementById("drawerOverlay");
+
+
+  // LOGOUT BUTTON
+const drawerLogoutContainer =
+    document.getElementById("drawerLogoutContainer");
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+        try {
+            // Sign out the current user
+            await signOut(auth);
+
+            // Close the mobile drawer
+            mobileDrawer?.classList.remove("open");
+            drawerOverlay?.classList.remove("show");
+
+            // Redirect to the access page
+            window.location.href = "access.html";
+
+        } catch (error) {
+            console.error("Logout failed:", error);
+
+            alert("Unable to log out. Please try again.");
+        }
+    });
+}
+
 
 const notifToggle = document.getElementById("notifToggle");
 const notifDropdown = document.getElementById("notifDropdown");
@@ -325,6 +356,20 @@ function listenForReadStatus(user) {
 
 onAuthStateChanged(auth, user => {
     currentUser = user;
+ // Show Terms of Service alert separately for each user or guest
+if (
+    user &&
+    localStorage.getItem(`porticoTermsAccepted_${user.uid}`) !== "true"
+) {
+    showTermsNotice();
+} else {
+    hideTermsNotice();
+}
+
+    // Show Logout only for non-anonymous signed-in users
+if (drawerLogoutContainer) {
+    drawerLogoutContainer.hidden = !user || user.isAnonymous;
+}
 
     // Stop listeners from the previous session.
     if (stopNotificationsListener) {
@@ -352,6 +397,52 @@ onAuthStateChanged(auth, user => {
 });
 
 });
+
+
+/* ================= TERMS OF SERVICE ALERT ================= */
+
+const termsNotice = document.getElementById("termsNotice");
+const termsOverlay = document.getElementById("termsOverlay");
+const termsCheckbox = document.getElementById("termsCheckbox");
+const termsContinueBtn = document.getElementById("termsContinueBtn");
+
+// Keep Continue disabled until the checkbox is checked
+if (termsCheckbox && termsContinueBtn) {
+    termsCheckbox.addEventListener("change", () => {
+        termsContinueBtn.disabled = !termsCheckbox.checked;
+    });
+}
+
+// Show the alert
+function showTermsNotice() {
+    if (termsNotice && termsOverlay) {
+        termsNotice.classList.add("show");
+        termsOverlay.classList.add("show");
+    }
+}
+
+// Hide the alert
+function hideTermsNotice() {
+    if (termsNotice && termsOverlay) {
+        termsNotice.classList.remove("show");
+        termsOverlay.classList.remove("show");
+    }
+}
+
+// Continue after accepting the terms
+if (termsContinueBtn && termsCheckbox) {
+    termsContinueBtn.addEventListener("click", () => {
+        if (!termsCheckbox.checked) return;
+
+        const user = auth.currentUser;
+
+   if (user) {
+    localStorage.setItem(`porticoTermsAccepted_${user.uid}`, "true");
+     }
+        hideTermsNotice();
+    });
+}
+
 
 
 const savedName = localStorage.getItem("questionnaireName");
