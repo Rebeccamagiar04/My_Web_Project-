@@ -1,8 +1,7 @@
+
 /* =========================================
    APPLICATION GUIDES
    ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -10,22 +9,27 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: serif, Arial, Georgia, Helvetica, "Times New Roman", sans-serif;
+    font-size: 15px;
     background: #050b18;
     color: #f5f7ff;
     line-height: 1.6;
 }
 
 /* =========================================
-             BACK BUTTON 
-====≈==================================== */
+   BACK BUTTON
+   ========================================= */
 
 .back-button {
     display: inline-flex;
     align-items: center;
     gap: 9px;
-
+    margin: 20px 0 0 30px;
     padding: 9px 16px;
 
     background: #f4f7fb;
@@ -35,15 +39,17 @@ body {
     border-radius: 8px;
 
     text-decoration: none;
-
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
 
-    transition: all 0.2s ease;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
 }
 
 .back-button i {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .back-button:hover {
@@ -53,58 +59,71 @@ body {
     transform: translateX(-2px);
 }
 
+.back-button:focus-visible,
+.navigation-btn:focus-visible,
+.progress-step:focus-visible {
+    outline: 2px solid #f0c875;
+    outline-offset: 4px;
+}
 
 /* =========================================
    MAIN PAGE
    ========================================= */
 
-.journeyimage{
-  width:100%;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  }
-
-img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-}
-
 .application-page {
     width: 100%;
     max-width: 1250px;
     margin: 0 auto;
-    padding: 55px 30px 70px;
+    padding: 40px 30px 70px;
 }
 
+.journeyimage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 /* =========================================
-   INTRO
+   INTRODUCTION
    ========================================= */
 
 .application-intro {
     text-align: center;
-    margin-bottom: 42px;
+    margin-bottom: 35px;
 }
 
 .application-intro h1 {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 700;
-    letter-spacing: -0.8px;
-    margin-bottom: 10px;
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+    margin-bottom: 12px;
+    color: #ffffff;
 }
 
 .application-intro p {
     max-width: 700px;
     margin: 0 auto;
     color: #aeb9ce;
-    font-size: 16px;
+    font-size: 15px;
 }
 
+/* =========================================
+   JOURNEY IMAGE
+   ========================================= */
+
+.journeyimage {
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
 
 /* =========================================
    PROGRESS INDICATOR
@@ -113,11 +132,15 @@ img {
 .progress-section {
     width: 100%;
     margin-bottom: 25px;
+    padding: 8px 0 14px;
     overflow-x: auto;
-    padding: 5px 0 12px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #31415d #050b18;
 }
 
 .progress-track {
+    width: 100%;
     min-width: 700px;
     max-width: 1050px;
     margin: 0 auto;
@@ -129,60 +152,66 @@ img {
     position: relative;
 }
 
-/* The line behind the circles */
+/* Connecting line */
 
 .progress-track::before {
     content: "";
     position: absolute;
-    left: 25px;
-    right: 25px;
+    left: 21px;
+    right: 21px;
     top: 50%;
 
     height: 2px;
-    background: #1c2b44;
+    background: #26354d;
 
     transform: translateY(-50%);
     z-index: 0;
 }
 
-
 /* Progress circles */
 
 .progress-step {
+    flex: 0 0 42px;
     width: 42px;
     height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
     border: 1px solid #31415d;
 
     background: #091225;
-    color: #9eabc1;
+    color: #aeb9ce;
 
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 15px;
     cursor: pointer;
 
     position: relative;
     z-index: 1;
 
-    transition: all 0.25s ease;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
 .progress-step:hover {
-    border-color: #4d8dff;
+    border-color: #5794ff;
     color: #ffffff;
 }
 
 .progress-step.active {
     background: #173e72;
-    border-color: #4d8dff;
+    border-color: #5794ff;
     color: #ffffff;
-
-    box-shadow: 0 0 0 4px rgba(77, 141, 255, 0.12);
+    box-shadow: 0 0 0 4px rgba(87, 148, 255, 0.15);
 }
 
-
 /* =========================================
-   GUIDE CARD
+   GUIDE CONTAINER AND CARDS
    ========================================= */
 
 .guide-container {
@@ -192,236 +221,223 @@ img {
 .guide-card {
     display: none;
 
+    width: 100%;
     background: #0b172c;
     border: 1px solid #1d2b42;
-    border-radius: 18px;
+    border-radius: 16px;
 
-    padding: 45px 48px;
+    padding: 40px 42px;
 
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.35);
-
-    animation: cardAppear 0.3s ease;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 }
 
 .guide-card.active {
     display: block;
+    animation: cardAppear 0.25s ease;
 }
 
-
-/* Card animation */
-
 @keyframes cardAppear {
-
     from {
         opacity: 0;
-        transform: translateX(15px);
+        transform: translateY(8px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
-
 }
 
-
 /* =========================================
-   STEP NUMBER
+   STEP NUMBER AND HEADING
    ========================================= */
 
 .step-number {
-    color: #5794ff;
-    font-size: 13px;
+    color: #79aaff;
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-
     margin-bottom: 8px;
 }
 
-
-/* =========================================
-   CARD HEADING
-   ========================================= */
-
 .guide-card h2 {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 14px;
-
     color: #ffffff;
+    font-size: 29px;
+    line-height: 1.3;
+    margin-bottom: 14px;
 }
 
 .step-introduction {
     max-width: 850px;
-
     color: #aeb9ce;
-    font-size: 16px;
-
-    margin-bottom: 35px;
+    font-size: 15px;
+    margin-bottom: 28px;
 }
 
-
 /* =========================================
-   CARD CONTENT
+   GUIDE CONTENT
    ========================================= */
 
 .guide-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
     margin-top: 10px;
+    align-items: stretch;
 }
-
 
 /* =========================================
    INFORMATION SECTIONS
    ========================================= */
 
 .guide-section {
+    min-width: 0;
     background: #eef8ff;
-
-    border: 1px solid #1d2d47;
-    border-radius: 13px;
-
-    padding: 25px;
+    border: 1px solid #d5e7f3;
+    border-radius: 12px;
+    padding: 22px;
 }
 
 .guide-section h3 {
-    font-size: 17px;
     color: #0c3764;
-
-    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 12px;
 }
 
 .guide-section p {
-    color: #000000;
-    font-size: 14px;
+    color: #172033;
+    font-size: 15px;
+    margin-bottom: 12px;
 }
 
-.guide-section ul {
-    padding-left: 20px;
+.guide-section p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-section ul,
+.guide-section ol {
+    padding-left: 22px;
 }
 
 .guide-section li {
-    color: #000000;
-
-    font-size: 14px;
-
-    margin-bottom: 10px;
+    color: #172033;
+    font-size: 15px;
+    margin-bottom: 9px;
+    padding-left: 2px;
+    overflow-wrap: anywhere;
 }
 
 .guide-section li:last-child {
     margin-bottom: 0;
 }
 
-
-/* =========================================
-   CHECKMARKS / BULLETS
-   ========================================= */
-
 .guide-section li::marker {
-    color: #5794ff;
+    color: #2869bc;
 }
 
+.guide-section a {
+    color: #123b67;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+}
+
+.guide-section a:hover {
+    color: #205ca7;
+}
 
 /* =========================================
    TIP BOX
    ========================================= */
 
 .guide-tip {
-    margin-top: 25px;
+    margin-top: 24px;
+    padding: 16px 19px;
 
-    padding: 16px 20px;
+    background: #101f36;
+    border: 1px solid #29415f;
+    border-left: 4px solid #c49a4a;
+    border-radius: 9px;
 
-    background: #0b172c;
-
-    border: 1px solid #203656;
-    border-radius: 10px;
-
-    color: #b9c5d9;
-
-    font-size: 14px;
+    color: #c4cede;
+    font-size: 15px;
+    overflow-wrap: anywhere;
 }
 
 .guide-tip strong {
     color: #ffffff;
 }
 
-
 /* =========================================
-   NAVIGATION
+   STEP NAVIGATION
    ========================================= */
 
 .guide-navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    gap: 15px;
     margin-top: 22px;
 }
 
-
-/* Navigation buttons */
-
 .navigation-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 9px;
 
-    min-width: 120px;
-    height: 46px;
-
-    padding: 0 20px;
+    min-width: 125px;
+    min-height: 46px;
+    padding: 10px 18px;
 
     border-radius: 8px;
-
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 15px;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
 }
 
-
-/* Back button */
+/* Previous button */
 
 .previous-btn {
     background: transparent;
-
     border: 1px solid #34435b;
-
     color: #c1c9d8;
 }
 
-.previous-btn:hover {
+.previous-btn:hover:not(:disabled) {
     border-color: #5794ff;
     color: #ffffff;
 }
-
 
 /* Next button */
 
 .next-btn {
     background: #174c91;
-
     border: 1px solid #2869bc;
-
     color: #ffffff;
 }
 
-.next-btn:hover {
+.next-btn:hover:not(:disabled) {
     background: #205ca7;
-
     transform: translateX(2px);
 }
 
+/* Disabled buttons */
+
+.navigation-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+}
 
 /* =========================================
    STEP COUNTER
@@ -430,11 +446,12 @@ img {
 .step-counter {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 7px;
 
-    color: #8492aa;
-
-    font-size: 14px;
+    color: #a0aec3;
+    font-size: 15px;
+    text-align: center;
 }
 
 .step-counter #currentStep {
@@ -442,37 +459,35 @@ img {
     font-weight: 700;
 }
 
-
 /* =========================================
    FOOTER
    ========================================= */
 
 .main-footer {
     min-height: 80px;
-
-    padding: 25px 5%;
+    padding: 24px 5%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
 
     background: #030814;
-
     border-top: 1px solid #18243a;
 
-    color: #78869d;
-
-    font-size: 13px;
+    color: #9aa6ba;
+    font-size: 15px;
 }
 
 .footer-left {
     display: flex;
     align-items: center;
-    gap: 28px;
+    flex-wrap: wrap;
+    gap: 22px;
 }
 
 .footer-left a {
-    color: #9aa6ba;
+    color: #aeb9ce;
     text-decoration: none;
 }
 
@@ -481,121 +496,207 @@ img {
 }
 
 .footer-right {
-    color: #9aa6ba;
+    color: #aeb9ce;
 }
 
-
 /* =========================================
-   RESPONSIVE DESIGN
+   TABLET RESPONSIVENESS
    ========================================= */
 
 @media (max-width: 900px) {
-
     .application-page {
-        padding: 45px 20px 60px;
-    }
-
-    .guide-card {
-        padding: 35px 28px;
-    }
-
-    .guide-content {
-        grid-template-columns: 1fr;
+        padding: 35px 22px 55px;
     }
 
     .application-intro h1 {
         font-size: 34px;
     }
 
-}
-
-
-@media (max-width: 600px) {
-
-    .main-header {
-        height: 65px;
-        padding: 0 20px;
-    }
-
-    .logo a {
-        font-size: 19px;
-    }
-
-    .main-nav {
-        gap: 15px;
-    }
-
-    .main-nav a {
-        font-size: 13px;
-    }
-
-
-    .application-page {
-        padding: 35px 14px 50px;
-    }
-
-
-    .application-intro {
-        margin-bottom: 30px;
-    }
-
-    .application-intro h1 {
-        font-size: 29px;
-    }
-
-    .application-intro p {
-        font-size: 14px;
-    }
-
-
     .guide-card {
-        padding: 28px 20px;
-        border-radius: 14px;
+        padding: 32px 26px;
     }
 
-    .guide-card h2 {
-        font-size: 26px;
+    .guide-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
     }
-
-    .step-introduction {
-        font-size: 14px;
-    }
-
 
     .guide-section {
         padding: 20px;
     }
+}
 
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 600px) {
+    .back-button {
+        margin: 16px 0 0 14px;
+        padding: 8px 12px;
+        font-size: 15px;
+    }
+
+    .application-page {
+        padding: 30px 14px 40px;
+    }
+
+    .application-intro {
+        margin-bottom: 25px;
+    }
+
+    .application-intro h1 {
+        font-size: 29px;
+        letter-spacing: 0;
+    }
+
+    .application-intro p {
+        font-size: 15px;
+    }
+
+    .journeyimage {
+        margin-bottom: 22px;
+        border-radius: 8px;
+    }
+
+    .progress-section {
+        margin-bottom: 18px;
+    }
+
+    .progress-track {
+        min-width: 650px;
+    }
+
+    .progress-step {
+        flex-basis: 38px;
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .progress-track::before {
+        left: 19px;
+        right: 19px;
+    }
+
+    .guide-card {
+        padding: 25px 18px;
+        border-radius: 12px;
+    }
+
+    .step-number {
+        font-size: 15px;
+    }
+
+    .guide-card h2 {
+        font-size: 25px;
+    }
+
+    .step-introduction {
+        font-size: 15px;
+        margin-bottom: 23px;
+    }
+
+    .guide-content {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .guide-section {
+        padding: 18px;
+    }
+
+    .guide-section h3 {
+        font-size: 17px;
+    }
+
+    .guide-section p,
+    .guide-section li {
+        font-size: 15px;
+    }
+
+    .guide-tip {
+        margin-top: 18px;
+        padding: 14px;
+        font-size: 15px;
+    }
 
     .guide-navigation {
+        gap: 8px;
         margin-top: 18px;
     }
 
     .navigation-btn {
-        min-width: 48px;
-        width: 48px;
-        padding: 0;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px 12px;
+        gap: 6px;
+        font-size: 15px;
     }
 
-    .previous-btn span:last-child {
-        display: none;
-    }
-
+    .previous-btn span:last-child,
     .next-btn span:first-child {
         display: none;
     }
 
+    .step-counter {
+        flex: 1;
+        gap: 5px;
+        font-size: 15px;
+    }
 
     .main-footer {
         flex-direction: column;
-        gap: 15px;
         text-align: center;
+        gap: 14px;
+        padding: 22px 16px;
     }
 
     .footer-left {
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 12px 18px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE SCREENS
+   ========================================= */
+
+@media (max-width: 360px) {
+    .application-page {
+        padding-right: 10px;
+        padding-left: 10px;
     }
 
+    .guide-card {
+        padding: 21px 14px;
+    }
+
+    .guide-card h2 {
+        font-size: 23px;
+    }
+
+    .guide-section {
+        padding: 15px;
+    }
+
+    .navigation-btn {
+        min-width: 40px;
+        padding: 7px 9px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
