@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How Will You Pay for It? | Portico Kakuma</title>
+
+    <meta name="description"
+          content="A practical, evidence-based guide to paying for university without a scholarship or with partial funding. Learn to calculate your funding gap, find realistic support, compare costs and make safer financial decisions.">
+
+    <style>
+        /* =========================================
+           PORTICO KAKUMA — FUNDING ARTICLE
+           ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #292929;
+            background: #ffffff;
+        }
+
+        a {
+            color: #35658f;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            color: #234766;
+        }
+
+        a:focus-visible {
+            outline: 2px solid #35658f;
+            outline-offset: 3px;
+        }
+
+        .article-page {
+            width: 100%;
+            padding: 35px 18px 55px;
+        }
+
+        .funding-article {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 28px;
+            padding-bottom: 23px;
+            border-bottom: 1px solid #e7e2de;
+        }
+
+        .article-header h1 {
+            color: #172638;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .article-introduction {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .article-byline {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .article-toc {
+            margin: 30px 0 38px;
+            padding: 20px 22px;
+            background: #f8f7f5;
+            border: 1px solid #e9e4df;
+            border-radius: 5px;
+        }
+
+        .article-toc h2 {
+            font-size: 17px;
+            line-height: 1.4;
+            color: #172638;
+            margin-bottom: 12px;
+        }
+
+        .article-toc ol {
+            padding-left: 22px;
+            columns: 2;
+            column-gap: 28px;
+        }
+
+        .article-toc li {
+            padding: 3px 0;
+            break-inside: avoid;
+            line-height: 1.6;
+        }
+
+        .article-toc a {
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            text-decoration: underline;
+        }
+
+        .article-section {
+            margin-bottom: 35px;
+            scroll-margin-top: 20px;
+        }
+
+        .article-section h2 {
+            font-size: 22px;
+            line-height: 1.4;
+            color: #172638;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e8e3de;
+        }
+
+        .article-section h3 {
+            font-size: 17px;
+            line-height: 1.5;
+            color: #172638;
+            margin: 21px 0 8px;
+        }
+
+        .article-section p {
+            margin-bottom: 13px;
+        }
+
+        .article-section ul,
+        .article-section ol {
+            padding-left: 23px;
+            margin: 8px 0 16px;
+        }
+
+        .article-section li {
+            margin-bottom: 8px;
+        }
+
+        .funding-example {
+            margin: 18px 0;
+            padding: 18px 20px;
+            border-left: 4px solid #a85f38;
+            background: #faf7f3;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .funding-example h3 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .funding-example p:last-child {
+            margin-bottom: 0;
+        }
+
+        .formula {
+            margin: 18px 0;
+            padding: 14px;
+            background: #f8f7f5;
+            border: 1px solid #e9e4df;
+            text-align: center;
+            font-weight: 700;
+            color: #172638;
+        }
+
+        .article-callout {
+            margin: 18px 0;
+            padding: 15px 18px;
+            background: #f8f7f5;
+            border-left: 3px solid #a85f38;
+        }
+
+        .tradeoffs-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 18px 0;
+            border: 1px solid #dedbd7;
+            border-radius: 4px;
+        }
+
+        .tradeoffs-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        .tradeoffs-table th {
+            padding: 12px 13px;
+            background: #172638;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tradeoffs-table td {
+            padding: 12px 13px;
+            border-bottom: 1px solid #e5e1dc;
+            vertical-align: top;
+        }
+
+        .tradeoffs-table tbody tr:nth-child(even) {
+            background: #f8f7f5;
+        }
+
+        .table-note {
+            color: #555;
+            font-size: 13px;
+        }
+
+        .resource-list,
+        .source-list {
+            list-style: none;
+            padding-left: 0 !important;
+        }
+
+        .resource-list li,
+        .source-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eeeae6;
+        }
+
+        .resource-description {
+            display: block;
+            color: #555;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .article-sources {
+            margin-top: 35px;
+            padding-top: 22px;
+            border-top: 1px solid #e3ded8;
+        }
+
+        .article-sources h2 {
+            font-size: 21px;
+            line-height: 1.4;
+            color: #172638;
+            margin-bottom: 13px;
+        }
+
+        .article-sources h3 {
+            font-size: 16px;
+            color: #172638;
+            margin: 20px 0 8px;
+        }
+
+        .source-list {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .editorial-note {
+            margin-top: 22px;
+            padding: 13px 15px;
+            background: #f8f7f5;
+            border-left: 3px solid #a85f38;
+            color: #555;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .article-page {
+                padding: 24px 15px 40px;
+            }
+
+            .article-header h1 {
+                font-size: 25px;
+            }
+
+            .article-toc ol {
+                columns: 1;
+            }
+
+            .article-section h2 {
+                font-size: 21px;
+            }
+
+            .funding-example {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="article-page">
+<article class="funding-article">
+
+    <!-- HEADER -->
+
+    <header class="article-header">
+        <h1>How Will You Pay for It? Funding Your Education Beyond Scholarships</h1>
+
+        <p class="article-introduction">
+            Getting into university and being able to afford it are two different
+            challenges. A student may receive no scholarship, win an award that
+            covers tuition but not living expenses, or discover that an apparently
+            affordable programme comes with costs they had not considered.
+            This guide explains how to calculate the shortfall, investigate
+            additional funding, compare lower-cost options and decide whether
+            a study plan is financially realistic.
+        </p>
+
+        <p class="article-byline">
+            A Portico Kakuma guide to university affordability and financial planning.
+        </p>
+    </header>
+
+
+    <!-- TABLE OF CONTENTS -->
+
+    <nav class="article-toc" aria-label="Table of contents">
+        <h2>On this page</h2>
+
+        <ol>
+            <li><a href="#real-cost">The Real Cost of University</a></li>
+            <li><a href="#funding-gap">Calculate Your Funding Gap</a></li>
+            <li><a href="#university-support">Start With the University</a></li>
+            <li><a href="#external-support">Look Beyond the University</a></li>
+            <li><a href="#work-income">Can Work Help Pay the Bills?</a></li>
+            <li><a href="#lower-cost">Consider Lower-Cost Pathways</a></li>
+            <li><a href="#reduce-costs">Reduce Costs Without Risking Your Studies</a></li>
+            <li><a href="#borrowing">Loans, Fundraising and Financial Risks</a></li>
+            <li><a href="#when-gap-too-large">When the Gap Is Too Large</a></li>
+            <li><a href="#worked-examples">Two Funding Examples</a></li>
+            <li><a href="#action-plan">Build Your Action Plan</a></li>
+            <li><a href="#scams">Recognise Funding Scams</a></li>
+            <li><a href="#resources">Resources and Further Reading</a></li>
+        </ol>
+    </nav>
+
+
+    <!-- 1. REAL COST -->
+
+    <section class="article-section" id="real-cost">
+        <h2>1. The Real Cost of University</h2>
+
+        <p>
+            A university's tuition fee is only one part of the amount a student
+            may need to complete a degree. Accommodation, food, transport,
+            health insurance, course materials and immigration requirements can
+            add considerably to the total. The balance depends on the country,
+            city, institution, course and a student's individual circumstances.
+        </p>
+
+        <p>
+            Financial pressure does not necessarily disappear after enrolment.
+            A 2023–2024 survey by the US-based Hope Center for Student Basic Needs 
+            <a href="https://www.luminafoundation.org/wp-content/uploads/2025/02/Student.Basic_.Needs_.Survey.Report.pdf?utm_source=chatgpt.com"
+               target="_blank" rel="noopener noreferrer">(Download the report from Lumina Foundation⁠)</a>
+            collected responses from 74,350 students at 91 institutions across
+            16 US states. Among those respondents, 59% reported at least one
+            form of food or housing insecurity, 41% reported food insecurity,
+            48% reported housing insecurity and 14% reported homelessness.
+        </p>
+
+        <p>
+            These figures describe that survey's participants, not all
+            university students worldwide. The report is useful because it
+            illustrates the financial pressures that can persist after students
+            begin their studies; it should not be treated as a global estimate.
+        </p>
+
+        <h3>Costs to include in your budget</h3>
+
+        <ul>
+            <li>
+                <strong>Tuition and compulsory fees:</strong> Course fees,
+                registration, laboratory charges, examinations and other
+                mandatory institutional fees.
+            </li>
+            <li>
+                <strong>Accommodation and utilities:</strong> University
+                housing or rent, deposits, electricity, water and internet.
+            </li>
+            <li>
+                <strong>Food and personal necessities:</strong> Groceries,
+                meals, toiletries, laundry and other essential expenses.
+            </li>
+            <li>
+                <strong>Travel and relocation:</strong> Local transport,
+                international flights, luggage and travel to the institution.
+            </li>
+            <li>
+                <strong>Health and immigration:</strong> Insurance, visa or
+                residence-permit charges, medical requirements and renewals
+                where applicable.
+            </li>
+            <li>
+                <strong>Academic equipment:</strong> A laptop if required,
+                textbooks, internet data, software and specialist equipment.
+            </li>
+            <li>
+                <strong>Initial and unexpected expenses:</strong> Housing
+                deposits, arrival costs, document certification and a modest
+                emergency reserve.
+            </li>
+        </ul>
+
+        <p>
+            Some expenses occur once; others recur every month or academic year.
+            Build a budget that reflects when each payment is due, not merely
+            the total cost of a degree.
+        </p>
+
+        <h3>Low tuition does not always mean low overall cost</h3>
+
+        <p>
+            Germany is one example. Many public universities charge no general
+            tuition fee for many degree programmes, although exceptions and
+            additional charges apply. International students who require a
+            German study visa must also demonstrate sufficient living funds.
+            The official German government portal lists €11,904 as the
+            minimum blocked-account amount for 2026 under the relevant route.
+            A scholarship or accepted alternative proof may also satisfy the
+            financial requirement.
+        </p>
+
+        <p>
+            This is a financial-proof requirement, not tuition and not a
+            guarantee that every student's actual living expenses will be
+            covered. Check the specific programme, state, institution and
+            current visa rules before making a decision.
+            <a href="https://www.make-it-in-germany.com/en/visa-recognition/visa-types/studying"
+               target="_blank" rel="noopener noreferrer">Official German study-visa guidance</a>.
+        </p>
+    </section>
+
+
+    <!-- 2. FUNDING GAP -->
+
+    <section class="article-section" id="funding-gap">
+        <h2>2. Calculate Your Actual Funding Gap</h2>
+
+        <p>
+            Before searching for more money, work out exactly how much is
+            missing. A funding gap is the amount of your expected education
+            costs that is not covered by resources you can genuinely rely on.
+        </p>
+
+        <div class="formula">
+            Total costs for the period − confirmed available funding
+            = funding gap
+        </div>
+
+        <p>
+            Use the same period for both sides of the calculation. If you
+            calculate annual costs, compare them with funding available for
+            that same year. If you calculate the whole degree, include future
+            years and account for possible fee increases.
+        </p>
+
+        <p>
+            Count a scholarship only if you have received an official award
+            and understand what it covers. Count family contributions only
+            to the extent that the person has genuinely committed and can
+            afford to provide them. Treat pending applications, hoped-for
+            donations, unconfirmed jobs and possible loans as uncertain—not
+            as money already available.
+        </p>
+
+        <h3>Separate your funding into three categories</h3>
+
+        <ul>
+            <li>
+                <strong>Confirmed:</strong> Official awards, funds you already
+                have and contributions that are firmly agreed and available
+                by the payment deadline.
+            </li>
+            <li>
+                <strong>Applied for or possible:</strong> Scholarships awaiting
+                a decision, bursaries not yet awarded, jobs you have not
+                secured and fundraising that has not produced donations.
+            </li>
+            <li>
+                <strong>Unavailable or unverified:</strong> Funding for which
+                you are ineligible, work you are not legally allowed to do,
+                or money that cannot arrive before the payment deadline.
+            </li>
+        </ul>
+
+        <p>
+            The first category determines whether you can currently afford
+            to proceed. The second category can inform a future plan, but
+            should not be treated as guaranteed income.
+        </p>
+    </section>
+
+
+    <!-- 3. UNIVERSITY SUPPORT -->
+
+    <section class="article-section" id="university-support">
+        <h2>3. Start With the University</h2>
+
+        <p>
+            If you have already received an offer, the university is often
+            the first organisation to contact. It knows the fee structure,
+            its own financial-aid policies and whether any institutional
+            support is available to students in your situation.
+        </p>
+
+        <p>
+            If you have not yet applied, investigate these possibilities
+            before committing to an application or accepting an offer.
+        </p>
+
+        <h3>Ask specific questions about financial support</h3>
+
+        <ul>
+            <li>
+                <strong>Need-based grants:</strong> Does the university assess
+                financial circumstances, and are international applicants
+                eligible?
+            </li>
+            <li>
+                <strong>Additional institutional funding:</strong> Can a
+                student request a review of an award if the remaining cost
+                makes enrolment impossible?
+            </li>
+            <li>
+                <strong>Tuition discounts or waivers:</strong> Are any
+                reductions available for the particular course, student
+                category or academic year?
+            </li>
+            <li>
+                <strong>Housing and meal support:</strong> Are there subsidised
+                rooms, meal assistance or other benefits, and who qualifies?
+            </li>
+            <li>
+                <strong>Payment arrangements:</strong> Does the university
+                permit instalments or an extension? Would an extension affect
+                registration or immigration documentation?
+            </li>
+            <li>
+                <strong>Application and deposit waivers:</strong> Can eligible
+                applicants request a waiver before paying?
+            </li>
+            <li>
+                <strong>Deferral:</strong> Can admission be postponed, and
+                would the offer or financial aid remain valid?
+            </li>
+        </ul>
+
+        <p>
+            Do not assume that a university offers every option on this list.
+            Ask which arrangements actually exist and request the terms,
+            amount and deadline in writing.
+        </p>
+
+        <h3>Understand what emergency grants are designed to do</h3>
+
+        <p>
+            Some institutions provide small grants to help enrolled students
+            overcome an unexpected financial problem. These grants are not
+            necessarily available to incoming students and may not cover
+            large or recurring shortfalls.
+        </p>
+
+        <p>
+            For example, Georgia State University's
+            <a href="https://success.students.gsu.edu/panther-retention-grants/"
+               target="_blank" rel="noopener noreferrer">Panther Retention Grant</a>
+            is designed to help eligible students who are approaching
+            graduation and have a modest outstanding tuition or fee balance.
+            The university identifies potential recipients; it is not a
+            general grant that any applicant can request to finance an
+            entire degree.
+        </p>
+
+        <p>
+            The lesson is to check the actual eligibility rules and purpose
+            of a grant. A programme that helps an enrolled student finish
+            their degree may not help someone pay an initial deposit,
+            obtain a visa or travel to another country.
+        </p>
+    </section>
+
+
+    <!-- 4. EXTERNAL SUPPORT -->
+
+    <section class="article-section" id="external-support">
+        <h2>4. Look Beyond the University</h2>
+
+        <p>
+            If university aid is insufficient, look for other legitimate
+            sources of support. Availability varies by country and personal
+            circumstances, so investigate eligibility before spending money
+            or time on an application.
+        </p>
+
+        <h3>Government funding and public bursaries</h3>
+
+        <p>
+            Some governments provide grants, loans, bursaries or subsidised
+            education. Others reserve particular schemes for citizens,
+            permanent residents or specific categories of residents.
+            Eligibility can also depend on household income, academic
+            progress, course type and the institution attended.
+        </p>
+
+        <p>
+            In Kenya, students can consult the
+            <a href="https://www.hef.co.ke/"
+               target="_blank" rel="noopener noreferrer">Higher Education Financing portal</a>,
+            the
+            <a href="https://www.helb.co.ke/"
+               target="_blank" rel="noopener noreferrer">Higher Education Loans Board</a>
+            and the
+            <a href="https://ngcdf.go.ke/"
+               target="_blank" rel="noopener noreferrer">National Government Constituencies Development Fund</a>
+            for information about their respective programmes.
+        </p>
+
+        <p>
+            However, do not assume that a refugee, non-citizen or international
+            applicant qualifies simply because a scheme exists in the country
+            where they live. Rules differ between programmes, and a funding
+            scheme for Kenyan citizens may not be open to refugees. Ask the
+            administering body about your exact legal and educational status
+            before relying on the funding.
+        </p>
+
+        <h3>Charities, foundations and community organisations</h3>
+
+        <p>
+            Foundations, community organisations, religious charities,
+            professional associations and refugee-support organisations
+            sometimes offer education grants or referrals. Their support
+            may be restricted by nationality, residence, field of study,
+            age, displacement status or financial need.
+        </p>
+
+        <p>
+            Search for organisations that explicitly support students in
+            your category. Read the eligibility criteria and funding
+            conditions before applying. Small awards may help with books,
+            transport or an initial fee, but they may not be sufficient
+            to finance a full year of study.
+        </p>
+
+        <h3>Employer sponsorship</h3>
+
+        <p>
+            Some employers sponsor training related to their work or
+            contribute to employees' education. This is most realistic
+            when you already have a relationship with an employer or
+            are applying to a structured training programme. Ask about
+            obligations such as a minimum period of employment, repayment
+            if you leave early, or restrictions on the course you can take.
+        </p>
+
+        <p>
+            An employer's verbal encouragement is not confirmed funding.
+            Obtain a written agreement specifying the amount, payment
+            schedule and conditions.
+        </p>
+    </section>
+
+
+    <!-- 5. WORK -->
+
+    <section class="article-section" id="work-income">
+        <h2>5. Can Work Help Pay the Bills?</h2>
+
+        <p>
+            Paid work can help some students cover living costs, gain
+            experience or reduce the amount they need to borrow. But it
+            should not automatically be treated as a solution to a large
+            funding gap.
+        </p>
+
+        <h3>Check work permission before counting the income</h3>
+
+        <p>
+            The right to work depends on the country, immigration status,
+            course and type of employment. Some student visas restrict
+            working hours during term time, prohibit certain kinds of
+            self-employment or limit work to approved placements.
+            Rules can also differ for refugees, asylum-seekers and other
+            residents whose status is not a student visa.
+        </p>
+
+        <p>
+            For example, Germany's official study-visa guidance sets
+            conditions for employment by international students. In the
+            United Kingdom, student visa work permissions depend on the
+            course and the conditions attached to the visa.
+            Consult the current official rules for your destination:
+        </p>
+
+        <ul>
+            <li>
+                <a href="https://www.make-it-in-germany.com/en/visa-recognition/visa-types/studying"
+                   target="_blank" rel="noopener noreferrer">Germany: study visa and employment conditions</a>
+            </li>
+            <li>
+                <a href="https://www.gov.uk/student-visa"
+                   target="_blank" rel="noopener noreferrer">United Kingdom: Student visa guidance</a>
+            </li>
+        </ul>
+
+        <p>
+            These are examples, not universal rules. Always check the
+            conditions that apply to your own status.
+        </p>
+
+        <h3>Understand the limits of student employment</h3>
+
+        <ul>
+            <li>
+                You may not find a job immediately after arriving.
+            </li>
+            <li>
+                Available hours and wages may not be enough to pay tuition
+                or satisfy financial requirements before arrival.
+            </li>
+            <li>
+                Jobs may be seasonal, competitive or unavailable to
+                particular categories of students.
+            </li>
+            <li>
+                Working too many hours can affect attendance, assignments,
+                health and academic progress.
+            </li>
+            <li>
+                A job can end, hours can be reduced and unexpected costs
+                can absorb part of the income.
+            </li>
+        </ul>
+
+        <p>
+            Calculate possible earnings only after checking legal permission,
+            realistic hours, likely take-home pay and the cost of transport
+            and other work-related expenses. Do not rely on a job you have
+            not secured to satisfy a payment deadline that arrives before
+            you can begin working.
+        </p>
+
+        <h3>Campus jobs that reduce expenses</h3>
+
+        <p>
+            Some universities offer residence-life, library, dining,
+            research or student-support positions. Depending on the
+            institution, a role may provide wages, accommodation, meals
+            or a combination of benefits.
+        </p>
+
+        <p>
+            For example, Boston University's published residence-assistant
+            information describes a specific combination of housing,
+            meal benefits and a stipend for its designated roles. This
+            is an institutional arrangement, not a standard benefit
+            available at every university.
+            <a href="https://www.bu.edu/reslife/join-our-team/position-description/"
+               target="_blank" rel="noopener noreferrer">Boston University residence-life role details</a>.
+        </p>
+
+        <p>
+            Treat these positions as opportunities to investigate after
+            checking eligibility, recruitment timing and the exact benefit.
+            They are not guaranteed simply because you receive admission.
+        </p>
+    </section>
+
+
+    <!-- 6. LOWER COST PATHWAYS -->
+
+    <section class="article-section" id="lower-cost">
+        <h2>6. Consider Lower-Cost Pathways</h2>
+
+        <p>
+            If the funding gap remains large, it may be more effective to
+            change the cost of the study plan than to keep searching for
+            small amounts of money to cover an unaffordable programme.
+        </p>
+
+        <h3>Compare total costs, not tuition alone</h3>
+
+        <p>
+            A lower-tuition institution may be in a city with high rents,
+            expensive transport or substantial insurance requirements.
+            A programme with higher tuition may provide housing, meals
+            or financial aid that makes the overall cost lower.
+        </p>
+
+        <p>
+            Compare the full annual cost for each option, including
+            compulsory fees, living costs and initial expenses. Also
+            consider whether the programme is recognised, whether it
+            meets your career goals, and whether you can realistically
+            meet its admission and language requirements.
+        </p>
+
+        <p>
+            The European Education Area explains that tuition varies by
+            country, institution, programme and the applicant's status.
+            Its guidance recommends checking tuition, living costs and
+            available financial support together.
+            <a href="https://education.ec.europa.eu/study-in-europe/planning-your-studies/managing-your-budget"
+               target="_blank" rel="noopener noreferrer">European Education Area: managing your budget</a>.
+        </p>
+
+        <h3>Tuition-free or subsidised public universities</h3>
+
+        <p>
+            Some public university systems have relatively low tuition
+            fees, and some programmes charge no general tuition. This
+            does not mean that all programmes are free or that every
+            international student pays the same amount. Fees can depend
+            on citizenship, degree level, subject, language and institution.
+        </p>
+
+        <p>
+            Check whether the course is taught in a language you can study
+            in, whether you meet the entry requirements, and how you will
+            meet living-cost and visa requirements. A tuition-free offer
+            is not necessarily financially accessible if you cannot fund
+            housing or the initial journey.
+        </p>
+
+        <h3>Online and distance-learning programmes</h3>
+
+        <p>
+            Distance learning can reduce relocation and accommodation
+            costs, but compare the complete fee structure, connectivity
+            requirements, assessment fees, equipment needs and recognition
+            of the qualification. Make sure that the programme is suitable
+            for the jobs or further study you intend to pursue.
+        </p>
+
+        <p>
+            The University of the People describes itself as a
+            tuition-free institution, but students may still pay application
+            and course assessment fees. Its 2026/27 undergraduate catalogue
+            lists a $60 application fee and a $180 assessment fee per course
+            under the standard published fee schedule. The estimated total
+            for a Computer Science bachelor's degree completed entirely
+            there is $7,260 under that schedule, before any additional
+            applicable costs or changes.
+            <a href="https://catalog.uopeople.edu/ug_term1_item/processing-fees-scholarships-and-financial-assistance/total-estimated-fees"
+               target="_blank" rel="noopener noreferrer">University of the People: 2026/27 estimated undergraduate fees</a>.
+        </p>
+
+        <p>
+            These are published standard fees, not a guarantee that every
+            student will pay the same amount. Check the current catalogue
+            and ask the institution about financial assistance before
+            assuming you can afford the programme.
+        </p>
+
+        <h3>Technical training and paid apprenticeships</h3>
+
+        <p>
+            In some countries, apprenticeships and work-based vocational
+            programmes combine structured training with paid employment.
+            They can offer an alternative to a conventional degree, but
+            their availability, pay, entry requirements and qualification
+            recognition differ significantly.
+        </p>
+
+        <p>
+            Check whether a programme is genuinely paid, whether the
+            training provider is recognised, what qualification you
+            receive, and whether you have permission to participate.
+            Do not assume that an apprenticeship is available to all
+            international applicants or that its salary will cover every
+            living cost.
+        </p>
+    </section>
+
+
+    <!-- 7. COST REDUCTION -->
+
+    <section class="article-section" id="reduce-costs">
+        <h2>7. Reduce Costs Without Risking Your Studies</h2>
+
+        <p>
+            Reducing expenses can help close a modest gap. It is unlikely
+            to solve a major shortfall if tuition and living costs are
+            far beyond your available resources. Focus on costs you can
+            change without compromising safety, health or academic progress.
+        </p>
+
+        <h3>Accommodation and food</h3>
+
+        <ul>
+            <li>
+                Compare the full cost of university housing with safe,
+                practical alternatives, including deposits, utilities
+                and transport.
+            </li>
+            <li>
+                Consider shared accommodation where it is lawful, safe
+                and suitable for your circumstances.
+            </li>
+            <li>
+                Compare meal plans with the realistic cost of buying and
+                preparing food. Do not assume self-catering is cheaper
+                everywhere.
+            </li>
+            <li>
+                Ask whether student services provide food assistance,
+                emergency support or referrals to community services.
+                Check eligibility and application dates.
+            </li>
+        </ul>
+
+        <h3>Textbooks, software and equipment</h3>
+
+        <ul>
+            <li>
+                <strong>Open textbooks:</strong> Search for legitimate
+                open educational resources, including
+                <a href="https://openstax.org/"
+                   target="_blank" rel="noopener noreferrer">OpenStax</a>.
+                Its catalogue focuses on particular subjects and courses,
+                so it may not replace every required textbook.
+            </li>
+            <li>
+                <strong>Library access:</strong> Check whether required
+                readings are available through the university library
+                or an authorised digital reserve.
+            </li>
+            <li>
+                <strong>Student software offers:</strong> The
+                <a href="https://education.github.com/pack"
+                   target="_blank" rel="noopener noreferrer">GitHub Student Developer Pack</a>
+                provides eligible students with access to selected
+                developer tools and offers. Eligibility and individual
+                offers vary.
+            </li>
+            <li>
+                <strong>Equipment:</strong> Ask whether the university
+                lends laptops or provides computer labs before buying
+                a device you may not need immediately.
+            </li>
+        </ul>
+
+        <h3>Application costs</h3>
+
+        <p>
+            Before paying several application fees, build a shortlist
+            of institutions that fit your academic qualifications and
+            financial needs. Check official waiver policies, and ask
+            whether a waiver must be approved before you submit the
+            application.
+        </p>
+
+        <p>
+            A free application is not automatically an affordable
+            university option. Consider the likely total cost and
+            funding available before investing time in a programme
+            that you cannot realistically attend.
+        </p>
+    </section>
+
+
+    <!-- 8. LOANS AND FUNDRAISING -->
+
+    <section class="article-section" id="borrowing">
+        <h2>8. Loans, Fundraising and Financial Risks</h2>
+
+        <h3>Borrowing is not the same as receiving a grant</h3>
+
+        <p>
+            A grant generally does not require repayment if the recipient
+            follows its conditions. A loan does. Before accepting a loan,
+            identify the interest rate, fees, repayment start date, repayment
+            currency, consequences of missed payments and whether repayment
+            is required if you do not complete the degree.
+        </p>
+
+        <p>
+            If repayment depends on income, check the precise contract.
+            Do not assume that a loan is income-contingent, that repayments
+            will be affordable, or that a lender will adjust payments when
+            your circumstances change.
+        </p>
+
+        <p>
+            Borrowing can be particularly risky when a student has no
+            reliable way to repay and expects that a degree will guarantee
+            employment. No qualification guarantees a particular salary
+            or a job immediately after graduation.
+        </p>
+
+        <h3>Crowdfunding and community contributions</h3>
+
+        <p>
+            Fundraising may help with a clearly defined cost, especially
+            when a student can explain the funding gap, provide verifiable
+            documentation and reach a community willing to contribute.
+            However, donations are uncertain, may arrive late and can
+            be affected by platform charges, transfer restrictions or
+            the ability of supporters to give.
+        </p>
+
+        <p>
+            Do not base a required tuition deposit or visa financial
+            requirement on donations that have not arrived. Protect
+            personal documents, avoid publishing sensitive information
+            unnecessarily and check how the fundraising platform handles
+            fees, withdrawals and refunds.
+        </p>
+
+        <h3>Use a sensible order of preference</h3>
+
+        <ol>
+            <li>Confirmed non-repayable grants and institutional aid.</li>
+            <li>Affordable programmes and legitimate cost reductions.</li>
+            <li>Verified employer sponsorship or other agreed support.</li>
+            <li>Lawful employment, where the income and timing are realistic.</li>
+            <li>
+                Loans or fundraising only after examining their risks
+                and uncertainty.
+            </li>
+        </ol>
+
+        <p>
+            This is a planning framework, not a universal ranking. The
+            best choice depends on the amount required, deadlines,
+            eligibility and the conditions attached to each source.
+        </p>
+    </section>
+
+
+    <!-- 9. WHEN GAP TOO LARGE -->
+
+    <section class="article-section" id="when-gap-too-large">
+        <h2>9. When the Gap Is Too Large</h2>
+
+        <p>
+            Sometimes the amount missing is too large to cover through
+            small bursaries, part-time work or savings on food and books.
+            Recognising this early can prevent a student from accepting
+            an offer that they cannot sustain.
+        </p>
+
+        <h3>Consider these options before committing</h3>
+
+        <ul>
+            <li>
+                <strong>Request an aid review:</strong> Explain the
+                shortfall to the university and ask whether additional
+                support is possible. Do not assume a review will result
+                in more funding.
+            </li>
+            <li>
+                <strong>Request a deferral:</strong> Ask whether admission
+                can be postponed and whether the offer, scholarship or
+                tuition rate would remain valid.
+            </li>
+            <li>
+                <strong>Compare other institutions:</strong> Search for
+                a lower total cost, more comprehensive aid or a programme
+                with a realistic funding package.
+            </li>
+            <li>
+                <strong>Consider a local or distance-learning option:</strong>
+                This may reduce travel and relocation expenses, although
+                tuition, internet access and equipment still need to
+                be affordable.
+            </li>
+            <li>
+                <strong>Consider another entry cycle:</strong> Use the
+                additional time to improve the funding plan, seek eligible
+                support and apply to programmes with stronger financial
+                packages.
+            </li>
+            <li>
+                <strong>Explore recognised technical training:</strong>
+                A vocational qualification or paid training route may
+                be more feasible, depending on the student's goals and
+                local opportunities.
+            </li>
+        </ul>
+
+        <div class="article-callout">
+            <strong>A crucial distinction:</strong> An admission offer
+            proves that an institution is willing to admit you. It does
+            not prove that you can afford to enrol or finish the degree.
+            Before committing, check whether you can cover initial costs,
+            meet any financial requirements, and sustain the plan in
+            later semesters.
+        </div>
+    </section>
+
+
+    <!-- 10. WORKED EXAMPLES -->
+
+    <section class="article-section" id="worked-examples">
+        <h2>10. Two Funding Examples</h2>
+
+        <p>
+            The figures below are hypothetical illustrations, not
+            estimates of typical university costs. They show how to
+            calculate a gap; actual costs and funding opportunities
+            differ by institution and country.
+        </p>
+
+        <div class="funding-example">
+            <h3>Example A: No scholarship</h3>
+
+            <p>
+                <strong>Illustrative annual cost:</strong> $10,000
+                (tuition and fees: $4,500; accommodation and food:
+                $4,000; transport, books and other costs: $1,500).
+            </p>
+
+            <p>
+                <strong>Confirmed available resources:</strong> $1,500
+                (savings: $1,000; confirmed family contribution: $500).
+            </p>
+
+            <p>
+                <strong>Confirmed funding gap:</strong> $10,000 − $1,500
+                = <strong>$8,500</strong>.
+            </p>
+
+            <p>
+                <strong>What this means:</strong> The student should not
+                assume that casual work or a few small bursaries will
+                cover the entire $8,500. They should first ask the
+                institution about aid and payment requirements, then
+                compare lower-cost programmes and funding options.
+                If no realistic combination covers the shortfall by
+                the deadline, deferral or another programme may be
+                the safer choice.
+            </p>
+        </div>
+
+        <div class="funding-example">
+            <h3>Example B: A partial scholarship</h3>
+
+            <p>
+                <strong>Illustrative annual cost:</strong> $14,000
+                (tuition and fees: $7,000; accommodation and food:
+                $5,500; travel, books and other costs: $1,500).
+            </p>
+
+            <p>
+                <strong>Confirmed scholarship:</strong> $7,000,
+                covering the stated tuition amount.
+            </p>
+
+            <p>
+                <strong>Confirmed funding gap:</strong> $14,000 − $7,000
+                = <strong>$7,000</strong>.
+            </p>
+
+            <p>
+                <strong>What this means:</strong> The student still
+                needs to finance living expenses and other costs.
+                They should ask whether the university offers housing
+                assistance, additional grants or an aid review. They
+                can also investigate legitimate work opportunities
+                and external bursaries, but should not count them as
+                secured funding until an offer is confirmed.
+            </p>
+        </div>
+
+        <h3>Test what happens if expected funding fails</h3>
+
+        <p>
+            Suppose the second student later receives a written award
+            for $1,500. The remaining gap would fall from $7,000 to
+            $5,500, assuming the award is available for the same year
+            and can be used for the relevant costs.
+        </p>
+
+        <p>
+            If the student is also hoping to earn money from a campus
+            job, they should make a separate estimate of possible
+            earnings. That estimate is not confirmed funding until
+            the job is secured and the likely income and start date
+            are known. The student must decide whether they can proceed
+            safely if the job does not materialise.
+        </p>
+
+        <p>
+            The purpose of a funding plan is not to make every number
+            balance on paper. It is to establish whether the student
+            can meet the actual deadlines and continue studying if
+            one of the hoped-for sources of money falls through.
+        </p>
+    </section>
+
+
+    <!-- 11. ACTION PLAN -->
+
+    <section class="article-section" id="action-plan">
+        <h2>11. Build Your Step-by-Step Action Plan</h2>
+
+        <ol>
+            <li>
+                <strong>Calculate the total cost:</strong> Use the
+                institution's published fees and a realistic budget
+                for accommodation, food, travel, insurance and other
+                compulsory expenses.
+            </li>
+            <li>
+                <strong>Separate confirmed and possible money:</strong>
+                Keep official awards and available funds separate from
+                pending applications, possible jobs and hoped-for
+                contributions.
+            </li>
+            <li>
+                <strong>Contact the university:</strong> Ask specific
+                questions about aid reviews, waivers, housing, payment
+                deadlines and deferral.
+            </li>
+            <li>
+                <strong>Check eligibility before applying:</strong>
+                Read the official rules for each external grant,
+                bursary or government scheme.
+            </li>
+            <li>
+                <strong>Check work and immigration rules:</strong>
+                Establish whether you can legally do the proposed work
+                and when the income could realistically begin.
+            </li>
+            <li>
+                <strong>Compare alternatives:</strong> Calculate the
+                full cost of other institutions, locations, online
+                programmes or recognised training routes.
+            </li>
+            <li>
+                <strong>Write down every deadline:</strong> Include
+                application dates, deposits, visa requirements,
+                accommodation payments and tuition deadlines.
+            </li>
+            <li>
+                <strong>Stress-test the plan:</strong> Ask what happens
+                if a bursary is rejected, a job is delayed or an
+                unexpected expense occurs.
+            </li>
+            <li>
+                <strong>Get agreements in writing:</strong> Keep official
+                award letters, employment agreements and approved
+                payment arrangements.
+            </li>
+            <li>
+                <strong>Make the decision before committing:</strong>
+                Proceed only when the available funding and a credible
+                plan for remaining costs meet the actual requirements.
+            </li>
+        </ol>
+    </section>
+
+
+    <!-- 12. SCAMS -->
+
+    <section class="article-section" id="scams">
+        <h2>12. Recognise Funding Scams</h2>
+
+        <p>
+            Financial pressure can make students vulnerable to people
+            promising guaranteed scholarships, jobs, loans or visas.
+            Treat an offer with caution if someone:
+        </p>
+
+        <ul>
+            <li>
+                Guarantees admission, a visa or a scholarship in exchange
+                for payment.
+            </li>
+            <li>
+                Demands an unexpected personal payment to release a
+                grant or loan.
+            </li>
+            <li>
+                Pressures you to pay immediately or refuses to provide
+                written terms.
+            </li>
+            <li>
+                Uses an unofficial email address while claiming to
+                represent a university or government agency.
+            </li>
+            <li>
+                Requests account passwords, verification codes or
+                unnecessary sensitive documents.
+            </li>
+            <li>
+                Asks you to transfer money through an untraceable
+                method or to a personal account without a verifiable
+                explanation.
+            </li>
+        </ul>
+
+        <p>
+            Verify opportunities through the institution's official
+            website and independently obtained contact details.
+            Legitimate application or administrative fees do exist,
+            so an upfront payment alone does not prove fraud.
+            The important questions are whether the fee is official,
+            documented, payable through an authorised channel and
+            required under the published process.
+        </p>
+
+        <p>
+            Never pay an unverified person simply because they promise
+            to secure an award. Keep copies of applications, official
+            correspondence and payment receipts.
+        </p>
+    </section>
+
+
+    <!-- CONCLUSION -->
+
+    <section class="article-section" id="conclusion">
+        <h2>Before You Commit to a Study Plan</h2>
+
+        <p>
+            Financial access remains a major barrier to higher education,
+            even when students have the academic qualifications to succeed.
+            For refugees in particular, displacement and limited access
+            to resources can make the gap between admission and enrolment
+            especially difficult to overcome.
+        </p>
+
+        <p>
+            UNHCR reports that the global tertiary enrolment rate for
+            refugees reached 11% in the 2024–2025 academic year, up from
+            9% in 2024. Its stated goal is to reach 15% by 2030. The
+            figures show progress, but they also indicate that access
+            to higher education remains limited for most refugees.
+            <a href="https://www.unhcr.org/education/"
+               target="_blank" rel="noopener noreferrer">UNHCR education data and resources</a>.
+        </p>
+
+        <p>
+            There is no single funding method that works for every student.
+            The useful starting point is to understand the full cost,
+            identify the confirmed resources, investigate realistic
+            additional support and compare alternatives before making
+            a commitment.
+        </p>
+
+        <p>
+            Sometimes that process leads to an affordable plan. Sometimes
+            it shows that an offer needs to be deferred or replaced with
+            a more realistic option. Either outcome is better than
+            committing to a degree on the assumption that uncertain
+            money will eventually appear.
+        </p>
+    </section>
+
+
+    <!-- RESOURCE DIRECTORY -->
+
+    <section class="article-section" id="resources">
+        <h2>Resources and Further Reading</h2>
+
+        <p>
+            These resources provide official information or research
+            relevant to the topics discussed above. They do not all
+            provide funding directly, and eligibility must be checked
+            separately for each programme.
+        </p>
+
+        <ul class="resource-list">
+            <li>
+                <strong>UNHCR — Education</strong>
+                <span class="resource-description">
+                    Refugee education data, tertiary education initiatives
+                    and information about access pathways.
+                </span>
+                <a href="https://www.unhcr.org/education/"
+                   target="_blank" rel="noopener noreferrer">Visit UNHCR Education</a>
+            </li>
+
+            <li>
+                <strong>Hope Center for Student Basic Needs</strong>
+                <span class="resource-description">
+                    Research on food and housing insecurity among students
+                    in participating US institutions.
+                </span>
+                <a href="https://hope.temple.edu/research/hope-center-basic-needs-survey/2023-2024-student-basic-needs-survey-report"
+                   target="_blank" rel="noopener noreferrer">Read the 2023–2024 survey report</a>
+            </li>
+
+            <li>
+                <strong>European Education Area</strong>
+                <span class="resource-description">
+                    Information on comparing study costs, tuition fees
+                    and financial support in European countries.
+                </span>
+                <a href="https://education.ec.europa.eu/study-in-europe/planning-your-studies/managing-your-budget"
+                   target="_blank" rel="noopener noreferrer">Read the budget guide</a>
+            </li>
+
+            <li>
+                <strong>Germany — Official Study-Visa Information</strong>
+                <span class="resource-description">
+                    Financial proof and other requirements for studying
+                    in Germany.
+                </span>
+                <a href="https://www.make-it-in-germany.com/en/visa-recognition/visa-types/studying"
+                   target="_blank" rel="noopener noreferrer">Read the German government guidance</a>
+            </li>
+
+            <li>
+                <strong>University of the People — Undergraduate Fees</strong>
+                <span class="resource-description">
+                    Published application fees, course assessment fees
+                    and estimated programme costs for the 2026/27 catalogue.
+                </span>
+                <a href="https://catalog.uopeople.edu/ug_term1_item/processing-fees-scholarships-and-financial-assistance/total-estimated-fees"
+                   target="_blank" rel="noopener noreferrer">View the official fee table</a>
+            </li>
+
+            <li>
+                <strong>Kenya — Higher Education Financing</strong>
+                <span class="resource-description">
+                    Official information on higher education financing
+                    programmes and their application processes. Eligibility
+                    differs by scheme.
+                </span>
+                <a href="https://www.hef.co.ke/"
+                   target="_blank" rel="noopener noreferrer">Visit the HEF portal</a>
+            </li>
+
+            <li>
+                <strong>Kenya — Higher Education Loans Board</strong>
+                <span class="resource-description">
+                    Official information on education financing and
+                    applicable loan programmes.
+                </span>
+                <a href="https://www.helb.co.ke/"
+                   target="_blank" rel="noopener noreferrer">Visit HELB</a>
+            </li>
+
+            <li>
+                <strong>Kenya — NG-CDF</strong>
+                <span class="resource-description">
+                    Official information about the National Government
+                    Constituencies Development Fund and its programmes.
+                </span>
+                <a href="https://ngcdf.go.ke/"
+                   target="_blank" rel="noopener noreferrer">Visit NG-CDF</a>
+            </li>
+
+            <li>
+                <strong>OpenStax</strong>
+                <span class="resource-description">
+                    Free, openly licensed textbooks for selected subjects.
+                </span>
+                <a href="https://openstax.org/"
+                   target="_blank" rel="noopener noreferrer">Browse OpenStax textbooks</a>
+            </li>
+
+            <li>
+                <strong>GitHub Student Developer Pack</strong>
+                <span class="resource-description">
+                    Selected developer tools and learning offers for
+                    eligible students.
+                </span>
+                <a href="https://education.github.com/pack"
+                   target="_blank" rel="noopener noreferrer">Check student eligibility</a>
+            </li>
+
+            <li>
+                <strong>Georgia State University — Panther Retention Grant</strong>
+                <span class="resource-description">
+                    An example of an institution-specific programme
+                    supporting eligible students with modest outstanding
+                    balances near degree completion.
+                </span>
+                <a href="https://success.students.gsu.edu/panther-retention-grants/"
+                   target="_blank" rel="noopener noreferrer">Read the programme details</a>
+            </li>
+
+            <li>
+                <strong>United Kingdom — Student Visa</strong>
+                <span class="resource-description">
+                    Official guidance on student visa conditions,
+                    financial requirements and permission to work.
+                </span>
+                <a href="https://www.gov.uk/student-visa"
+                   target="_blank" rel="noopener noreferrer">Read UK government guidance</a>
+            </li>
+        </ul>
+    </section>
+
+
+    <!-- SOURCES -->
+
+    <section class="article-sources" id="sources">
+        <h2>Sources and Evidence Notes</h2>
+
+        <p>
+            The numerical claims and country-specific examples in this
+            article are linked to their source pages near the relevant
+            discussion. The following notes clarify how the evidence
+            should be interpreted.
+        </p>
+
+        <ul class="source-list">
+            <li>
+                <strong>Student basic-needs insecurity:</strong>
+                The Hope Center's 2023–2024 survey covered 74,350
+                participants at 91 institutions in 16 US states.
+                Its findings describe the surveyed participants and
+                should not be interpreted as globally representative.
+                <a href="https://hope.temple.edu/research/hope-center-basic-needs-survey/2023-2024-student-basic-needs-survey-report"
+                   target="_blank" rel="noopener noreferrer">Original report</a>.
+            </li>
+
+            <li>
+                <strong>Refugee tertiary enrolment:</strong>
+                UNHCR reports an 11% enrolment rate for the 2024–2025
+                academic year, compared with 9% in 2024. The rate is
+                a global indicator of refugee access, not a measure
+                of the proportion of applicants who receive scholarships.
+                <a href="https://www.unhcr.org/education/"
+                   target="_blank" rel="noopener noreferrer">UNHCR education data</a>.
+            </li>
+
+            <li>
+                <strong>Germany's financial proof:</strong>
+                The €11,904 figure is the stated 2026 minimum for the
+                relevant blocked-account route. Alternative accepted
+                forms of financial proof and individual circumstances
+                should be checked through official guidance.
+                <a href="https://www.make-it-in-germany.com/en/visa-recognition/visa-types/studying"
+                   target="_blank" rel="noopener noreferrer">Official guidance</a>.
+            </li>
+
+            <li>
+                <strong>University of the People fees:</strong>
+                The amounts in this article refer to the published
+                2026/27 undergraduate catalogue and standard fee
+                schedule. Fee schedules, assistance and a student's
+                actual charges may change.
+                <a href="https://catalog.uopeople.edu/ug_term1_item/processing-fees-scholarships-and-financial-assistance/total-estimated-fees"
+                   target="_blank" rel="noopener noreferrer">Official catalogue</a>.
+            </li>
+
+            <li>
+                <strong>Institutional funding examples:</strong>
+                The Georgia State and Boston University examples
+                demonstrate particular institutional arrangements.
+                They are not evidence that all universities provide
+                equivalent grants, jobs or benefits.
+                <a href="https://success.students.gsu.edu/panther-retention-grants/"
+                   target="_blank" rel="noopener noreferrer">Georgia State</a>;
+                <a href="https://www.bu.edu/reslife/join-our-team/position-description/"
+                   target="_blank" rel="noopener noreferrer">Boston University</a>.
+            </li>
+        </ul>
+
+        <p class="editorial-note">
+            <strong>Editorial note:</strong> Fees, immigration rules,
+            scholarship conditions and eligibility criteria can change.
+            This article provides general educational information, not
+            a guarantee of funding or legal advice. Confirm requirements
+            with the responsible institution or government authority
+            before making financial commitments. The hypothetical
+            dollar amounts in the worked examples are illustrations,
+            not estimates of typical university costs.
+        </p>
+    </section>
+
+</article>
+</main>
+
+    <footer class="site-footer">
+    <div class="footer-container">
+        <!-- Footer Navigation Links -->
+        <div class="footer-links">
+            <a href="privacypolicy.html">Privacy Policy</a>
+            <span class="divider">|</span>
+            <a href="terms.html">Terms of Service</a>
+            <span class="divider">|</span>
+            <a href="disclaimer.html">Disclaimer</a>
+        </div>
+
+        <!-- Contact Email -->
+        <p class="footer-contact">
+            Contact: <a href="mailto:porticokakuma@gmail.com">porticokakuma@gmail.com</a>
+        </p>
+
+        <!-- Copyright Line -->
+        <p class="footer-copyright">
+            &copy; 2026 Portico Kakuma. All rights reserved.
+        </p>
+    </div>
+      <div class="footer-nav-links">
+    <a href="home.html">Home</a>
+    <a href="scholarship.html">Scholarships</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+      </div>
+</footer>
+
+<style>
+.site-footer {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 30px 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-top: 1px solid #e5e5e5; /* Subtle border to separate from main page content */
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links .divider {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+.footer-contact {
+    margin: 8px 0;
+    color: #666666;
+}
+
+.footer-contact a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    margin: 8px 0 0 0;
+    color: #888888;
+    font-size: 13px;
+}
+  .footer-nav-links {
+    display: flex;
+    gap: 15px;
+  }
+</style>
+
+</body>
+</html>
