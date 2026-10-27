@@ -7,7 +7,7 @@ content="width=device-width,
 initial-scale=1.0">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-     <title>Scholarship info page</title>
+     <title>Questionnare page</title>
      
      <!--link CSS file-->
      <link rel="stylesheet"
@@ -42,16 +42,16 @@ href="style.css">
 <div class="question" id="q1">
   <h2>What is your name?</h2>
   <label for="name"></label>
-  <input type="text" id="name" placeholder="Enter your full name"><br>
+  <input type="text" id="name" placeholder="You can enter one name"><br>
   <button class="next-btn" type="button" disabled>Next</button>
 </div>
 <!-- Question 2-->
 <div class="question" id="q2">
   <h2>Age Group</h2>
-  <label><input type="radio" name="age" value="16-23">16–23</label><br>
-  <label><input type="radio" name="age" value="24-26">24–26</label><br>
-  <label><input type="radio" name="age" value="27-29">27-29</label><br>
-  <label><input type="radio" name="age" value="30-32">30-32</label><br>
+  <label><input type="radio" name="age" value="16-23">18–23</label><br>
+  <label><input type="radio" name="age" value="24-26">24–27</label><br>
+  <label><input type="radio" name="age" value="27-29">28-31</label><br>
+  <label><input type="radio" name="age" value="30-32">32 and above</label><br>
     <button class="prev-btn" type="button">Back</button>
   <button class="next-btn" type="button" disabled>Next</button>
 </div>
@@ -76,20 +76,31 @@ href="style.css">
  <!-- Question 5--> 
 <div class="question" id="q5">
   <h2>What are you interest</h2>
-  <label><input type="checkbox"name="interest" value="Scholarships">Scholarships</label><br>
   <label><input type="checkbox"name="interest" value="Studying Abroad">Studying Abroad</label><br>
-  <label><input type="checkbox"name="interest" value="Learning Digital skills">Learning Digital skills</label><br>
-  <label><input type="checkbox"name="interest" value="Career Opportunities">Career Opportunities</label><br>
+  <label><input type="checkbox"name="interest" value="University Application Guidance">University Application Guidance</label><br>
+  <label><input type="checkbox"name="interest" value="Scholarships">Scholarships</label><br>
+  <label><input type="checkbox"name="interest" value="Mentorship and Personal Development">Mentorship and Personal Development</label><br>
     <button class="prev-btn" type="button">Back</button>
     <button class="next-btn" type="button" disabled>Next</button>
 </div>
+    
 <!--Question 6-->
 <div class="question" id="q6">
-  <h2>What do you aspire to major in?</h2>
-  <input type="text" name="animal"><br>
-    <button class="prev-btn" type="button">Back</button>
-    <button class="next-btn" type="button" disabled>Next</button>
-  </div>
+  <h2>What is your biggest challenge in pursuing your education?</h2>
+  <label><input type="checkbox"name="challenge" value="Finding scholarships">Finding scholarships</label><br>
+  <label><input type="checkbox" name="challenge" value="Accessing the internet or digital resources">Accessing the internet or digital resources</label><br>
+  <label><input type="checkbox"name="challenge" value="Getting application guidance">Getting application guidance</label><br>
+  <label><input type="checkbox"name="challenge" value="Paying school or university fees">Paying school or university fees</label><br>
+  <label><input type="checkbox"name="other" value="Other" id="otherOption1" data-target="otherText1">Other</label>
+  <input 
+  type="text" 
+  Id="otherText1" 
+  placeholder="Please specify..." 
+  style="display: none; margin-top: 10px;">
+   <button class="prev-btn" type="button">Back</button>
+   <button class="next-btn" type="button" disabled>Next</button>
+</div>
+    
 <!--Question 7-->
 <div class="question" id="q7">
   <h2>What is your personality?</h2>
@@ -108,6 +119,7 @@ href="style.css">
     <button class="prev-btn" type="button">Back</button>
    <button class="next-btn" type="button" disabled>Next</button>
   </div>
+    
   <!--Question 8-->
   <div class="question" id="q8">
     <h2>What activities are you involved in?</h2>
@@ -115,25 +127,27 @@ href="style.css">
     <label><input type="checkbox"name="activity" value="Internship">Internship</label><br>
     <label><input type="checkbox"name="activity" value="Learning new skills">Learning new skills</label><br>
     <label><input type="checkbox"name="activity" value="Sports">Sports</label><br>
-    <label><input type="checkbox"name="other" value="Other" id="otherOption1" data-target="otherText1">Other</label><br>
+    <label><input type="checkbox"name="other" value="Other" id="otherOption2" data-target="otherText2">Other</label><br>
     <input 
   type="text" 
-  Id="otherText1" 
+  Id="otherText2" 
   placeholder="Please specify..." 
   style="display: none; margin-top: 10px;">
     <button class="prev-btn" type="button">Back</button>
     <button class="next-btn" type="button" disabled>Next</button>
   </div>
+    
+    
   <!--Question 9-->
   <div class="question" id="q9">
     <h2>Where did you hear about us</h2>
     <label><input type="checkbox" name="friends and relatives" value="F&R">From friends and relatives</label><br>
     <label><input type="checkbox" name="online" value="online">Online/Internet</label><br>
     <label><input type="checkbox" name="School event" value="School event">School event</label><br>
-    <label><input type="checkbox" name"other" value="other" id="otherOption2" data-target="otherText2">Other</label><br>
+    <label><input type="checkbox" name="other" value="other" id="otherOption3" data-target="otherText3">Other</label><br>
       <input 
   type="text" 
-  Id="otherText2" 
+  Id="otherText3" 
   placeholder="Please specify..." 
   style="display: none; margin-top: 10px;">
      <button class="prev-btn" type="button">Back</button>
@@ -172,7 +186,7 @@ href="style.css">
     </button>
 
     <p class="guest-note">
-        Explore Portico Kakuma without creating an account.
+        Allows you to access Portico Kakuma for 24 hours without an account.
     </p>
 </div>
 
