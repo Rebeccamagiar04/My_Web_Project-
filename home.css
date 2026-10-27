@@ -499,6 +499,38 @@ line-height: 1.6;
   outline-offset: 2px;
 }
 
+/* MOBILE DRAWER LOGOUT BUTTON */
+.drawer-logout {
+    padding: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 12px;
+}
+
+.drawer-logout[hidden] {
+    display: none !important;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #f2a6b8;
+    border-radius: 8px;
+    background: transparent;
+    color: #f2a6b8;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #f2a6b8;
+    color: #171923;
+}
+
 
 /* =========================================================
    DRAWER OVERLAY
@@ -598,6 +630,94 @@ line-height: 1.6;
     transition: none;
   }
 }
+
+
+/* ================= TERMS OF SERVICE ALERT ================= */
+
+.terms-notice {
+    display: none; /* JavaScript will show the alert */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px);
+    max-width: 360px;
+    padding: 20px;
+    background: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    z-index: 2001;
+    box-sizing: border-box;
+}
+
+.terms-notice h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.terms-notice p {
+    margin: 0 0 14px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.terms-notice a {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.terms-checkbox input {
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: #2563eb;
+}
+
+#termsContinueBtn {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#termsContinueBtn:disabled {
+    background: #d1d5db;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* Dark overlay behind the alert */
+.terms-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+}
+
+.terms-overlay.show {
+    display: block;
+}
+
+.terms-notice.show {
+    display: block;
+}
+
 
 
 /* ================= WELCOME VIDEO SECTION ================= */
@@ -1862,101 +1982,6 @@ section {
 
 
 
-
-/* =========================================================
-   14. FOOTER
-   ========================================================= */
-
-.site-footer {
-    display: grid;
-
-    grid-template-columns: 1.2fr 1fr 1.2fr;
-
-    gap: 40px;
-
-    padding: 55px 7% 25px;
-
-    background: #ffffff;
-
-    color: #58738a;
-}
-
-.site-footer .logo {
-    color: white;
-}
-
-.footer-brand p {
-    margin-top: 10px;
-
-    font-size: 13px;
-
-    color: #c7d8e7;
-}
-
-.footer-links {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    align-content: flex-start;
-
-    gap: 18px 25px;
-}
-
-.footer-links a {
-    font-size: 13px;
-
-    color: #d5e2ed;
-}
-
-.footer-links a:hover {
-    color: white;
-}
-
-.footer-contact {
-    font-size: 13px;
-
-    color: #cbdbe8;
-}
-
-.footer-contact p {
-    margin-bottom: 8px;
-
-    color: #cbdbe8;
-}
-
-.social-links {
-    display: flex;
-
-    gap: 15px;
-
-    margin-top: 15px;
-}
-
-.social-links a {
-    color: #d5e2ed;
-}
-
-.social-links a:hover {
-    color: white;
-}
-
-.copyright {
-    grid-column: 1 / -1;
-
-    padding-top: 22px;
-
-    margin-top: 15px;
-
-    border-top: 1px solid rgb(255, 255, 255, 0.2);
-
-    text-align: center;
-
-    font-size: 11px;
-
-    color: #afc3d3;
-}
-
 /* =========================================================
    16. MOBILE
    ========================================================= */
@@ -2150,20 +2175,7 @@ section {
     }
 
 
-
-    /* -----------------------------------------------------
-       Footer
-       ----------------------------------------------------- */
-
-    .site-footer {
-        grid-template-columns: 1fr;
-
-        padding: 45px 6% 25px;
-
-        gap: 30px;
-    }
-
-    .copyright {
-        grid-column: auto;
-    }
 }
+
+
+
