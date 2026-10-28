@@ -1,13 +1,34 @@
+
 /* =========================================================
    VIDEO TUTORIALS
    ========================================================= */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body#video-tutorials {
+    font-family: serif, Arial, Georgia, Helvetica, "Times New Roman", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #222;
+    background: #f8f9fb;
+}
+
+/* MAIN SECTION */
+
 .video-tutorials-section {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px 60px;
 }
-
 
 /* BACK BUTTON */
 
@@ -15,47 +36,50 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 30px;
-
-    color: var(--text-dark);
-    text-decoration: none;
-
-    font-size: 14px;
+    margin-bottom: 28px;
+    color: #172033;
+    font-size: 15px;
     font-weight: 600;
-
-    transition: 0.2s ease;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .back-button:hover {
-    color: #123b67;
+    color: #a87927;
     transform: translateX(-3px);
 }
-
 
 /* HEADING */
 
 .video-heading {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+}
+
+.video-heading .eyebrow {
+    margin-bottom: 5px;
+    color: #a87927;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
 }
 
 .video-heading h1 {
-    margin: 5px 0 12px;
-    color: var(--text-dark);
+    margin-bottom: 16px;
+    color: #172033;
     font-size: 32px;
+    line-height: 1.3;
 }
-
 
 /* DISCLAIMER */
 
 .video-disclaimer {
-    max-width: 780px;
+    max-width: 800px;
     padding: 14px 18px;
-
-    background: #f5f8fc;
-    border-left: 3px solid #123b67;
-
+    border-left: 3px solid #a87927;
+    border-radius: 0 6px 6px 0;
+    background: #fff;
     color: #555;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.7;
 }
 
@@ -63,97 +87,106 @@
 
 .videos-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
     gap: 22px;
-
-    margin-bottom: 32px;
 }
-
 
 /* VIDEO CARD */
 
 .video-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    min-width: 0;
     overflow: hidden;
-
-    transition: all 0.2s ease;
+    border: 1px solid #e2e5e9;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .video-card:hover {
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
+
+/* RESPONSIVE VIDEO PLAYER */
 
 .video-card iframe {
     display: block;
     width: 100%;
-    height: 220px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    background: #e9edf2;
 }
-
 
 /* VIDEO INFORMATION */
 
 .video-info {
-    padding: 15px;
+    padding: 16px;
 }
 
 .video-title {
     margin: 0 0 12px;
-
-    font-size: 14px;
+    color: #172033;
+    font-size: 18px;
     font-weight: 600;
-
-    color: var(--text-dark);
-    line-height: 1.5;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
 }
-
 
 /* SUMMARY BUTTON */
 
 .summary-button {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-
-    border: none;
+    gap: 8px;
+    padding: 5px 0;
+    border: 0;
     background: transparent;
-
-    padding: 0;
-
     color: #123b67;
-    font-size: 13px;
+    font-family: inherit;
+    font-size: 15px;
     font-weight: 600;
-
     cursor: pointer;
 }
 
+.summary-button:hover {
+    color: #a87927;
+}
+
 .summary-button i {
-    font-size: 10px;
+    font-size: 13px;
     transition: transform 0.2s ease;
 }
 
-
-/* SUMMARY */
+/* SUMMARY CONTENT */
 
 .summary {
     display: none;
-
     margin-top: 12px;
     padding-top: 12px;
-
-    border-top: 1px solid var(--border);
-
-    color: #555;
-    font-size: 13px;
-    line-height: 1.6;
+    border-top: 1px solid #e2e5e9;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
 }
 
 .summary p {
     margin: 0;
+    font-size: 15px;
 }
 
+.summary a {
+    color: #123b67;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.summary a:hover {
+    color: #a87927;
+}
 
 /* OPEN SUMMARY */
 
@@ -165,24 +198,28 @@
     transform: rotate(180deg);
 }
 
+/* TABLET */
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
+@media (max-width: 950px) {
     .videos-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
     }
-
 }
 
+/* MOBILE */
 
 @media (max-width: 600px) {
-
     .video-tutorials-section {
-        padding: 22px 15px 45px;
+        padding: 22px 15px 40px;
+    }
+
+    .back-button {
+        margin-bottom: 22px;
+    }
+
+    .video-heading {
+        margin-bottom: 24px;
     }
 
     .video-heading h1 {
@@ -194,8 +231,34 @@
         gap: 18px;
     }
 
-    .video-card iframe {
-        height: 220px;
+    .video-info {
+        padding: 15px;
     }
 
+    .video-title {
+        font-size: 17px;
+    }
+
+    .summary,
+    .summary p {
+        font-size: 15px;
+    }
 }
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+    .video-tutorials-section {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .video-heading h1 {
+        font-size: 25px;
+    }
+
+    .video-info {
+        padding: 12px;
+    }
+}
+
