@@ -1,6 +1,5 @@
 /* =========================================
    PORTICO KAKUMA — SIMPLE SUPPORT PAGE
-     No cards, no boxed layouts
    ========================================= */
 
 * {
@@ -248,14 +247,9 @@ p {
         transform 0.2s ease;
 }
 
-.community-join-options .whatsapp-messenger {
+.community-join-options a{
     background-color: #25D366;
     color: #102318;
-}
-
-.community-join-options .whatsapp-business {
-    background-color: #128C7E;
-    color: #FFFFFF;
 }
 
 .community-join-options .community-button:hover {
