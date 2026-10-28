@@ -23,7 +23,7 @@
       height: 100%;
       background: #16486f;
       background: linear-gradient(90deg, #16486f, #0ea5e9);
-      box-shadow: 0 0 12px rgba(227, 152, 181, 0.7019607843137254);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.7019607843137254);
       transition: width 0.3s ease;
     }
   
