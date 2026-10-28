@@ -1,4 +1,5 @@
- /* =========================================
+
+/* =========================================
 PORTICO KAKUMA — ABOUT.JS
 Navigation + Authentication + Notifications
 ========================================= */
@@ -7,7 +8,8 @@ import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebase
 
 import {
 getAuth,
-onAuthStateChanged
+onAuthStateChanged,
+signOut
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
@@ -25,7 +27,7 @@ serverTimestamp
 /* =========================================
 
 1. FIREBASE CONFIGURATION
-   ========================================= */
+========================================= */
 
 const firebaseConfig = {
 apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
@@ -52,6 +54,36 @@ const closeDrawerBtn = document.getElementById("closeDrawerBtn");
 const mobileDrawer = document.getElementById("mobileDrawer");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
+
+// LOGOUT BUTTON
+const drawerLogoutContainer =
+document.getElementById("drawerLogoutContainer");
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+logoutBtn.addEventListener("click", async () => {
+try {
+// Sign out the current user
+await signOut(auth);
+
+// Close the mobile drawer
+mobileDrawer?.classList.remove("open");
+drawerOverlay?.classList.remove("show");
+
+// Redirect to the access page
+window.location.href = "access.html";
+
+} catch (error) {
+console.error("Logout failed:", error);
+
+alert("Unable to log out. Please try again.");
+}
+});
+}
+
+
 const notifToggle = document.getElementById("notifToggle");
 const notifDropdown = document.getElementById("notifDropdown");
 const notifBadge = notifToggle?.querySelector(".notif-badge");
@@ -59,7 +91,7 @@ const notifBadge = notifToggle?.querySelector(".notif-badge");
 console.log("Notification button:", notifToggle);
 console.log("Badge element:", notifBadge);
 console.log("Notification badge CSS:", notifBadge ? getComputedStyle(notifBadge).display : "Badge not found");
-  
+
 const notifList = notifDropdown?.querySelector(".notif-list");
 
 let currentUser = null;
@@ -73,282 +105,287 @@ let dropdownOpened = false;
 /* MOBILE DRAWER */
 
 function toggleDrawer() {
-    if (!mobileDrawer || !drawerOverlay) return;
+if (!mobileDrawer || !drawerOverlay) return;
 
-    mobileDrawer.classList.toggle("open");
-    drawerOverlay.classList.toggle("show");
+mobileDrawer.classList.toggle("open");
+drawerOverlay.classList.toggle("show");
 }
 
 if (hamburgerBtn) {
-    hamburgerBtn.addEventListener("click", toggleDrawer);
+hamburgerBtn.addEventListener("click", toggleDrawer);
 }
 
 if (closeDrawerBtn) {
-    closeDrawerBtn.addEventListener("click", toggleDrawer);
+closeDrawerBtn.addEventListener("click", toggleDrawer);
 }
 
 if (drawerOverlay) {
-    drawerOverlay.addEventListener("click", toggleDrawer);
+drawerOverlay.addEventListener("click", toggleDrawer);
 }
 
 document.querySelectorAll(".sub-nav-list a").forEach(link => {
-    link.addEventListener("click", () => {
-        mobileDrawer?.classList.remove("open");
-        drawerOverlay?.classList.remove("show");
-    });
+link.addEventListener("click", () => {
+mobileDrawer?.classList.remove("open");
+drawerOverlay?.classList.remove("show");
+});
 });
 
 
 /* NOTIFICATION BADGE */
 
 function updateBadge() {
-    if (!notifBadge) return;
+if (!notifBadge) return;
 
-    const unreadCount = notifications.filter(notification =>
-        !readNotificationIds.has(notification.id)
-    ).length;
+const unreadCount = notifications.filter(notification =>
+!readNotificationIds.has(notification.id)
+).length;
 
-    notifBadge.textContent = unreadCount;
-    notifBadge.style.display = unreadCount > 0 ? "inline-flex" : "none";
+notifBadge.textContent = unreadCount;
+notifBadge.style.display = unreadCount > 0 ? "inline-flex" : "none";
 }
 
-    
+
 /* DISPLAY NOTIFICATIONS */
 
 function renderNotifications() {
-    if (!notifList) return;
+if (!notifList) return;
 
-    notifList.replaceChildren();
+notifList.replaceChildren();
 
-    if (notifications.length === 0) {
-        const emptyItem = document.createElement("li");
-        emptyItem.textContent = "No notifications yet.";
-        notifList.appendChild(emptyItem);
-        updateBadge();
-        return;
-    }
+if (notifications.length === 0) {
+const emptyItem = document.createElement("li");
+emptyItem.textContent = "No notifications yet.";
+notifList.appendChild(emptyItem);
+updateBadge();
+return;
+}
 
-    notifications.forEach(notification => {
-        const item = document.createElement("li");
+notifications.forEach(notification => {
+const item = document.createElement("li");
 
-        const title = document.createElement("strong");
-        title.textContent = notification.title || "Notification";
+const title = document.createElement("strong");
+title.textContent = notification.title || "Notification";
 
-        const message = document.createElement("p");
-        message.textContent = notification.message || "";
+const message = document.createElement("p");
+message.textContent = notification.message || "";
 
-        item.appendChild(title);
-        item.appendChild(message);
+item.appendChild(title);
+item.appendChild(message);
 
-        if (!readNotificationIds.has(notification.id)) {
-            item.classList.add("unread");
-        }
+if (!readNotificationIds.has(notification.id)) {
+item.classList.add("unread");
+}
 
-        notifList.appendChild(item);
-    });
+notifList.appendChild(item);
+});
 
-    updateBadge();
+updateBadge();
 }
 
 
-                          
+
 /* NOTIFICATION BADGE */
 
 function updateBadge() {
-    if (!notifBadge) {
-        console.error("Notification badge element not found.");
-        return;
-    }
+if (!notifBadge) {
+console.error("Notification badge element not found.");
+return;
+}
 
-    const unreadCount = notifications.filter(
-        notification => !readNotificationIds.has(notification.id)
-    ).length;
+const unreadCount = notifications.filter(
+notification => !readNotificationIds.has(notification.id)
+).length;
 
-    console.log("Unread count:", unreadCount);
+console.log("Unread count:", unreadCount);
 
-    notifBadge.textContent = unreadCount;
-    notifBadge.style.display =
-        unreadCount > 0 ? "inline-flex" : "none";
+notifBadge.textContent = unreadCount;
+notifBadge.style.display =
+unreadCount > 0 ? "inline-flex" : "none";
 }
 
 
 /* SAVE READ STATUS FOR THE CURRENT USER */
 
 async function markNotificationsAsRead() {
-    if (!currentUser || notifications.length === 0) return;
+if (!currentUser || notifications.length === 0) return;
 
-    const newReadIds = notifications
-        .filter(notification => !readNotificationIds.has(notification.id))
-        .map(notification => notification.id);
+const newReadIds = notifications
+.filter(notification => !readNotificationIds.has(notification.id))
+.map(notification => notification.id);
 
-    if (newReadIds.length === 0) return;
+if (newReadIds.length === 0) return;
 
-    // Update the badge immediately.
-    newReadIds.forEach(id => readNotificationIds.add(id));
-    renderNotifications();
+// Update the badge immediately.
+newReadIds.forEach(id => readNotificationIds.add(id));
+renderNotifications();
 
-    try {
-        const readRef = doc(db, "NotificationReads", currentUser.uid);
-        const snapshot = await getDoc(readRef);
+try {
+const readRef = doc(db, "NotificationReads", currentUser.uid);
+const snapshot = await getDoc(readRef);
 
-        const existingIds = snapshot.exists()
-            ? snapshot.data().readNotifications || {}
-            : {};
+const existingIds = snapshot.exists()
+? snapshot.data().readNotifications || {}
+: {};
 
-        const updatedIds = { ...existingIds };
+const updatedIds = { ...existingIds };
 
-        newReadIds.forEach(id => {
-            updatedIds[id] = true;
-        });
+newReadIds.forEach(id => {
+updatedIds[id] = true;
+});
 
-        await setDoc(readRef, {
-            readNotifications: updatedIds
-        });
+await setDoc(readRef, {
+readNotifications: updatedIds
+});
 
-    } catch (error) {
-        console.error("Could not save notification read status:", error);
+} catch (error) {
+console.error("Could not save notification read status:", error);
 
-        // If saving fails, restore the unread state.
-        newReadIds.forEach(id => readNotificationIds.delete(id));
-        renderNotifications();
-    }
+// If saving fails, restore the unread state.
+newReadIds.forEach(id => readNotificationIds.delete(id));
+renderNotifications();
+}
 }
 
 
 /* OPEN/CLOSE NOTIFICATION DROPDOWN */
 
 if (notifToggle && notifDropdown) {
-    notifToggle.addEventListener("click", async event => {
-        event.stopPropagation();
+notifToggle.addEventListener("click", async event => {
+event.stopPropagation();
 
-        const opening = !notifDropdown.classList.contains("show");
-        notifDropdown.classList.toggle("show");
+const opening = !notifDropdown.classList.contains("show");
+notifDropdown.classList.toggle("show");
 
-        if (opening) {
-            dropdownOpened = true;
-            await markNotificationsAsRead();
-        } else {
-            dropdownOpened = false;
-        }
-    });
+if (opening) {
+dropdownOpened = true;
+await markNotificationsAsRead();
+} else {
+dropdownOpened = false;
+}
+});
 
-    notifDropdown.addEventListener("click", event => {
-        event.stopPropagation();
-    });
+notifDropdown.addEventListener("click", event => {
+event.stopPropagation();
+});
 
-    document.addEventListener("click", event => {
-        if (
-            !notifDropdown.contains(event.target) &&
-            !notifToggle.contains(event.target)
-        ) {
-            notifDropdown.classList.remove("show");
-            dropdownOpened = false;
-        }
-    });
+document.addEventListener("click", event => {
+if (
+!notifDropdown.contains(event.target) &&
+!notifToggle.contains(event.target)
+) {
+notifDropdown.classList.remove("show");
+dropdownOpened = false;
+}
+});
 }
 
 
 
 /* =========================================
-   3. LOAD NOTIFICATIONS FROM FIRESTORE
+3. LOAD NOTIFICATIONS FROM FIRESTORE
 ========================================= */
 
 function listenForNotifications() {
-    const activeNotificationsQuery = query(
-        collection(db, "Notifications"),
-        where("active", "==", true)
-    );
+const activeNotificationsQuery = query(
+collection(db, "Notifications"),
+where("active", "==", true)
+);
 
-    stopNotificationsListener = onSnapshot(
-        activeNotificationsQuery,
-        snapshot => {
-            notifications = snapshot.docs.map(item => ({
-                id: item.id,
-                ...item.data()
-            }));
+stopNotificationsListener = onSnapshot(
+activeNotificationsQuery,
+snapshot => {
+notifications = snapshot.docs.map(item => ({
+id: item.id,
+...item.data()
+}));
 
-            console.log("Active notifications:", notifications.length);
+console.log("Active notifications:", notifications.length);
 
-            // Show newest notifications first.
-            notifications.sort((a, b) => {
-                const dateA = a.createdAt?.toMillis?.() || 0;
-                const dateB = b.createdAt?.toMillis?.() || 0;
-                return dateB - dateA;
-            });
+// Show newest notifications first.
+notifications.sort((a, b) => {
+const dateA = a.createdAt?.toMillis?.() || 0;
+const dateB = b.createdAt?.toMillis?.() || 0;
+return dateB - dateA;
+});
 
-            renderNotifications();
-        },
-        error => {
-            console.error(
-                "Could not load notifications:",
-                error.code,
-                error.message
-            );
-        }
-    );
+renderNotifications();
+},
+error => {
+console.error(
+"Could not load notifications:",
+error.code,
+error.message
+);
+}
+);
 }
 
 
 
 /* =========================================
-   4. LOAD THIS USER'S READ STATUS
+4. LOAD THIS USER'S READ STATUS
 ========================================= */
 
 function listenForReadStatus(user) {
-    const readRef = doc(db, "NotificationReads", user.uid);
+const readRef = doc(db, "NotificationReads", user.uid);
 
-    stopReadListener = onSnapshot(
-        readRef,
-        snapshot => {
-            const saved = snapshot.exists()
-                ? snapshot.data().readNotifications || {}
-                : {};
+stopReadListener = onSnapshot(
+readRef,
+snapshot => {
+const saved = snapshot.exists()
+? snapshot.data().readNotifications || {}
+: {};
 
-            readNotificationIds = new Set(
-                Object.keys(saved).filter(id => saved[id] === true)
-            );
+readNotificationIds = new Set(
+Object.keys(saved).filter(id => saved[id] === true)
+);
 
-            renderNotifications();
-        },
-        error => {
-            console.error("Could not load read status:", error);
-        }
-    );
+renderNotifications();
+},
+error => {
+console.error("Could not load read status:", error);
+}
+);
 }
 
 
 /* =========================================
-   5. AUTHENTICATION SESSION
-   Uses the existing Firebase session.
-   Does not create a new login or guest account.
+5. AUTHENTICATION SESSION
+Uses the existing Firebase session.
+Does not create a new login or guest account.
 ========================================= */
 
 onAuthStateChanged(auth, user => {
-    currentUser = user;
+currentUser = user;
 
-    // Stop listeners from the previous session.
-    if (stopNotificationsListener) {
-        stopNotificationsListener();
-        stopNotificationsListener = null;
-    }
+// Show Logout only for non-anonymous signed-in users
+if (drawerLogoutContainer) {
+drawerLogoutContainer.hidden = !user || user.isAnonymous;
+}
 
-    if (stopReadListener) {
-        stopReadListener();
-        stopReadListener = null;
-    }
+// Stop listeners from the previous session.
+if (stopNotificationsListener) {
+stopNotificationsListener();
+stopNotificationsListener = null;
+}
 
-    notifications = [];
-    readNotificationIds = new Set();
-    renderNotifications();
+if (stopReadListener) {
+stopReadListener();
+stopReadListener = null;
+}
 
-    if (user) {
-        listenForNotifications();
-        listenForReadStatus(user);
-    } else {
-        // Notifications can still be displayed to signed-out visitors,
-        // but read status is not saved without a Firebase user.
-        listenForNotifications();
-    }
+notifications = [];
+readNotificationIds = new Set();
+renderNotifications();
+
+if (user) {
+listenForNotifications();
+listenForReadStatus(user);
+} else {
+// Notifications can still be displayed to signed-out visitors,
+// but read status is not saved without a Firebase user.
+listenForNotifications();
+}
 });
 
 });
@@ -719,9 +756,6 @@ onAuthStateChanged(auth, user => {
 
     function createPagination(totalPages) {
 
-        if (!paginationNumbers) {
-            return;
-        }
 
 
         paginationNumbers.innerHTML = "";
@@ -776,76 +810,84 @@ onAuthStateChanged(auth, user => {
 
 
         /* ---------------------------------------------
-           PAGE NUMBERS
-        --------------------------------------------- */
+   PAGE NUMBERS
+--------------------------------------------- */
 
-        for (
-            let page = 1;
-            page <= totalPages;
-            page++
-        ) {
+for (
+    let page = 1;
+    page <= totalPages;
+    page++
+) {
 
-            const pageButton =
-                document.createElement("button");
+    const pageButton =
+        document.createElement("button");
 
+    pageButton.type = "button";
 
-            pageButton.type = "button";
+    pageButton.className =
+        "pagination-number";
 
-            pageButton.className =
-                "pagination-number";
+    pageButton.textContent =
+        page;
 
-            pageButton.textContent =
-                page;
+    pageButton.setAttribute(
+        "aria-label",
+        `Go to page ${page}`
+    );
 
+    /* Active page */
 
-            pageButton.setAttribute(
-                "aria-label",
-                `Go to page ${page}`
-            );
+    if (page === currentPage) {
 
+        pageButton.classList.add("active");
 
-            /* Active page */
+        pageButton.setAttribute(
+            "aria-current",
+            "page"
+        );
 
-            if (page === currentPage) {
+    }
 
-                pageButton.classList.add("active");
+    /* Page click */
 
-                pageButton.setAttribute(
-                    "aria-current",
-                    "page"
-                );
+    pageButton.addEventListener(
+        "click",
+        function() {
 
-            }
+            currentPage = page;
 
+            displayCurrentPage();
 
-            /* Page click */
-
-            pageButton.addEventListener(
-                "click",
-                function() {
-
-                    currentPage = page;
-
-                    displayCurrentPage();
-
-                    scrollToScholarships();
-
-                }
-            );
-
-
-            paginationNumbers.appendChild(
-                pageButton
-            );
-           if (page === currentPage) {
-              pageButton.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "nearest"
-            });
-}
+            scrollToScholarships();
 
         }
+    );
+
+    paginationNumbers.appendChild(
+        pageButton
+    );
+
+}
+
+/* ---------------------------------------------
+   CENTER ACTIVE PAGE INSIDE THE PAGINATION BAR
+   (scrolls only the bar, never the whole page)
+--------------------------------------------- */
+
+const activeButton =
+    paginationNumbers.querySelector(".active");
+
+if (activeButton) {
+
+    paginationNumbers.scrollTo({
+        left:
+            activeButton.offsetLeft -
+            paginationNumbers.clientWidth / 2 +
+            activeButton.clientWidth / 2,
+        behavior: "smooth"
+    });
+
+}
 
 
         /* ---------------------------------------------
@@ -1266,7 +1308,3 @@ onAuthStateChanged(auth, user => {
     }
 
     loadScholarshipStats();
-
-
-
-
