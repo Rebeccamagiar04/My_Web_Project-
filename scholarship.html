@@ -83,23 +83,23 @@ href="scholarship.css">
         
         <!-- HOME PAGE & SECTIONS -->
         <li class="nav-group">
-          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="home.html" class="group-title" class="active"><i class="fa-solid fa-house"></i> Home</a>
           <ul class="sub-nav-list">
-            <li><a href="home.html#how-it-works">1.0 A Simple 4-Step Process</a></li>
-            <li><a href="home.html#why-card">1.1 Why Portico Kakuma?</a></li>
-            <li><a href="home.html#application-essentials">1.2 Application Essentials</a></li>
-            <li><a href="home.html#common-documents">1.3 Common Document Categories</a></li>
-            <li><a href="home.html#tips-section">1.4 Tips for Successful Application</a></li>
+            <li><a href="home.html#how-it-works">1.1 A Simple 4-Step Process</a></li>
+            <li><a href="home.html#why-card">1.2 Why Portico Kakuma?</a></li>
+            <li><a href="home.html#application-essentials">1.3 Application Essentials</a></li>
+            <li><a href="home.html#common-documents">1.4 Common Document Categories</a></li>
+            <li><a href="home.html#tips-section">1.5 Tips for Successful Application</a></li>
           </ul>
         </li>
 
         <!-- SCHOLARSHIPS PAGE & SECTIONS -->
         <li class="nav-group" >
-          <a href="scholarship.html" class="group-title" class="active"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
+          <a href="scholarship.html" class="group-title"><i class="fa-solid fa-graduation-cap"></i> Scholarships</a>
           <ul class="sub-nav-list">
-            <li><a href="scholarship.html#scholarship-search">2.0 Search Opportunities</a></li>
-            <li><a href="scholarship.html#scholarship-results">2.1 Scholarship Listings</a></li>
-            <li><a href="scholarship.html#scholarship-stats">2.2 Our community</a></li>
+            <li><a href="scholarship.html#scholarship-search">2.1 Scholarship filters</a></li>
+            <li><a href="scholarship.html#scholarship-results">2.2 Scholarship List</a></li>
+            <li><a href="scholarship.html#scholarship-stats">2.3 Our community</a></li>
           </ul>
         </li>
 
@@ -107,10 +107,10 @@ href="scholarship.css">
         <li class="nav-group">
           <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
           <ul class="sub-nav-list">
-            <li><a href="resources.html#deadlines-section">3.0 Upcoming Scholarship Deadlines</a></li>
-            <li><a href="resources.html#featured-resources">3.1 Featured Resources</a></li>
-            <li><a href="resources.html#articles-section">3.2 Latest Articles & Tips</a></li>
-            <li><a href="resources.html#keep-growing">3.3 Keep Growing While You Wait</a></li>
+            <li><a href="resources.html#deadlines-section">3.1 Upcoming Scholarship Deadlines</a></li>
+            <li><a href="resources.html#featured-resources">3.2 Featured Resources</a></li>
+            <li><a href="resources.html#articles-section">3.3 Featured articles</a></li>
+            <li><a href="resources.html#dailyMotivation">3.4 Motivation card</a></li>
           </ul>
         </li>
 
@@ -118,14 +118,22 @@ href="scholarship.css">
         <li class="nav-group">
           <a href="about.html" class="group-title"><i class="fa-solid fa-circle-info"></i> About Us</a>
           <ul class="sub-nav-list">
-            <li><a href="about.html#mission-vision">4.0 Mission & Vision</a></li>
-            
-            <li><a href="about.html#what-we-do">4.1 What We Do</a></li>
-            <li><a href="about.html#our-story">4.2 Our Story</a></li>
+            <li><a href="about.html#mission-vision">4.1 Mission & Vision</a></li>
+            <li><a href="about.html#what-we-do">4.2 What We Do</a></li>
+            <li><a href="about.html#our-story">4.3 Our Story</a></li>
           </ul>
         </li>
 
       </ul>
+
+<!-- Logout Button: visible only to signed-in users -->
+<div class="drawer-logout" id="drawerLogoutContainer" hidden>
+    <button type="button" id="logoutBtn" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </button>
+</div>
+      
     </div>
   </div>
   <div class="drawer-overlay" id="drawerOverlay"></div>
@@ -295,80 +303,9 @@ href="scholarship.css">
 
     <div class="scholarship-layout">
 
-        <!-- Scholarship Cards -->
-         <div class="scholarship-grid" id="scholarshipGrid">
-
-            <!-- Your scholarship cards go here -->
-
+      <!-- Scholarship Cards -->
+  <div class="scholarship-grid" id="scholarshipGrid">
  
-<!-- 1.0 UNIVERSITY OF EDINBURGH — DISPLACED UNDERGRADUATE FUND -->
-<div
-    class="scholarship-card"
-    data-name="University of Edinburgh Displaced Undergraduate Fund"
-    data-country="United Kingdom"
-    data-level="Foundation, Bachelor's"
-    data-funded="Check Funding Coverage"
-    data-status="check"
-    id="EDINBURGH-DISPLACED"
->
-    <!-- COLOURED TITLE BANNER -->
-    <div class="card-top">
-
-        <h3>University of Edinburgh Displaced Undergraduate Fund</h3>
-
-        <p>Foundation / Bachelor's</p>
-
-        <span class="country-flag">🇬🇧</span>
-
-    </div>
-
-    <!-- SCHOLARSHIP DETAILS -->
-    <div class="card-info">
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <span>Funding: Check current coverage and conditions</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>University of Edinburgh</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Foundation pathway and undergraduate progression</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Eligible undergraduate courses — check programme requirements</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-users"></i>
-            <span>Displaced students; specific eligibility criteria apply</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-globe"></i>
-            <span>Study destination: United Kingdom</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span>Deadline: Check for the next application round</span>
-        </div>
-
-        <a href="scholarship-details.html?id=edinburgh-displaced">
-            View Details →
-        </a>
-
-    </div>
-</div>
-       
-
-  
 
 <!-- 2.0 DAAD SCHOLARSHIP -->
 <div
@@ -431,76 +368,6 @@ href="scholarship.css">
         </div>
 
         <a href="scholarship-details.html?id=daad">
-            View Details →
-        </a>
-
-    </div>
-</div>
-
-
-           
-
-
-<!-- 3.0 UNIVERSITY OF OTTAWA -->
-<div
-    class="scholarship-card"
-    data-name="University of Ottawa Refugee Scholarship"
-    data-country="Canada"
-    data-level="Bachelor's, Master's"
-    data-funded="Check Funding Coverage"
-    data-status="check"
-    id="University-of-Ottawa"
->
-    <!-- COLOURED TITLE BANNER -->
-    <div class="card-top">
-
-        <h3>University of Ottawa Refugee Scholarship</h3>
-
-        <p>Bachelor's / Master's</p>
-
-        <span class="country-flag">🇨🇦</span>
-
-    </div>
-
-    <!-- SCHOLARSHIP DETAILS -->
-    <div class="card-info">
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <span>Funding: Confirm the award's coverage and conditions</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>University of Ottawa</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Undergraduate and graduate study — subject to the specific award</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Eligible programmes depend on the award and course requirements</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-users"></i>
-            <span>Refugee and displaced applicants: verify the award's eligibility criteria</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Study destination: Canada</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span>Deadline: 15 January 2027 — verify for the specific award</span>
-        </div>
-
-        <a href="scholarship-details.html?id=ottawa">
             View Details →
         </a>
 
@@ -720,7 +587,7 @@ href="scholarship.css">
     data-country="Europe"
     data-level="Master's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="Erasmus-Mundus"
 >
     <!-- COLOURED TITLE BANNER -->
@@ -773,78 +640,6 @@ href="scholarship.css">
         </div>
 
         <a href="scholarship-details.html?id=erasmus">
-            View Details →
-        </a>
-
-    </div>
-</div>
-         
-
-
-<!-- 8.0 CHEVENING SCHOLARSHIP -->
-<div
-    class="scholarship-card"
-    data-name="Chevening Scholarship"
-    data-country="United Kingdom"
-    data-level="Master's"
-    data-funded="Fully Funded"
-    data-status="closed"
-    id="Chevening"
->
-    <!-- COLOURED TITLE BANNER -->
-    <div class="card-top">
-
-        <h3> The Chevening Scholarship</h3>
-
-        <p>Master's</p>
-
-        <span class="country-flag">🇬🇧</span>
-
-    </div>
-
-    <!-- SCHOLARSHIP DETAILS -->
-    <div class="card-info">
-
-        <div class="provider-name">
-            UK Government — Foreign, Commonwealth and Development Office (FCDO)
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-hand-holding-dollar"></i>
-            <span>Fully funded: tuition fees, living allowance and eligible travel costs</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Eligible UK universities</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>One-year taught Master's degree</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Various eligible fields and approved Master's courses</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-users"></i>
-            <span>Citizens of eligible countries who meet academic, work experience and other requirements</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Study destination: United Kingdom</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-calendar-xmark"></i>
-            <span>2027/2028 application deadline: 6 October 2026 — applications closed</span>
-        </div>
-
-        <a href="scholarship-details.html?id=chevening">
             View Details →
         </a>
 
@@ -1005,7 +800,7 @@ href="scholarship.css">
     data-country="Sweden"
     data-level="Master's"
     data-funded="Fully Funded"
-    data-status="open"
+    data-status="upcoming"
     id="Sweedish-Institute"
 >
     <!-- COLOURED TITLE BANNER -->
@@ -1208,21 +1003,22 @@ href="scholarship.css">
 </div>
 
 
-<!-- 14.0 MALENGO SCHOLARS PROGRAM -->
+
+<!-- 14.0 MALENGO AUSBILDUNG PROGRAMME -->
 <div
     class="scholarship-card"
-    data-name="Malengo Program"
+    data-name="Malengo Ausbildung Programme"
     data-country="Germany"
-    data-level="Bachelor's"
-    data-funded="Partially Funded"
+    data-level="Vocational Training"
+    data-funded="Income Share Agreement"
     data-status="closed"
     id="Malengo"
 >
     <div class="card-top">
 
-        <h3>Malengo Scholars Program</h3>
+        <h3>Malengo Ausbildung Programme</h3>
 
-        <p>Bachelor's</p>
+        <p>Vocational Training</p>
 
         <span class="country-flag">🇩🇪</span>
 
@@ -1236,43 +1032,46 @@ href="scholarship.css">
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-dollar-sign"></i>
-            <span>Funding: First-year living expenses, semester fees, travel, visa and application support; not full-degree funding</span>
+            <span>Funding: Programme support may include German-language training, living expenses during language preparation, visa and travel assistance, and application guidance. An Income Share Agreement applies.</span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-building-columns"></i>
-            <span>Host Institution: Eligible German universities</span>
+            <span>Host Institution: German vocational training providers and employers</span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-graduation-cap"></i>
-            <span>Study Level: Bachelor's degree</span>
+            <span>Study Level: Vocational training (Ausbildung), not a bachelor's degree</span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-book-open"></i>
-            <span>Eligible Fields: Approved English-taught Bachelor's programmes matching eligible secondary-school subjects</span>
+            <span>Training Fields: Eligible vocational occupations in Germany; available options depend on the programme and training placements.</span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-globe"></i>
-            <span>Eligibility: Refugees registered in Uganda who meet the programme's UCE/UACE, academic, age and financial-need requirements</span>
+            <span>Eligibility: Eligible applicants aged 18–30, including registered refugees living in Kenya, who meet the programme's secondary-school, German-language, documentation, and other requirements.</span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-location-dot"></i>
-            <span>Study Destination: Germany</span>
+            <span>Training Destination: Germany</span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-calendar-days"></i>
-            <span>📅 Deadline: Applications currently closed; next round not confirmed</span>
+            <span>Deadline: Check the official website for the next application round. Registering interest does not guarantee an active application opportunity.</span>
         </div>
 
-        <a href="scholarship-details.html?id=malengo">View Details →</a>
+        <a href="scholarship-details.html?id=malengo">
+            View Details →
+        </a>
 
     </div>
 </div>
+
 
 
 <!-- 15.0 MASTERCARD FOUNDATION SCHOLARS PROGRAM -->
@@ -1282,7 +1081,7 @@ href="scholarship.css">
     data-country="Global University placement"
     data-level="Master's, Bachelor's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="Mastercard"
 >
     <div class="card-top">
@@ -1622,71 +1421,7 @@ href="scholarship.css">
     </div>
 </div>
           
-<!-- 20.0 IIE ODYSSEY SCHOLARSHIP -->
-<div
-    class="scholarship-card"
-    data-name="IIE Odyssey Scholarship"
-    data-country="Global University placement"
-    data-level="Associate, Bachelor's, Master's"
-    data-funded="Fully Funded"
-    data-status="check"
-    id="IIE"
->
-    <div class="card-top">
 
-        <h3>IIE Odyssey Scholarship</h3>
-
-        <p>Associate / Bachelor's / Master's</p>
-
-        <span class="country-flag">🌍</span>
-
-    </div>
-
-    <div class="card-info">
-
-        <div class="provider-name">
-            Provider: Institute of International Education (IIE)
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <span>Funding: Tuition, housing, living expenses, advising and additional student support</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Host Institution: Participating universities and colleges worldwide</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Study Level: Associate, Bachelor's or Master's degree</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Eligible Fields: Varies by participating institution and available placement</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-globe"></i>
-            <span>Eligibility: Refugees and displaced students identified and nominated through IIE's partner organisations</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Study Destination: Multiple countries, depending on the university placement</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-calendar-days"></i>
-            <span>📅 Deadline: Annual selection process; public deadline and current nomination availability not confirmed</span>
-        </div>
-
-        <a href="scholarship-details.html?id=iie">View Details →</a>
-
-    </div>
-</div>
 
 
 <!-- 21.0 COLUMBIA UNIVERSITY -->
@@ -1765,7 +1500,7 @@ href="scholarship.css">
     data-country="Online, United Kingdom"
     data-level="Bachelor's, Master's"
     data-funded="Course Fees"
-    data-status="closed"
+    data-status="open"
     id="UOL-REFUGEE"
 >
     <div class="card-top">
@@ -1820,75 +1555,6 @@ href="scholarship.css">
         </div>
 
         <a href="scholarship-details.html?id=uol-refugee">
-            View Details →
-        </a>
-
-    </div>
-</div>
-
-
-<!-- 23.0 STIPENDIUM HUNGARICUM -->
-<div
-    class="scholarship-card"
-    data-name="Stipendium Hungaricum"
-    data-country="Hungary"
-    data-level="Bachelor's, Master's, Doctoral"
-    data-funded="Tuition, Stipend, Accommodation Support"
-    data-status="closed"
-    id="Stipendum-Hungaricum"
->
-    <div class="card-top">
-
-        <h3>Stipendium Hungaricum</h3>
-
-        <p>Bachelor's / Master's / Doctoral</p>
-
-        <span class="country-flag">🇭🇺</span>
-
-    </div>
-
-    <div class="card-info">
-
-        <div class="provider-name">
-            Provider: Government of Hungary — Tempus Public Foundation
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <span>Funding: Tuition waiver, monthly stipend, dormitory place or accommodation contribution, and medical insurance; additional costs may remain</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Host Institution: Participating Hungarian universities</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Study Level: Bachelor's, Master's, doctoral and selected non-degree programmes</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Eligible Fields: Courses available under the applicant's sending-country agreement, including selected computing and science programmes</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-globe"></i>
-            <span>Eligibility: Citizens of eligible sending-partner countries who meet academic and programme requirements; nomination is required</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Study Destination: Hungary</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-calendar-days"></i>
-            <span>📅 Previous deadline: 15 January 2026; next call expected in November 2026</span>
-        </div>
-
-        <a href="scholarship-details.html?id=stipendium">
             View Details →
         </a>
 
@@ -2001,7 +1667,7 @@ href="scholarship.css">
     data-country="United Kingdom, Online"
     data-level="Master's, Postgraduate Diploma"
     data-funded="Fully Funded"
-    data-status="open"
+    data-status="closed"
     id="edinburgh-mastercard"
 >
 
@@ -2056,8 +1722,13 @@ href="scholarship.css">
             <i class="fa-solid fa-globe"></i>
             <span>
                 Eligibility: Applicants must meet the programme's
-                academic requirements and have faced significant barriers
-                to education.
+                academic requirements, have faced significant barriers
+                to education or early-career opportunities, and
+                demonstrate leadership and commitment to positive
+                change. Applicants must meet the programme's African
+                country citizenship, residency or refugee-status
+                requirements. An undergraduate degree and final
+                official transcript are required for postgraduate entry.
             </span>
         </div>
 
@@ -2086,21 +1757,22 @@ href="scholarship.css">
 
 
 <!-- =====================================================
-     26.0 UNIVERSITY OF TORONTO INTERNATIONAL SCHOLARSHIPS
+     26.0 UNIVERSITY OF TORONTO SCHOLARS AND STUDENTS
+          AT RISK AWARD PROGRAM
 ===================================================== -->
 <div
     class="scholarship-card"
-    data-name="University of Toronto International Scholarships"
+    data-name="University of Toronto Scholars and Students at Risk Award"
     data-country="Canada"
     data-level="Bachelor's"
-    data-funded="Varies"
-    data-status="check"
-    id="toronto"
+    data-funded="Partially Funded"
+    data-status="open"
+    id="toronto-at-risk"
 >
 
     <div class="card-top">
-        <h3>University of Toronto International Scholarships</h3>
-        <p>Bachelor's</p>
+        <h3>University of Toronto Scholars and Students at Risk Award</h3>
+        <p>Bachelor's / Graduate</p>
         <span class="country-flag">🇨🇦</span>
     </div>
 
@@ -2113,10 +1785,9 @@ href="scholarship.css">
         <div class="scholarship-detail">
             <i class="fa-solid fa-dollar-sign"></i>
             <span>
-                Funding: Varies by award. The Lester B. Pearson
-                International Scholarship covers tuition, books,
-                incidental fees and residence support for four years.
-                Other entrance awards may provide partial funding.
+                Funding: Financial assistance of up to CAD $10,000.
+                The award is not necessarily a full scholarship and
+                may not cover all tuition and living expenses.
             </span>
         </div>
 
@@ -2130,23 +1801,27 @@ href="scholarship.css">
         <div class="scholarship-detail">
             <i class="fa-solid fa-graduation-cap"></i>
             <span>
-                Study Level: Bachelor's degree
+                Study Level: Undergraduate and graduate study,
+                subject to the award's eligibility requirements.
             </span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-book-open"></i>
             <span>
-                Eligible Fields: Various undergraduate programmes,
-                depending on the chosen degree and scholarship
+                Eligible Fields: Eligible programmes at the
+                University of Toronto, subject to admission and
+                award requirements.
             </span>
         </div>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-globe"></i>
             <span>
-                Eligible Applicants: International students applying
-                to eligible first-entry undergraduate programmes.
+                Eligible Applicants: Students affected by conflict
+                or displacement, including eligible refugees and
+                asylum-seekers. Applicants must also satisfy the
+                university's student or admission-status requirements.
             </span>
         </div>
 
@@ -2159,15 +1834,16 @@ href="scholarship.css">
 
         <div class="scholarship-detail">
             <span>
-                📅 Deadline: Varies by award. For the 2027 Pearson
-                intake, school nominations closed on 9 October 2026,
-                university admission applications were due by
-                16 October 2026, and the scholarship application
-                deadline is 6 November 2026 for nominated students.
+                📅 Deadline: 30 November 2026, at 5:00 p.m. Eastern
+                Time, according to the published award information.
+                Check the official page for the current application
+                requirements and eligibility conditions.
             </span>
         </div>
 
-        <a href="scholarship-details.html?id=toronto">View Details →</a>
+        <a href="scholarship-details.html?id=toronto-at-risk">
+            View Details →
+        </a>
 
     </div>
 </div>
@@ -2482,7 +2158,7 @@ href="scholarship.css">
     data-country="Online"
     data-level="Online Courses"
     data-funded="Free Learning"
-    data-status="check"
+    data-status="open"
     id="kiron"
 >
 
@@ -2624,7 +2300,7 @@ href="scholarship.css">
     data-country="United States of America"
     data-level="Bachelor's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="bowdoin"
 >
 
@@ -2695,7 +2371,7 @@ href="scholarship.css">
     data-country="Global University placement"
     data-level="Varies"
     data-funded="Varies"
-    data-status="check"
+    data-status="open"
     id="unhcr-scholarships"
 >
 
@@ -2779,7 +2455,7 @@ href="scholarship.css">
     data-country="Costa Rica"
     data-level="Bachelor's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="EARTH-MASTERCARD"
 >
 
@@ -2938,7 +2614,7 @@ href="scholarship.css">
     data-country="United Kingdom"
     data-level="Master's,Doctoral"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="ROWAN-WILLIAMS-CAMBRIDGE"
 >
     <div class="card-top">
@@ -3405,7 +3081,7 @@ href="scholarship.css">
     data-country="Rwanda"
     data-level="Bachelor's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="ALU-MASTERCARD"
 >
     <div class="card-top">
@@ -4013,11 +3689,11 @@ href="scholarship.css">
     <div class="footer-container">
         <!-- Footer Navigation Links -->
         <div class="footer-links">
-            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
             <span class="divider">|</span>
-            <a href="/terms">Terms of Service</a>
+            <a href="terms.html">Terms of Service</a>
             <span class="divider">|</span>
-            <a href="/disclaimer">Disclaimer</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
 
         <!-- Contact Email -->
@@ -4030,6 +3706,12 @@ href="scholarship.css">
             &copy; 2026 Portico Kakuma. All rights reserved.
         </p>
     </div>
+    <div class="footer-nav-links">
+    <a href="home.html">Home</a>
+    <a href="scholarship.html">Scholarships</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    </div>
 </footer>
 
 <style>
@@ -4037,6 +3719,7 @@ href="scholarship.css">
     background-color: #ffffff;
     color: #333333;
     padding: 30px 20px;
+    padding-bottom: 50px;
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -4087,13 +3770,16 @@ href="scholarship.css">
     color: #888888;
     font-size: 13px;
 }
+  .footer-nav-links {
+    display: flex;
+    gap: 15px;
+  }
 </style>
 
 
     <script type="module" src="scholarship.js"></script>
-  <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
 <script src="https://files.bpcontent.cloud/2026/10/26/05/20261026054648-9R701EZM.js" defer></script>
-  
-  </body>
+    </body>
                  
-  </html>
+    </html>
