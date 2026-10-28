@@ -13,7 +13,7 @@
 
 body {
     background-color: #ffffff;
-    color: #1a1a1a;
+    color: #000000;
     line-height: 1.6;
     font-family: serif, Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -82,7 +82,7 @@ body {
 
 .banner-study-level {
     font-size: 16px;
-    color: #6b7280;
+    color: #000000;
     font-weight: 500;
 }
 
@@ -105,7 +105,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    color: #374151;
+    color: #000000;
     font-size: 15px;
 }
 
@@ -117,12 +117,12 @@ body {
 }
 
 .detail-meta strong {
-    color: #111827;
+    color: #000000;
     font-weight: 600;
 }
 
 .detail-meta span {
-    color: #4b5563;
+    color: #000000;
     font-size: 15px;
 }
 
@@ -146,7 +146,7 @@ body {
 }
 
 .detail-section p {
-    color: #2b2b2b;
+    color: #000000;
     font-size: 15px;
     font-family: serif, Arial, Helvetica, sans-serif;
     line-height: 1.7;
@@ -157,7 +157,7 @@ body {
 /* Consistent paragraph sizing */
 
 .detail-section p + p {
-    color: #4b5563;
+    color: #000000;
     font-size: 15px;
 }
 
@@ -172,14 +172,14 @@ body {
     position: relative;
     padding-left: 24px;
     margin-bottom: 10px;
-    color: #2b2b2b;
+    color: #000000;
     font-size: 15px;
     line-height: 1.7;
 }
 
 .detail-section ul li::before {
     content: "•";
-    color: #111827;
+    color: #000000;
     font-size: 15px;
     position: absolute;
     left: 0;
@@ -187,7 +187,7 @@ body {
 }
 
 .detail-section ul li strong {
-    color: #111827;
+    color: #000000;
     font-weight: 600;
 }
 
@@ -197,7 +197,7 @@ body {
 
 .official-link {
     display: inline-block;
-    color: #111827;
+    color: #000000;
     font-size: 15px;
     font-weight: 600;
     text-decoration: underline;
@@ -269,4 +269,4 @@ body {
     .detail-section ul li {
         line-height: 1.7;
     }
-}
+   }
