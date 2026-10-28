@@ -1,6 +1,6 @@
 
 /* =========================================
-PORTICO KAKUMA — ABOUT.JS
+PORTICO KAKUMA — RESOURCES.JS
 Navigation + Authentication + Notifications
 ========================================= */
 
@@ -454,19 +454,14 @@ listenForNotifications();
             url: "scholarship-details.html?id=alu-mastercard"
         },
         {
+            date: "2026-11-30",
+            name: "University of Toronto Scholars and Students at Risk Award Program",
+            url: "scholarship-details.html?id=toronto-at-risk"
+        },
+        {
             date: "2026-12-31",
             name: "United World Colleges",
             url: "scholarship-details.html?id=uwc"
-        },
-        {
-            date: "2027-01-13",
-            name: "University of Edinburgh — Undergraduate",
-            url: "scholarship-details.html?id=edinburgh-displaced"
-        },
-        {
-            date: "2027-01-15",
-            name: "University of Ottawa",
-            url: "scholarship-details.html?id=ottawa"
         },
         {
             date: "2027-01-20",
