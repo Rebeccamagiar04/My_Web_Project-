@@ -12,7 +12,9 @@ import {
     signInWithEmailAndPassword,
     signInAnonymously,
     signOut,
-    updateProfile
+    updateProfile,
+    EmailAuthProvider,
+    linkWithCredential
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
@@ -21,8 +23,7 @@ import {
     getDoc,
     setDoc,
     serverTimestamp,
-    runTransaction,
-    increment
+    runTransaction
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 
@@ -46,7 +47,7 @@ const db = getFirestore(app);
 
 
 /* =====================================================
-   3. ELEMENTS
+   3. HTML ELEMENTS
 ===================================================== */
 
 const accountForm = document.getElementById("accountForm");
@@ -63,90 +64,251 @@ const submitBtn = document.getElementById("formSubmitBtn");
 const guestBtn = document.getElementById("continueGuestBtn");
 const guestNote = document.getElementById("guestNote");
 
+const guestDetailsForm =
+    document.getElementById("guestDetailsForm");
+
+const guestNameInput =
+    document.getElementById("guestName");
+
+const guestGenderInput =
+    document.getElementById("guestGender");
+
+const cancelGuestFormBtn =
+    document.getElementById("cancelGuestFormBtn");
+
+const cancelFormBtn =
+    document.getElementById("cancelFormBtn");
+
+const showLoginBtn =
+    document.getElementById("showLoginBtn");
+
+const showRegisterBtn =
+    document.getElementById("showRegisterBtn");
+
+const showPassword =
+    document.getElementById("showPassword");
+
 const GUEST_EXPIRY_KEY = "porticoGuestExpiry";
 
 let formMode = "login";
 
 
 /* =====================================================
-   4. SAVE EACH UID ONLY ONCE
+   4. NORMALIZE GENDER VALUES
 ===================================================== */
 
-async function saveUserToFirestore(user, userType) {
-    if (!user) return;
+function normalizeGender(value) {
+    if (!value) return "";
 
-    if (userType !== "registered" && userType !== "guest") {
-        return;
+    const gender = String(value)
+        .trim()
+        .toLowerCase()
+        .replace(/[_\s]+/g, "-");
+
+    if (gender === "female" || gender === "woman") {
+        return "female";
+    }
+
+    if (gender === "male" || gender === "man") {
+        return "male";
+    }
+
+    if (
+        gender === "prefer-not-to-say" ||
+        gender === "prefer-not-to-disclose" ||
+        gender === "rather-not-to-say"
+    ) {
+        return "prefer-not-to-say";
+    }
+
+    return "";
+}
+
+
+/* =====================================================
+   5. SAVE USER AND COMMUNITY COUNTS
+===================================================== */
+
+async function saveUserToFirestore(user, userType, name = "") {
+    if (!user) {
+        throw new Error("No authenticated user was provided.");
+    }
+
+    if (!["registered", "guest"].includes(userType)) {
+        throw new Error("Invalid account type.");
     }
 
     const userRef = doc(db, "Users", user.uid);
     const statsRef = doc(db, "publicStats", "community");
 
+    const cleanName = String(name || "").trim();
+
     await runTransaction(db, async (transaction) => {
+        // Read every document before making any writes.
         const userSnapshot = await transaction.get(userRef);
-
-        // This UID has already been counted.
-        if (userSnapshot.exists()) return;
-
         const statsSnapshot = await transaction.get(statsRef);
+
+        const userData = userSnapshot.exists()
+            ? userSnapshot.data()
+            : {};
+
         const stats = statsSnapshot.exists()
             ? statsSnapshot.data()
             : {};
 
-        const totalUsers = Number(stats.totalUsers) || 0;
-        const registeredUsers = Number(stats.registeredUsers) || 0;
-        const guestUsers = Number(stats.guestUsers) || 0;
+        const totalUsers = Math.max(
+            0,
+            Number(stats.totalUsers) || 0
+        );
 
-        transaction.set(userRef, {
-            userType: userType,
-            createdAt: serverTimestamp()
-        });
+        let registeredUsers = Math.max(
+            0,
+            Number(stats.registeredUsers) || 0
+        );
 
-        transaction.set(statsRef, {
-            totalUsers: totalUsers + 1,
-            registeredUsers:
-                registeredUsers + (userType === "registered" ? 1 : 0),
-            guestUsers:
-                guestUsers + (userType === "guest" ? 1 : 0)
-        }, { merge: true });
+        let guestUsers = Math.max(
+            0,
+            Number(stats.guestUsers) || 0
+        );
+
+        const previousType = userData.userType || "";
+
+        if (!userSnapshot.exists()) {
+            // A genuinely new UID is counted once.
+            registeredUsers += userType === "registered" ? 1 : 0;
+            guestUsers += userType === "guest" ? 1 : 0;
+
+            transaction.set(userRef, {
+                name: cleanName,
+                userType: userType,
+                createdAt: serverTimestamp()
+            });
+
+            transaction.set(statsRef, {
+                totalUsers: totalUsers + 1,
+                registeredUsers: registeredUsers,
+                guestUsers: guestUsers
+            }, { merge: true });
+
+            return;
+        }
+
+        // Update the existing user without increasing totalUsers.
+        if (previousType !== userType) {
+            if (previousType === "registered") {
+                registeredUsers = Math.max(
+                    0,
+                    registeredUsers - 1
+                );
+            }
+
+            if (previousType === "guest") {
+                guestUsers = Math.max(
+                    0,
+                    guestUsers - 1
+                );
+            }
+
+            if (userType === "registered") {
+                registeredUsers += 1;
+            }
+
+            if (userType === "guest") {
+                guestUsers += 1;
+            }
+
+            transaction.set(statsRef, {
+                registeredUsers: registeredUsers,
+                guestUsers: guestUsers
+            }, { merge: true });
+        }
+
+        const updatedUserData = {
+            userType: userType
+        };
+
+        if (cleanName) {
+            updatedUserData.name = cleanName;
+        }
+
+        transaction.set(
+            userRef,
+            updatedUserData,
+            { merge: true }
+        );
     });
 }
 
 
 /* =====================================================
-   5. SAVE GENDER WITHOUT COUNTING IT TWICE
+   6. SAVE GENDER AND UPDATE COMMUNITY COUNTS
 ===================================================== */
 
 async function saveGenderToFirestore(user, gender) {
-    if (!user || !gender) return;
+    if (!user) {
+        throw new Error("No authenticated user was provided.");
+    }
 
-    const newGender = gender.trim().toLowerCase();
+    const newGender = normalizeGender(gender);
+
+    if (!newGender) {
+        throw new Error("Please select a valid gender.");
+    }
 
     const genderRef = doc(db, "Gender", user.uid);
     const statsRef = doc(db, "publicStats", "community");
 
     await runTransaction(db, async (transaction) => {
+        // Read both documents before writing.
         const genderSnapshot = await transaction.get(genderRef);
+        const statsSnapshot = await transaction.get(statsRef);
+
+        const stats = statsSnapshot.exists()
+            ? statsSnapshot.data()
+            : {};
 
         const oldGender = genderSnapshot.exists()
-            ? String(genderSnapshot.data().gender || "")
-                .trim().toLowerCase()
+            ? normalizeGender(genderSnapshot.data().gender)
             : "";
 
-        if (oldGender === newGender) return;
+        const femaleUsers = Math.max(
+            0,
+            Number(stats.femaleUsers) || 0
+        );
 
-        const changes = {};
+        const maleUsers = Math.max(
+            0,
+            Number(stats.maleUsers) || 0
+        );
+
+        // Do not count the same gender twice.
+        if (oldGender === newGender) {
+            return;
+        }
+
+        let updatedFemaleUsers = femaleUsers;
+        let updatedMaleUsers = maleUsers;
 
         if (oldGender === "female") {
-            changes.femaleUsers = increment(-1);
-        } else if (oldGender === "male") {
-            changes.maleUsers = increment(-1);
+            updatedFemaleUsers = Math.max(
+                0,
+                updatedFemaleUsers - 1
+            );
+        }
+
+        if (oldGender === "male") {
+            updatedMaleUsers = Math.max(
+                0,
+                updatedMaleUsers - 1
+            );
         }
 
         if (newGender === "female") {
-            changes.femaleUsers = increment(1);
-        } else if (newGender === "male") {
-            changes.maleUsers = increment(1);
+            updatedFemaleUsers += 1;
+        }
+
+        if (newGender === "male") {
+            updatedMaleUsers += 1;
         }
 
         transaction.set(genderRef, {
@@ -154,21 +316,106 @@ async function saveGenderToFirestore(user, gender) {
             timestamp: serverTimestamp()
         }, { merge: true });
 
-        if (Object.keys(changes).length > 0) {
-            transaction.set(statsRef, changes, { merge: true });
-        }
+        // Prefer not to say is stored but isn't added to
+        // either the female or male statistics.
+        transaction.set(statsRef, {
+            femaleUsers: updatedFemaleUsers,
+            maleUsers: updatedMaleUsers
+        }, { merge: true });
     });
 }
 
 
 /* =====================================================
-   6. SHOW LOGIN OR REGISTRATION FORM
+   7. KEEP FIREBASE DISPLAY NAME AND FIRESTORE NAME
+      IN SYNC
+===================================================== */
+
+async function saveUserName(user, name) {
+    const cleanName = String(name || "").trim();
+
+    if (!user || !cleanName) return;
+
+    if (user.displayName !== cleanName) {
+        await updateProfile(user, {
+            displayName: cleanName
+        });
+    }
+}
+
+
+/* =====================================================
+   8. REGISTRATION GENDER FIELD
+      Create it automatically if HTML doesn't contain it.
+===================================================== */
+
+let registrationGenderInput =
+    document.getElementById("registrationGender");
+
+let registrationGenderGroup =
+    document.getElementById("registrationGenderGroup");
+
+if (!registrationGenderInput && accountForm && nameGroup) {
+    registrationGenderGroup = document.createElement("div");
+
+    registrationGenderGroup.id = "registrationGenderGroup";
+    registrationGenderGroup.className = "field-group";
+    registrationGenderGroup.hidden = true;
+
+    const genderLabel = document.createElement("label");
+    genderLabel.htmlFor = "registrationGender";
+    genderLabel.textContent = "Gender";
+
+    registrationGenderInput = document.createElement("select");
+    registrationGenderInput.id = "registrationGender";
+    registrationGenderInput.name = "registrationGender";
+    registrationGenderInput.required = false;
+
+    registrationGenderInput.style.width = "100%";
+    registrationGenderInput.style.minHeight = "46px";
+    registrationGenderInput.style.padding = "12px";
+    registrationGenderInput.style.border = "1px solid #dce6f0";
+    registrationGenderInput.style.borderRadius = "8px";
+    registrationGenderInput.style.background = "#fff";
+    registrationGenderInput.style.color = "#1b2b42";
+    registrationGenderInput.style.fontFamily = "Arial, sans-serif";
+    registrationGenderInput.style.fontSize = "14px";
+
+    const genderOptions = [
+        ["", "Select your gender"],
+        ["female", "Female"],
+        ["male", "Male"],
+        ["prefer-not-to-say", "Prefer not to say"]
+    ];
+
+    genderOptions.forEach(([value, label]) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        registrationGenderInput.appendChild(option);
+    });
+
+    registrationGenderGroup.append(
+        genderLabel,
+        registrationGenderInput
+    );
+
+    nameGroup.insertAdjacentElement(
+        "afterend",
+        registrationGenderGroup
+    );
+}
+
+
+/* =====================================================
+   9. SHOW LOGIN OR REGISTRATION FORM
 ===================================================== */
 
 function openForm(mode) {
     formMode = mode;
 
     accountForm.hidden = false;
+    guestDetailsForm.hidden = true;
     accessOptions.hidden = true;
     guestNote.hidden = true;
 
@@ -185,6 +432,14 @@ function openForm(mode) {
     nameGroup.hidden = !isRegister;
     nameInput.required = isRegister;
 
+    if (registrationGenderGroup) {
+        registrationGenderGroup.hidden = !isRegister;
+    }
+
+    if (registrationGenderInput) {
+        registrationGenderInput.required = isRegister;
+    }
+
     passwordInput.autocomplete = isRegister
         ? "new-password"
         : "current-password";
@@ -196,39 +451,105 @@ function openForm(mode) {
 
     accountForm.reset();
 
-    // Use the name saved by the questionnaire, if available.
+    // Reuse details saved by the questionnaire or guest form.
     nameInput.value =
         localStorage.getItem("questionnaireName") || "";
+
+    if (registrationGenderInput) {
+        registrationGenderInput.value = normalizeGender(
+            localStorage.getItem("questionnaireGender")
+        );
+    }
 
     if (isRegister && !nameInput.value) {
         nameInput.focus();
     } else {
         emailInput.focus();
     }
+
+    if (showPassword) {
+        showPassword.checked = false;
+        passwordInput.type = "password";
+    }
 }
+
 
 function closeForm() {
     accountForm.reset();
     accountForm.hidden = true;
+
+    if (registrationGenderGroup) {
+        registrationGenderGroup.hidden = true;
+    }
+
+    if (registrationGenderInput) {
+        registrationGenderInput.required = false;
+    }
+
     accessOptions.hidden = false;
+    guestDetailsForm.hidden = true;
     guestNote.hidden = false;
 
     introText.textContent =
         "Your next opportunity starts with a single step. Choose how you'd like to continue.";
 }
 
-document.getElementById("showLoginBtn")
-    .addEventListener("click", () => openForm("login"));
 
-document.getElementById("showRegisterBtn")
-    .addEventListener("click", () => openForm("register"));
+showLoginBtn.addEventListener("click", () => openForm("login"));
 
-document.getElementById("cancelFormBtn")
-    .addEventListener("click", closeForm);
+showRegisterBtn.addEventListener("click", () => openForm("register"));
+
+cancelFormBtn.addEventListener("click", closeForm);
 
 
 /* =====================================================
-   7. LOGIN AND CREATE ACCOUNT
+   10. OPEN GUEST DETAILS FORM
+===================================================== */
+
+guestBtn.addEventListener("click", () => {
+    guestDetailsForm.reset();
+
+    // Use questionnaire details when already available.
+    guestNameInput.value =
+        localStorage.getItem("questionnaireName") || "";
+
+    guestGenderInput.value = normalizeGender(
+        localStorage.getItem("questionnaireGender")
+    );
+
+    accessOptions.hidden = true;
+    accountForm.hidden = true;
+    guestDetailsForm.hidden = false;
+    guestNote.hidden = true;
+
+    introText.textContent =
+        "Enter your name and choose a gender to continue as a guest.";
+
+    if (!guestNameInput.value) {
+        guestNameInput.focus();
+    } else {
+        guestGenderInput.focus();
+    }
+});
+
+
+/* =====================================================
+   11. CANCEL GUEST DETAILS FORM
+===================================================== */
+
+cancelGuestFormBtn.addEventListener("click", () => {
+    guestDetailsForm.reset();
+    guestDetailsForm.hidden = true;
+    accessOptions.hidden = false;
+    guestNote.hidden = false;
+
+    introText.textContent =
+        "Your next opportunity starts with a single step. Choose how you'd like to continue.";
+});
+
+
+/* =====================================================
+   12. LOGIN AND CREATE ACCOUNT
 ===================================================== */
 
 accountForm.addEventListener("submit", async (event) => {
@@ -239,7 +560,8 @@ accountForm.addEventListener("submit", async (event) => {
     submitBtn.disabled = true;
 
     const originalIcon = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+    submitBtn.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i>';
 
     try {
         const email = emailInput.value.trim();
@@ -248,33 +570,70 @@ accountForm.addEventListener("submit", async (event) => {
         if (formMode === "register") {
             const name = nameInput.value.trim();
 
+            const gender = normalizeGender(
+                registrationGenderInput?.value ||
+                localStorage.getItem("questionnaireGender")
+            );
+
             if (!name) {
                 alert("Please enter your full name.");
                 nameInput.focus();
                 return;
             }
 
-            localStorage.setItem("questionnaireName", name);
-
-            const result = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-            await updateProfile(result.user, {
-                displayName: name
-            });
-
-            await saveUserToFirestore(result.user, "registered");
-
-            const gender = localStorage.getItem("questionnaireGender");
-
-            if (gender) {
-                await saveGenderToFirestore(result.user, gender);
+            if (!gender) {
+                alert("Please select your gender.");
+                registrationGenderInput?.focus();
+                return;
             }
 
+            localStorage.setItem("questionnaireName", name);
+            localStorage.setItem("questionnaireGender", gender);
+
+            await auth.authStateReady();
+
+            let user;
+
+            // If the visitor is already a guest, link the email
+            // credentials to that same Firebase UID.
+            if (auth.currentUser?.isAnonymous) {
+                const credential = EmailAuthProvider.credential(
+                    email,
+                    password
+                );
+
+                const result = await linkWithCredential(
+                    auth.currentUser,
+                    credential
+                );
+
+                user = result.user;
+
+            } else {
+                const result = await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+                user = result.user;
+            }
+
+            await saveUserName(user, name);
+
+            await saveUserToFirestore(
+                user,
+                "registered",
+                name
+            );
+
+            await saveGenderToFirestore(user, gender);
+
+            // A registered account must not retain a guest expiry.
+            localStorage.removeItem(GUEST_EXPIRY_KEY);
+
             alert("Account created successfully!");
+
             window.location.replace("home.html");
 
         } else {
@@ -293,13 +652,30 @@ accountForm.addEventListener("submit", async (event) => {
                 );
             }
 
-            // Login does not increase user statistics.
+            // Login must not increment community statistics.
+            // Refresh the stored name only when it is available.
+            if (user.displayName) {
+                await setDoc(
+                    doc(db, "Users", user.uid),
+                    { name: user.displayName },
+                    { merge: true }
+                );
+            }
+
+            localStorage.removeItem(GUEST_EXPIRY_KEY);
+
             alert("Login successful!");
+
             window.location.replace("home.html");
         }
 
     } catch (error) {
-        console.error("Authentication error:", error.code, error.message);
+        console.error(
+            "Authentication error:",
+            error.code,
+            error.message
+        );
+
         alert(getFriendlyError(error.code));
 
     } finally {
@@ -310,69 +686,103 @@ accountForm.addEventListener("submit", async (event) => {
 
 
 /* =====================================================
-   8. CONTINUE AS GUEST
+   13. CONTINUE AS GUEST: SAVE DETAILS AND SIGN IN
 ===================================================== */
 
-if (guestBtn) {
-    guestBtn.addEventListener("click", async () => {
-        guestBtn.disabled = true;
+guestDetailsForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-        try {
-            // Wait until Firebase has restored the saved session.
-            await auth.authStateReady();
+    if (!guestDetailsForm.reportValidity()) return;
 
-            let user = auth.currentUser;
+    const name = guestNameInput.value.trim();
+    const gender = normalizeGender(guestGenderInput.value);
 
-            if (user && user.isAnonymous) {
-                // Reuse the existing anonymous UID.
-                console.log("Reusing guest UID:", user.uid);
+    if (!name) {
+        alert("Please enter your full name.");
+        guestNameInput.focus();
+        return;
+    }
 
-            } else {
-                // Switch from a registered account to guest access.
-                if (user) {
-                    await signOut(auth);
-                }
+    if (!gender) {
+        alert("Please select your gender.");
+        guestGenderInput.focus();
+        return;
+    }
 
-                const result = await signInAnonymously(auth);
-                user = result.user;
+    const guestSubmitBtn =
+        document.getElementById("submitGuestDetailsBtn");
+
+    const originalText = guestSubmitBtn.textContent;
+
+    guestSubmitBtn.disabled = true;
+    guestSubmitBtn.textContent = "Please wait...";
+
+    try {
+        await auth.authStateReady();
+
+        let user = auth.currentUser;
+
+        if (user && user.isAnonymous) {
+            // Reuse the existing anonymous UID.
+            console.log("Reusing guest UID:", user.uid);
+
+        } else {
+            // If a registered user chooses guest access,
+            // sign out before creating the anonymous session.
+            if (user) {
+                await signOut(auth);
             }
 
-            await saveUserToFirestore(user, "guest");
-
-            const gender = localStorage.getItem("questionnaireGender");
-
-            if (gender) {
-                await saveGenderToFirestore(user, gender);
-            }
-
-            // Start or renew the 24-hour guest period.
-            localStorage.setItem(
-                GUEST_EXPIRY_KEY,
-                String(Date.now() + 24 * 60 * 60 * 1000)
-            );
-
-            console.log("Guest UID:", user.uid);
-
-            window.location.replace("home.html");
-
-        } catch (error) {
-            console.error("Guest sign-in failed:", error.code, error.message);
-
-            alert(
-                "Unable to continue as guest. Please check your connection and try again."
-            );
-
-            guestBtn.disabled = false;
+            const result = await signInAnonymously(auth);
+            user = result.user;
         }
-    });
-}
+
+        // Keep local details available for the current browser.
+        localStorage.setItem("questionnaireName", name);
+        localStorage.setItem("questionnaireGender", gender);
+
+        // Save the display name and both Firestore records.
+        await saveUserName(user, name);
+
+        await saveUserToFirestore(
+            user,
+            "guest",
+            name
+        );
+
+        await saveGenderToFirestore(user, gender);
+
+        // Start the 24-hour guest period after successful saves.
+        localStorage.setItem(
+            GUEST_EXPIRY_KEY,
+            String(Date.now() + 24 * 60 * 60 * 1000)
+        );
+
+        console.log("Guest access started:", user.uid);
+
+        window.location.replace("home.html");
+
+    } catch (error) {
+        console.error(
+            "Guest sign-in failed:",
+            error.code,
+            error.message
+        );
+
+        alert(
+            "Unable to continue as guest. Please check your internet connection and try again."
+        );
+
+    } finally {
+        guestSubmitBtn.disabled = false;
+        guestSubmitBtn.textContent = originalText;
+    }
+});
 
 
 /* =====================================================
-   9. PASSWORD VISIBILITY
+   14. PASSWORD VISIBILITY
 ===================================================== */
-
-const showPassword = document.getElementById("showPassword");
 
 if (showPassword) {
     showPassword.addEventListener("change", () => {
@@ -384,13 +794,13 @@ if (showPassword) {
 
 
 /* =====================================================
-   10. FRIENDLY ERROR MESSAGES
+   15. FRIENDLY ERROR MESSAGES
 ===================================================== */
 
 function getFriendlyError(code) {
     switch (code) {
         case "auth/email-already-in-use":
-            return "This email already has an account.";
+            return "This email already has an account. Please log in instead.";
 
         case "auth/weak-password":
             return "Password must be at least 6 characters.";
@@ -414,6 +824,12 @@ function getFriendlyError(code) {
 
         case "auth/too-many-requests":
             return "Too many attempts. Please wait and try again.";
+
+        case "auth/credential-already-in-use":
+            return "This email already belongs to another account. Please log in to that account instead.";
+
+        case "auth/email-already-in-use":
+            return "This email already has an account. Please log in instead.";
 
         default:
             return "Something went wrong. Please try again.";
