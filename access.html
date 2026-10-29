@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,26 +52,6 @@
         .access-container {
             width: 100%;
             max-width: 440px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 27px;
-            color: var(--white);
-        }
-
-        .brand img {
-            width: 43px;
-            height: 43px;
-            object-fit: contain;
-        }
-
-        .brand-name {
-            font-size: 23px;
-            font-weight: bold;
         }
 
         .access-card {
@@ -167,14 +148,16 @@
             font-size: 15px;
         }
 
-        /* EMAIL AND PASSWORD FORM */
+        /* SHARED FORM STYLES */
 
-        #accountForm {
+        #accountForm,
+        #guestDetailsForm {
             margin-top: 20px;
             text-align: left;
         }
 
-        #accountForm[hidden] {
+        #accountForm[hidden],
+        #guestDetailsForm[hidden] {
             display: none;
         }
 
@@ -198,7 +181,8 @@
             font-weight: 600;
         }
 
-        .field-group input {
+        .field-group input,
+        #guestGender {
             width: 100%;
             min-height: 46px;
             padding: 12px;
@@ -210,7 +194,8 @@
             font-size: 14px;
         }
 
-        .field-group input:focus {
+        .field-group input:focus,
+        #guestGender:focus {
             outline: 2px solid #83b8e8;
             border-color: var(--blue);
         }
@@ -241,7 +226,8 @@
             min-height: auto;
         }
 
-        .form-actions {
+        .form-actions,
+        .guest-form-actions {
             display: flex;
             gap: 10px;
             margin-top: 20px;
@@ -277,6 +263,37 @@
             cursor: pointer;
         }
 
+        .cancel-btn:hover {
+            background: var(--blue-pale);
+        }
+
+        .guest-continue-btn {
+            flex: 1;
+            min-height: 48px;
+            padding: 12px;
+            border: none;
+            border-radius: 9px;
+            background: var(--blue);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .guest-continue-btn:hover {
+            background: var(--blue-dark);
+        }
+
+        .guest-form-intro {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
         .guest-note {
             margin-top: 23px;
             padding: 14px;
@@ -296,19 +313,6 @@
         .guest-note i {
             margin-top: 3px;
             color: var(--blue);
-        }
-
-        .page-note {
-            margin-top: 23px;
-            color: #d0deed;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            line-height: 1.7;
-            text-align: center;
-        }
-
-        .page-note span {
-            color: var(--accent);
         }
 
         @media (max-width: 480px) {
@@ -380,31 +384,99 @@
 
         </div>
 
-        <!-- Shared form for login and registration -->
+        <!-- GUEST DETAILS FORM -->
+
+        <form id="guestDetailsForm" hidden>
+            <h2 class="form-title">Guest Access</h2>
+
+            <p class="guest-form-intro">
+                Tell us a little about yourself before continuing
+                to Portico Kakuma.
+            </p>
+
+            <div class="field-group">
+                <label for="guestName">Full name</label>
+                <input
+                    type="text"
+                    id="guestName"
+                    name="guestName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+            <div class="field-group">
+                <label for="guestGender">Gender</label>
+                <select id="guestGender" name="guestGender" required>
+                    <option value="">Select your gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="prefer-not-to-say">
+                        Prefer not to say
+                    </option>
+                </select>
+            </div>
+
+            <div class="guest-form-actions">
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelGuestFormBtn"
+                >
+                    Back
+                </button>
+
+                <button
+                    type="submit"
+                    class="guest-continue-btn"
+                    id="submitGuestDetailsBtn"
+                >
+                    Continue as Guest
+                </button>
+            </div>
+        </form>
+
+        <!-- SHARED LOGIN AND REGISTRATION FORM -->
+
         <form id="accountForm" hidden>
             <h2 class="form-title" id="formTitle">Log Back In</h2>
 
-            <!-- Required by the existing registration JavaScript.
-                 Filled from the questionnaire's saved name. -->
+            <!-- Name is populated by the existing registration JavaScript. -->
             <div class="field-group" id="nameGroup" hidden>
                 <label for="name">Full name</label>
-                <input type="text" id="name" name="name"
-                       autocomplete="name">
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                >
             </div>
 
             <div class="field-group">
                 <label for="email">Email address</label>
-                <input type="email" id="email" name="email"
-                       autocomplete="email" required>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                >
             </div>
 
             <div class="field-group">
                 <label for="password">Password</label>
 
                 <div class="password-wrap">
-                    <input type="password" id="password" name="password"
-                           autocomplete="current-password"
-                           minlength="6" required>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        autocomplete="current-password"
+                        minlength="6"
+                        required
+                    >
 
                     <label class="password-toggle" for="showPassword">
                         <input type="checkbox" id="showPassword">
@@ -414,12 +486,20 @@
             </div>
 
             <div class="form-actions">
-                <button type="button" class="cancel-btn" id="cancelFormBtn">
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelFormBtn"
+                >
                     Back
                 </button>
 
-                <button type="submit" class="submit-arrow"
-                        id="formSubmitBtn" aria-label="Log in">
+                <button
+                    type="submit"
+                    class="submit-arrow"
+                    id="formSubmitBtn"
+                    aria-label="Log in"
+                >
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </button>
             </div>
@@ -435,11 +515,9 @@
 
     </section>
 
-
-
 </main>
 
 <script type="module" src="access.js"></script>
 
 </body>
-  </html>
+</html>
