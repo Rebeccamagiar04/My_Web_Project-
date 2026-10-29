@@ -76,7 +76,7 @@ label {
   margin: 10px 0;
 }
 
-#start-btn{
+#start-btn, #skipQuestionnaireBtn{
   font-size:20px;
   border: none;
   border-radius: 3px;
