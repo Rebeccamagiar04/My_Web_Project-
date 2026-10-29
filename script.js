@@ -471,6 +471,11 @@ genderOptions.forEach((option) => {
 });
 
 
+  document.getElementById("skipQuestionnaireBtn").addEventListener("click", function () {
+      window.location.href = "access.html";
+    });
+
+
 const questions = document.querySelectorAll(".question");
 const startBtn = document.getElementById("start-btn");
 const nextBtns = document.querySelectorAll(".next-btn");
