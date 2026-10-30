@@ -1,7 +1,4 @@
-
-/* =====================================================
-   1. FIREBASE IMPORTS
-===================================================== */
+//1.0 FIREBASE IMPORTS//
 
 import { initializeApp } from
     "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
@@ -16,6 +13,7 @@ import {
     EmailAuthProvider,
     linkWithCredential
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
 
 import {
     getFirestore,
