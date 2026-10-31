@@ -1,5 +1,6 @@
 /* =========================================
    PORTICO KAKUMA — SIMPLE SUPPORT PAGE
+   No cards, no boxed layouts
    ========================================= */
 
 * {
@@ -262,14 +263,24 @@ p {
     outline-offset: 3px;
 }
 
-.community-join-options .community-note {
+.community-join-options{
     margin-top: 6px;
     line-height: 1.6;
     overflow-wrap: anywhere;
 }
 
-.community-join-options .community-note a {
+.community-join-options{
     text-underline-offset: 3px;
+}
+
+.community-note {
+  color:black;
+  font-size: 15px;
+  font-family: serif, Arial, Helvetica, Georgia, sans-serif;
+}
+
+.community-note a{
+  color: green;
 }
 
 @media (max-width: 480px) {
