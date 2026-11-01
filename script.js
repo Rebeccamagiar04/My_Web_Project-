@@ -170,6 +170,71 @@ async function saveUserToFirestore(user, userType) {
 }
 
 
+/* =====================================================
+   SAVE USER PROFILE TO USERPROFILES COLLECTION
+===================================================== */
+
+async function saveUserProfileToFirestore(user, userType) {
+    if (!user) return;
+
+    const profileRef = doc(db, "UserProfiles", user.uid);
+    const userRef = doc(db, "Users", user.uid);
+
+    // Retrieve the existing user and profile documents.
+    const [userSnapshot, profileSnapshot] = await Promise.all([
+        getDoc(userRef),
+        getDoc(profileRef)
+    ]);
+
+    // Retrieve the user's name.
+    const name = (
+        user.displayName ||
+        localStorage.getItem("questionnaireName") ||
+        ""
+    ).trim();
+
+    // Retrieve the questionnaire gender.
+    const gender = (
+        localStorage.getItem("questionnaireGender") || ""
+    ).trim().toLowerCase();
+
+    const existingUser = userSnapshot.exists()
+        ? userSnapshot.data()
+        : {};
+
+    const existingProfile = profileSnapshot.exists()
+        ? profileSnapshot.data()
+        : {};
+
+    // Preserve the original account creation timestamp.
+    const createdAt =
+        existingProfile.createdAt ||
+        existingUser.createdAt ||
+        serverTimestamp();
+
+    const profileData = {
+        userType: existingUser.userType || userType,
+        createdAt: createdAt
+    };
+
+    // Only save these fields when information is available.
+    if (name) {
+        profileData.name = name;
+    }
+
+    if (gender) {
+        profileData.gender = gender;
+    }
+
+    // Update the profile without deleting existing information.
+    await setDoc(profileRef, profileData, {
+        merge: true
+    });
+
+    console.log("USER PROFILE SAVED:", user.uid);
+}
+
+
 
 /* =====================================================
    6. SIGNUP WITH EMAIL AND PASSWORD
@@ -227,6 +292,7 @@ const gender = localStorage.getItem("questionnaireGender");
 if (gender) {
     await saveGenderToFirestore(user, gender);
 }
+          await saveUserProfileToFirestore(user, "registered");
 
 
             alert("Account created successfully!");
@@ -265,7 +331,7 @@ const gender = localStorage.getItem("questionnaireGender");
 if (gender) {
     await saveGenderToFirestore(user, gender);
 }
-
+          await saveUserProfileToFirestore(user, "registered");
 
             console.log("Signed in as:", user.email);
             console.log("Google displayName:", user.displayName);
@@ -275,9 +341,11 @@ if (gender) {
                     "questionnaireName",
                     user.displayName
                 );
+              
 
                 console.log("NAME SAVED:", user.displayName);
             }
+
 
             alert("Signed in with Google!");
 
@@ -343,6 +411,7 @@ if (loginBtn) {
                     "This account does not have a displayName."
                 );
             }
+          
 
             alert("Login successful!");
 
@@ -359,6 +428,7 @@ if (loginBtn) {
         }
     });
 }
+
 
 /* =====================================================
    9. CONTINUE AS GUEST — REUSE EXISTING SESSION
@@ -401,8 +471,9 @@ if (guestBtn) {
             if (gender) {
                 await saveGenderToFirestore(user, gender);
             }
-
             window.location.replace("home.html");
+
+          await saveUserProfileToFirestore(user, "guest");
 
         } catch (error) {
             console.error("Guest sign-in failed:", error);
