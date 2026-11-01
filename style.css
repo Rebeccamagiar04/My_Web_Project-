@@ -1,180 +1,402 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* ---------- Base ---------- */
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:serif, Arial, Helvetica, sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.page { display: none; padding: 20px; }
-
-    #progress-wrapper {
-      position: fixed;
-      top:0;
-      left:0;
-      width: 100%;
-      background: #eee;
-      height: 15px;
-      margin-bottom: 20px;
-    }
-    
-    #progress-bar {
-      width: 0%;
-      height: 100%;
-      background: #16486f;
-      background: linear-gradient(90deg, #16486f, #0ea5e9);
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.7019607843137254);
-      transition: width 0.3s ease;
-    }
-  
-
-  #progress-wrapper {
-  display: none; /* hide by default */
+:root{
+  --navy:#16486f;
+  --navy-dark:#0f3454;
+  --sky:#0ea5e9;
+  --tint:#eaf4fb;
+  --ink:#10283d;
+  --muted:#5b6b7b;
+  --line:#d5e0ea;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 
-.question.active ~ #progress-wrapper {
-  display: block;
+body{
+  margin:0;
+  background:#f7f9fc;
+  color:#1e293b;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
 }
-.q-body{
-  background-color: #eaf4fb; /* light blue color background*/
+
+body.q-body{
+  background-color:var(--tint);
+  color:var(--ink);
 }
-.questionnare {
-  margin: 0;
-  height: 100vh;
+
+button,input{font:inherit}
+
+.page{display:none;padding:20px}
+.hidden{display:none !important}
+
+/* ---------- Layout ---------- */
+.questionnare{
+  min-height:100vh;
+  min-height:100dvh;
   display:flex;
-  justify-content:center;   /* horizontal center */
-  align-items: center;       /* vertical center */
-  font-family: serif, Arial, Helvetica, sans-serif;
+  justify-content:center;
+  align-items:center;
+  padding:40px 16px 24px;
 }
 
-.question {
-  width: 90%;
-  max-width: 500px;
-
-  text-align: center;
-  padding: 30px;
-  font-size: 18px;
-
-  background: white;
-  border-radius: 12px;
-
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+.question{
+  width:100%;
+  max-width:480px;
+  padding:36px 32px;
+  text-align:center;
+  font-size:17px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 1px 2px rgba(16,40,61,.06),0 14px 34px rgba(16,40,61,.12);
 }
+
+.question br{display:none}
 
 .question h1{
-  font-size: 28px;
+  font-size:32px;
+  line-height:1.15;
+  color:var(--navy);
+  margin-bottom:12px;
 }
 
-.question h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+.question h2{
+  font-size:25px;
+  line-height:1.25;
+  color:var(--ink);
+  margin-bottom:22px;
 }
 
-label {
-  font-size: 18px;
-  display: block;
-  margin: 10px 0;
+/* ---------- Transition between steps ---------- */
+@keyframes stepIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
 }
 
-#start-btn, #skipQuestionnaireBtn{
-  font-size:20px;
-  border: none;
-  border-radius: 3px;
-  background-color: #16486f;
-  color: white;
-}
-.next-btn, .prev-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-
-  border: none;
-  border-radius: 6px;
-  background-color: #16486f;
-  color: white;
+.question.active{
+  animation:stepIn .45s var(--ease) backwards;
 }
 
-.hidden{
-  display:none !important;
+/* ---------- Progress bar ---------- */
+#progress-wrapper{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:rgba(22,72,111,.12);
+  z-index:100;
+  overflow:hidden;
 }
 
-#createAccount, #login-btn{
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-
-  border: none;
-  border-radius: 6px;
-  background-color: #0ea5e9;
-  color: black; 
- }
-
-
-/* GUEST VISITOR OPTION */
-.guest-visitor-section {
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
+#progress-bar{
+  width:0%;
+  height:100%;
+  border-radius:0 6px 6px 0;
+  background:linear-gradient(90deg,var(--navy),var(--sky));
+  transition:width .6s var(--ease);
 }
 
-.guest-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 0 0 16px;
-    color: #8b8b98;
-    font-size: 13px;
+/* ---------- Welcome ---------- */
+#welcome-page p{
+  margin-bottom:28px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ---------- Options (radio + checkbox cards) ---------- */
+label{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 0 10px;
+  padding:14px 16px;
+  text-align:left;
+  font-size:17px;
+  line-height:1.35;
+  color:var(--ink);
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  cursor:pointer;
+  transition:border-color .2s,background-color .2s,box-shadow .2s;
+}
+
+label:empty{display:none}
+
+label:hover{
+  border-color:#8fb4d0;
+  background:#f6fafd;
+}
+
+label:has(input:checked){
+  border-color:var(--navy);
+  background:var(--tint);
+  box-shadow:0 0 0 3px rgba(22,72,111,.12);
+}
+
+label:has(input:focus-visible){
+  outline:3px solid rgba(14,165,233,.45);
+  outline-offset:2px;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+  width:20px;
+  height:20px;
+  flex:none;
+  accent-color:var(--navy);
+  cursor:pointer;
+}
+
+/* ---------- Text fields ---------- */
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+  display:block;
+  width:100%;
+  padding:14px 16px;
+  font-size:16px;
+  color:var(--ink);
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  transition:border-color .2s,box-shadow .2s;
+}
+
+input::placeholder{color:#8a99a8}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus{
+  outline:none;
+  border-color:var(--navy);
+  box-shadow:0 0 0 4px rgba(14,165,233,.2);
+}
+
+/* ---------- Buttons ---------- */
+button{
+  cursor:pointer;
+  border:none;
+  border-radius:12px;
+  font-weight:600;
+  transition:background-color .2s,border-color .2s,box-shadow .2s,transform .15s var(--ease),opacity .2s;
+}
+
+button:not(:disabled):active{transform:scale(.97)}
+
+button:focus-visible{
+  outline:3px solid rgba(14,165,233,.55);
+  outline-offset:3px;
+}
+
+button:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+
+/* primary */
+#start-btn,
+.next-btn,
+#createAccount{
+  background:var(--navy);
+  color:#fff;
+  box-shadow:0 6px 16px rgba(22,72,111,.25);
+}
+
+#start-btn:not(:disabled):hover,
+.next-btn:not(:disabled):hover,
+#createAccount:not(:disabled):hover{
+  background:var(--navy-dark);
+  transform:translateY(-1px);
+}
+
+/* secondary */
+.prev-btn,
+#skipQuestionnaireBtn,
+#login-btn{
+  background:#fff;
+  color:var(--navy);
+  border:1.5px solid var(--line);
+}
+
+.prev-btn:not(:disabled):hover,
+#skipQuestionnaireBtn:not(:disabled):hover,
+#login-btn:not(:disabled):hover{
+  border-color:var(--navy);
+  background:var(--tint);
+}
+
+#start-btn,
+#skipQuestionnaireBtn{
+  margin:4px 5px;
+  padding:14px 32px;
+  font-size:17px;
+}
+
+.next-btn,
+.prev-btn{
+  min-width:120px;
+  margin-top:22px;
+  padding:13px 24px;
+  font-size:16px;
+}
+
+.prev-btn{margin-right:10px}
+
+/* ---------- Question 7: personality chips in two columns ---------- */
+#q7.active{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+#q7 h2{
+  grid-column:1 / -1;
+  margin-bottom:10px;
+}
+
+#q7 label{
+  margin:0;
+  padding:12px;
+  font-size:15px;
+  min-width:0;
+}
+
+#q7 .prev-btn,
+#q7 .next-btn{
+  width:100%;
+  min-width:0;
+  margin:14px 0 0;
+}
+
+/* ---------- Question 10: account step ---------- */
+#q10.active{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+#q10 h2{margin-bottom:6px}
+
+#q10 #email{order:1}
+#q10 #password{order:2}
+
+#q10 label{
+  order:3;
+  align-self:flex-start;
+  margin:0;
+  padding:2px;
+  gap:8px;
+  font-size:14px;
+  color:var(--muted);
+  background:none;
+  border:none;
+  box-shadow:none;
+}
+
+#q10 button{width:100%}
+
+#createAccount{order:4;margin:0;padding:14px;font-size:16px}
+#login-btn{order:5;margin:0;padding:14px;font-size:16px}
+
+#googleLogin{
+  order:6;
+  padding:14px;
+  font-size:16px;
+  color:var(--ink);
+  background:#fff;
+  border:1.5px solid var(--line);
+}
+
+#googleLogin:hover{
+  border-color:var(--navy);
+  background:var(--tint);
+}
+
+#q10 .guest-visitor-section{order:7}
+
+#q10 .prev-btn{
+  order:8;
+  margin:0;
+  padding:8px;
+  min-width:0;
+  color:var(--muted);
+  font-weight:500;
+  background:none;
+  border:none;
+}
+
+#q10 .prev-btn:hover{
+  color:var(--navy);
+  background:none;
+}
+
+/* ---------- Guest visitor option ---------- */
+.guest-visitor-section{
+  width:100%;
+  margin-top:4px;
+  text-align:center;
+}
+
+.guest-divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 0 14px;
+  color:#8b8b98;
+  font-size:13px;
 }
 
 .guest-divider::before,
-.guest-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #dedee7;
+.guest-divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--line);
 }
 
-.guest-btn {
-    display: block;
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #d6d6e2;
-    border-radius: 8px;
-    background: transparent;
-    color: #26345b;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.2s ease;
+.guest-btn{
+  display:block;
+  width:100%;
+  padding:12px 16px;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  background:transparent;
+  color:var(--navy);
+  font-size:15px;
+  font-weight:600;
 }
 
-.guest-btn:hover {
-    background: #f3f3fa;
-    border-color: #a8a9c5;
+.guest-btn:hover{
+  background:var(--tint);
+  border-color:var(--navy);
 }
 
-.guest-btn:active {
-    transform: scale(0.98);
+.guest-note{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:1.5;
 }
 
-.guest-btn:focus-visible {
-    outline: 2px solid #6675c9;
-    outline-offset: 3px;
+/* ---------- Small screens ---------- */
+@media (max-width:480px){
+  .question{padding:28px 20px;border-radius:16px}
+  .question h1{font-size:28px}
+  .question h2{font-size:22px}
+  label{font-size:16px;padding:13px 14px}
 }
 
-.guest-note {
-    margin: 10px 0 0;
-    color: #858595;
-    font-size: 12px;
-    line-height: 1.5;
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
 }
-
- 
-  body{
-    margin:0;
-    background:#f7f9fc;
-    color:#1e293b;
-}
-
