@@ -123,7 +123,6 @@ const guestBtn = document.getElementById("guestBtn");
    Each Firebase UID is counted only once.
    User record and community statistics update together.
 ===================================================== */
-
 async function saveUserToFirestore(user, userType) {
     if (!user) return;
 
@@ -154,14 +153,13 @@ async function saveUserToFirestore(user, userType) {
         const registeredUsers = Number(stats.registeredUsers) || 0;
         const guestUsers = Number(stats.guestUsers) || 0;
 
-        // Record the new user.
-        transaction.set(userRef, {
+                transaction.set(userRef, {
             userType: userType,
             createdAt: serverTimestamp()
         });
 
-        // Update community statistics atomically.
-        transaction.set(statsRef, {
+        // Record the new user.
+                transaction.set(statsRef, {
             totalUsers: totalUsers + 1,
             registeredUsers: registeredUsers +
                 (userType === "registered" ? 1 : 0),
@@ -170,56 +168,36 @@ async function saveUserToFirestore(user, userType) {
         }, { merge: true });
     });
 }
+      
 
-
-/* =====================================================
-   SAVE USER PROFILE TO USERPROFILES COLLECTION
-===================================================== */
 
 async function saveUserProfileToFirestore(user, userType) {
     if (!user) return;
 
     const profileRef = doc(db, "UserProfiles", user.uid);
-    const userRef = doc(db, "Users", user.uid);
 
-    // Retrieve the existing user and profile documents.
-    const [userSnapshot, profileSnapshot] = await Promise.all([
-        getDoc(userRef),
-        getDoc(profileRef)
-    ]);
-
-    // Retrieve the user's name.
     const name = (
         user.displayName ||
         localStorage.getItem("questionnaireName") ||
         ""
     ).trim();
 
-    // Retrieve the questionnaire gender.
     const gender = (
         localStorage.getItem("questionnaireGender") || ""
     ).trim().toLowerCase();
 
-    const existingUser = userSnapshot.exists()
-        ? userSnapshot.data()
-        : {};
-
-    const existingProfile = profileSnapshot.exists()
-        ? profileSnapshot.data()
-        : {};
-
-    // Preserve the original account creation timestamp.
-    const createdAt =
-        existingProfile.createdAt ||
-        existingUser.createdAt ||
-        serverTimestamp();
+    // Only read the profile document itself.
+    const profileSnapshot = await getDoc(profileRef);
 
     const profileData = {
-        userType: existingUser.userType || userType,
-        createdAt: createdAt
+        userType: userType
     };
 
-    // Only save these fields when information is available.
+    // Set createdAt only the first time.
+    if (!profileSnapshot.exists()) {
+        profileData.createdAt = serverTimestamp();
+    }
+
     if (name) {
         profileData.name = name;
     }
@@ -228,12 +206,36 @@ async function saveUserProfileToFirestore(user, userType) {
         profileData.gender = gender;
     }
 
-    // Update the profile without deleting existing information.
-    await setDoc(profileRef, profileData, {
-        merge: true
-    });
+    await setDoc(profileRef, profileData, { merge: true });
 
     console.log("USER PROFILE SAVED:", user.uid);
+}
+
+
+async function saveAllUserData(user, userType) {
+    const steps = [
+        ["Users", () => saveUserToFirestore(user, userType)],
+        ["Gender", async () => {
+            const gender = localStorage.getItem("questionnaireGender");
+            if (gender) {
+                await saveGenderToFirestore(user, gender);
+            }
+        }],
+        ["UserProfiles", () => saveUserProfileToFirestore(user, userType)]
+    ];
+
+    const failed = [];
+
+    for (const [label, run] of steps) {
+        try {
+            await run();
+        } catch (error) {
+            console.error(label + " save failed:", error.code, error.message);
+            failed.push(label + ": " + (error.code || error.message));
+        }
+    }
+
+    return failed;
 }
 
 
@@ -321,53 +323,41 @@ if (googleBtn) {
 
         try {
             const provider = new GoogleAuthProvider();
-
             const result = await signInWithPopup(auth, provider);
-
             const user = result.user;
 
-            
-await saveUserToFirestore(user, "registered");
-
-const gender = localStorage.getItem("questionnaireGender");
-
-if (gender) {
-    await saveGenderToFirestore(user, gender);
-}
-          await saveUserProfileToFirestore(user, "registered");
-
             console.log("Signed in as:", user.email);
-            console.log("Google displayName:", user.displayName);
 
             if (user.displayName) {
-                localStorage.setItem(
-                    "questionnaireName",
-                    user.displayName
-                );
-              
-
-                console.log("NAME SAVED:", user.displayName);
+                localStorage.setItem("questionnaireName", user.displayName);
             }
 
+            // Save to Firestore, step by step.
+            const failed = await saveAllUserData(user, "registered");
 
-            alert("Signed in with Google!");
+            if (failed.length > 0) {
+                // Sign-in worked, but some data did not save.
+                alert(
+                    "Signed in, but some data could not be saved:\n" +
+                    failed.join("\n")
+                );
+            } else {
+                alert("Signed in with Google!");
+            }
 
             window.location.href = "home.html";
 
         } catch (error) {
-            console.error(
-                "Google sign-in error:",
-                error.code,
-                error.message
-            );
+            console.error("Google sign-in error:", error.code, error.message);
 
             alert(
-    "Error code: " + error.code +
-    "\nMessage: " + error.message
-);
+                "Error code: " + error.code +
+                "\nMessage: " + error.message
+            );
         }
     });
 }
+
 
 
 
