@@ -43,6 +43,8 @@ const firebaseConfig = {
 };
 
 
+
+
 /* =====================================================
    3. INITIALIZE FIREBASE
 ===================================================== */
@@ -359,7 +361,10 @@ if (gender) {
                 error.message
             );
 
-            alert(getFriendlyError(error.code));
+            alert(
+    "Error code: " + error.code +
+    "\nMessage: " + error.message
+);
         }
     });
 }
@@ -473,9 +478,12 @@ if (guestBtn) {
             if (gender) {
                 await saveGenderToFirestore(user, gender);
             }
+
+            await saveUserProfileToFirestore(user, "guest");
+          
             window.location.replace("home.html");
 
-          await saveUserProfileToFirestore(user, "guest");
+          
 
         } catch (error) {
             console.error("Guest sign-in failed:", error);
@@ -544,9 +552,13 @@ genderOptions.forEach((option) => {
 });
 
 
-  document.getElementById("skipQuestionnaireBtn").addEventListener("click", function () {
-      window.location.href = "access.html";
+const skipQuestionnaireBtn = document.getElementById("skipQuestionnaireBtn");
+
+if (skipQuestionnaireBtn) {
+    skipQuestionnaireBtn.addEventListener("click", function () {
+        window.location.href = "access.html";
     });
+}
 
 
 const questions = document.querySelectorAll(".question");
