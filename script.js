@@ -358,7 +358,30 @@ if (googleBtn) {
     });
 }
 
+/* =====================================================
+   5. HELPERS: BUSY BUTTONS AND ERRORS
+===================================================== */
 
+async function withBusy(button, task) {
+    const label = button.querySelector("span") || button;
+    const original = label.textContent;
+
+    button.disabled = true;
+    label.textContent = "Please wait...";
+
+    try {
+        await task();
+    } catch (error) {
+        console.error(error.code, error.message);
+
+        if (error.code !== "auth/cancelled-popup-request") {
+            alert(friendlyError(error.code));
+        }
+    } finally {
+        button.disabled = false;
+        label.textContent = original;
+    }
+        }
 
 
 /* =====================================================
