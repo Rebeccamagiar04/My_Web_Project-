@@ -29,6 +29,19 @@ body.q-body{
   color:var(--ink);
 }
 
+        /* ICONS */
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
 button,input{font:inherit}
 
 .page{display:none;padding:20px}
