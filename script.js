@@ -312,31 +312,36 @@ if (gender) {
 }
 
 
-
 /* =====================================================
    7. GOOGLE SIGN-IN
 ===================================================== */
 
 if (googleBtn) {
-    googleBtn.addEventListener("click", async (e) => {
+    googleBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
-        try {
+        withBusy(googleBtn, async () => {
+
             const provider = new GoogleAuthProvider();
+
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
             console.log("Signed in as:", user.email);
 
             if (user.displayName) {
-                localStorage.setItem("questionnaireName", user.displayName);
+                localStorage.setItem(
+                    "questionnaireName",
+                    user.displayName
+                );
             }
 
-            // Save to Firestore, step by step.
-            const failed = await saveAllUserData(user, "registered");
+            const failed = await saveAllUserData(
+                user,
+                "registered"
+            );
 
             if (failed.length > 0) {
-                // Sign-in worked, but some data did not save.
                 alert(
                     "Signed in, but some data could not be saved:\n" +
                     failed.join("\n")
@@ -346,23 +351,20 @@ if (googleBtn) {
             }
 
             window.location.href = "home.html";
-
-        } catch (error) {
-            console.error("Google sign-in error:", error.code, error.message);
-
-            alert(
-                "Error code: " + error.code +
-                "\nMessage: " + error.message
-            );
-        }
+        });
     });
 }
 
+
+
+
 /* =====================================================
-   5. HELPERS: BUSY BUTTONS AND ERRORS
+   HELPERS: BUSY BUTTONS AND ERRORS
 ===================================================== */
 
 async function withBusy(button, task) {
+    if (!button) return;
+
     const label = button.querySelector("span") || button;
     const original = label.textContent;
 
@@ -371,17 +373,23 @@ async function withBusy(button, task) {
 
     try {
         await task();
+
     } catch (error) {
-        console.error(error.code, error.message);
+        console.error(
+            "Operation failed:",
+            error.code,
+            error.message
+        );
 
         if (error.code !== "auth/cancelled-popup-request") {
-            alert(friendlyError(error.code));
+            alert(getFriendlyError(error.code));
         }
+
     } finally {
         button.disabled = false;
         label.textContent = original;
     }
-        }
+}
 
 
 /* =====================================================
@@ -542,16 +550,11 @@ function getFriendlyError(code) {
         default:
             return "Something went wrong. Please try again.";
     }
+
 }
 
-
 /* =====================================================
-   11. QUESTIONNAIRE AND PROGRESS BAR
-===================================================== */
-
-
-/* =====================================================
-   SAVE GENDER ANSWER TEMPORARILY
+ 11  SAVE GENDER ANSWER TEMPORARILY
 ===================================================== */
 
 const genderOptions = document.querySelectorAll(
@@ -658,6 +661,27 @@ function nextHandler() {
     const currentQ = questions[currentQuestion];
 
     if (!currentQ) return;
+
+        // Validate any selected "Other" options.
+    const otherCheckboxes = currentQ.querySelectorAll(
+        'input[type="checkbox"][data-target]'
+    );
+
+    for (const checkbox of otherCheckboxes) {
+        const textbox = document.getElementById(
+            checkbox.dataset.target
+        );
+
+        if (
+            checkbox.checked &&
+            textbox &&
+            textbox.value.trim() === ""
+        ) {
+            alert("Please explain your 'Other' selection.");
+            textbox.focus();
+            return;
+        }
+    }
 
     const nextBtn = currentQ.querySelector(".next-btn");
 
@@ -768,46 +792,10 @@ otherCheckboxes.forEach((checkbox) => {
 });
 
 
-/* =====================================================
-   14. VALIDATE "OTHER" BEFORE MOVING TO THE NEXT QUESTION
-===================================================== */
-
-nextBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        const question = btn.closest(".question");
-
-        if (!question) return;
-
-        const checkboxes = question.querySelectorAll(
-            'input[type="checkbox"][data-target]'
-        );
-
-        for (const checkbox of checkboxes) {
-            const textbox = document.getElementById(
-                checkbox.dataset.target
-            );
-
-            if (
-                checkbox.checked &&
-                textbox &&
-                textbox.value.trim() === ""
-            ) {
-                // Prevent moving forward until the explanation is entered.
-                e.stopImmediatePropagation();
-
-                alert("Please explain your 'Other' selection.");
-
-                textbox.focus();
-
-                return;
-            }
-        }
-    });
-});
 
 
 /* =====================================================
-   15. PASSWORD VISIBILITY
+   14. PASSWORD VISIBILITY
 ===================================================== */
 
 const password = document.getElementById("password");
@@ -821,7 +809,7 @@ if (showPassword && password) {
 
 
 /* =====================================================
-   16. HAMBURGER MENU
+   15. HAMBURGER MENU
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
