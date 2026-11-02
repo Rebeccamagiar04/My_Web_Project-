@@ -1,4 +1,4 @@
-<!--=====DOCTYPE html======-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,6 @@
           content="Log in, create an account, or continue as a guest on Portico Kakuma.">
 
     <link rel="icon" href="logo.png">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
@@ -18,18 +16,16 @@
             --blue-dark: #172d4d;
             --blue: #245582;
             --blue-pale: #f4f8fd;
-            --accent: #b7d9f5;
             --white: #ffffff;
             --text: #1b2b42;
             --muted: #68778b;
             --border: #dce6f0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* The hidden attribute must always win over display rules. */
+        [hidden] { display: none !important; }
 
         body {
             min-height: 100vh;
@@ -38,20 +34,14 @@
             justify-content: center;
             padding: 28px 18px;
             background:
-                radial-gradient(ellipse at 15% 15%,
-                    rgba(69,119,171,.28), transparent 38%),
-                radial-gradient(ellipse at 90% 85%,
-                    rgba(102,151,198,.17), transparent 35%),
-                linear-gradient(135deg,
-                    var(--blue-deep), #1a3455 58%, #203f62);
+                radial-gradient(ellipse at 15% 15%, rgba(69,119,171,.28), transparent 38%),
+                radial-gradient(ellipse at 90% 85%, rgba(102,151,198,.17), transparent 35%),
+                linear-gradient(135deg, var(--blue-deep), #1a3455 58%, #203f62);
             color: var(--text);
             font-family: Georgia, "Times New Roman", serif;
         }
 
-        .access-container {
-            width: 100%;
-            max-width: 440px;
-        }
+        .access-container { width: 100%; max-width: 440px; }
 
         .access-card {
             padding: 38px 32px 30px;
@@ -70,10 +60,11 @@
             align-items: center;
             justify-content: center;
             border-radius: 19px;
-            background: linear-gradient(145deg,#eaf3fc,#d9e9f8);
+            background: linear-gradient(145deg, #eaf3fc, #d9e9f8);
             color: var(--blue);
-            font-size: 26px;
         }
+
+        .welcome-icon svg { width: 28px; height: 28px; }
 
         h1 {
             margin-bottom: 12px;
@@ -90,6 +81,21 @@
             line-height: 1.8;
         }
 
+        /* ICONS */
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* MAIN OPTIONS */
+
         .access-options {
             display: flex;
             flex-direction: column;
@@ -104,60 +110,67 @@
             justify-content: center;
             gap: 11px;
             padding: 14px 18px;
-            border: 1px solid var(--blue);
+            border: 1px solid #cbd9e8;
             border-radius: 9px;
-            background: linear-gradient(120deg,#214b75,#2c608e);
-            color: var(--white);
+            background: var(--white);
+            color: var(--blue-dark);
             font-family: Arial, sans-serif;
             font-size: 14px;
             font-weight: 600;
-            text-decoration: none;
             cursor: pointer;
-            transition: .2s ease;
+            transition: background .2s ease, transform .2s ease;
         }
 
         .access-btn:hover {
-            background: #183b61;
+            background: var(--blue-pale);
             transform: translateY(-1px);
         }
 
-        .access-btn, .secondary {
-            background: var(--white);
-            border-color: #cbd9e8;
-            color: var(--blue-dark);
+        .access-btn.primary {
+            border-color: var(--blue);
+            background: linear-gradient(120deg, #214b75, #2c608e);
+            color: var(--white);
         }
 
-        .access-btn.secondary:hover {
-            background: var(--blue-pale);
-        }
+        .access-btn.primary:hover { background: #183b61; }
 
-        .access-btn, .guest {
+        .access-btn.guest {
             border-color: transparent;
             background: transparent;
             color: #526b85;
         }
 
-        .access-btn, .guest:hover {
+        .access-btn.guest:hover {
             background: var(--blue-pale);
             transform: none;
         }
 
-        .access-btn i {
-            width: 17px;
-            font-size: 15px;
+        .access-btn:disabled { opacity: .6; cursor: wait; transform: none; }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 12px;
         }
 
-        /* SHARED FORM STYLES */
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* FORMS */
 
         #accountForm,
-        #guestDetailsForm {
+        #guestDetailsForm,
+        #googleDetailsForm {
             margin-top: 20px;
             text-align: left;
-        }
-
-        #accountForm[hidden],
-        #guestDetailsForm[hidden] {
-            display: none;
         }
 
         .form-title {
@@ -167,9 +180,16 @@
             text-align: center;
         }
 
-        .field-group {
-            margin-bottom: 15px;
+        .form-intro {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
         }
+
+        .field-group { margin-bottom: 15px; }
 
         .field-group label {
             display: block;
@@ -181,7 +201,7 @@
         }
 
         .field-group input,
-        #guestGender {
+        .field-group select {
             width: 100%;
             min-height: 46px;
             padding: 12px;
@@ -190,107 +210,73 @@
             background: #fff;
             color: var(--text);
             font-family: Arial, sans-serif;
-            font-size: 14px;
+            font-size: 16px; /* 16px stops iOS zooming into the field */
         }
 
         .field-group input:focus,
-        #guestGender:focus {
+        .field-group select:focus {
             outline: 2px solid #83b8e8;
             border-color: var(--blue);
         }
 
-        .password-wrap {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .password-wrap { display: flex; align-items: center; gap: 8px; }
 
-        .password-wrap input {
-            flex: 1;
-            min-width: 0;
-        }
+        .password-wrap input { flex: 1; min-width: 0; }
 
-        .password-toggle {
+        .field-group .password-toggle {
             display: flex;
             align-items: center;
             gap: 5px;
+            margin: 0;
             color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 11px;
+            font-size: 12px;
+            font-weight: 400;
             white-space: nowrap;
         }
 
-        .password-toggle input {
+        .field-group .password-toggle input {
             width: auto;
             min-height: auto;
         }
 
-        .form-actions,
-        .guest-form-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
+        .form-actions { display: flex; gap: 10px; margin-top: 20px; }
 
-        .submit-arrow {
-            width: 52px;
-            min-width: 52px;
+        .cancel-btn,
+        .submit-btn {
             min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
             border-radius: 9px;
-            background: var(--blue);
-            color: white;
-            font-size: 18px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
             cursor: pointer;
-        }
-
-        .submit-arrow:hover {
-            background: var(--blue-dark);
         }
 
         .cancel-btn {
             flex: 1;
-            min-height: 48px;
             border: 1px solid var(--border);
-            border-radius: 9px;
-            background: white;
+            background: var(--white);
             color: var(--muted);
-            font-family: Arial, sans-serif;
-            cursor: pointer;
         }
 
-        .cancel-btn:hover {
-            background: var(--blue-pale);
-        }
+        .cancel-btn:hover { background: var(--blue-pale); }
 
-        .guest-continue-btn {
-            flex: 1;
-            min-height: 48px;
-            padding: 12px;
+        .submit-btn {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             border: none;
-            border-radius: 9px;
             background: var(--blue);
-            color: white;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
+            color: var(--white);
             font-weight: 600;
-            cursor: pointer;
         }
 
-        .guest-continue-btn:hover {
-            background: var(--blue-dark);
-        }
+        .submit-btn:hover { background: var(--blue-dark); }
+        .submit-btn:disabled { opacity: .6; cursor: wait; }
 
-        .guest-form-intro {
-            margin-bottom: 18px;
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.7;
-            text-align: center;
+        :is(button, input, select):focus-visible {
+            outline: 3px solid #83b8e8;
+            outline-offset: 2px;
         }
 
         .guest-note {
@@ -309,50 +295,40 @@
             text-align: left;
         }
 
-        .guest-note i {
-            margin-top: 3px;
-            color: var(--blue);
-        }
+        .guest-note .icon { margin-top: 3px; color: var(--blue); }
 
         @media (max-width: 480px) {
-            body {
-                padding: 24px 16px;
-            }
-
-            .access-card {
-                padding: 32px 22px 25px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }
-
-            .intro {
-                font-size: 13px;
-            }
-
-            .password-wrap {
-                flex-wrap: wrap;
-            }
+            body { padding: 24px 16px; }
+            .access-card { padding: 32px 22px 25px; }
+            h1 { font-size: 26px; }
+            .intro { font-size: 13px; }
+            .password-wrap { flex-wrap: wrap; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
+            *, *::before, *::after { transition: none !important; }
         }
     </style>
 </head>
 
 <body>
+
+<!-- Icons are defined once here, so the page needs no icon library. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14M2 20h3M13 20h9M10 12v.01M13 4.56v16.16a1 1 0 0 1-1.24.97L5 20V5.56a2 2 0 0 1 1.52-1.94l4-1A2 2 0 0 1 13 4.56Z"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+    <symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M19 8v6M22 11h-6"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+</svg>
+
 <main class="access-container">
 
     <section class="access-card" aria-labelledby="page-title">
 
         <div class="welcome-icon" aria-hidden="true">
-            <i class="fa-solid fa-door-open"></i>
+            <svg class="icon"><use href="#i-door"/></svg>
         </div>
 
         <h1 id="page-title">Welcome to Portico</h1>
@@ -362,48 +338,81 @@
             Choose how you'd like to continue.
         </p>
 
+        <!-- MAIN OPTIONS -->
+
         <div class="access-options" id="accessOptions">
 
-            <button type="button" id="showLoginBtn" class="access-btn">
-                <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            <button type="button" id="googleBtn" class="access-btn">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="stroke:none">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/>
+                </svg>
+                <span>Continue with Google</span>
+            </button>
+
+            <div class="divider" aria-hidden="true">or</div>
+
+            <button type="button" id="showLoginBtn" class="access-btn primary">
+                <svg class="icon" aria-hidden="true"><use href="#i-login"/></svg>
                 <span>Log Back In</span>
             </button>
 
-            <button type="button" id="showRegisterBtn"
-                    class="access-btn secondary">
-                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+            <button type="button" id="showRegisterBtn" class="access-btn">
+                <svg class="icon" aria-hidden="true"><use href="#i-user-plus"/></svg>
                 <span>Create an Account</span>
             </button>
 
-            <button type="button" id="continueGuestBtn"
-                    class="access-btn guest">
-                <i class="fa-solid fa-user-clock" aria-hidden="true"></i>
+            <button type="button" id="continueGuestBtn" class="access-btn guest">
+                <svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>
                 <span>Continue as Guest</span>
             </button>
 
         </div>
+
+        <!-- GOOGLE: GENDER STEP (shown only when a new Google user has none saved) -->
+
+        <form id="googleDetailsForm" hidden>
+            <h2 class="form-title">One more step</h2>
+
+            <p class="form-intro">
+                Choose your gender to finish setting up your account.
+            </p>
+
+            <div class="field-group">
+                <label for="googleGender">Gender</label>
+                <select id="googleGender" name="googleGender" required>
+                    <option value="">Select your gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" id="cancelGoogleFormBtn">Back</button>
+                <button type="submit" class="submit-btn" id="submitGoogleDetailsBtn">
+                    Finish sign-in
+                </button>
+            </div>
+        </form>
 
         <!-- GUEST DETAILS FORM -->
 
         <form id="guestDetailsForm" hidden>
             <h2 class="form-title">Guest Access</h2>
 
-            <p class="guest-form-intro">
+            <p class="form-intro">
                 Tell us a little about yourself before continuing
                 to Portico Kakuma.
             </p>
 
             <div class="field-group">
                 <label for="guestName">Full name</label>
-                <input
-                    type="text"
-                    id="guestName"
-                    name="guestName"
-                    placeholder="Enter your full name"
-                    autocomplete="name"
-                    maxlength="100"
-                    required
-                >
+                <input type="text" id="guestName" name="guestName"
+                       placeholder="Enter your full name"
+                       autocomplete="name" maxlength="100" required>
             </div>
 
             <div class="field-group">
@@ -412,26 +421,13 @@
                     <option value="">Select your gender</option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
-                    <option value="prefer-not-to-say">
-                        Prefer not to say
-                    </option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
                 </select>
             </div>
 
-            <div class="guest-form-actions">
-                <button
-                    type="button"
-                    class="cancel-btn"
-                    id="cancelGuestFormBtn"
-                >
-                    Back
-                </button>
-
-                <button
-                    type="submit"
-                    class="guest-continue-btn"
-                    id="submitGuestDetailsBtn"
-                >
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" id="cancelGuestFormBtn">Back</button>
+                <button type="submit" class="submit-btn" id="submitGuestDetailsBtn">
                     Continue as Guest
                 </button>
             </div>
@@ -442,40 +438,35 @@
         <form id="accountForm" hidden>
             <h2 class="form-title" id="formTitle">Log Back In</h2>
 
-            <!-- Name is populated by the existing registration JavaScript. -->
             <div class="field-group" id="nameGroup" hidden>
                 <label for="name">Full name</label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    autocomplete="name"
-                >
+                <input type="text" id="name" name="name"
+                       autocomplete="name" maxlength="100">
+            </div>
+
+            <div class="field-group" id="registrationGenderGroup" hidden>
+                <label for="registrationGender">Gender</label>
+                <select id="registrationGender" name="registrationGender">
+                    <option value="">Select your gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
             </div>
 
             <div class="field-group">
                 <label for="email">Email address</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autocomplete="email"
-                    required
-                >
+                <input type="email" id="email" name="email"
+                       autocomplete="email" required>
             </div>
 
             <div class="field-group">
                 <label for="password">Password</label>
 
                 <div class="password-wrap">
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        autocomplete="current-password"
-                        minlength="6"
-                        required
-                    >
+                    <input type="password" id="password" name="password"
+                           autocomplete="current-password"
+                           minlength="6" required>
 
                     <label class="password-toggle" for="showPassword">
                         <input type="checkbox" id="showPassword">
@@ -485,27 +476,17 @@
             </div>
 
             <div class="form-actions">
-                <button
-                    type="button"
-                    class="cancel-btn"
-                    id="cancelFormBtn"
-                >
-                    Back
-                </button>
-
-                <button
-                    type="submit"
-                    class="submit-arrow"
-                    id="formSubmitBtn"
-                    aria-label="Log in"
-                >
-                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                <button type="button" class="cancel-btn" id="cancelFormBtn">Back</button>
+                <button type="submit" class="submit-btn" id="formSubmitBtn"
+                        aria-label="Log in">
+                    <span id="formSubmitLabel">Log in</span>
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
                 </button>
             </div>
         </form>
 
         <p class="guest-note" id="guestNote">
-            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
             <span>
                 Guest access lasts 24 hours. After that, you'll need
                 to log in or create an account to continue.
@@ -520,3 +501,4 @@
 
 </body>
 </html>
+
