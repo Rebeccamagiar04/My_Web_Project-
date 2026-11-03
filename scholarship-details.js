@@ -31,10 +31,54 @@ document.addEventListener("DOMContentLoaded", () => {
                 scholarshipTitle.textContent + " | Portico Kakuma";
         }
 
+        // NEW: Update the meta description from the first paragraph
+        const firstParagraph = selectedScholarship.querySelector("p");
+
+        if (firstParagraph) {
+            let text = firstParagraph.textContent.replace(/\s+/g, " ").trim();
+
+            // Keep it to a search-friendly length, cut at a word boundary
+            if (text.length > 155) {
+                text = text.slice(0, 155).replace(/\s+\S*$/, "") + "...";
+            }
+
+            let metaDescription =
+                document.querySelector('meta[name="description"]');
+
+            if (!metaDescription) {
+                metaDescription = document.createElement("meta");
+                metaDescription.name = "description";
+                document.head.appendChild(metaDescription);
+            }
+
+            if (text) {
+                metaDescription.setAttribute("content", text);
+            }
+        }
+
+        // NEW: Set a canonical link that includes the scholarship ID
+        let canonical = document.querySelector('link[rel="canonical"]');
+
+        if (!canonical) {
+            canonical = document.createElement("link");
+            canonical.rel = "canonical";
+            document.head.appendChild(canonical);
+        }
+
+        canonical.href =
+            "https://www.porticokakuma.co.ke/scholarship-details.html?id=" +
+            encodeURIComponent(scholarshipId);
+
         // Start at the top of the page
         window.scrollTo(0, 0);
 
     } else {
+
+        // NEW: Ask search engines not to index a "not found" view
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) {
+            robots.setAttribute("content", "noindex, follow");
+        }
 
         // If no matching scholarship is found
         const container =
