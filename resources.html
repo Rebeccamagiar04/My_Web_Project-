@@ -85,7 +85,7 @@ href="resources.css">
         
         <!-- HOME PAGE & SECTIONS -->
         <li class="nav-group">
-          <a href="home.html" class="group-title" class="active"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="home.html" class="group-title"><i class="fa-solid fa-house"></i> Home</a>
           <ul class="sub-nav-list">
             <li><a href="home.html#how-it-works">1.1 A Simple 4-Step Process</a></li>
             <li><a href="home.html#why-card">1.2 Why Portico Kakuma?</a></li>
@@ -107,7 +107,7 @@ href="resources.css">
 
         <!-- RESOURCES PAGE & SECTIONS -->
         <li class="nav-group">
-          <a href="resources.html" class="group-title"><i class="fa-solid fa-book-open"></i> Resources</a>
+          <a href="resources.html" class="group-title active"><i class="fa-solid fa-book-open"></i> Resources</a>
           <ul class="sub-nav-list">
             <li><a href="resources.html#deadlines-section">3.1 Upcoming Scholarship Deadlines</a></li>
             <li><a href="resources.html#featured-resources">3.2 Featured Resources</a></li>
@@ -255,7 +255,7 @@ href="resources.css">
 
 
 <!-- Upcoming Deadlines -->
-<section style="margin-bottom: 32px;" id="deadlines-section">
+<section style="margin-bottom: 32px;" id="deadlines-list">
   
 <div class="section-header">
   
@@ -291,7 +291,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=pearson">View Details....</a>
+<a href="scholarship-details.html?id=pearson">View Details...</a>
   </div>
 
     </div>
@@ -321,7 +321,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=bowdoin">View Details....</a>
+<a href="scholarship-details.html?id=bowdoin">View Details...</a>
   </div>
 
 </div>
@@ -347,11 +347,11 @@ href="resources.css">
     Deadline: 19 Nov 2026, 17:00 UTC
 </div>
 
-<div class="countdown" data-deadline="2026-11-19T00:17:00Z">
+<div class="countdown" data-deadline="2026-11-19T17:00:00Z">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=edinburgh-mastercard">View Details....</a>
+<a href="scholarship-details.html?id=edinburgh-mastercard">View Details...</a>
   </div>
 
       </div>
@@ -381,7 +381,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=berea-college">View Details....</a>
+<a href="scholarship-details.html?id=berea-college">View Details...</a>
   </div>
 
   </div>
@@ -412,7 +412,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=alu-mastercard">View Details....</a>
+<a href="scholarship-details.html?id=alu-mastercard">View Details...</a>
   </div>
 
     </div>
@@ -442,7 +442,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=toronto-at-risk">View Details....</a>
+<a href="scholarship-details.html?id=toronto-at-risk">View Details...</a>
   </div>
 
       </div>
@@ -472,7 +472,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=uwc">View Details....</a>
+<a href="scholarship-details.html?id=uwc">View Details...</a>
   </div>
 
       </div>
@@ -502,7 +502,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=chinese-government-scholarship">View Details....</a>
+<a href="scholarship-details.html?id=chinese-government-scholarship">View Details...</a>
   </div>
 
     </div>
@@ -532,7 +532,7 @@ href="resources.css">
     Calculating...
 </div>
   <div>
-<a href="scholarship-details.html?id=earth-mastercard">View Details....</a>
+<a href="scholarship-details.html?id=earth-mastercard">View Details...</a>
   </div>
 
     </div>
@@ -658,85 +658,109 @@ href="resources.css">
 <!--VIDEO SECTION-->
 <!-- Featured Video Tutorials -->
 <section style="margin-bottom: 32px;" class="video-section" id="featured-videos">
-  
+
 <div class="section-header">
 <h2 class="section-title">Featured Video Tutorials</h2>
 <a href="videotutorials.html" class="view-all">View all videos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
 </div>
 
 <div class="videos-grid">
-  
-<div class="video-card" id="motivation-let">
 
-    <iframe
-        width="100%"
-        height="250"
-        src="https://www.youtube.com/embed/RcNa9k9BaPU"
-        title="How to Write a Winning Motivation Letter"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
+    <!-- Video 1 -->
+    <div class="video-card" id="motivation-let">
 
-    <div class="video-info">
-        <h3 class="video-title">How to Write a Winning Motivation Letter.</h3>
-    </div>
-  
-    <div class="key-takeaways">
-  <li><strong><u>Key Takeaways</u></strong>
-    <ul>Hook the reader with a memorable opening.</ul>
-  <ul>Align your goals with the sponsor's mission.</ul>
-    <ul>Connect achievements to future purpose.</ul>
-    <ul>Paint a vision of future financial impact.</ul>
-    <ul>Proofread and respect specific.</ul>
-  
-  </li>
-</div>
-  
-</div>
+        <iframe
+            width="100%"
+            height="250"
+            src="https://www.youtube.com/embed/RcNa9k9BaPU"
+            title="How to Write a Winning Motivation Letter"
+            frameborder="0"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
 
-<div class="video-card" id="application-steps">
+        <div class="video-info">
+            <h3 class="video-title">How to Write a Winning Motivation Letter.</h3>
+        </div>
 
-<iframe 
-width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="key-takeaways">
+            <p><strong><u>Key Takeaways</u></strong></p>
+            <ul>
+                <li>Hook the reader with a memorable opening.</li>
+                <li>Align your goals with the sponsor's mission.</li>
+                <li>Connect achievements to future purpose.</li>
+                <li>Paint a vision of future financial impact.</li>
+                <li>Proofread and follow the specific requirements.</li>
+            </ul>
+        </div>
 
-    <div class="video-info">
-        <h3 class="video-title">Scholarship application step-by-step.</h3>
-    </div>
-  <div class="key-takeaways">
-  <li><strong><u>Key Takeaways</u></strong>
-    <ul>Start application early.</ul>
-    <ul>Have a holistic review and well rounded profile.</ul>
-    <ul>Credential evaluation and documentation.</ul>
-    <ul>Program-specific requirements(Reach out to institutions and professors).</ul>
-    <ul>Financial aid and university resources.</ul>
-  </li>
-
-  </div>
-</div>
-
-<div class="video-card" id="interview-tips">
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/q6323JL8a24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-    <div class="video-info">
-        <h3 class="video-title">How to prepare for scholarship interviews.</h3>
     </div>
 
-<div class="key-takeaways">
-<li><strong><u>Key Takeaways</u></strong>
+    <!-- Video 2 -->
+    <div class="video-card" id="application-steps">
 
-<ul>Thorough preparation is key.</ul>
-  <ul>Highlight merit and need.</ul>
-  <ul>Demonstrate alignment with institutional values.</ul>
-  <ul>Turning weakness into growth.</ul>
-  <ul>Asking smart closing questions.</ul>
-</li>
+        <iframe
+            width="100%"
+            height="250"
+            src="https://www.youtube.com/embed/oyUjg4vPWoM"
+            title="Scholarship application step-by-step"
+            frameborder="0"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
 
-  
-</div>
-</div>
+        <div class="video-info">
+            <h3 class="video-title">Scholarship application step-by-step.</h3>
+        </div>
 
+        <div class="key-takeaways">
+            <p><strong><u>Key Takeaways</u></strong></p>
+            <ul>
+                <li>Start your application early.</li>
+                <li>Build a well-rounded profile for a holistic review.</li>
+                <li>Credential evaluation and documentation.</li>
+                <li>Program-specific requirements (reach out to institutions and professors).</li>
+                <li>Financial aid and university resources.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-card" id="interview-tips">
+
+        <iframe
+            width="100%"
+            height="250"
+            src="https://www.youtube.com/embed/q6323JL8a24"
+            title="How to prepare for scholarship interviews"
+            frameborder="0"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+
+        <div class="video-info">
+            <h3 class="video-title">How to prepare for scholarship interviews.</h3>
+        </div>
+
+        <div class="key-takeaways">
+            <p><strong><u>Key Takeaways</u></strong></p>
+            <ul>
+                <li>Thorough preparation is key.</li>
+                <li>Highlight merit and need.</li>
+                <li>Demonstrate alignment with institutional values.</li>
+                <li>Turn weaknesses into growth.</li>
+                <li>Ask smart closing questions.</li>
+            </ul>
+        </div>
+
+    </div>
 
 </div>
 
@@ -790,7 +814,7 @@ width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="
             </div>
             <div class="article-info">
                 <h3 class="article-title">What Scholarship Committees Actually Look for Beyond the GPA</h3>
-                <p class="article-date">April 20, 2025</p>
+                <p class="article-date">November 14, 2025</p>
                 <a class="article-link" href="https://thevillagemethod.org/what-scholarship-committees-actually-look-for-beyond-the-gpa/" target="_blank" rel="noopener noreferrer">View Details →</a>
             </div>
         </article>
@@ -821,9 +845,9 @@ width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="
      MORE ARTICLES SECTION
 ===================================================== -->
 
-<section id="articles-section" class="articles">
+<section id="more-articles-section" class="articles">
   
-        <div class="section-header" class="section-title">
+        <div class="section-header section-title">
         <h2 class="more-articles-heading">More Articles</h2>
         </div>
 
@@ -842,8 +866,8 @@ width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="
             </div>
         </article>
 
-                            <!-- Article 5 -->
-        <article class="article-card" id="article-5">
+                            <!-- Article 6 -->
+        <article class="article-card" id="article-6">
             <div class="article-thumb">
                 <img src="graduate.jpg"
                      alt="hopeful stories">
@@ -855,8 +879,8 @@ width="560" height="315" src="https://www.youtube.com/embed/oyUjg4vPWoM" title="
             </div>
         </article>
 
-        <!-- Article 6 -->
-        <article class="article-card" id="article-3">
+        <!-- Article 7 -->
+        <article class="article-card" id="article-7">
             <div class="article-thumb">
                 <img src="grant.jpg"
                      alt="Professional discussing scholarship applications">
