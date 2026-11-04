@@ -224,6 +224,305 @@ body {
     margin-left: 6px;
 }
 
+
+/* =====================================================
+   COMMON APP — PAGE-SPECIFIC STYLES
+===================================================== */
+
+#common-app {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+#common-app .detail-meta p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+}
+
+#common-app .ca-intro {
+    background: #f2f5f9;
+    border-left: 4px solid #1f3a5f;
+    padding: 16px;
+    border-radius: 7px;
+    margin: 16px 0;
+}
+
+#common-app .ca-warning {
+    background: #fff5e8;
+    border-left: 4px solid #bd762d;
+    padding: 16px;
+    border-radius: 7px;
+    margin: 16px 0;
+}
+
+#common-app .ca-success {
+    background: #edf6ef;
+    border-left: 4px solid #39764a;
+    padding: 16px;
+    border-radius: 7px;
+    margin: 16px 0;
+}
+
+#common-app .ca-note {
+    background: #f5f6f8;
+    padding: 14px;
+    border-radius: 7px;
+    margin: 14px 0;
+}
+
+
+/* =====================================================
+   COMMON APP UNIVERSITY TABLE
+   Works with the existing HTML (classes: ca-table-scroll,
+   ca-table, ca-tag, ca-needblind, ca-needaware, ca-reach,
+   ca-competitive). No HTML changes needed.
+   Columns (7): University | Admission and Aid Policy |
+   International Acceptance Rate | Funding |
+   Relevant Academic Areas | Admission Category | Official Information
+===================================================== */
+
+/* Scroll box: scrolls sideways, and up/down inside a fixed
+   height so the table never makes the page endlessly long */
+#common-app .ca-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 620px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #d5dce6;
+    border-radius: 10px;
+    margin: 16px 0;
+    background: #ffffff;
+    scrollbar-width: thin;
+    scrollbar-color: #9fb0c8 #eef2f7;
+}
+
+#common-app .ca-table-scroll::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+#common-app .ca-table-scroll::-webkit-scrollbar-track {
+    background: #eef2f7;
+}
+
+#common-app .ca-table-scroll::-webkit-scrollbar-thumb {
+    background: #9fb0c8;
+    border-radius: 6px;
+}
+
+/* Table: fixed layout so each column keeps its own width */
+#common-app .ca-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 1420px;
+    min-width: 1420px;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* Column widths: short data = narrow, long sentences = wide */
+#common-app .ca-table th:nth-child(1),
+#common-app .ca-table td:nth-child(1) { width: 150px; }   /* University */
+
+#common-app .ca-table th:nth-child(2),
+#common-app .ca-table td:nth-child(2) { width: 270px; }   /* Admission and Aid Policy */
+
+#common-app .ca-table th:nth-child(3),
+#common-app .ca-table td:nth-child(3) { width: 100px; }   /* International Acceptance Rate */
+
+#common-app .ca-table th:nth-child(4),
+#common-app .ca-table td:nth-child(4) { width: 390px; }   /* Funding (longest text) */
+
+#common-app .ca-table th:nth-child(5),
+#common-app .ca-table td:nth-child(5) { width: 250px; }   /* Relevant Academic Areas */
+
+#common-app .ca-table th:nth-child(6),
+#common-app .ca-table td:nth-child(6) { width: 120px; }   /* Admission Category */
+
+#common-app .ca-table th:nth-child(7),
+#common-app .ca-table td:nth-child(7) { width: 140px; }   /* Official Information */
+
+/* Header: stays visible while scrolling down */
+#common-app .ca-table th {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background: #1f3a5f;
+    color: #ffffff;
+    text-align: left;
+    vertical-align: middle;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/* Cells: tight padding keeps rows short */
+#common-app .ca-table td {
+    padding: 9px 12px;
+    vertical-align: top;
+    border-top: 1px solid #e3e8ef;
+    background: #ffffff;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+#common-app .ca-table tbody tr:nth-child(even) td {
+    background: #f4f7fb;
+}
+
+#common-app .ca-table tbody tr:hover td {
+    background: #e9f0fa;
+}
+
+/* First column stays in view while scrolling sideways */
+#common-app .ca-table th:first-child,
+#common-app .ca-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    font-weight: 600;
+    box-shadow: 2px 0 0 #d5dce6;
+}
+
+#common-app .ca-table th:first-child {
+    z-index: 5;
+}
+
+/* Short values stay on one line */
+#common-app .ca-table td:nth-child(3) {
+    white-space: nowrap;
+    text-align: center;
+    font-weight: 600;
+}
+
+#common-app .ca-table th:nth-child(3) {
+    text-align: center;
+}
+
+/* Labels (tags) */
+#common-app .ca-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    margin: 0 0 4px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    white-space: normal;
+}
+
+#common-app .ca-needblind   { background: #dff3e4; color: #1d6b36; }
+#common-app .ca-needaware   { background: #e0ecfb; color: #1b4f8f; }
+#common-app .ca-reach       { background: #fde2e2; color: #9b1c1c; }
+#common-app .ca-competitive { background: #fdf0d5; color: #8a5a00; }
+
+/* Links: one per line, easy to tap */
+#common-app .ca-table td:nth-child(7) a {
+    display: block;
+    margin: 0 0 3px;
+    color: #1b4f8f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#common-app .ca-table td:nth-child(7) a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* OTHER COMMON APP CONTENT */
+
+#common-app .ca-section {
+    margin: 28px 0;
+}
+
+#common-app .ca-school {
+    border-bottom: 1px solid #dce2e9;
+    padding: 16px 0;
+}
+
+#common-app .ca-school h3 {
+    color: #1f3a5f;
+    margin-bottom: 8px;
+}
+
+#common-app .ca-links a {
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+}
+
+#common-app .ca-small {
+    font-size: .86rem;
+    color: #536174;
+}
+
+#common-app .ca-checklist li {
+    margin-bottom: 9px;
+}
+
+#common-app .ca-school ul li {
+    margin-bottom: 6px;
+}
+
+#common-app .ca-school:target {
+    scroll-margin-top: 90px;
+}
+
+#common-app .ca-priority {
+    background: #f0f4fa;
+    border: 1px solid #d7e1ee;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+#common-app .ca-link {
+    overflow-wrap: anywhere;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #common-app {
+        overflow-wrap: break-word;
+    }
+
+    #common-app .detail-section,
+    #common-app .detail-header,
+    #common-app .detail-meta {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #common-app .ca-table-scroll {
+        max-height: 70vh;
+    }
+
+    #common-app .scroll-hint {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    #common-app .table-scroll {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
 /* =====================================================
    MOBILE OPTIMIZATION
 ===================================================== */
@@ -275,4 +574,4 @@ body {
     .detail-section ul li {
         line-height: 1.7;
     }
-}
+   }
