@@ -398,53 +398,6 @@ if (drawerLogoutContainer) {
 
 });
 
-
-/* ================= TERMS OF SERVICE ALERT ================= */
-
-const termsNotice = document.getElementById("termsNotice");
-const termsOverlay = document.getElementById("termsOverlay");
-const termsCheckbox = document.getElementById("termsCheckbox");
-const termsContinueBtn = document.getElementById("termsContinueBtn");
-
-// Keep Continue disabled until the checkbox is checked
-if (termsCheckbox && termsContinueBtn) {
-    termsCheckbox.addEventListener("change", () => {
-        termsContinueBtn.disabled = !termsCheckbox.checked;
-    });
-}
-
-// Show the alert
-function showTermsNotice() {
-    if (termsNotice && termsOverlay) {
-        termsNotice.classList.add("show");
-        termsOverlay.classList.add("show");
-    }
-}
-
-// Hide the alert
-function hideTermsNotice() {
-    if (termsNotice && termsOverlay) {
-        termsNotice.classList.remove("show");
-        termsOverlay.classList.remove("show");
-    }
-}
-
-// Continue after accepting the terms
-if (termsContinueBtn && termsCheckbox) {
-    termsContinueBtn.addEventListener("click", () => {
-        if (!termsCheckbox.checked) return;
-
-        const user = auth.currentUser;
-
-   if (user) {
-    localStorage.setItem(`porticoTermsAccepted_${user.uid}`, "true");
-     }
-        hideTermsNotice();
-    });
-}
-
-
-
 const savedName = localStorage.getItem("questionnaireName");
 
 console.log("NAME RETRIEVED:", JSON.stringify(savedName));
