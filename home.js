@@ -1,5 +1,5 @@
- /* =========================================
-PORTICO KAKUMA — ABOUT.JS
+/* =========================================
+PORTICO KAKUMA — HOME.JS
 Navigation + Authentication + Notifications
 ========================================= */
 
@@ -24,7 +24,6 @@ serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 /* =========================================
-
 1. FIREBASE CONFIGURATION
    ========================================= */
 
@@ -182,27 +181,6 @@ function renderNotifications() {
 }
 
 
-                          
-/* NOTIFICATION BADGE */
-
-function updateBadge() {
-    if (!notifBadge) {
-        console.error("Notification badge element not found.");
-        return;
-    }
-
-    const unreadCount = notifications.filter(
-        notification => !readNotificationIds.has(notification.id)
-    ).length;
-
-    console.log("Unread count:", unreadCount);
-
-    notifBadge.textContent = unreadCount;
-    notifBadge.style.display =
-        unreadCount > 0 ? "inline-flex" : "none";
-}
-
-
 /* SAVE READ STATUS FOR THE CURRENT USER */
 
 async function markNotificationsAsRead() {
@@ -350,26 +328,15 @@ function listenForReadStatus(user) {
 
 /* =========================================
    5. AUTHENTICATION SESSION
-   Uses the existing Firebase session.
-   Does not create a new login or guest account.
 ========================================= */
 
 onAuthStateChanged(auth, user => {
     currentUser = user;
- // Show Terms of Service alert separately for each user or guest
-if (
-    user &&
-    localStorage.getItem(`porticoTermsAccepted_${user.uid}`) !== "true"
-) {
-    showTermsNotice();
-} else {
-    hideTermsNotice();
-}
 
     // Show Logout only for non-anonymous signed-in users
-if (drawerLogoutContainer) {
-    drawerLogoutContainer.hidden = !user || user.isAnonymous;
-}
+    if (drawerLogoutContainer) {
+        drawerLogoutContainer.hidden = !user || user.isAnonymous;
+    }
 
     // Stop listeners from the previous session.
     if (stopNotificationsListener) {
@@ -390,13 +357,12 @@ if (drawerLogoutContainer) {
         listenForNotifications();
         listenForReadStatus(user);
     } else {
-        // Notifications can still be displayed to signed-out visitors,
-        // but read status is not saved without a Firebase user.
         listenForNotifications();
     }
 });
 
-});
+}); // End of DOMContentLoaded
+
 
 const savedName = localStorage.getItem("questionnaireName");
 
@@ -407,7 +373,7 @@ if (savedName) {
 }
 
 
- //============= APPLICATION ESSENTIALS PROGRESS =============//
+//============= APPLICATION ESSENTIALS PROGRESS =============//
 
 document.addEventListener("DOMContentLoaded", () => {
     const section = document.querySelector("#application-essentials");
@@ -591,4 +557,3 @@ showStat(0);
 // =========================================================
 
 window.addEventListener("resize", updateStatsForScreen);
-
