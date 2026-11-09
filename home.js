@@ -328,10 +328,15 @@ function listenForReadStatus(user) {
 
 /* =========================================
    5. AUTHENTICATION SESSION
+   Uses the existing Firebase session.
+   Does not create a new login or guest account.
 ========================================= */
 
 onAuthStateChanged(auth, user => {
     currentUser = user;
+    
+    // NOTE: Terms of Service notice popup check has been bypassed 
+    // to allow automated AdSense crawlers to view page content immediately.
 
     // Show Logout only for non-anonymous signed-in users
     if (drawerLogoutContainer) {
@@ -357,12 +362,13 @@ onAuthStateChanged(auth, user => {
         listenForNotifications();
         listenForReadStatus(user);
     } else {
+        // Notifications can still be displayed to signed-out visitors,
+        // but read status is not saved without a Firebase user.
         listenForNotifications();
     }
 });
 
-}); // End of DOMContentLoaded
-
+});
 
 const savedName = localStorage.getItem("questionnaireName");
 
@@ -373,7 +379,7 @@ if (savedName) {
 }
 
 
-//============= APPLICATION ESSENTIALS PROGRESS =============//
+ //============= APPLICATION ESSENTIALS PROGRESS =============//
 
 document.addEventListener("DOMContentLoaded", () => {
     const section = document.querySelector("#application-essentials");
