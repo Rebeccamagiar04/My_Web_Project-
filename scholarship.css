@@ -576,6 +576,28 @@ line-height: 1.6;
     color: #171923;
 }
 
+/* DESKTOP ACCOUNT BUTTONS */
+.desktop-personalise,
+.desktop-logout {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Respect hidden state */
+.desktop-personalise[hidden],
+.desktop-logout[hidden] {
+    display: none !important;
+}
+
+/* MOBILE: hide desktop account buttons */
+@media (max-width: 768px) {
+    .desktop-personalise,
+    .desktop-logout {
+        display: none !important;
+    }
+}
+
 /* =========================================================
    DRAWER OVERLAY
    ========================================================= */
