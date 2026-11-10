@@ -1,4 +1,3 @@
-
 /* =========================================
 PORTICO KAKUMA — RESOURCES.JS
 Navigation + Authentication + Notifications
@@ -428,11 +427,7 @@ listenForNotifications();
      */
 
     const scholarshipDeadlines = [
-        {
-            date: "2026-11-06",
-            name: "Lester B. Pearson Scholarship",
-            url: "scholarship-details.html?id=pearson"
-        },
+      
         {
             date: "2026-11-15",
             name: "Bowdoin College — Undergraduate",
