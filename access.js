@@ -258,7 +258,7 @@ async function finishSignIn(user, userType, name, gender, message) {
         alert(message);
     }
 
-    window.location.replace("home.html");
+    window.location.replace("index.html");
 }
 
 
