@@ -1,220 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-     <title>Portico questionnaire page</title>
-     
-     <!--link CSS file-->
-     <link rel="stylesheet"
-href="style.css">
-<style>
-.question {
-  display: none;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.question.active {
-  display: block;
-}
-</style>
+    <title>Personalise Your Experience | Portico Kakuma</title>
 
+    <meta name="description" content="Personalise your Portico Kakuma experience and discover educational opportunities that match your goals.">
+
+    <link rel="stylesheet" href="questionnaire.css">
 </head>
-<body class="q-body">
-  
-<nav class="qnav" aria-label="Main navigation">
-  <a href="home.html">Home</a>
-  <a href="scholarship.html">Scholarships</a>
-  <a href="resources.html">Resources</a>
-  <a href="about.html">About Us</a>
-</nav>
 
-  
-  <form id="form-page" class="questionnare">
-  
-     <!--welcome page-->
-  <div class="question active" id="welcome-page">
-  <h1>Welcome</h1><br>
-  <p>We are thrilled you stopped by! Please answer a few quick questions to help us better understand our community and improve your experience. The questionnaire is completely optional, so feel free to skip it and continue exploring Portico Kakuma!</p><br>
- <button id="start-btn" type="button">Start</button>
-<button type="button" id="skipQuestionnaireBtn">
-    Skip
-</button>
+<body>
 
-  </div>
+    <header class="questionnaire-header">
+        <a href="index.html" class="back-home">
+            &larr; Back to Home
+        </a>
+
+        <a href="index.html" class="site-name">
+            Portico Kakuma
+        </a>
+    </header>
 
 
-    <!-- Progress Bar -->
-<div id="progress-wrapper" style="display: none;">
-  <div id="progress-bar"></div>
-</div>
+    <main class="questionnaire-container">
 
-<!-- Question 1 -->
-<div class="question" id="q1">
-  <h2>What is your name?</h2>
-  <label for="name"></label>
-  <input type="text" id="name" placeholder="You can enter one name"><br>
-  <button class="next-btn" type="button" disabled>Next</button>
-</div>
-<!-- Question 2-->
-<div class="question" id="q2">
-  <h2>Age Group</h2>
-  <label><input type="radio" name="age" value="18-23">18–23</label><br>
-  <label><input type="radio" name="age" value="24-27">24–27</label><br>
-  <label><input type="radio" name="age" value="28-31">28-31</label><br>
-  <label><input type="radio" name="age" value="32 and above">32 and above</label><br>
-    <button class="prev-btn" type="button">Back</button>
-  <button class="next-btn" type="button" disabled>Next</button>
-</div>
-<!--Question 3-->
-    <div class="question" id="q3">
-<h2>What is your gender</h2>
- <label><input type="radio" name="gender" value="female">Female</label><br>
-  <label><input type="radio" name="gender" value="male">Male</label><br>
-   <label><input type="radio" name="gender" value="prefer not to say">I prefer not to say</label><br>
-     <button class="prev-btn" type="button">Back</button>
-    <button class="next-btn" type="button" disabled>Next</button>
-    </div>
-    
-<!-- Question 4 -->
-<div class="question" id="q4">
-  <h2>Are you currently a:</h2>
-  <label><input type="radio" name="level" value="High school student">High School student</label><br>
-  <label><input type="radio" name="level" value="High school graduate">High School graduate</label><br>
-  <label><input type="radio" name="level" value="University student">University Student</label><br>
+        <!-- PROGRESS INDICATOR -->
 
-  <button class="prev-btn" type="button">Back</button>
-  <button class="next-btn" type="button" disabled>Next</button>
-</div>
+        <div class="progress-section">
+            <div class="progress-track">
+                <div id="progress-bar"></div>
+            </div>
 
-    
- <!-- Question 5--> 
-<div class="question" id="q5">
-  <h2>What are you interest</h2>
-  <label><input type="checkbox"name="interest" value="Studying Abroad">Studying Abroad</label><br>
-  <label><input type="checkbox"name="interest" value="University Application Guidance">University Application Guidance</label><br>
-  <label><input type="checkbox"name="interest" value="Scholarships">Scholarships</label><br>
-  <label><input type="checkbox"name="interest" value="Mentorship and Personal Development">Mentorship and Personal Development</label><br>
-    <button class="prev-btn" type="button">Back</button>
-    <button class="next-btn" type="button" disabled>Next</button>
-</div>
-    
-<!--Question 6-->
-<div class="question" id="q6">
-  <h2>What is your biggest challenge in pursuing your education?</h2>
-  <label><input type="checkbox"name="challenge" value="Finding scholarships">Finding scholarships</label><br>
-  <label><input type="checkbox" name="challenge" value="Accessing the internet or digital resources">Accessing the internet or digital resources</label><br>
-  <label><input type="checkbox"name="challenge" value="Getting application guidance">Getting application guidance</label><br>
-  <label><input type="checkbox"name="challenge" value="Paying school or university fees">Paying school or university fees</label><br>
-  <label><input type="checkbox"name="other" value="Other" id="otherOption1" data-target="otherText1">Other</label>
-  <input 
-  type="text" 
-  Id="otherText1" 
-  placeholder="Please specify..." 
-  style="display: none; margin-top: 10px;">
-   <button class="prev-btn" type="button">Back</button>
-   <button class="next-btn" type="button" disabled>Next</button>
-</div>
-    
-<!--Question 7-->
-<div class="question" id="q7">
-  <h2>What three traits best describe you?</h2>
-  <label><input type="checkbox"name="personality" value="Friendly">Friendly</label>
-  <label><input type="checkbox" name="personality" value="Curious">Curious</label>
-  <label><input type="checkbox"name="personality" value="Team-player">Team-player</label>
-  <label><input type="checkbox"name="personality" value="Optimistic">Optimistic</label>
-  <label><input type="checkbox"name="personality" value="Creative">Creative</label>
-  <label><input type="checkbox"name="personality" value="Leader">Leader</label>
-  <label><input type="checkbox"name="personality" value="Responsible">Responsible</label>
-  <label><input type="checkbox"name="personality" value="Innovative">Innovative</label>
-    <button class="prev-btn" type="button">Back</button>
-   <button class="next-btn" type="button" disabled>Next</button>
-  </div>
-    
-  <!--Question 8-->
-  <div class="question" id="q8">
-    <h2>What activities are you involved in?</h2>
-    <label><input type="checkbox"name="activity" value="Community Engagement">Community Engagement</label><br>
-    <label><input type="checkbox"name="activity" value="Internship">Internship</label><br>
-    <label><input type="checkbox"name="activity" value="Learning new skills">Learning new skills</label><br>
-    <label><input type="checkbox"name="activity" value="Sports">Sports</label><br>
-    <label><input type="checkbox"name="other" value="Other" id="otherOption2" data-target="otherText2">Other</label><br>
-    <input 
-  type="text" 
-  Id="otherText2" 
-  placeholder="Please specify..." 
-  style="display: none; margin-top: 10px;">
-    <button class="prev-btn" type="button">Back</button>
-    <button class="next-btn" type="button" disabled>Next</button>
-  </div>
-    
-    
-  <!--Question 9-->
-  <div class="question" id="q9">
-    <h2>Where did you hear about us</h2>
-    <label><input type="checkbox" name="friends and relatives" value="F&R">From friends and relatives</label><br>
-    <label><input type="checkbox" name="online" value="online">Online/Internet</label><br>
-    <label><input type="checkbox" name="School event" value="School event">School event</label><br>
-    <label><input type="checkbox" name="other" value="other" id="otherOption3" data-target="otherText3">Other</label><br>
-      <input 
-  type="text" 
-  Id="otherText3" 
-  placeholder="Please specify..." 
-  style="display: none; margin-top: 10px;">
-     <button class="prev-btn" type="button">Back</button>
-   <button class="next-btn" type="button" disabled>Next</button>
-  </div>
-  <!--Question 10-->
-  <div class="question" id="q10">
-  <h2>Create your account</h2>
+            <p id="progress-text">Step 1 of 2</p>
+        </div>
 
-<input type="email" id="email" placeholder="Enter your email" name="email">
 
-<br><br>
+        <form id="form-page">
 
-<input type="password" id="password" placeholder="Enter your password" name="password">
-<label>
-  <input type="checkbox" id="showPassword"> Show Password
-</label>
+            <!-- =================================
+                 STAGE 1: PERSONALISATION
+            ================================== -->
 
-<br><br>
- 
-<button id="createAccount" type="butto ">Create Account</button>
-<button type="button" id="login-btn">Log In</button><br>
- <button class="prev-btn" tyle="button">Back</button>
+            <section class="question-stage active" id="personalisation-stage">
 
-<br><br>
+                <h1>Personalise your experience</h1>
 
-<button id="googleLogin" type="button" >
-<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="stroke:none">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/>
-               </svg>
-              <span>Sign in Google</span></button>
+                <p class="stage-description">
+                    Tell us a little about what you are looking for.
+                </p>
 
-    
-<!-- GUEST VISITOR OPTION -->
-<div class="guest-visitor-section">
-    <p class="guest-divider">Or</p>
 
-    <button type="button" id="guestBtn" class="guest-btn">
-        Continue as Guest
-    </button>
+                <!-- NAME -->
 
-    <p class="guest-note">
-        Allows you to access Portico Kakuma for 24 hours without an account.
-    </p>
-</div>
+                <div class="form-group">
+                    <label for="name">What should we call you?</label>
 
-  </div>
-</form>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+
+                <!-- GENDER -->
+
+                <fieldset class="form-group">
+                    <legend>What is your gender?</legend>
+
+                    <div class="choice-group">
+
+                        <label class="choice-option">
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="Female"
+                                required
+                            >
+                            <span>Female</span>
+                        </label>
+
+                        <label class="choice-option">
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="Male"
+                            >
+                            <span>Male</span>
+                        </label>
+
+                        <label class="choice-option">
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="Prefer not to say"
+                            >
+                            <span>Prefer not to say</span>
+                        </label>
+
+                    </div>
+                </fieldset>
+
+
+                <!-- PREFERRED EDUCATION LEVEL -->
+
+                <div class="form-group">
+                    <label for="level">
+                        Which education level are you looking for?
+                    </label>
+
+                    <select id="level" name="level" required>
+
+                        <option value="" disabled selected>
+                            Select an education level
+                        </option>
+
+                        <option value="Secondary">
+                            Secondary Education
+                        </option>
+
+                        <option value="TVET">
+                            TVET / Vocational Training
+                        </option>
+
+                        <option value="Undergraduate">
+                            Undergraduate
+                        </option>
+
+                        <option value="Postgraduate">
+                            Postgraduate
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <!-- STAGE 1 ACTIONS -->
+
+                <div class="stage-actions">
+
+                    <button
+                        type="button"
+                        id="personalise-btn"
+                        class="primary-btn"
+                    >
+                        Personalise my experience
+                    </button>
+
+                    <button
+                        type="button"
+                        id="continue-btn"
+                        class="secondary-btn"
+                    >
+                        Continue
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 STAGE 2: ACCOUNT ACTIVATION
+            ================================== -->
+
+            <section class="question-stage" id="account-stage">
+
+                <h1>Activate your account</h1>
+
+                <p class="stage-description">
+                    Create an account or continue as a guest.
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                    >
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create or enter your password"
+                        autocomplete="new-password"
+                    >
+
+                    <label class="show-password">
+                        <input type="checkbox" id="showPassword">
+                        Show password
+                    </label>
+                </div>
+
+
+                <!-- EMAIL ACCOUNT ACTIONS -->
+
+                <div class="account-actions">
+
+                    <button
+                        type="button"
+                        id="createAccount"
+                        class="primary-btn"
+                    >
+                        Create Account
+                    </button>
+
+                    <button
+                        type="button"
+                        id="login-btn"
+                        class="secondary-btn"
+                    >
+                        Log In
+                    </button>
+
+                </div>
+
+
+                <div class="separator">
+                    <span>OR</span>
+                </div>
+
+
+                <!-- GOOGLE -->
+
+                <button
+                    type="button"
+                    id="googleLogin"
+                    class="google-btn"
+                >
+                    Continue with Google
+                </button>
+
+
+                <!-- GUEST -->
+
+                <button
+                    type="button"
+                    id="guestBtn"
+                    class="guest-btn"
+                >
+                    Continue as Guest
+                </button>
+
+
+                <!-- BACK -->
+
+                <button
+                    type="button"
+                    id="back-btn"
+                    class="back-btn"
+                >
+                    &larr; Back
+                </button>
+
+            </section>
+
+        </form>
+
+    </main>
+
 
     <!-- FOOTER -->
+
       <footer class="site-footer">
     <div class="footer-container">
         <!-- Footer Navigation Links -->
@@ -236,7 +305,12 @@ href="style.css">
             &copy; 2026 Portico Kakuma. All rights reserved.
         </p>
     </div>
-
+    <div class="footer-nav-links">
+    <a href="index.html">Home</a>
+    <a href="scholarship.html">Scholarships</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    </div>
 </footer>
 
 <style>
@@ -281,11 +355,6 @@ href="style.css">
     color: #666666;
 }
 
-.footer-contact a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
 .footer-contact a:hover {
     text-decoration: underline;
 }
@@ -295,9 +364,15 @@ href="style.css">
     color: #888888;
     font-size: 13px;
 }
+
+.footer-nav-links {
+    display: flex;
+    gap: 15px;
+  }
 </style>
 
-  
-<script type="module" src="script.js"></script>
+
+    <script type="module" src="questionnaire.js"></script>
+
 </body>
 </html>
