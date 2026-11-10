@@ -1,0 +1,506 @@
+/* =========================================
+   1. BASE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #16486f;
+    --navy-dark: #0f3454;
+    --sky: #0ea5e9;
+    --tint: #eaf4fb;
+    --ink: #10283d;
+    --muted: #5b6b7b;
+    --line: #d5e0ea;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #fff;
+    color: var(--ink);
+    font-family: serif;
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   2. HEADER
+========================================= */
+
+.questionnaire-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 6%;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.back-home {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.back-home:hover {
+    color: var(--navy);
+}
+
+.site-name {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   3. PROGRESS BAR
+========================================= */
+
+.progress-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    pointer-events: none;
+}
+
+.progress-track {
+    width: 100%;
+    height: 5px;
+    background: rgba(22, 72, 111, .12);
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 50%;
+    height: 100%;
+    border-radius: 0 6px 6px 0;
+    background: linear-gradient(
+        90deg,
+        var(--navy),
+        var(--sky)
+    );
+    transition: width .6s var(--ease);
+}
+
+#progress-text {
+    display: none;
+}
+
+
+/* =========================================
+   4. MAIN LAYOUT
+========================================= */
+
+.questionnaire-container {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 55px 24px 45px;
+}
+
+#form-page {
+    width: 100%;
+}
+
+.question-stage {
+    display: none;
+    width: 100%;
+    animation: stepIn .45s var(--ease) backwards;
+}
+
+.question-stage.active {
+    display: block;
+}
+
+@keyframes stepIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* =========================================
+   5. HEADINGS
+========================================= */
+
+.question-stage h1 {
+    margin-bottom: 10px;
+    color: var(--navy);
+    font-size: 29px;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.stage-description {
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   6. FORM GROUPS
+========================================= */
+
+.form-group {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.form-group > label,
+.form-group legend {
+    display: block;
+    margin-bottom: 11px;
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+fieldset.form-group {
+    border: none;
+    min-width: 0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-group input::placeholder {
+    color: #8a99a8;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, .16);
+}
+
+
+/* =========================================
+   7. GENDER OPTIONS
+========================================= */
+
+.choice-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.choice-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 11px 14px;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: border-color .2s, background-color .2s;
+}
+
+.choice-option:hover {
+    border-color: #8fb4d0;
+    background: #f6fafd;
+}
+
+.choice-option:has(input:checked) {
+    border-color: var(--navy);
+    background: var(--tint);
+    box-shadow: 0 0 0 2px rgba(22, 72, 111, .09);
+}
+
+.choice-option input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--navy);
+}
+
+
+/* =========================================
+   8. PASSWORD VISIBILITY
+========================================= */
+
+.show-password {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.show-password input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--navy);
+}
+
+
+/* =========================================
+   9. BUTTONS
+========================================= */
+
+.stage-actions,
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.primary-btn,
+.secondary-btn,
+.google-btn,
+.guest-btn {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 18px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    transition:
+        background-color .2s,
+        border-color .2s,
+        transform .15s var(--ease),
+        opacity .2s;
+}
+
+.primary-btn {
+    color: #fff;
+    background: var(--navy);
+    border: 1.5px solid var(--navy);
+}
+
+.primary-btn:hover:not(:disabled) {
+    background: var(--navy-dark);
+    border-color: var(--navy-dark);
+}
+
+.secondary-btn {
+    color: var(--navy);
+    background: #fff;
+    border: 1.5px solid var(--line);
+}
+
+.secondary-btn:hover:not(:disabled) {
+    background: var(--tint);
+    border-color: var(--navy);
+}
+
+.google-btn {
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--line);
+}
+
+.google-btn:hover:not(:disabled) {
+    background: #f6fafd;
+    border-color: var(--navy);
+}
+
+.guest-btn {
+    color: var(--navy);
+    background: var(--tint);
+    border: 1.5px solid transparent;
+}
+
+.guest-btn:hover:not(:disabled) {
+    border-color: var(--navy);
+}
+
+button:not(:disabled):active {
+    transform: scale(.98);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(14, 165, 233, .4);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   10. SEPARATOR
+========================================= */
+
+.separator {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 24px 0;
+    color: #8b8b98;
+    font-size: 13px;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+
+
+/* =========================================
+   11. ACCOUNT STAGE
+========================================= */
+
+#account-stage .form-group {
+    margin-bottom: 20px;
+}
+
+#account-stage .account-actions {
+    margin-top: 24px;
+}
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 25px auto 0;
+    padding: 8px 12px;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.back-btn:hover {
+    color: var(--navy);
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+.questionnaire-footer {
+    padding: 22px 16px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--navy);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   13. MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .questionnaire-header {
+        padding: 16px 18px;
+    }
+
+    .questionnaire-container {
+        padding: 42px 20px 35px;
+    }
+
+    .question-stage h1 {
+        font-size: 26px;
+    }
+
+    .stage-description {
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+    .footer-links {
+        gap: 8px 14px;
+    }
+}
+
+
+/* =========================================
+   14. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
