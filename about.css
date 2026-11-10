@@ -513,6 +513,37 @@ line-height: 1.6;
   outline-offset: 2px;
 }
 
+
+/* MOBILE DRAWER PERSONALISE ACCOUNT BUTTON */
+.drawer-personalise {
+    padding: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 12px;
+}
+
+.personalise-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #f2a6b8;
+    border-radius: 8px;
+    background: transparent;
+    color: #f2a6b8;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.personalise-btn:hover {
+    background: #f2a6b8;
+    color: #171923;
+}
+
+
 /* MOBILE DRAWER LOGOUT BUTTON */
 .drawer-logout {
     padding: 16px;
