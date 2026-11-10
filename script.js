@@ -267,7 +267,7 @@ if (signupBtn) {
         }
 
         try {
-            // Save the name for home.html.
+            // Save the name for index.html.
             localStorage.setItem("questionnaireName", name);
 
             // Create the Firebase account.
@@ -302,7 +302,7 @@ if (gender) {
             alert("Account created successfully!");
 
             // Redirect to the home page.
-            window.location.href = "home.html";
+            window.location.href = "index.html";
 
         } catch (error) {
             console.error("Signup error:", error.code, error.message);
@@ -350,7 +350,7 @@ if (googleBtn) {
                 alert("Signed in with Google!");
             }
 
-            window.location.href = "home.html";
+            window.location.href = "index.html";
         });
     });
 }
@@ -426,7 +426,7 @@ if (loginBtn) {
             console.log("Logged in user:", user);
             console.log("Firebase displayName:", user.displayName);
 
-            // Save the user's name for home.html.
+            // Save the user's name for index.html.
             if (user.displayName) {
                 localStorage.setItem(
                     "questionnaireName",
@@ -443,7 +443,7 @@ if (loginBtn) {
 
             alert("Login successful!");
 
-            window.location.href = "home.html";
+            window.location.href = "index.html";
 
         } catch (error) {
             console.error(
@@ -502,7 +502,7 @@ if (guestBtn) {
 
             await saveUserProfileToFirestore(user, "guest");
           
-            window.location.replace("home.html");
+            window.location.replace("index.html");
 
           
 
