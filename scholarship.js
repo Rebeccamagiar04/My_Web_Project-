@@ -1,6 +1,5 @@
-
 /* =========================================
-PORTICO KAKUMA — ABOUT.JS
+PORTICO KAKUMA — SCHOLARSHIP.JS
 Navigation + Authentication + Notifications
 ========================================= */
 
@@ -55,33 +54,46 @@ const mobileDrawer = document.getElementById("mobileDrawer");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
 
-// LOGOUT BUTTON
+// LOGOUT BUTTONS — DESKTOP AND MOBILE
+
 const drawerLogoutContainer =
-document.getElementById("drawerLogoutContainer");
+    document.getElementById("drawerLogoutContainer");
+
+const desktopLogoutContainer =
+    document.getElementById("desktopLogoutContainer");
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+    document.getElementById("logoutBtn");
 
-if (logoutBtn) {
-logoutBtn.addEventListener("click", async () => {
-try {
-// Sign out the current user
-await signOut(auth);
+const desktopLogoutBtn =
+    document.getElementById("desktopLogoutBtn");
 
-// Close the mobile drawer
-mobileDrawer?.classList.remove("open");
-drawerOverlay?.classList.remove("show");
 
-// Redirect to the access page
-window.location.href = "access.html";
+// SHARED LOGOUT FUNCTION
 
-} catch (error) {
-console.error("Logout failed:", error);
+async function handleLogout() {
+    try {
+        await signOut(auth);
 
-alert("Unable to log out. Please try again.");
+        // Close the mobile drawer if it is open.
+        mobileDrawer?.classList.remove("open");
+        drawerOverlay?.classList.remove("show");
+
+        // Redirect to the access page.
+        window.location.href = "access.html";
+
+    } catch (error) {
+        console.error("Logout failed:", error);
+        alert("Unable to log out. Please try again.");
+    }
 }
-});
-}
+
+
+// ATTACH LOGOUT FUNCTIONALITY TO BOTH BUTTONS
+
+logoutBtn?.addEventListener("click", handleLogout);
+
+desktopLogoutBtn?.addEventListener("click", handleLogout);
 
 
 const notifToggle = document.getElementById("notifToggle");
@@ -358,10 +370,19 @@ Does not create a new login or guest account.
 onAuthStateChanged(auth, user => {
 currentUser = user;
 
-// Show Logout only for non-anonymous signed-in users
+
+// Show both Logout buttons only for registered signed-in users.
+
+const showLogout = !!user && !user.isAnonymous;
+
 if (drawerLogoutContainer) {
-drawerLogoutContainer.hidden = !user || user.isAnonymous;
+    drawerLogoutContainer.hidden = !showLogout;
 }
+
+if (desktopLogoutContainer) {
+    desktopLogoutContainer.hidden = !showLogout;
+}
+
 
 // Stop listeners from the previous session.
 if (stopNotificationsListener) {
@@ -424,6 +445,87 @@ listenForNotifications();
             document.querySelectorAll(".scholarship-card")
         );
 
+  /* =====================================================
+   PERSONALISED LEVELS
+===================================================== */
+
+const MY_LEVELS = "__my_levels__";
+
+const personalisationNotice =
+    document.getElementById("personalisationNotice");
+
+const personalisationText =
+    document.getElementById("personalisationText");
+
+function normaliseLevel(text) {
+    return String(text || "")
+        .replace(/[’‘]/g, "'")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+}
+
+function getSavedPersonalLevels() {
+    try {
+        const saved = JSON.parse(
+            localStorage.getItem("questionnaireLevels")
+        );
+        if (!Array.isArray(saved)) return [];
+        if (saved.some((l) => normaliseLevel(l) === "all levels")) {
+            return [];
+        }
+        return saved;
+    } catch (error) {
+        return [];
+    }
+}
+
+const personalLevels = getSavedPersonalLevels();
+
+// Add "My levels" to the top of the dropdown and select it.
+if (levelFilter && personalLevels.length > 0) {
+    const myOption = document.createElement("option");
+    myOption.value = MY_LEVELS;
+    myOption.textContent = "My levels";
+    levelFilter.insertBefore(myOption, levelFilter.firstChild);
+    levelFilter.value = MY_LEVELS;
+}
+
+function personalisationIsOn() {
+    return (
+        personalLevels.length > 0 &&
+        levelFilter &&
+        levelFilter.value === MY_LEVELS
+    );
+}
+
+function cardMatchesPersonalLevels(card) {
+    const tokens = (card.dataset.level || "")
+        .split(",")
+        .map(normaliseLevel)
+        .filter(Boolean);
+
+    // Cards with no level, or marked "Varies", always show.
+    if (tokens.length === 0 || tokens.includes("varies")) return true;
+
+    const wanted = personalLevels.map(normaliseLevel);
+
+    return tokens.some((token) => wanted.includes(token));
+}
+
+function updatePersonalisationNotice() {
+    if (!personalisationNotice) return;
+
+    personalisationNotice.hidden = !personalisationIsOn();
+
+    if (personalisationText) {
+        personalisationText.textContent =
+            "Showing: " + personalLevels.join(", ");
+    }
+}
+
+updatePersonalisationNotice();
+
 
     /* =====================================================
        OPEN OPPORTUNITIES BUTTON
@@ -464,6 +566,8 @@ listenForNotifications();
 
     function getFilteredScholarships() {
 
+       updatePersonalisationNotice();
+
         const keyword =
             scholarshipSearch.value
                 .trim()
@@ -475,9 +579,9 @@ listenForNotifications();
                 .toLowerCase();
 
         const selectedLevel =
-            levelFilter.value
-                .trim()
-                .toLowerCase();
+    levelFilter.value === MY_LEVELS
+        ? ""
+        : levelFilter.value.trim().toLowerCase();
 
         const selectedFunding =
             fundedFilter.value
@@ -603,6 +707,14 @@ listenForNotifications();
                 !showOpenOnly ||
                 status === "open";
 
+          /* ---------------------------------------------
+           PERSONALISED LEVELS MATCH
+        --------------------------------------------- */
+
+             const matchesPersonalisation =
+    !personalisationIsOn() ||
+    cardMatchesPersonalLevels(card);
+
 
             /* ---------------------------------------------
                FINAL MATCH
@@ -610,10 +722,11 @@ listenForNotifications();
 
             return (
                 matchesKeyword &&
-                matchesCountry &&
-                matchesLevel &&
-                matchesFunding &&
-                matchesOpenStatus
+            matchesCountry &&
+            matchesLevel &&
+            matchesFunding &&
+            matchesOpenStatus &&
+            matchesPersonalisation
             );
 
         });
@@ -1129,9 +1242,14 @@ if (activeButton) {
 
                 countryFilter.value = "";
 
+                fundedFilter.value = "";
+
                 levelFilter.value = "";
 
-                fundedFilter.value = "";
+
+                if (personalLevels.length > 0) {
+    levelFilter.value = MY_LEVELS;
+                }
 
 
                 /*
