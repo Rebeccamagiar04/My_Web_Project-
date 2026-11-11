@@ -863,6 +863,23 @@ line-height: 1.6;
 }
 
 
+/* PERSONALIZATION NOTICE */
+.personalisation-notice {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    background: #eef1fb;
+    border: 1px solid #c9d2f0;
+    border-left: 4px solid #4359B8;
+    border-radius: 8px;
+}
+.personalisation-notice strong { font-size: 16px; }
+.personalisation-notice span { font-size: 14px; }
+.personalisation-notice a { color: #4359B8; font-weight: 600; }
+.personalisation-notice[hidden] { display: none; }
+
 /* =====================================================
    SEARCH CONTROLS
 ===================================================== */
@@ -2261,4 +2278,4 @@ MOBILE
     .scholarship-stats .user-pie-chart {
         transition: none;
     }
-   }
+               }
