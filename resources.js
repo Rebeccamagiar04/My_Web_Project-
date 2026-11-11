@@ -54,33 +54,47 @@ const mobileDrawer = document.getElementById("mobileDrawer");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
 
-// LOGOUT BUTTON
+
+// LOGOUT BUTTONS — DESKTOP AND MOBILE
+
 const drawerLogoutContainer =
-document.getElementById("drawerLogoutContainer");
+    document.getElementById("drawerLogoutContainer");
+
+const desktopLogoutContainer =
+    document.getElementById("desktopLogoutContainer");
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+    document.getElementById("logoutBtn");
 
-if (logoutBtn) {
-logoutBtn.addEventListener("click", async () => {
-try {
-// Sign out the current user
-await signOut(auth);
+const desktopLogoutBtn =
+    document.getElementById("desktopLogoutBtn");
 
-// Close the mobile drawer
-mobileDrawer?.classList.remove("open");
-drawerOverlay?.classList.remove("show");
 
-// Redirect to the access page
-window.location.href = "access.html";
+// SHARED LOGOUT FUNCTION
 
-} catch (error) {
-console.error("Logout failed:", error);
+async function handleLogout() {
+    try {
+        await signOut(auth);
 
-alert("Unable to log out. Please try again.");
+        // Close the mobile drawer if it is open.
+        mobileDrawer?.classList.remove("open");
+        drawerOverlay?.classList.remove("show");
+
+        // Redirect to the access page.
+        window.location.href = "access.html";
+
+    } catch (error) {
+        console.error("Logout failed:", error);
+        alert("Unable to log out. Please try again.");
+    }
 }
-});
-}
+
+
+// ATTACH LOGOUT FUNCTIONALITY TO BOTH BUTTONS
+
+logoutBtn?.addEventListener("click", handleLogout);
+
+desktopLogoutBtn?.addEventListener("click", handleLogout);
 
 
 const notifToggle = document.getElementById("notifToggle");
@@ -357,10 +371,19 @@ Does not create a new login or guest account.
 onAuthStateChanged(auth, user => {
 currentUser = user;
 
-// Show Logout only for non-anonymous signed-in users
+
+// Show both Logout buttons only for registered signed-in users.
+
+const showLogout = !!user && !user.isAnonymous;
+
 if (drawerLogoutContainer) {
-drawerLogoutContainer.hidden = !user || user.isAnonymous;
+    drawerLogoutContainer.hidden = !showLogout;
 }
+
+if (desktopLogoutContainer) {
+    desktopLogoutContainer.hidden = !showLogout;
+}
+
 
 // Stop listeners from the previous session.
 if (stopNotificationsListener) {
@@ -954,4 +977,4 @@ if (motivationElement) {
 if (challengeElement) {
     challengeElement.textContent =
         getDailyContent(challenges);
-            }
+           }
