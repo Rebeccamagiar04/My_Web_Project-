@@ -1,4 +1,3 @@
-
 /* =====================================================
    PORTICO KAKUMA
    QUESTIONNAIRE AND AUTHENTICATION SYSTEM
@@ -132,7 +131,9 @@ const accountStage = document.getElementById(
 
 const nameInput = document.getElementById("name");
 
-const levelInput = document.getElementById("level");
+const levelOptions = document.querySelectorAll('input[name="levels"]');
+
+const allLevelsOption = document.getElementById("all-levels");
 
 const genderOptions = document.querySelectorAll(
     'input[name="gender"]'
@@ -180,7 +181,6 @@ if (
     !personalisationStage ||
     !accountStage ||
     !nameInput ||
-    !levelInput ||
     !progressBar ||
     !continueBtn ||
     !personaliseBtn ||
@@ -199,19 +199,31 @@ if (
 ===================================================== */
 
 const STORAGE_KEYS = {
-
     name: "questionnaireName",
-
     gender: "questionnaireGender",
-
-    level: "questionnaireLevel"
-
+    levels: "questionnaireLevels"
 };
-
 
 /* =====================================================
    6. PERSONALISATION STORAGE
 ===================================================== */
+
+function getSelectedLevels() {
+    return Array.from(levelOptions)
+        .filter((option) => option.checked)
+        .map((option) => option.value);
+}
+
+function getSavedLevels() {
+    try {
+        const saved = JSON.parse(
+            localStorage.getItem(STORAGE_KEYS.levels)
+        );
+        return Array.isArray(saved) ? saved : [];
+    } catch (error) {
+        return [];
+    }
+}
 
 
 // Save all personalisation answers.
@@ -228,8 +240,6 @@ function savePersonalisationLocally() {
         ? selectedGender.value
         : "";
 
-    const level = levelInput.value;
-
 
     localStorage.setItem(
         STORAGE_KEYS.name,
@@ -241,9 +251,9 @@ function savePersonalisationLocally() {
         gender
     );
 
-    localStorage.setItem(
-        STORAGE_KEYS.level,
-        level
+     localStorage.setItem(
+        STORAGE_KEYS.levels,
+        JSON.stringify(getSelectedLevels())
     );
 
 }
@@ -261,9 +271,7 @@ function restorePersonalisation() {
         STORAGE_KEYS.gender
     );
 
-    const savedLevel = localStorage.getItem(
-        STORAGE_KEYS.level
-    );
+    const savedLevels = getSavedLevels();
 
 
     if (savedName) {
@@ -285,10 +293,10 @@ function restorePersonalisation() {
     }
 
 
-    if (savedLevel) {
-
-        levelInput.value = savedLevel;
-
+   if (savedLevels.length > 0) {
+        levelOptions.forEach((option) => {
+            option.checked = savedLevels.includes(option.value);
+        });
     }
 
 }
@@ -329,12 +337,28 @@ genderOptions.forEach((option) => {
 
 // Automatically save education-level changes.
 
-levelInput.addEventListener("change", () => {
+levelOptions.forEach((option) => {
 
-    localStorage.setItem(
-        STORAGE_KEYS.level,
-        levelInput.value
-    );
+    option.addEventListener("change", () => {
+
+        if (option === allLevelsOption && option.checked) {
+
+            levelOptions.forEach((other) => {
+                if (other !== allLevelsOption) other.checked = false;
+            });
+
+        } else if (option !== allLevelsOption && option.checked) {
+
+            if (allLevelsOption) allLevelsOption.checked = false;
+
+        }
+
+        localStorage.setItem(
+            STORAGE_KEYS.levels,
+            JSON.stringify(getSelectedLevels())
+        );
+
+    });
 
 });
 
@@ -351,46 +375,31 @@ function validatePersonalisation() {
         'input[name="gender"]:checked'
     );
 
-    const level = levelInput.value;
-
+    const levels = getSelectedLevels();
 
     if (!name) {
-
         alert("Please enter your name.");
-
         nameInput.focus();
-
         return false;
-
     }
-
 
     if (!selectedGender) {
-
         alert("Please select your gender.");
-
         return false;
-
     }
 
-
-    if (!level) {
-
-        alert(
-            "Please select the education level you are looking for."
-        );
-
-        levelInput.focus();
-
+    if (levels.length === 0) {
+        alert("Please select at least one education level.");
+        document.getElementById("levels-group").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
         return false;
-
     }
-
 
     savePersonalisationLocally();
 
     return true;
-
 }
 
 
@@ -861,123 +870,75 @@ async function saveUserProfileToFirestore(
 
     if (!user) return null;
 
-
-    const profileRef = doc(
-        db,
-        "UserProfiles",
-        user.uid
-    );
-
-
-    // Get the visitor's current questionnaire answers.
+    const profileRef = doc(db, "UserProfiles", user.uid);
 
     const localName = (
         localStorage.getItem(STORAGE_KEYS.name) || ""
     ).trim();
 
-
     const localGender = (
         localStorage.getItem(STORAGE_KEYS.gender) || ""
     ).trim().toLowerCase();
 
-
-    const localLevel = (
-        localStorage.getItem(STORAGE_KEYS.level) || ""
-    ).trim();
-
+    const localLevels = getSavedLevels();
 
     let savedGender = "";
 
-
     await runTransaction(db, async (transaction) => {
 
-
-        const profileSnapshot = await transaction.get(
-            profileRef
-        );
-
+        const profileSnapshot = await transaction.get(profileRef);
 
         const existingProfile = profileSnapshot.exists()
-
             ? profileSnapshot.data()
-
             : {};
 
-
-        // Existing Firestore information takes priority.
-        // This prevents old browser data from replacing
-        // an existing user's saved preferences.
-
+        // Name and gender: saved Firestore values come first.
         const name =
             existingProfile.name ||
             localName ||
             user.displayName ||
             "";
 
-
         const gender =
             existingProfile.gender ||
             localGender ||
             "";
 
+        // Levels: what the person has just chosen comes first.
+        const existingLevels = Array.isArray(existingProfile.levels)
+            ? existingProfile.levels
+            : [];
 
-        const level =
-            existingProfile.level ||
-            localLevel ||
-            "";
-
+        const levels =
+            localLevels.length > 0
+                ? localLevels
+                : existingLevels;
 
         savedGender = gender;
 
-
         const profileData = {
-
             userType: userType,
-
             authMethod: authMethod,
-
             name: name,
-
             gender: gender,
-
-            level: level,
-
+            levels: levels,
             questionnaireComplete: Boolean(
-                name && gender && level
+                name && gender && levels.length > 0
             ),
-
             updatedAt: serverTimestamp()
-
         };
 
-
-        // Only set creation date for new profiles.
-
         if (!profileSnapshot.exists()) {
-
-            profileData.createdAt =
-                serverTimestamp();
-
+            profileData.createdAt = serverTimestamp();
         }
 
-
-        transaction.set(
-            profileRef,
-            profileData,
-            { merge: true }
-        );
+        transaction.set(profileRef, profileData, { merge: true });
 
     });
 
-
-    console.log(
-        "USER PROFILE SAVED:",
-        user.uid
-    );
-
+    console.log("USER PROFILE SAVED:", user.uid);
 
     return savedGender;
-
 }
 
 
@@ -996,16 +957,13 @@ async function saveAllUserData(
     authMethod
 ) {
 
-
     const failed = [];
-
 
     // Save profile first so that we can use the
     // existing Firestore gender rather than stale
     // local storage when updating gender statistics.
 
     let profileGender = "";
-
 
     try {
 
@@ -1029,7 +987,6 @@ async function saveAllUserData(
         );
 
     }
-
 
     // Save user record and authentication statistics.
 
@@ -1056,7 +1013,6 @@ async function saveAllUserData(
 
     }
 
-
     // Save gender using the profile's saved answer.
     // Local storage is only a fallback if profile
     // saving failed.
@@ -1065,7 +1021,6 @@ async function saveAllUserData(
         profileGender ||
         localStorage.getItem(STORAGE_KEYS.gender) ||
         "";
-
 
     if (genderToSave) {
 
@@ -1092,7 +1047,6 @@ async function saveAllUserData(
         }
 
     }
-
 
     return failed;
 
