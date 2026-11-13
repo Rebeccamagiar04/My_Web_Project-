@@ -1,7 +1,7 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.porticokakuma.co.ke/home.html</loc>
+        <loc>https://www.porticokakuma.co.ke/index.html</loc>
     </url>
     <url>
         <loc>https://www.porticokakuma.co.ke/scholarship.html</loc>
@@ -11,5 +11,14 @@
     </url>
     <url>
         <loc>https://www.porticokakuma.co.ke/support.html</loc>
+    </url>
+    <url>
+        <loc>https://www.porticokakuma.co.ke/scholarship-details.html</loc>
+    </url>
+    <url>
+        <loc>https://www.porticokakuma.co.ke/language.html</loc>
+    </url>
+    <url>
+        <loc>https://www.porticokakuma.co.ke/documents.html</loc>
     </url>
 </urlset>
