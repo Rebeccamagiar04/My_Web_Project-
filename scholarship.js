@@ -1,2281 +1,2219 @@
-/* =========================================================
-   GENERAL IMAGE SIZING
-========================================================= */
-
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
-
-html {
-scroll-behavior: smooth;
-}
-
-body {
-font-family: serif, 'Poppins', sans-serif;
-color: var(--text-dark);
-background: var(--white);
-line-height: 1.6;
-}
-
-
-/* ==========================================================================
-   PORTICO KAKUMA - HEADER & NAVIGATION STYLES
-   ========================================================================== */
-.site-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgb(0,0,0,0.04);
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.85rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Brand Logo */
-.logo {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.logo-image {
-  display: block;
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-}
-
-.main-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-link {
-  color: #475569;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-  color: #2563eb;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Notification System */
-.notification-wrapper {
-  position: relative;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #475569;
-  cursor: pointer;
-  position: relative;
-  padding: 0.4rem;
-}
-
-
-.notif-badge {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background-color: #ef4444;
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 1;
-  text-align: center;
-  border: 2px solid #ffffff;
-  border-radius: 999px;
-  box-sizing: border-box;
-  z-index: 10;
-}
-
-
-.notif-dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 120%;
-  width: 280px;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  box-shadow: 0 10px 15px -3px rgb(0, 0, 0, 0.1);
-  padding: 1rem;
-  z-index: 1100;
-}
-
-.notif-dropdown.show {
-  display: block;
-}
-
-.notif-list {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0 0 0;
-}
-
-.notif-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 0.85rem;
-}
-
-.notif-list li:last-child {
-  border-bottom: none;
-}
-
-/* =========================================================
-   MOBILE MENU / HAMBURGER
-   ========================================================= */
-
-.hamburger-btn {
-  display: none;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 8px;
-
-  background: #0b1730;
-  color: #f8fafc;
-
-  cursor: pointer;
-  font-size: 1.3rem;
-  line-height: 1;
-
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.hamburger-btn:hover,
-.hamburger-btn:focus-visible {
-  background: #142441;
-  border-color: #d9955b;
-  color: #e5a36c;
-}
-
-.hamburger-btn:active {
-  transform: scale(0.97);
-}
-
-
-/* =========================================================
-   MOBILE DRAWER
-   ========================================================= */
-
-.mobile-drawer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: auto;
-
-    width: min(320px, 88vw);
-    height: 100vh;
-    height: 100dvh;
-
-    background: #0b1730;
-    color: #f8fafc;
-    z-index: 1200;
-
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-
-    box-shadow: -12px 0 35px rgba(0, 0, 0, 0.28);
-    border-left: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.mobile-drawer.open {
-    transform: translateX(0);
-}
-
-/* =========================================================
-   DRAWER HEADER
-   ========================================================= */
-
-.drawer-header {
-  min-height: 72px;
-  padding: 0 1.2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-
-  background: #0b1730;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-/* Brand */
-
-.drawer-header .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-
-  min-width: 0;
-  font-size: 1.05rem;
-}
-
-.drawer-header {
-  font-size: 1.15rem;
-  flex-shrink: 0;
-}
-
-.drawer-header .logo-text {
-  color: #f8fafc;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-}
-
-
-/* Close button */
-
-.close-drawer-btn {
-  flex-shrink: 0;
-
-  width: 38px;
-  height: 38px;
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 8px;
-
-  background: transparent;
-  color: #ffffff;
-
-  font-size: 1.25rem;
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.close-drawer-btn:hover,
-.close-drawer-btn:focus-visible {
-  background: rgba(217, 149, 91, 0.10);
-  color: #e5a36c;
-  border-color: rgba(217, 149, 91, 0.55);
-}
-
-
-/* =========================================================
-   DRAWER CONTENT
-   ========================================================= */
-
-.drawer-content {
-  flex: 1;
-  min-height: 0;
-  padding: 1rem 1.1rem 1.5rem;
-
-  overflow-y: auto;
-  overscroll-behavior-y: contain;
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width: thin;
-  scrollbar-color: #34445f transparent;
-}
-
-.drawer-content::-webkit-scrollbar {
-  width: 4px;
-}
-
-.drawer-content::-webkit-scrollbar-thumb {
-  background: #34445f;
-  border-radius: 4px;
-}
-
-
-/* Navigation list */
-
-.mobile-nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-
-/* =========================================================
-   NAVIGATION GROUPS
-   ========================================================= */
-
-.nav-group {
-  margin: 0;
-  padding: 0.15rem 0 0.7rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-}
-
-.nav-group + .nav-group {
-  padding-top: 0.7rem;
-}
-
-.nav-group:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-
-/* Main navigation links */
-
-.group-title {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-
-  padding: 0.7rem 0.8rem;
-
-  background: transparent;
-  border-radius: 6px;
-
-  color: #f8fafc;
-  text-decoration: none;
-
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.4;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-/* Mobile drawer navigation icons */
-.group-title > i {
-  width: 20px;
-  flex-shrink: 0;
-  color: #F2A6B8;
-  font-size: 1.05rem;
-  text-align: center;
-  filter: drop-shadow(0 0 4px rgba(242, 166, 184, 0.2));
-  transition:
-    color 0.2s ease,
-    filter 0.2s ease,
-    transform 0.2s ease;
-}
-
-/* Icon hover, focus, and active states */
-.group-title:hover > i,
-.group-title:focus-visible > i,
-.group-title.active > i,
-.group-title[aria-current="page"] > i {
-  color: #FFC1D0;
-  filter: drop-shadow(0 0 6px rgba(255, 193, 208, 0.35));
-  transform: translateX(2px);
-}
-
-/* Hover, keyboard focus and active page */
-
-.group-title:hover,
-.group-title:focus-visible,
-.group-title.active,
-.group-title[aria-current="page"] {
-  color: #e5a36c;
-  background: rgba(217, 149, 91, 0.08);
-}
-
-/* Small orange indicator */
-
-.group-title::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  top: 22%;
-  bottom: 22%;
-
-  width: 2px;
-  border-radius: 2px;
-
-  background: #d9955b;
-
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.group-title:hover::before,
-.group-title:focus-visible::before,
-.group-title.active::before,
-.group-title[aria-current="page"]::before {
-  opacity: 1;
-}
-
-
-/* =========================================================
-   SUB-NAVIGATION
-   ========================================================= */
-
-.sub-nav-list {
-  list-style: none;
-
-  margin: 0.2rem 0 0.15rem;
-  padding: 0 0 0 1.1rem;
-
-  border-left: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-.sub-nav-list li {
-  margin: 0;
-}
-
-/* Individual subsection links */
-
-.sub-nav-list li a {
-  position: relative;
-
-  display: block;
-  padding: 0.55rem 0.65rem;
-
-  color: #b9c5d7;
-  background: transparent;
-
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-
-  overflow-wrap: anywhere;
-
-  border-radius: 4px;
-
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-/* Subtle orange active and hover states */
-
-.sub-nav-list li a:hover,
-.sub-nav-list li a:focus-visible,
-.sub-nav-list li a.active,
-.sub-nav-list li a[aria-current="location"] {
-  color: #f0b27e;
-  background: rgba(217, 149, 91, 0.08);
-}
-
-.sub-nav-list li a:focus-visible,
-.group-title:focus-visible,
-.close-drawer-btn:focus-visible,
-.hamburger-btn:focus-visible {
-  outline: 2px solid #d9955b;
-  outline-offset: 2px;
-}
-
-/* MOBILE DRAWER PERSONALISE ACCOUNT BUTTON */
-.drawer-personalise {
-    padding: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    margin-top: 12px;
-}
-
-.personalise-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #f2a6b8;
-    border-radius: 8px;
-    background: transparent;
-    color: #f2a6b8;
-    font: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.personalise-btn:hover {
-    background: #f2a6b8;
-    color: #171923;
-}
-
-
-/* MOBILE DRAWER LOGOUT BUTTON */
-.drawer-logout {
-    padding: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    margin-top: 12px;
-}
-
-.drawer-logout[hidden] {
-    display: none !important;
-}
-
-.logout-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #f2a6b8;
-    border-radius: 8px;
-    background: transparent;
-    color: #f2a6b8;
-    font: inherit;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.logout-btn:hover {
-    background: #f2a6b8;
-    color: #171923;
-}
-
-/* DESKTOP ACCOUNT BUTTONS */
-.desktop-personalise,
-.desktop-logout {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-/* Respect hidden state */
-.desktop-personalise[hidden],
-.desktop-logout[hidden] {
-    display: none !important;
-}
-
-/* MOBILE: hide desktop account buttons */
-@media (max-width: 768px) {
-    .desktop-personalise,
-    .desktop-logout {
-        display: none !important;
-    }
-}
-
-
-/* =========================================================
-   DRAWER OVERLAY
-   ========================================================= */
-
-.drawer-overlay {
-  display: none;
-
-  position: fixed;
-  inset: 0;
-
-  background: #142441;
-
-  z-index: 1150;
-
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-}
-
-.drawer-overlay.show {
-  display: block;
-}
-
-
-/* =========================================================
-   MOBILE BREAKPOINT
-   ========================================================= */
-
-@media (max-width: 768px) {
-  .main-nav {
-    display: none;
-  }
-
-  .hamburger-btn {
-    display: flex;
-  }
-
-  .header-container {
-    padding: 0.2rem 1rem;
-  }
-
-  .header-actions {
-    gap: 0.6rem;
-  }
-}
-
-
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 400px) {
-  .hamburger-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .mobile-drawer {
-    width: 90vw;
-  }
-
-  .drawer-header {
-    padding: 0 1rem;
-  }
-
-  .drawer-content {
-    padding: 0.85rem 0.8rem 1.25rem;
-  }
-
-  .group-title {
-    padding: 0.65rem 0.7rem;
-    font-size: 0.96rem;
-  }
-
-  .sub-nav-list {
-    padding-left: 0.8rem;
-  }
-
-  .sub-nav-list li a {
-    padding: 0.5rem 0.6rem;
-    font-size: 0.84rem;
-  }
-}
-
-
-/* =========================================================
-   REDUCED MOTION ACCESSIBILITY
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .hamburger-btn,
-  .mobile-drawer,
-  .close-drawer-btn,
-  .group-title,
-  .group-title::before,
-  .sub-nav-list li a {
-    transition: none;
-  }
-}
-
-  /* ================= HERO ================= */
-
-.heroScholarship {
-    min-height: 500px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 70px 6%;
-
-    box-sizing: border-box;
-
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(5, 20, 40, 0.88) 0%,
-            rgba(5, 20, 40, 0.68) 45%,
-            rgba(5, 20, 40, 0.20) 100%
-        ),
-        url("background-scholarship.png");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    border-radius: 0;
-}
-
-
-
-/* ================= HERO CONTENT ================= */
-
-.heroScholarship-content {
-    max-width: 650px;
-}
-
-
-/* ================= HERO HEADING ================= */
-
-.heroScholarship-content h1 {
-    margin: 0 0 18px;
-
-    color: #ffffff;
-
-    font-size: 48px;
-    line-height: 1.2;
-    font-weight: 700;
-}
-
-
-/* ================= HERO DESCRIPTION ================= */
-
-.heroScholarship-content p {
-    max-width: 520px;
-
-    margin: 0 0 24px;
-
-    color: rgba(255, 255, 255, 0.90);
-
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-
-/* ================= VERIFIED BADGE ================= */
-
-.verified-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 10px 14px;
-
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-
-    border: 1px solid rgba(255, 255, 255, 0.22);
-
-    border-radius: 20px;
-
-    font-size: 13px;
-
-    backdrop-filter: blur(5px);
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 600px) {
-
-    .heroScholarship {
-        min-height: 460px;
-
-        padding: 55px 20px;
-
-        background-position: center;
-    }
-
-    .heroScholarship-content {
-        max-width: 100%;
-    }
-
-    .heroScholarship-content h1 {
-        font-size: 36px;
-        line-height: 1.2;
-    }
-
-    .heroScholarship-content p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .verified-badge {
-        font-size: 12px;
-        padding: 9px 12px;
-    }
-}
-
-/* =====================================================
-   SCHOLARSHIP SEARCH SECTION
-===================================================== */
-
-.scholarship-search {
-    width: 100%;
-    max-width: 1120px;
-    margin: 45px auto;
-    padding: 32px 30px;
-    box-sizing: border-box;
-
-    background: #f8fafc;
-    border: 1px solid #e3e8ef;
-    border-radius: 18px;
-
-    box-shadow: 0 8px 25px rgba(11, 31, 58, 0.06);
-}
-
-
-/* =====================================================
-   SEARCH HEADING
-===================================================== */
-
-.search-heading {
-    text-align: center;
-    margin-bottom: 26px;
-}
-
-.search-heading h2 {
-    margin: 0 0 8px;
-
-    color: #0b1f3a;
-    font-size: 1.65rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.search-heading p {
-    margin: 0 auto;
-
-    max-width: 650px;
-
-    color: #000000;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-
-/* PERSONALIZATION NOTICE */
-.personalisation-notice {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin: 0 0 14px;
-    padding: 12px 14px;
-    background: #eef1fb;
-    border: 1px solid #c9d2f0;
-    border-left: 4px solid #4359B8;
-    border-radius: 8px;
-}
-.personalisation-notice strong { font-size: 16px; }
-.personalisation-notice span { font-size: 14px; }
-.personalisation-notice a { color: #4359B8; font-weight: 600; }
-.personalisation-notice[hidden] { display: none; }
-
-/* =====================================================
-   SEARCH CONTROLS
-===================================================== */
-
-.search-controls {
-    display: grid;
-
-    grid-template-columns:
-        minmax(260px, 2fr)
-        minmax(150px, 1fr)
-        minmax(150px, 1fr)
-        auto;
-
-    gap: 12px;
-
-    align-items: end;
-}
-
-
-/* =====================================================
-   KEYWORD SEARCH
-===================================================== */
-
-.search-input {
-    position: relative;
-    height: 52px;
-
-    display: flex;
-    align-items: center;
-
-    background: #ffffff;
-
-    border: 1px solid #d5dce5;
-    border-radius: 10px;
-
-    box-sizing: border-box;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.search-input i {
-    margin-left: 15px;
-
-    color: #7b8794;
-    font-size: 15px;
-
-    flex-shrink: 0;
-}
-
-.search-input input {
-    width: 100%;
-    height: 100%;
-
-    padding: 0 14px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    color: #172033;
-
-    font-family: inherit;
-    font-size: 14px;
-
-    box-sizing: border-box;
-}
-
-.search-input input::placeholder {
-    color: #98a2b3;
-}
-
-.search-input:focus-within {
-    border-color: #1d4ed8;
-
-    box-shadow:
-        0 0 0 3px rgba(29, 78, 216, 0.08);
-}
-
-
-/* =====================================================
-   SELECT FILTERS
-===================================================== */
-
-.search-select {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.search-select label {
-    color: #344054;
-
-    font-size: 0.78rem;
-    font-weight: 600;
-}
-
-.search-select select {
-    width: 100%;
-    height: 52px;
-
-    padding: 0 34px 0 13px;
-
-    border: 1px solid #d5dce5;
-    border-radius: 10px;
-
-    background-color: #ffffff;
-    color: #344054;
-
-    font-family: inherit;
-    font-size: 0.88rem;
-
-    outline: none;
-
-    cursor: pointer;
-
-    box-sizing: border-box;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.search-select select:focus {
-    border-color: #1d4ed8;
-
-    box-shadow:
-        0 0 0 3px rgba(29, 78, 216, 0.08);
-}
-
-
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
-
-#SearchBtN {
-    height: 52px;
-
-    padding: 0 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #0b1f3a;
-    color: #ffffff;
-
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-
-    white-space: nowrap;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
-}
-
-#SearchBtN:hover {
-    background: #12345f;
-
-    box-shadow:
-        0 5px 12px rgba(11, 31, 58, 0.15);
-}
-
-#SearchBtN:active {
-    transform: scale(0.97);
-}
-
-#SearchBtN i {
-    font-size: 13px;
-}
-
-
-/* ================= RESET BUTTON ================= */
-
-#resetSearchBtn {
-    height: 52px;
-
-    padding: 0 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    border: 1px solid #d5dce5;
-    border-radius: 10px;
-
-    background: #ffffff;
-    color: #344054;
-
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-
-    white-space: nowrap;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.15s ease;
-}
-
-#resetSearchBtn:hover {
-    background: #f2f4f7;
-    border-color: #b8c1cc;
-}
-
-#resetSearchBtn:active {
-    transform: scale(0.97);
-}
-
-#resetSearchBtn i {
-    font-size: 13px;
-}
-
-/* =====================================================
-   SEARCH MESSAGE
-===================================================== */
-
-.search-message {
-    min-height: 20px;
-
-    margin: 14px 2px 0;
-
-    color: #000000;
-
-    font-size: 15px;
-    line-height: 1.5;
-
-    text-align: left;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 850px) {
-
-    .scholarship-search {
-        margin: 35px 20px;
-        padding: 28px 22px;
-    }
-
-    .search-controls {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .search-input {
-        grid-column: 1 / -1;
-    }
-
-    #SearchBtN {
-        width: 100%;
-    }
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .scholarship-search {
-        width: calc(100% - 24px);
-
-        margin: 28px auto;
-
-        padding: 25px 17px;
-
-        border-radius: 15px;
-    }
-
-    .search-heading {
-        margin-bottom: 21px;
-    }
-
-    .search-heading h2 {
-        font-size: 1.35rem;
-    }
-
-    .search-heading p {
-        font-size: 0.85rem;
-        line-height: 1.55;
-    }
-
-    .search-controls {
-        display: flex;
-        flex-direction: column;
-        gap: 13px;
-        align-items: stretch;
-    }
-
-    .search-input,
-    .search-select select,
-    #SearchBtN {
-        height: 50px;
-    }
-
-    .search-select label {
-        font-size: 0.76rem;
-    }
-
-    .search-input input {
-        font-size: 0.87rem;
-    }
-
-    #SearchBtN {
-        margin-top: 3px;
-    }
-
-    .search-message {
-        font-size: 0.8rem;
-        margin-top: 12px;
-    }
-}
-
-
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .scholarship-search {
-        width: calc(100% - 18px);
-        padding: 22px 14px;
-    }
-
-    .search-heading h2 {
-        font-size: 1.25rem;
-    }
-
-    .search-heading p {
-        font-size: 15px;
-    }
-
-    .search-input input {
-        font-size: 14px;
-    }
-
-    .search-select select {
-        font-size: 0.84rem;
-    }
-}
-  
-/* =====================================================
-OPEN OPPORTUNITIES BUTTON
-===================================================== */
-
-.open-opportunities-wrapper {
-width: 100%;
-max-width: 1120px;
-margin: -25px auto 35px;
-display: flex;
-justify-content: flex-end;
-}
-
-#openOpportunitiesBtn {
-height: 44px;
-padding: 0 18px;
-
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-
-border: 1px solid #d5dce5;
-border-radius: 10px;
-
-background: #0b1;
-color: #ffffff;
-
-font-family: inherit;
-font-size: 0.85rem;
-font-weight: 600;
-
-cursor: pointer;
-
-transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.15s ease;
-
-}
-
-#openOpportunitiesBtn:hover {
-background: #f0f6ff;
-border-color: #2563eb;
-color: #2563eb;
-}
-
-#openOpportunitiesBtn:active {
-transform: scale(0.97);
-}
-
-#openOpportunitiesBtn.active {
-background: #ffffff;
-border-color: #0b1f3a;
-color: #0b1;
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-.open-opportunities-wrapper {
-    width: calc(100% - 24px);
-    margin: -15px auto 28px;
-    justify-content: center;
-}
-
-#openOpportunitiesBtn {
-    width: 100%;
-    height: 46px;
-}
-
-}
-  
-/* =========================
-   HERO IMAGE
-   ========================= */
-
-.heroScholarship-image {
-  width: 100%;
-  overflow: hidden;
-}
-
-.heroScholarship-image img {
-  display: block;
-  width: 100%;
-  height: 430px;
-  object-fit: cover;
-}
-
-
-  /* ==============================
-   SCHOLARSHIP CARDS
-============================== */
-
-.scholarship-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 26px;
-    align-items: stretch;
-}
-
-.scholarship-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 490px;
-    padding: 0 22px 24px;
-    overflow: hidden;
-
-    background: #ffffff;
-    border: 1px solid #e6ebf1;
-    border-radius: 4px;
-
-    box-shadow: 0 5px 18px rgba(27, 57, 85, 0.06);
-    transition: box-shadow 0.25s ease;
-}
-
-.scholarship-card:hover {
-    box-shadow: 0 12px 28px rgba(27, 57, 85, 0.12);
-}
-
-
-/* ==============================
-   COLORED TITLE BANNER
-============================== */
-
-.scholarship-card .card-top {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-
-    min-height: 0;
-    margin: 0 -22px;
-    padding: 24px 22px 18px;
-
-    background: #12345f;
-    color: #ffffff;
-}
-
-/* Alternating banner colors */
-
-.scholarship-card:nth-child(3n + 2) .card-top {
-    background: #263444;
-}
-
-.scholarship-card:nth-child(3n) .card-top {
-    background: #302f50;
-}
-
-
-/* ==============================
-   FUNDING LABEL
-============================== */
-
-.scholarship-card .funded,
-.scholarship-card .partial {
-    position: absolute;
-    top: 12px;
-    left: 22px;
-
-    display: inline-flex;
-    align-items: center;
-
-    padding: 0;
-    background: transparent;
-    color: #ffffff;
-
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-
-/* ==============================
-   COUNTRY FLAG / BOOKMARK
-============================== */
-
-.scholarship-card .card-top > i {
-    position: absolute;
-    top: 20px;
-    right: 22px;
-
-    color: #ffffff;
-    font-size: 20px;
-}
-
-
-/* ==============================
-   SCHOLARSHIP TITLE
-============================== */
-
-.scholarship-card > h3 {
-    position: relative;
-    z-index: 1;
-
-    margin: 24px 0 8px;
-
-    color: #2784cc;
-    font-size: 21px;
-    font-weight: 600;
-    line-height: 1.45;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* ==============================
-   SHORT DESCRIPTION
-============================== */
-
-.scholarship-card > p {
-    margin: 0 0 16px;
-
-    color: #626a75;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-
-/* ==============================
-   SCHOLARSHIP INFORMATION
-============================== */
-
-.scholarship-card .card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    margin-top: 0;
-    padding: 0;
-}
-
-.scholarship-card .card-info span {
-    color: #626a75;
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-}
-
-
-/* ==============================
-   STUDY LOCATION / FUNDING LABEL
-============================== */
-
-.scholarship-card .card-info::before {
-    content: "Study opportunity";
-
-    display: block;
-    margin: 0 0 4px;
-
-    color: #35343c;
-    font-family: serif, Arial, Helvetica, Georgia, "Times New Roman", sans-serif;
-    font-size: 21px;
-    font-style: italic;
-    line-height: 1.4;
-}
-
-
-/* ==============================
-   DEADLINE
-============================== */
-
-.scholarship-card .deadline {
-    margin-top: 18px;
-    padding-top: 14px;
-
-    color: #5f6875;
-    font-size: 13px;
-    line-height: 1.6;
-
-    border-top: 1px solid #edf0f4;
-}
-
-
-/* ==============================
-   VIEW DETAILS LINK
-============================== */
-
-.scholarship-card > a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    margin-top: auto;
-    padding: 11px 14px;
-
-    color: #ffffff;
-    background: #2784cc;
-    border: 1px solid #2784cc;
-    border-radius: 6px;
-
-    font-size: 15px;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-
-    transition: background 0.2s ease;
-}
-
-.scholarship-card > a:hover {
-    color: #ffffff;
-    background: #176cae;
-}
-
-
-/* ==============================
-   TABLET
-============================== */
-
-@media (max-width: 1000px) {
-    .scholarship-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-    }
-
-    .scholarship-card > h3 {
-        font-size: 20px;
-    }
-}
-
-
-/* ==============================
-   MOBILE
-============================== */
-
-@media (max-width: 650px) {
-    .scholarship-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .scholarship-card {
-        min-height: 0;
-        padding: 0 18px 20px;
-        border-radius: 4px;
-    }
-
-    .scholarship-card .card-top {
-        margin: 0 -18px;
-        padding: 24px 18px 18px;
-    }
-
-    .scholarship-card .funded,
-    .scholarship-card .partial {
-        left: 18px;
-    }
-
-    .scholarship-card .card-top > i {
-        right: 18px;
-    }
-
-    .scholarship-card > h3 {
-        margin-top: 22px;
-        font-size: 21px;
-    }
-
-    .scholarship-card > p {
-        font-size: 15px;
-    }
-
-    .scholarship-card .card-info::before {
-        font-size: 20px;
-    }
-}
-
-
-/* ==============================
-   VERY SMALL PHONES
-============================== */
-
-@media (max-width: 380px) {
-    .scholarship-card {
-        padding-right: 14px;
-        padding-left: 14px;
-    }
-
-    .scholarship-card .card-top {
-        margin-right: -14px;
-        margin-left: -14px;
-        padding-right: 14px;
-        padding-left: 14px;
-    }
-
-    .scholarship-card .funded,
-    .scholarship-card .partial {
-        left: 14px;
-    }
-
-    .scholarship-card .card-top > i {
-        right: 14px;
-    }
-}
-
-
-
-/* =====================================================
-   SCHOLARSHIP PAGINATION
-===================================================== */
-
-.scholarship-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 35px auto 10px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-}
-
-/* =========================
-   PREVIOUS & NEXT BUTTONS
-========================= */
-
-.pagination-btn {
-    flex: 0 0 auto;
-    height: 40px;
-    padding: 0 12px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-
-    border: 1px solid #d5dce5;
-    border-radius: 8px;
-
-    background: #fff;
-    color: #344054;
-
-    font-family: serif, Arial, Helvetica, sans-serif, Georgia;
-    font-size: .82rem;
-    font-weight: 600;
-
-    cursor: pointer;
-    white-space: nowrap;
-
-    transition:
-        background .2s ease,
-        border-color .2s ease,
-        color .2s ease,
-        transform .15s ease;
-}
-
-.pagination-btn:hover:not(:disabled) {
-    background: #f2f4f7;
-    border-color: #b8c1cc;
-}
-
-.pagination-btn:active:not(:disabled) {
-    transform: scale(.97);
-}
-
-.pagination-btn:disabled {
-    opacity: .45;
-    cursor: not-allowed;
-}
-
-.pagination-btn i {
-    font-size: 12px;
-}
-
-/* =========================
-   HORIZONTAL PAGE NUMBERS
-========================= */
-
-.pagination-numbers {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
-
-    flex: 1 1 auto;
-    min-width: 0;
-    max-width: 100%;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-
-    scrollbar-width: none;
-}
-
-.pagination-numbers::-webkit-scrollbar {
-    display: none;
-}
-
-/* =========================
-   INDIVIDUAL PAGE NUMBERS
-========================= */
-
-.pagination-number {
-    flex: 0 0 38px;
-    width: 38px;
-    min-width: 38px;
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    border-radius: 8px;
-
-    background: transparent;
-    color: #475467;
-
-    font-family: serif, Arial, Helvetica, sans-serif;
-    font-size: .82rem;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background .2s ease,
-        color .2s ease,
-        border-color .2s ease;
-}
-
-.pagination-number:hover {
-    background: #f2f4f7;
-}
-
-.pagination-number.active {
-    background: #0b1f3a;
-    border-color: #0b1f3a;
-    color: #fff;
-}
-
-#paginationNumbers {
-    position: relative;
-}
-
-  /* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    .scholarship-pagination {
-        gap: 5px;
-        margin-top: 28px;
-    }
-
-    .pagination-btn {
-        height: 38px;
-        padding: 0 11px;
-        font-size: .76rem;
-    }
-
-    .pagination-number {
-        width: 35px;
-        height: 35px;
-        font-size: .78rem;
-    }
-
-    .pagination-numbers {
-        gap: 3px;
-    }
-}
-  
-
-/* =========================
-   SMALL MOBILE SCREENS
-========================= */
-
-@media (max-width: 380px) {
-    .scholarship-pagination {
-        gap: 5px;
-    }
-
-    .pagination-btn {
-        padding: 0 8px;
-        font-size: .75rem;
-        gap: 4px;
-    }
-
-    .pagination-number {
-        flex-basis: 34px;
-        width: 34px;
-        min-width: 34px;
-        height: 36px;
-    }
-}
-
-
-/* ================= QUOTE PANEL ================= */
-
-.quote-panel{
-    flex:1;
-    background:linear-gradient(135deg,#fbcfe8,#ccfbf1);
-    color:black;
-    padding:25px;
-    border-radius:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    text-align:center;
-}
-
-.quote-panel i{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.quote-panel p{
-    font-size:16px;
-    margin-bottom:10px;
-    line-height:1.5;
-}
-
-.quote-panel h4{
-    font-size:15px;
-    opacity:0.9;
-}
-
-.plant-icon{
-    font-size:30px;
-    margin-top:20px;
-}
-
-
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:900px){
-
-    .heroScholarship{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .main-content{
-        flex-direction:column;
-    }
-
-    .sidebar{
-        width:100%;
-    }
-
-    .content-area{
-        flex-direction:column;
-    }
-
-    .quote-panel{
-        order:-1;
-    }
- }
 
 /* =========================================
-   SCHOLARSHIP STATISTICS SECTION
+PORTICO KAKUMA — SCHOLARSHIP.JS
+Navigation + Authentication + Notifications
+Scholarship Search + Filters + Pagination
 ========================================= */
 
-.scholarship-stats {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding: 75px 7% 65px;
-    color: #ffffff;
-    font-family: serif, Arial, Helvetica, sans-serif;
+import {
+    initializeApp,
+    getApps,
+    getApp
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
-    /* Replace with the path to your selected
-       misty mountain background image */
-    background-image:
-        linear-gradient(
-            rgba(24, 29, 34, 0.78),
-            rgba(24, 29, 34, 0.86)
-        ),
-        url("grey-bkg.png");
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+import {
+    getFirestore,
+    collection,
+    query,
+    where,
+    onSnapshot,
+    doc,
+    getDoc,
+    setDoc
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
 
 /* =========================================
-   SECTION INTRODUCTION
+1. FIREBASE CONFIGURATION
 ========================================= */
 
-.scholarship-stats .stats-intro {
-    max-width: 760px;
-    margin: 0 auto 55px;
-    text-align: center;
-}
+const firebaseConfig = {
+    apiKey: "AIzaSyAoH3X26Hx8jFjaCJcknuB6Kgx7u10nVUE",
+    authDomain: "first-webproject-865a5.firebaseapp.com",
+    projectId: "first-webproject-865a5",
+    storageBucket: "first-webproject-865a5.firebasestorage.app",
+    messagingSenderId: "586929157801",
+    appId: "1:586929157801:web:46dcd3fee9343ba6895bb8",
+    measurementId: "G-DHPQ1CL34X"
+};
 
-.scholarship-stats .stats-intro h2 {
-    margin-bottom: 18px;
-    color: #ffffff;
-    font-family: serif, Arial, Helvetica, sans-serif, Georgia, "Times New Roman", serif;
-    font-size: clamp(30px, 4vw, 44px);
-    font-weight: 500;
-    line-height: 1.25;
-}
+const app = getApps().length
+    ? getApp()
+    : initializeApp(firebaseConfig);
 
-.scholarship-stats {
-    max-width: 650px;
-    margin: 0 auto;
-    color: #e0e3e6;
-    font-size: 16px;
-    line-height: 1.8;
-}
+const auth = getAuth(app);
+const db = getFirestore(app);
+
 
 /* =========================================
-   COMMUNITY STATISTICS
+2. MOBILE NAVIGATION + NOTIFICATIONS
 ========================================= */
 
-.scholarship-stats .community-stats {
-    max-width: 950px;
-    margin: 0 auto 65px;
-    text-align: center;
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-.scholarship-stats .community-stats h3,
-.scholarship-stats .gender-stats h3 {
-    margin-bottom: 12px;
-    color: #ffffff;
-    font-family: serif, Arial, Helvetica, Georgia, "Times New Roman", sans-serif;
-    font-size: clamp(23px, 3vw, 30px);
-    font-weight: 500;
-}
+    const hamburgerBtn =
+        document.getElementById("hamburgerBtn");
 
-.scholarship-stats {
-    margin-bottom: 35px;
-    color: #d2d7db;
-    font-size: 15px;
-    line-height: 1.7;
-}
+    const closeDrawerBtn =
+        document.getElementById("closeDrawerBtn");
+
+    const mobileDrawer =
+        document.getElementById("mobileDrawer");
+
+    const drawerOverlay =
+        document.getElementById("drawerOverlay");
+
+
+    /* =====================================
+       LOGOUT BUTTONS
+    ===================================== */
+
+    const drawerLogoutContainer =
+        document.getElementById("drawerLogoutContainer");
+
+    const desktopLogoutContainer =
+        document.getElementById("desktopLogoutContainer");
+
+    const logoutBtn =
+        document.getElementById("logoutBtn");
+
+    const desktopLogoutBtn =
+        document.getElementById("desktopLogoutBtn");
+
+
+    async function handleLogout() {
+
+        try {
+
+            await signOut(auth);
+
+            mobileDrawer?.classList.remove("open");
+            drawerOverlay?.classList.remove("show");
+
+            window.location.href = "access.html";
+
+        } catch (error) {
+
+            console.error("Logout failed:", error);
+
+            alert("Unable to log out. Please try again.");
+
+        }
+
+    }
+
+
+    logoutBtn?.addEventListener("click", handleLogout);
+
+    desktopLogoutBtn?.addEventListener("click", handleLogout);
+
+
+    /* =====================================
+       NOTIFICATION ELEMENTS
+    ===================================== */
+
+    const notifToggle =
+        document.getElementById("notifToggle");
+
+    const notifDropdown =
+        document.getElementById("notifDropdown");
+
+    const notifBadge =
+        notifToggle?.querySelector(".notif-badge");
+
+    const notifList =
+        notifDropdown?.querySelector(".notif-list");
+
+
+    let currentUser = null;
+
+    let notifications = [];
+
+    let readNotificationIds = new Set();
+
+    let stopNotificationsListener = null;
+
+    let stopReadListener = null;
+
+
+    /* =====================================
+       MOBILE DRAWER
+    ===================================== */
+
+    function toggleDrawer() {
+
+        if (!mobileDrawer || !drawerOverlay) return;
+
+        mobileDrawer.classList.toggle("open");
+
+        drawerOverlay.classList.toggle("show");
+
+    }
+
+
+    hamburgerBtn?.addEventListener("click", toggleDrawer);
+
+    closeDrawerBtn?.addEventListener("click", toggleDrawer);
+
+    drawerOverlay?.addEventListener("click", toggleDrawer);
+
+
+    document.querySelectorAll(".sub-nav-list a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileDrawer?.classList.remove("open");
+
+            drawerOverlay?.classList.remove("show");
+
+        });
+
+    });
+
+
+    /* =====================================
+       NOTIFICATION BADGE
+    ===================================== */
+
+    function updateBadge() {
+
+        if (!notifBadge) return;
+
+        const unreadCount = notifications.filter(
+            notification =>
+                !readNotificationIds.has(notification.id)
+        ).length;
+
+        notifBadge.textContent = unreadCount;
+
+        notifBadge.style.display =
+            unreadCount > 0 ? "inline-flex" : "none";
+
+    }
+
+
+    /* =====================================
+       DISPLAY NOTIFICATIONS
+    ===================================== */
+
+    function renderNotifications() {
+
+        if (!notifList) return;
+
+        notifList.replaceChildren();
+
+
+        if (notifications.length === 0) {
+
+            const emptyItem = document.createElement("li");
+
+            emptyItem.textContent = "No notifications yet.";
+
+            notifList.appendChild(emptyItem);
+
+            updateBadge();
+
+            return;
+
+        }
+
+
+        notifications.forEach(notification => {
+
+            const item = document.createElement("li");
+
+            const title = document.createElement("strong");
+
+            title.textContent =
+                notification.title || "Notification";
+
+
+            const message = document.createElement("p");
+
+            message.textContent =
+                notification.message || "";
+
+
+            item.appendChild(title);
+
+            item.appendChild(message);
+
+
+            if (!readNotificationIds.has(notification.id)) {
+
+                item.classList.add("unread");
+
+            }
+
+
+            notifList.appendChild(item);
+
+        });
+
+
+        updateBadge();
+
+    }
+
+
+    /* =====================================
+       SAVE READ STATUS
+    ===================================== */
+
+    async function markNotificationsAsRead() {
+
+        if (!currentUser || notifications.length === 0) return;
+
+
+        const newReadIds = notifications
+
+            .filter(notification =>
+                !readNotificationIds.has(notification.id)
+            )
+
+            .map(notification => notification.id);
+
+
+        if (newReadIds.length === 0) return;
+
+
+        newReadIds.forEach(id => {
+
+            readNotificationIds.add(id);
+
+        });
+
+
+        renderNotifications();
+
+
+        try {
+
+            const readRef = doc(
+                db,
+                "NotificationReads",
+                currentUser.uid
+            );
+
+            const snapshot = await getDoc(readRef);
+
+
+            const existingIds = snapshot.exists()
+
+                ? snapshot.data().readNotifications || {}
+
+                : {};
+
+
+            const updatedIds = { ...existingIds };
+
+
+            newReadIds.forEach(id => {
+
+                updatedIds[id] = true;
+
+            });
+
+
+            await setDoc(readRef, {
+
+                readNotifications: updatedIds
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not save notification read status:",
+                error
+            );
+
+
+            newReadIds.forEach(id => {
+
+                readNotificationIds.delete(id);
+
+            });
+
+
+            renderNotifications();
+
+        }
+
+    }
+
+
+    /* =====================================
+       NOTIFICATION DROPDOWN
+    ===================================== */
+
+    if (notifToggle && notifDropdown) {
+
+        notifToggle.addEventListener("click", async event => {
+
+            event.stopPropagation();
+
+
+            const opening =
+                !notifDropdown.classList.contains("show");
+
+
+            notifDropdown.classList.toggle("show");
+
+
+            if (opening) {
+
+                await markNotificationsAsRead();
+
+            }
+
+        });
+
+
+        notifDropdown.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+        });
+
+
+        document.addEventListener("click", event => {
+
+            if (
+                !notifDropdown.contains(event.target) &&
+                !notifToggle.contains(event.target)
+            ) {
+
+                notifDropdown.classList.remove("show");
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================
+       LOAD NOTIFICATIONS FROM FIRESTORE
+    ===================================== */
+
+    function listenForNotifications() {
+
+        const activeNotificationsQuery = query(
+
+            collection(db, "Notifications"),
+
+            where("active", "==", true)
+
+        );
+
+
+        stopNotificationsListener = onSnapshot(
+
+            activeNotificationsQuery,
+
+            snapshot => {
+
+                notifications = snapshot.docs.map(item => ({
+
+                    id: item.id,
+
+                    ...item.data()
+
+                }));
+
+
+                notifications.sort((a, b) => {
+
+                    const dateA =
+                        a.createdAt?.toMillis?.() || 0;
+
+                    const dateB =
+                        b.createdAt?.toMillis?.() || 0;
+
+                    return dateB - dateA;
+
+                });
+
+
+                renderNotifications();
+
+            },
+
+            error => {
+
+                console.error(
+                    "Could not load notifications:",
+                    error.code,
+                    error.message
+                );
+
+            }
+
+        );
+
+    }
+
+
+    /* =====================================
+       LOAD USER READ STATUS
+    ===================================== */
+
+    function listenForReadStatus(user) {
+
+        const readRef = doc(
+            db,
+            "NotificationReads",
+            user.uid
+        );
+
+
+        stopReadListener = onSnapshot(
+
+            readRef,
+
+            snapshot => {
+
+                const saved = snapshot.exists()
+
+                    ? snapshot.data().readNotifications || {}
+
+                    : {};
+
+
+                readNotificationIds = new Set(
+
+                    Object.keys(saved).filter(
+                        id => saved[id] === true
+                    )
+
+                );
+
+
+                renderNotifications();
+
+            },
+
+            error => {
+
+                console.error(
+                    "Could not load read status:",
+                    error
+                );
+
+            }
+
+        );
+
+    }
+
+
+    /* =====================================
+       AUTHENTICATION SESSION
+       Uses existing Firebase session.
+       Does not create another account.
+    ===================================== */
+
+    onAuthStateChanged(auth, user => {
+
+        currentUser = user;
+
+
+        const showLogout =
+            !!user && !user.isAnonymous;
+
+
+        if (drawerLogoutContainer) {
+
+            drawerLogoutContainer.hidden = !showLogout;
+
+        }
+
+
+        if (desktopLogoutContainer) {
+
+            desktopLogoutContainer.hidden = !showLogout;
+
+        }
+
+
+        /* Stop previous listeners */
+
+        if (stopNotificationsListener) {
+
+            stopNotificationsListener();
+
+            stopNotificationsListener = null;
+
+        }
+
+
+        if (stopReadListener) {
+
+            stopReadListener();
+
+            stopReadListener = null;
+
+        }
+
+
+        notifications = [];
+
+        readNotificationIds = new Set();
+
+        renderNotifications();
+
+
+        if (user) {
+
+            listenForNotifications();
+
+            listenForReadStatus(user);
+
+        } else {
+
+            listenForNotifications();
+
+        }
+
+    });
+
+});
 
 /* =========================================
-   PIE CHART AND LEGEND
+   PORTICO KAKUMA
+   SCHOLARSHIPS PAGE: REMEMBER AND RESTORE THE PLACE
+   Goes in the script used by scholarship.html
+   (add it to the end of scholarship.js).
+   NOT in scholarship-details.js.
 ========================================= */
 
-.scholarship-stats .user-stats-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(40px, 8vw, 100px);
-    width: 100%;
-    margin: 0 auto;
-}
+(function () {
 
-.scholarship-stats .user-chart {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
+    const RETURN_KEY = "porticoReturnState";
 
-/* Pie chart base.
-   JavaScript will set its conic-gradient
-   when the Firebase totals are available. */
+    /* ---------- 1. SAVE THE PLACE WHEN "VIEW DETAILS" IS CLICKED ---------- */
 
-.scholarship-stats .user-pie-chart {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: clamp(180px, 23vw, 245px);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
+    function collectFields() {
+        const fields = {};
 
-    background: conic-gradient(
-        #dba66d 0deg 180deg,
-        #8299b4 180deg 360deg
+        document.querySelectorAll("input, select, textarea").forEach(el => {
+            if (!el.id) return;
+            if (["password", "email", "file"].includes(el.type)) return;
+
+            fields[el.id] =
+                el.type === "checkbox" || el.type === "radio"
+                    ? el.checked
+                    : el.value;
+        });
+
+        return fields;
+    }
+
+    document.addEventListener("click", function (event) {
+
+        const link = event.target.closest("a");
+
+        if (!link) return;
+        if (!(link.getAttribute("href") || "").includes("scholarship-details.html")) return;
+
+        const card = link.closest(".scholarship-card");
+
+        const state = {
+            pageUrl: window.location.pathname + window.location.search,
+            cardId: card ? card.id : "",
+            scrollY: window.scrollY,
+            fields: collectFields(),
+            restore: false
+        };
+
+        try {
+            sessionStorage.setItem(RETURN_KEY, JSON.stringify(state));
+        } catch (error) {
+            console.error("Could not remember the page position:", error);
+        }
+    });
+
+    /* ---------- 2. RESTORE THE PLACE WHEN THE USER COMES BACK ---------- */
+
+    function restoreFields(fields) {
+        Object.keys(fields).forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            const value = fields[id];
+
+            if (el.type === "checkbox" || el.type === "radio") {
+                el.checked = value;
+            } else {
+                el.value = value;
+            }
+
+            el.dispatchEvent(new Event("input", { bubbles: true }));
+            el.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+    }
+
+    function isVisible(el) {
+        return el && el.offsetParent !== null;
+    }
+
+    // Moves through the pages of results until the saved card appears
+    function findCard(state, attempt) {
+
+        const card = state.cardId
+            ? document.getElementById(state.cardId)
+            : null;
+
+        if (isVisible(card)) {
+            card.scrollIntoView({ block: "center" });
+            card.classList.add("returned-highlight");
+            setTimeout(() => card.classList.remove("returned-highlight"), 2500);
+            return;
+        }
+
+        const nextButton = document.getElementById("nextPageBtn");
+
+        if (card && nextButton && !nextButton.disabled && attempt < 40) {
+            nextButton.click();
+            setTimeout(() => findCard(state, attempt + 1), 120);
+            return;
+        }
+
+        // The card could not be found: go back to the old scroll position
+        window.scrollTo(0, state.scrollY || 0);
+    }
+
+    function restorePlace() {
+
+        // Only run on the scholarships page
+        if (!document.querySelector(".scholarship-card")) return;
+
+        let state = null;
+
+        try {
+            state = JSON.parse(sessionStorage.getItem(RETURN_KEY) || "null");
+        } catch (error) {
+            return;
+        }
+
+        if (!state || !state.restore) return;
+
+        // Use it once, then forget it
+        sessionStorage.removeItem(RETURN_KEY);
+
+        // Wait for scholarship.js to finish building the page
+        setTimeout(() => restoreFields(state.fields || {}), 150);
+        setTimeout(() => findCard(state, 0), 450);
+    }
+
+    window.addEventListener("load", restorePlace);
+
+    /* ---------- 3. HIGHLIGHT STYLE FOR THE RETURNED CARD ---------- */
+
+    const style = document.createElement("style");
+    style.textContent =
+        ".returned-highlight{outline:3px solid #B88728;outline-offset:4px;}";
+    document.head.appendChild(style);
+
+})();
+
+
+/* =========================================
+   PORTICO KAKUMA
+   PRIORITISED SCHOLARSHIPS
+========================================= */
+
+const PRIORITY_STORAGE_KEY = "porticoPrioritisedScholarships";
+
+function initialisePriorityFeature() {
+
+    const priorityList = document.getElementById("prioritised-list");
+    const priorityCount = document.getElementById("prioritised-count");
+    const emptyMessage = document.getElementById("prioritised-empty");
+
+    if (!priorityList || !priorityCount || !emptyMessage) {
+        console.error("Priority section HTML elements were not found.");
+        return;
+    }
+
+    // GET ALL SCHOLARSHIP CARDS
+    const scholarshipCards = Array.from(
+        document.querySelectorAll(".scholarship-card")
     );
 
-    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
-    transition: background 0.5s ease;
+    // CREATE A LOOKUP USING EACH CARD'S ID
+    const cardsById = new Map();
+
+    scholarshipCards.forEach(card => {
+        if (card.id) {
+            cardsById.set(card.id, card);
+        }
+    });
+
+    // LOAD SAVED SCHOLARSHIPS
+    function loadPrioritised() {
+        try {
+            const saved = JSON.parse(
+                localStorage.getItem(PRIORITY_STORAGE_KEY) || "[]"
+            );
+
+            if (!Array.isArray(saved)) {
+                return [];
+            }
+
+            // Ignore scholarships that no longer exist
+            return [...new Set(
+                saved.filter(id => cardsById.has(id))
+            )];
+
+        } catch (error) {
+            console.error("Could not load prioritised scholarships:", error);
+            return [];
+        }
+    }
+
+    let prioritisedIds = loadPrioritised();
+
+    // SAVE TO BROWSER STORAGE
+    function savePrioritised() {
+        try {
+            localStorage.setItem(
+                PRIORITY_STORAGE_KEY,
+                JSON.stringify(prioritisedIds)
+            );
+        } catch (error) {
+            console.error("Could not save prioritised scholarships:", error);
+        }
+    }
+
+    // GET SCHOLARSHIP NAME
+    function getScholarshipName(card) {
+        return (
+            card.dataset.name ||
+            card.querySelector("h3")?.textContent.trim() ||
+            card.id
+        );
+    }
+
+    // UPDATE ALL STAR BUTTONS
+    function updateStars() {
+
+        document.querySelectorAll(".priority-star").forEach(button => {
+
+            const priorityId = button.dataset.priorityId;
+            const isPrioritised = prioritisedIds.includes(priorityId);
+
+            button.setAttribute(
+                "aria-pressed",
+                String(isPrioritised)
+            );
+
+            button.textContent = isPrioritised ? "★" : "☆";
+
+            const card = cardsById.get(priorityId);
+
+            const name = card
+                ? getScholarshipName(card)
+                : "this opportunity";
+
+            button.setAttribute(
+                "aria-label",
+                isPrioritised
+                    ? `Remove ${name} from prioritised opportunities`
+                    : `Prioritise ${name}`
+            );
+
+            button.title = isPrioritised
+                ? "Remove from prioritised opportunities"
+                : "Save this opportunity";
+        });
+    }
+
+    // CREATE A SAVED SCHOLARSHIP ENTRY
+    function createPriorityItem(card) {
+
+        const item = document.createElement("div");
+        item.className = "prioritised-item";
+
+        const info = document.createElement("div");
+        info.className = "prioritised-item-info";
+
+        const heading = document.createElement("h3");
+        heading.textContent = getScholarshipName(card);
+
+        const description = document.createElement("p");
+
+        const details = [
+            card.dataset.country,
+            card.dataset.level,
+            card.dataset.funded
+        ].filter(Boolean);
+
+        description.textContent = details.join(" · ");
+
+        const viewLink = document.createElement("a");
+        viewLink.className = "prioritised-view-link";
+        viewLink.href = `#${card.id}`;
+        viewLink.textContent = "View opportunity";
+
+        info.appendChild(heading);
+
+        if (details.length > 0) {
+            info.appendChild(description);
+        }
+
+        item.appendChild(info);
+        item.appendChild(viewLink);
+
+        return item;
+    }
+
+    // DISPLAY PRIORITISED SCHOLARSHIPS
+    function renderPrioritised() {
+
+        // Remove previously generated entries
+        priorityList
+            .querySelectorAll(".prioritised-item")
+            .forEach(item => item.remove());
+
+        // Update saved count
+        const count = prioritisedIds.length;
+
+        priorityCount.textContent =
+            `${count} ${count === 1 ? "saved" : "saved"}`;
+
+        // Show or hide empty message
+        emptyMessage.hidden = count > 0;
+
+        // Display each saved scholarship
+        prioritisedIds.forEach(id => {
+
+            const card = cardsById.get(id);
+
+            if (card) {
+                const item = createPriorityItem(card);
+                priorityList.appendChild(item);
+            }
+        });
+    }
+
+    // HANDLE STAR CLICKS
+    document.addEventListener("click", function(event) {
+
+        const button = event.target.closest(".priority-star");
+
+        if (!button) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const priorityId = button.dataset.priorityId;
+
+        // Check that the matching card exists
+        if (!priorityId || !cardsById.has(priorityId)) {
+            console.error(
+                "No scholarship card matches this priority ID:",
+                priorityId
+            );
+            return;
+        }
+
+        // REMOVE IF ALREADY SAVED
+        if (prioritisedIds.includes(priorityId)) {
+
+            prioritisedIds = prioritisedIds.filter(
+                id => id !== priorityId
+            );
+
+        } else {
+
+            // ADD IF NOT ALREADY SAVED
+            prioritisedIds.push(priorityId);
+        }
+
+        // SAVE AND REFRESH THE DISPLAY
+        savePrioritised();
+        updateStars();
+        renderPrioritised();
+    });
+
+    // INITIAL PAGE DISPLAY
+    updateStars();
+    renderPrioritised();
 }
 
-/* Inner circle creates the doughnut effect */
+// START WHEN HTML IS READY
+if (document.readyState === "loading") {
 
-.scholarship-stats .chart-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 62%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: #30363c;
-    text-align: center;
+    document.addEventListener(
+        "DOMContentLoaded",
+        initialisePriorityFeature
+    );
+
+} else {
+
+    initialisePriorityFeature();
 }
 
-.scholarship-stats .chart-total {
-    color: #ffffff;
-    font-size: clamp(28px, 4vw, 38px);
-    font-weight: 600;
-    line-height: 1.2;
-    font-variant-numeric: tabular-nums;
-}
 
-.scholarship-stats .chart-total-label {
-    margin-top: 7px;
-    color: #d4d9de;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-}
 
 /* =========================================
-   PIE CHART LEGEND
+   SCHOLARSHIP ELEMENTS
 ========================================= */
 
-.scholarship-stats .user-chart-legend {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-    min-width: 220px;
-}
+const scholarshipSearch =
+    document.getElementById("scholarshipSearch");
 
-.scholarship-stats .legend-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    text-align: left;
-}
+const countryFilter =
+    document.getElementById("countryFilter");
 
-.scholarship-stats .legend-color {
-    display: block;
-    width: 13px;
-    height: 13px;
-    flex-shrink: 0;
-    margin-top: 5px;
-    border-radius: 50%;
-}
+const levelFilter =
+    document.getElementById("levelFilter");
 
-.scholarship-stats .registered-color {
-    background: #dba66d;
-}
+const fundedFilter =
+    document.getElementById("fundedFilter");
 
-.scholarship-stats .guests-color {
-    background: #8299b4;
-}
+const searchButton =
+    document.getElementById("SearchBtN");
 
-.scholarship-stats .legend-details {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
+const resetSearchButton =
+    document.getElementById("resetSearchBtn");
 
-.scholarship-stats .legend-label {
-    color: #e1e5e9;
-    font-size: 15px;
-    line-height: 1.5;
-}
+const searchMessage =
+    document.getElementById("searchMessage");
 
-.scholarship-stats .legend-number {
-    color: #ffffff;
-    font-size: 28px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-}
+const resultsCount =
+    document.getElementById("resultsCount");
+
+const scholarshipCards = Array.from(
+    document.querySelectorAll(".scholarship-card")
+);
+
 
 /* =========================================
-   GENDER STATISTICS
+   4. OPPORTUNITY SECTIONS
 ========================================= */
 
-.scholarship-stats .gender-stats {
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
-}
+const openOpportunitiesButton =
+    document.getElementById("openOpportunitiesBtn");
 
-.scholarship-stats .gender-stats-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: clamp(55px, 12vw, 150px);
-    margin-top: 40px;
-}
+const upcomingOpportunitiesButton =
+    document.getElementById("upcomingOpportunitiesBtn");
 
-.scholarship-stats .gender-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 150px;
-    gap: 10px;
-}
 
-.scholarship-stats .gender-number {
-    color: #ffffff;
-    font-size: clamp(48px, 7vw, 72px);
-    font-weight: 600;
-    line-height: 1.1;
-    font-variant-numeric: tabular-nums;
-    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.18);
-}
+/*
+   Currently Open is always the default section.
+*/
 
-.scholarship-stats .gender-label {
-    color: #e2c5a5;
-    font-family: serif, Arial, Georgia, "Times New Roman", serif;
-    font-size: 19px;
-    letter-spacing: 0.5px;
-}
+let activeOpportunityStatus = "open";
+
 
 /* =========================================
-   STATISTICS DISCLAIMER
+   UPDATE ACTIVE BUTTON
 ========================================= */
 
-.scholarship-stats .stats-note {
-    max-width: 650px;
-    margin: 55px auto 0;
-    color: #cbd1d6;
-    font-size: 15px;
-    line-height: 1.8;
-    text-align: center;
+function updateOpportunityButtons() {
+
+    if (openOpportunitiesButton) {
+
+        openOpportunitiesButton.classList.toggle(
+            "active",
+            activeOpportunityStatus === "open"
+        );
+
+    }
+
+
+    if (upcomingOpportunitiesButton) {
+
+        upcomingOpportunitiesButton.classList.toggle(
+            "active",
+            activeOpportunityStatus === "upcoming"
+        );
+
+    }
+
 }
 
+
+/* Select Currently Open immediately */
+
+updateOpportunityButtons();
+
+
 /* =========================================
-   TABLET RESPONSIVENESS
+   5. PERSONALISED LEVELS
 ========================================= */
 
-@media (max-width: 768px) {
+const MY_LEVELS = "__my_levels__";
 
-    .scholarship-stats {
-        padding: 60px 6% 55px;
-        background-position: center;
-    }
+const personalisationNotice =
+    document.getElementById("personalisationNotice");
 
-    .scholarship-stats .stats-intro {
-        margin-bottom: 45px;
-    }
+const personalisationText =
+    document.getElementById("personalisationText");
 
-    .scholarship-stats .user-stats-content {
-        gap: 35px;
-    }
 
-    .scholarship-stats .user-chart-legend {
-        min-width: 180px;
-        gap: 25px;
-    }
+function normaliseLevel(text) {
 
-    .scholarship-stats .legend-label {
-        font-size: 14px;
-    }
+    return String(text || "")
 
-    .scholarship-stats .legend-number {
-        font-size: 25px;
-    }
+        .replace(/[’‘]/g, "'")
 
-    .scholarship-stats .gender-stats-content {
-        gap: 55px;
-    }
+        .replace(/\s+/g, " ")
+
+        .trim()
+
+        .toLowerCase();
+
 }
 
-/* =========================================
-   MOBILE RESPONSIVENESS
-========================================= */
 
-@media (max-width: 520px) {
+function getSavedPersonalLevels() {
 
-    .scholarship-stats {
-        padding: 50px 6% 45px;
-        background-position: center;
+    try {
+
+        const saved = JSON.parse(
+            localStorage.getItem("questionnaireLevels")
+        );
+
+
+        if (!Array.isArray(saved)) return [];
+
+
+        if (
+            saved.some(
+                level =>
+                    normaliseLevel(level) === "all levels"
+            )
+        ) {
+
+            return [];
+
+        }
+
+
+        return saved;
+
+    } catch (error) {
+
+        return [];
+
     }
 
-    .scholarship-stats .stats-intro {
-        margin-bottom: 40px;
-    }
-
-    .scholarship-stats .stats-description {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    .scholarship-stats .section-description {
-        margin-bottom: 28px;
-        font-size: 15px;
-    }
-
-    .scholarship-stats .community-stats {
-        margin-bottom: 55px;
-    }
-
-    .scholarship-stats .user-stats-content {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .scholarship-stats .user-pie-chart {
-        width: 190px;
-    }
-
-    .scholarship-stats .user-chart-legend {
-        width: min(100%, 240px);
-        min-width: 0;
-        gap: 20px;
-    }
-
-    .scholarship-stats .legend-number {
-        font-size: 24px;
-    }
-
-    .scholarship-stats .gender-stats-content {
-        gap: 35px;
-        margin-top: 32px;
-    }
-
-    .scholarship-stats .gender-stat {
-        min-width: 110px;
-    }
-
-    .scholarship-stats .gender-number {
-        font-size: 48px;
-    }
-
-    .scholarship-stats .gender-label {
-        font-size: 17px;
-    }
-
-    .scholarship-stats .stats-note {
-        margin-top: 45px;
-    }
 }
 
+
+const personalLevels = getSavedPersonalLevels();
+
+
+/* Add My Levels to the dropdown */
+
+if (levelFilter && personalLevels.length > 0) {
+
+    const myOption = document.createElement("option");
+
+    myOption.value = MY_LEVELS;
+
+    myOption.textContent = "My levels";
+
+    levelFilter.insertBefore(
+        myOption,
+        levelFilter.firstChild
+    );
+
+    levelFilter.value = MY_LEVELS;
+
+}
+
+
+function personalisationIsOn() {
+
+    return (
+
+        personalLevels.length > 0 &&
+
+        levelFilter &&
+
+        levelFilter.value === MY_LEVELS
+
+    );
+
+}
+
+
+function cardMatchesPersonalLevels(card) {
+
+    const tokens = (card.dataset.level || "")
+
+        .split(",")
+
+        .map(normaliseLevel)
+
+        .filter(Boolean);
+
+
+    if (
+        tokens.length === 0 ||
+        tokens.includes("varies")
+    ) {
+
+        return true;
+
+    }
+
+
+    const wanted = personalLevels.map(normaliseLevel);
+
+
+    return tokens.some(token =>
+        wanted.includes(token)
+    );
+
+}
+
+
+function updatePersonalisationNotice() {
+
+    if (!personalisationNotice) return;
+
+
+    personalisationNotice.hidden =
+        !personalisationIsOn();
+
+
+    if (personalisationText) {
+
+        personalisationText.textContent =
+            "Showing: " + personalLevels.join(", ");
+
+    }
+
+}
+
+
+updatePersonalisationNotice();
+
+
 /* =========================================
-   REDUCED MOTION ACCESSIBILITY
+   6. PAGINATION ELEMENTS
 ========================================= */
 
-@media (prefers-reduced-motion: reduce) {
+const previousPageButton =
+    document.getElementById("previousPageBtn");
 
-    .scholarship-stats .user-pie-chart {
-        transition: none;
+const nextPageButton =
+    document.getElementById("nextPageBtn");
+
+const paginationNumbers =
+    document.getElementById("paginationNumbers");
+
+
+/* =========================================
+   7. PAGINATION SETTINGS
+========================================= */
+
+const opportunitiesPerPage = 6;
+
+let currentPage = 1;
+
+let filteredScholarships = [];
+
+
+/* =========================================
+   8. GET FILTERED SCHOLARSHIPS
+========================================= */
+
+function getFilteredScholarships() {
+
+    updatePersonalisationNotice();
+
+
+    const keyword =
+        (scholarshipSearch?.value || "")
+            .trim()
+            .toLowerCase();
+
+
+    const selectedCountry =
+        (countryFilter?.value || "")
+            .trim()
+            .toLowerCase();
+
+
+    const selectedLevel =
+
+        levelFilter?.value === MY_LEVELS
+
+            ? ""
+
+            : (levelFilter?.value || "")
+                .trim()
+                .toLowerCase();
+
+
+    const selectedFunding =
+        (fundedFilter?.value || "")
+            .trim()
+            .toLowerCase();
+
+
+    return scholarshipCards.filter(card => {
+
+
+        /* =================================
+           CARD INFORMATION
+        ================================= */
+
+        const name =
+            (card.dataset.name || "")
+                .toLowerCase();
+
+
+        const country =
+            (card.dataset.country || "")
+                .toLowerCase();
+
+
+        const level =
+            (card.dataset.level || "")
+                .toLowerCase();
+
+
+        const funded =
+            (card.dataset.funded || "")
+                .toLowerCase();
+
+
+        const status =
+            (card.dataset.status || "")
+                .toLowerCase();
+
+
+        const cardText =
+            card.textContent.toLowerCase();
+
+
+        /* =================================
+           KEYWORD MATCH
+        ================================= */
+
+        const matchesKeyword =
+
+            keyword === "" ||
+
+            cardText.includes(keyword) ||
+
+            name.includes(keyword) ||
+
+            country.includes(keyword) ||
+
+            level.includes(keyword) ||
+
+            funded.includes(keyword);
+
+
+        /* =================================
+           COUNTRY MATCH
+        ================================= */
+
+        const matchesCountry =
+
+            selectedCountry === "" ||
+
+            country.includes(selectedCountry);
+
+
+        /* =================================
+           STUDY LEVEL MATCH
+        ================================= */
+
+        let matchesLevel = true;
+
+
+        if (selectedLevel !== "") {
+
+            if (level.includes("all levels")) {
+
+                matchesLevel = true;
+
+            } else if (level.includes(selectedLevel)) {
+
+                matchesLevel = true;
+
+            } else {
+
+                matchesLevel = false;
+
+            }
+
+        }
+
+
+        /* =================================
+           FUNDING MATCH
+        ================================= */
+
+        const matchesFunding =
+
+            selectedFunding === "" ||
+
+            funded.includes(selectedFunding);
+
+
+        /* =================================
+           OPPORTUNITY STATUS MATCH
+        ================================= */
+
+        const matchesOpportunityStatus =
+
+            status === activeOpportunityStatus;
+
+
+        /* =================================
+           PERSONALISED LEVEL MATCH
+        ================================= */
+
+        const matchesPersonalisation =
+
+            !personalisationIsOn() ||
+
+            cardMatchesPersonalLevels(card);
+
+
+        /* =================================
+           FINAL MATCH
+        ================================= */
+
+        return (
+
+            matchesKeyword &&
+
+            matchesCountry &&
+
+            matchesLevel &&
+
+            matchesFunding &&
+
+            matchesOpportunityStatus &&
+
+            matchesPersonalisation
+
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   9. DISPLAY CURRENT PAGE
+========================================= */
+
+function displayCurrentPage() {
+
+    const totalPages = Math.ceil(
+
+        filteredScholarships.length /
+
+        opportunitiesPerPage
+
+    );
+
+
+    /* Keep page number valid */
+
+    if (totalPages === 0) {
+
+        currentPage = 1;
+
+    } else if (currentPage > totalPages) {
+
+        currentPage = totalPages;
+
     }
-               }
+
+
+    /* Calculate current cards */
+
+    const startIndex =
+
+        (currentPage - 1) *
+
+        opportunitiesPerPage;
+
+
+    const endIndex =
+
+        startIndex +
+
+        opportunitiesPerPage;
+
+
+    const cardsForCurrentPage =
+
+        filteredScholarships.slice(
+            startIndex,
+            endIndex
+        );
+
+
+    /* Hide all cards */
+
+    scholarshipCards.forEach(card => {
+
+        card.style.display = "none";
+
+    });
+
+
+    /* Show only the current six cards */
+
+    cardsForCurrentPage.forEach(card => {
+
+        card.style.display = "";
+
+    });
+
+
+    /* Update results count */
+
+    if (resultsCount) {
+
+        resultsCount.textContent =
+
+            `${filteredScholarships.length} ${
+                filteredScholarships.length === 1
+                    ? "opportunity"
+                    : "opportunities"
+            }`;
+
+    }
+
+
+    /* Update search message */
+
+    if (searchMessage) {
+
+        if (filteredScholarships.length === 0) {
+
+            searchMessage.textContent =
+
+                "No scholarship opportunities match your search.";
+
+        } else {
+
+            searchMessage.textContent =
+
+                `Showing ${
+                    startIndex + 1
+                }–${
+                    Math.min(
+                        endIndex,
+                        filteredScholarships.length
+                    )
+                } of ${
+                    filteredScholarships.length
+                } ${
+                    filteredScholarships.length === 1
+                        ? "opportunity"
+                        : "opportunities"
+                }.`;
+
+        }
+
+    }
+
+
+    /* Update pagination */
+
+    createPagination(totalPages);
+
+}
+
+
+/* =========================================
+   10. CREATE PAGINATION
+========================================= */
+
+function createPagination(totalPages) {
+
+    if (!paginationNumbers) return;
+
+
+    paginationNumbers.innerHTML = "";
+
+
+    /* Only one page */
+
+    if (totalPages <= 1) {
+
+        if (previousPageButton) {
+
+            previousPageButton.style.display = "none";
+
+        }
+
+
+        if (nextPageButton) {
+
+            nextPageButton.style.display = "none";
+
+        }
+
+
+        paginationNumbers.style.display = "none";
+
+        return;
+
+    }
+
+
+    /* Show pagination */
+
+    if (previousPageButton) {
+
+        previousPageButton.style.display = "inline-flex";
+
+    }
+
+
+    if (nextPageButton) {
+
+        nextPageButton.style.display = "inline-flex";
+
+    }
+
+
+    paginationNumbers.style.display = "flex";
+
+
+    /* Previous button */
+
+    if (previousPageButton) {
+
+        previousPageButton.disabled =
+            currentPage === 1;
+
+    }
+
+
+    /* Page numbers */
+
+    for (
+        let page = 1;
+        page <= totalPages;
+        page++
+    ) {
+
+        const pageButton =
+            document.createElement("button");
+
+
+        pageButton.type = "button";
+
+
+        pageButton.className =
+            "pagination-number";
+
+
+        pageButton.textContent = page;
+
+
+        pageButton.setAttribute(
+            "aria-label",
+            `Go to page ${page}`
+        );
+
+
+        if (page === currentPage) {
+
+            pageButton.classList.add("active");
+
+            pageButton.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+        }
+
+
+        pageButton.addEventListener(
+            "click",
+            function() {
+
+                currentPage = page;
+
+                displayCurrentPage();
+
+                scrollToScholarships();
+
+            }
+        );
+
+
+        paginationNumbers.appendChild(pageButton);
+
+    }
+
+
+    /* Center active page inside pagination bar */
+
+    const activeButton =
+        paginationNumbers.querySelector(".active");
+
+
+    if (activeButton) {
+
+        paginationNumbers.scrollTo({
+
+            left:
+
+                activeButton.offsetLeft -
+
+                paginationNumbers.clientWidth / 2 +
+
+                activeButton.clientWidth / 2,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+
+    /* Next button */
+
+    if (nextPageButton) {
+
+        nextPageButton.disabled =
+            currentPage === totalPages;
+
+    }
+
+}
+
+
+/* =========================================
+   11. APPLY SEARCH AND FILTERS
+========================================= */
+
+function applyScholarshipFilters() {
+
+    filteredScholarships =
+        getFilteredScholarships();
+
+
+    currentPage = 1;
+
+
+    displayCurrentPage();
+
+}
+
+
+/* =========================================
+   12. SCROLL TO RESULTS
+========================================= */
+
+function scrollToScholarships() {
+
+    const scholarshipResults =
+        document.getElementById("scholarship-results");
+
+
+    if (scholarshipResults) {
+
+        scholarshipResults.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    }
+
+}
+
+
+/* =========================================
+   13. SEARCH BUTTON
+========================================= */
+
+if (searchButton) {
+
+    searchButton.addEventListener(
+        "click",
+        function() {
+
+            applyScholarshipFilters();
+
+
+            setTimeout(function() {
+
+                scrollToScholarships();
+
+            }, 100);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   14. ENTER KEY SEARCH
+========================================= */
+
+if (scholarshipSearch) {
+
+    scholarshipSearch.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                applyScholarshipFilters();
+
+
+                setTimeout(function() {
+
+                    scrollToScholarships();
+
+                }, 100);
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   15. CURRENTLY OPEN BUTTON
+========================================= */
+
+if (openOpportunitiesButton) {
+
+    openOpportunitiesButton.addEventListener(
+        "click",
+        function() {
+
+            activeOpportunityStatus = "open";
+
+
+            updateOpportunityButtons();
+
+
+            currentPage = 1;
+
+
+            applyScholarshipFilters();
+
+
+            setTimeout(function() {
+
+                scrollToScholarships();
+
+            }, 100);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   16. UPCOMING SCHOLARSHIPS BUTTON
+========================================= */
+
+if (upcomingOpportunitiesButton) {
+
+    upcomingOpportunitiesButton.addEventListener(
+        "click",
+        function() {
+
+            activeOpportunityStatus = "upcoming";
+
+
+            updateOpportunityButtons();
+
+
+            currentPage = 1;
+
+
+            applyScholarshipFilters();
+
+
+            setTimeout(function() {
+
+                scrollToScholarships();
+
+            }, 100);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   17. PREVIOUS PAGE
+========================================= */
+
+if (previousPageButton) {
+
+    previousPageButton.addEventListener(
+        "click",
+        function() {
+
+            if (currentPage > 1) {
+
+                currentPage--;
+
+                displayCurrentPage();
+
+                scrollToScholarships();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   18. NEXT PAGE
+========================================= */
+
+if (nextPageButton) {
+
+    nextPageButton.addEventListener(
+        "click",
+        function() {
+
+            const totalPages = Math.ceil(
+
+                filteredScholarships.length /
+
+                opportunitiesPerPage
+
+            );
+
+
+            if (currentPage < totalPages) {
+
+                currentPage++;
+
+                displayCurrentPage();
+
+                scrollToScholarships();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   19. RESET SEARCH AND FILTERS
+========================================= */
+
+if (resetSearchButton) {
+
+    resetSearchButton.addEventListener(
+        "click",
+        function() {
+
+
+            /* Clear keyword */
+
+            if (scholarshipSearch) {
+
+                scholarshipSearch.value = "";
+
+            }
+
+
+            /* Reset country */
+
+            if (countryFilter) {
+
+                countryFilter.value = "";
+
+            }
+
+
+            /* Reset funding */
+
+            if (fundedFilter) {
+
+                fundedFilter.value = "";
+
+            }
+
+
+            /* Reset study level */
+
+            if (levelFilter) {
+
+                levelFilter.value = "";
+
+            }
+
+
+            /* Restore My Levels if available */
+
+            if (personalLevels.length > 0 && levelFilter) {
+
+                levelFilter.value = MY_LEVELS;
+
+            }
+
+
+            /*
+               IMPORTANT:
+               Do not reset activeOpportunityStatus.
+               The user stays in the section they selected.
+            */
+
+            updateOpportunityButtons();
+
+
+            currentPage = 1;
+
+
+            applyScholarshipFilters();
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   20. INITIAL DISPLAY
+========================================= */
+
+/*
+   The page starts with Currently Open selected.
+   Only cards marked data-status="open" appear.
+*/
+
+activeOpportunityStatus = "open";
+
+updateOpportunityButtons();
+
+
+filteredScholarships =
+    getFilteredScholarships();
+
+
+displayCurrentPage();
+
+
+/* =========================================
+   21. SCHOLARSHIP STATISTICS
+========================================= */
+
+async function loadScholarshipStats() {
+
+    try {
+
+        const statsRef =
+            doc(db, "publicStats", "community");
+
+
+        const snapshot =
+            await getDoc(statsRef);
+
+
+        if (!snapshot.exists()) {
+
+            console.error(
+                "Missing Firestore document: publicStats/community"
+            );
+
+            return;
+
+        }
+
+
+        const stats = snapshot.data();
+
+
+        const registered =
+            Number(stats.registeredUsers) || 0;
+
+
+        const guests =
+            Number(stats.guestUsers) || 0;
+
+
+        const total =
+            Number(stats.totalUsers) ||
+            registered + guests;
+
+
+        const females =
+            Number(stats.femaleUsers) || 0;
+
+
+        const males =
+            Number(stats.maleUsers) || 0;
+
+
+        /* =================================
+           ANIMATE COUNTERS
+        ================================= */
+
+        function animateCounter(element, target) {
+
+            if (!element) return;
+
+
+            const duration = 1000;
+
+            const startTime = performance.now();
+
+
+            function update(now) {
+
+                const progress = Math.min(
+
+                    (now - startTime) / duration,
+
+                    1
+
+                );
+
+
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
+
+
+                element.textContent = Math.round(
+
+                    target * eased
+
+                ).toLocaleString();
+
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(update);
+
+                }
+
+            }
+
+
+            requestAnimationFrame(update);
+
+        }
+
+
+        animateCounter(
+            document.getElementById("registeredUsers"),
+            registered
+        );
+
+
+        animateCounter(
+            document.getElementById("guestUsers"),
+            guests
+        );
+
+
+        animateCounter(
+            document.getElementById("totalUsers"),
+            total
+        );
+
+
+        animateCounter(
+            document.getElementById("femaleCount"),
+            females
+        );
+
+
+        animateCounter(
+            document.getElementById("maleCount"),
+            males
+        );
+
+
+        /* =================================
+           USER PIE CHART
+        ================================= */
+
+        const chart =
+            document.getElementById("userPieChart");
+
+
+        const chartTotal =
+            registered + guests;
+
+
+        if (chart) {
+
+            if (chartTotal > 0) {
+
+                const registeredPercent =
+
+                    (registered / chartTotal) * 100;
+
+
+                chart.style.background = `conic-gradient(
+
+                    #4359B8 0% ${registeredPercent}%,
+
+                    #D99757 ${registeredPercent}% 100%
+
+                )`;
+
+            } else {
+
+                chart.style.background =
+
+                    "conic-gradient(#d1d5db 0% 100%)";
+
+            }
+
+
+            chart.setAttribute(
+
+                "aria-label",
+
+                `Registered users: ${registered}; guest users: ${guests}; total users: ${total}`
+
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Could not load scholarship statistics:",
+            error
+        );
+
+    }
+
+}
+
+
+loadScholarshipStats();
