@@ -543,6 +543,303 @@ line-height: 1.6;
 }
 
 
+/* =========================================
+   PORTICO KAKUMA
+   PRIORITISED SCHOLARSHIPS SECTION
+========================================= */
+
+#prioritised-scholarships {
+    width: 100%;
+    margin: 30px 0;
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E2E5E9;
+    border-radius: 9px;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+#prioritised-scholarships .prioritised-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 17px;
+    border-bottom: 1px solid #ECEEF1;
+}
+
+#prioritised-scholarships .prioritised-header h2 {
+    margin: 0;
+    color: #17263C;
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* SAVED COUNT */
+
+#prioritised-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    color: #80601E;
+    background: #FBF7EC;
+    border: 1px solid #EADBB7;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* PRIORITISED LIST */
+
+#prioritised-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* EMPTY MESSAGE */
+
+#prioritised-empty {
+    margin: 0;
+    padding: 28px 15px;
+    color: #778191;
+    background: #FAFAF9;
+    border: 1px dashed #D9DDE3;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    #prioritised-scholarships {
+        padding: 16px;
+        margin: 22px 0;
+    }
+
+    #prioritised-scholarships .prioritised-header h2 {
+        font-size: 18px;
+    }
+
+    #prioritised-count {
+        padding: 6px 9px;
+        font-size: 11px;
+    }
+
+    #prioritised-empty {
+        padding: 23px 12px;
+        font-size: 12px;
+    }
+}
+
+
+
+/* =========================================
+   PORTICO KAKUMA
+   SCHOLARSHIP PRIORITY STAR
+========================================= */
+
+.priority-star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    color: #89919D;
+    background: #FFFFFF;
+
+    border: 1px solid #E1E5EA;
+    border-radius: 50%;
+
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* HOVER EFFECT */
+
+.priority-star:hover {
+    color: #B58A37;
+    background-color: #FBF8F0;
+    border-color: #D9BF82;
+}
+
+/* SELECTED STAR */
+
+.priority-star[aria-pressed="true"] {
+    color: #B88728;
+    background-color: #FBF5E7;
+    border-color: #D9BF82;
+}
+
+/* SELECTED HOVER */
+
+.priority-star[aria-pressed="true"]:hover {
+    color: #8E671E;
+    background-color: #F6EBD0;
+}
+
+/* CLICK FEEDBACK */
+
+.priority-star:active {
+    transform: scale(0.92);
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.priority-star:focus-visible {
+    outline: 2px solid #B88728;
+    outline-offset: 3px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .priority-star {
+        width: 33px;
+        height: 33px;
+        font-size: 21px;
+    }
+}
+
+/* =========================================
+   PRIORITISED OPPORTUNITIES: SCROLL BOX
+   Add at the end of your CSS. No HTML or JS changes needed.
+========================================= */
+
+.prioritised-section {
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 24px 0;
+  padding: 16px;
+  background: #FBF8F0;
+  border: 1px solid #E8D9B0;
+  border-radius: 12px;
+}
+
+.prioritised-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.prioritised-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+#prioritised-count {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8E671E;
+  background: #F6EBD0;
+  border-radius: 999px;
+}
+
+/* THE SCROLL BOX */
+
+#prioritised-list {
+  max-height: 260px;          /* about 3 saved items; change to suit */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #D9BF82 transparent;
+}
+
+#prioritised-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#prioritised-list::-webkit-scrollbar-thumb {
+  background: #D9BF82;
+  border-radius: 3px;
+}
+
+#prioritised-empty {
+  margin: 0;
+  color: #6B7280;
+}
+
+/* COMPACT SAVED ITEMS */
+
+.prioritised-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E1E5EA;
+  border-radius: 8px;
+}
+
+.prioritised-item:last-child {
+  margin-bottom: 0;
+}
+
+.prioritised-item-info {
+  min-width: 0;
+}
+
+.prioritised-item-info h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.prioritised-item-info p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: #6B7280;
+}
+
+.prioritised-view-link {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #8E671E;
+}
+
+@media (max-width: 600px) {
+  #prioritised-list {
+    max-height: 240px;
+  }
+
+  .prioritised-item {
+    padding: 8px 10px;
+  }
+}
+
+
+
 /* MOBILE DRAWER LOGOUT BUTTON */
 .drawer-logout {
     padding: 16px;
@@ -1241,81 +1538,75 @@ line-height: 1.6;
     }
 }
   
-/* =====================================================
-OPEN OPPORTUNITIES BUTTON
-===================================================== */
+/* =========================================
+   OPPORTUNITY STATUS BUTTONS
+========================================= */
 
-.open-opportunities-wrapper {
-width: 100%;
-max-width: 1120px;
-margin: -25px auto 35px;
-display: flex;
-justify-content: flex-end;
+.opportunities-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    margin: 25px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
-#openOpportunitiesBtn {
-height: 44px;
-padding: 0 18px;
+.opportunity-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
 
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
+    padding: 13px 22px;
 
-border: 1px solid #d5dce5;
-border-radius: 10px;
+    background-color: transparent;
+    color: #000000;
 
-background: #0b1;
-color: #ffffff;
+    border: 1px solid #4359B8;
+    border-radius: 8px;
 
-font-family: inherit;
-font-size: 0.85rem;
-font-weight: 600;
+    font-size: 14px;
+    font-weight: 600;
 
-cursor: pointer;
-
-transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.15s ease;
-
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-#openOpportunitiesBtn:hover {
-background: #f0f6ff;
-border-color: #2563eb;
-color: #2563eb;
+.opportunity-tab:hover {
+    background-color: #4359B8;
+    color: #ffffff;
 }
 
-#openOpportunitiesBtn:active {
-transform: scale(0.97);
+.opportunity-tab.active {
+    background-color: #c9d2f0;
+    color: #000000;
+    border-color: #c9d2f0;
 }
 
-#openOpportunitiesBtn.active {
-background: #ffffff;
-border-color: #0b1f3a;
-color: #0b1;
+.opportunity-tab i {
+    font-size: 15px;
 }
 
-/* =========================
-MOBILE
-========================= */
+/* MOBILE RESPONSIVENESS */
 
 @media (max-width: 600px) {
 
-.open-opportunities-wrapper {
-    width: calc(100% - 24px);
-    margin: -15px auto 28px;
-    justify-content: center;
+    .opportunities-buttons-wrapper {
+        gap: 10px;
+        padding: 0 12px;
+    }
+
+    .opportunity-tab {
+        flex: 1;
+        min-width: 145px;
+        padding: 12px 10px;
+        font-size: 13px;
+    }
 }
 
-#openOpportunitiesBtn {
-    width: 100%;
-    height: 46px;
-}
-
-}
   
 /* =========================
    HERO IMAGE
@@ -2278,4 +2569,4 @@ MOBILE
     .scholarship-stats .user-pie-chart {
         transition: none;
     }
-               }
+   }
