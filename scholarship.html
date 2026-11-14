@@ -309,12 +309,28 @@ href="scholarship.css">
 
 </section>
 
-<!-- OPEN OPPORTUNITIES BUTTON -->
-<div class="open-opportunities-wrapper">
-    <button type="button" id="openOpportunitiesBtn">
-        <i class="fa-solid fa-door-open"></i>
+<!-- OPPORTUNITY STATUS BUTTONS -->
+<div class="opportunities-buttons-wrapper">
+
+    <!-- CURRENTLY OPEN BUTTON -->
+    <button
+        type="button"
+        id="openOpportunitiesBtn"
+        class="opportunity-tab active"
+    >
         Currently Open
     </button>
+
+    <!-- UPCOMING SCHOLARSHIPS BUTTON -->
+    <button
+        type="button"
+        id="upcomingOpportunitiesBtn"
+        class="opportunity-tab"
+    >
+        <i class="fa-solid fa-calendar-days"></i>
+        Upcoming Scholarships
+    </button>
+
 </div>
 
   
@@ -324,6 +340,27 @@ href="scholarship.css">
   <img src="S-hero.png" alt="Student">
     
   </div>
+
+  
+
+<!-- PRIORITISED SCHOLARSHIPS -->
+
+<section id="prioritised-scholarships" class="prioritised-section">
+
+    <div class="prioritised-header">
+        <h2>Prioritised Opportunities</h2>
+        <span id="prioritised-count">0 saved</span>
+    </div>
+
+    <div id="prioritised-list">
+        <p id="prioritised-empty">
+            No opportunities prioritised yet.
+        </p>
+    </div>
+
+</section>
+
+
 
   
   
@@ -355,6 +392,7 @@ href="scholarship.css">
     data-status="open"
     id="Common-App"
 >
+  
     <!-- COLOURED TITLE BANNER -->
     <div class="card-top">
 
@@ -368,6 +406,19 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Common-App"
+    aria-label="Prioritise Common App Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-layer-group"></i>
@@ -411,75 +462,6 @@ href="scholarship.css">
     </div>
 </div>
 
-      
-<!-- 2.0 DAAD SCHOLARSHIP -->
-<div
-    class="scholarship-card"
-    data-name="DAAD Scholarship"
-    data-country="Germany"
-    data-level="Master's"
-    data-funded="Check Funding Coverage"
-    data-status="check"
-    id="DAAD"
->
-    <!-- COLOURED TITLE BANNER -->
-    <div class="card-top">
-
-        <h3>DAAD Scholarship</h3>
-
-        <p>Master's</p>
-
-        <span class="country-flag">🇩🇪</span>
-
-    </div>
-
-    <!-- SCHOLARSHIP DETAILS -->
-    <div class="card-info">
-
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <span>Funding: Varies by scholarship programme</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Participating German universities and institutions</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Master's — eligibility depends on the specific programme</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-book-open"></i>
-            <span>Eligible fields vary by scholarship and course</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-users"></i>
-            <span>International applicants; country-specific eligibility may apply</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Study destination: Germany</span>
-        </div>
-
-        <div class="scholarship-detail">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span>Deadline: Varies by programme; check the relevant call</span>
-        </div>
-
-        <a href="scholarship-details.html?id=daad">
-            View Details →
-        </a>
-
-    </div>
-</div>
-
-
 
 
 <!-- 4.0 UNHCR DAFI SCHOLARSHIP -->
@@ -489,7 +471,7 @@ href="scholarship.css">
     data-country="Global University placement"
     data-level="Bachelor's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="upcoming"
     id="DAFI"
 >
     <!-- COLOURED TITLE BANNER -->
@@ -504,6 +486,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="DAFI"
+    aria-label="Prioritise DAFI Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-dollar-sign"></i>
@@ -572,6 +566,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="KU-REFUGEE"
+    aria-label="Prioritise KU REFUGEE Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="scholarship-detail">
             <i class="fa-solid fa-hand-holding-dollar"></i>
@@ -641,6 +647,19 @@ href="scholarship.css">
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
 
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="TAGDEV-2"
+    aria-label="Prioritise TAGDEV Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+
         <div class="scholarship-detail">
             <i class="fa-solid fa-hand-holding-dollar"></i>
             <span>Funding: Comprehensive scholarship support for eligible recipients; check the official award terms</span>
@@ -709,6 +728,19 @@ href="scholarship.css">
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
 
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Erasmus-Mundus"
+    aria-label="Prioritise Erasmus Mundus Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+
         <div class="scholarship-detail">
             <i class="fa-solid fa-hand-holding-dollar"></i>
             <span>Funding: Competitive scholarships may cover participation costs and contribute to travel, visa and living expenses</span>
@@ -776,6 +808,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="IGAD"
+    aria-label="Prioritise IGAD Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Intergovernmental Authority on Development (IGAD) — programme partners
@@ -838,7 +882,7 @@ href="scholarship.css">
     <!-- COLOURED TITLE BANNER -->
     <div class="card-top">
 
-        <h3>Mastercard Foundation Scholars Program</h3>
+        <h3>United States International University-Africa(MCF)</h3>
 
         <p>Bachelor's</p>
 
@@ -848,6 +892,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="USIU-MASTERCARD"
+    aria-label="Prioritise USIU-Mastercard Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             USIU-Africa and Mastercard Foundation
@@ -906,7 +962,7 @@ href="scholarship.css">
     data-level="Master's"
     data-funded="Fully Funded"
     data-status="upcoming"
-    id="Sweedish-Institute"
+    id="Swedish-Institute"
 >
     <!-- COLOURED TITLE BANNER -->
     <div class="card-top">
@@ -921,6 +977,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Swedish-Institute"
+    aria-label="Prioritise Swedish Institute Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Swedish Institute (SI) — Swedish Government
@@ -977,7 +1045,7 @@ href="scholarship.css">
     data-country="Canada"
     data-level="Bachelor's"
     data-funded="Sponsorship model"
-    data-status="closed"
+    data-status="upcoming"
     id="WUSC"
 >
     <!-- COLOURED TITLE BANNER -->
@@ -993,6 +1061,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="WUSC"
+    aria-label="Prioritise WUSC-SRP Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             World University Service of Canada (WUSC) and participating Canadian universities and colleges
@@ -1062,6 +1142,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Elimisha"
+    aria-label="Prioritise Elimisha Kakuma Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Elimisha Kakuma
@@ -1130,6 +1222,19 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Malengo"
+    aria-label="Prioritise Malengo Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Malengo
@@ -1200,6 +1305,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Mastercard"
+    aria-label="Prioritise MCFSP Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Mastercard Foundation and partner institutions
@@ -1267,6 +1384,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="UWC"
+    aria-label="Prioritise United World Colleges Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: United World Colleges (UWC) and national committees
@@ -1334,6 +1463,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="UNICORE"
+    aria-label="Prioritise UNICORE Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: UNHCR, Italian universities and programme partners
@@ -1400,6 +1541,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="SNHU"
+    aria-label="Prioritise SNHU Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Southern New Hampshire University (SNHU), Global Education Movement (GEM) and local partners
@@ -1469,6 +1622,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="UOPEOPLE"
+    aria-label="Prioritise University of the people Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of the People (UoPeople)
@@ -1550,6 +1715,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Columbia-University"
+    aria-label="Prioritise Columbia University Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Columbia Global and participating Columbia University schools
@@ -1605,7 +1782,7 @@ href="scholarship.css">
     data-country="Online, United Kingdom"
     data-level="Bachelor's, Master's"
     data-funded="Course Fees"
-    data-status="open"
+    data-status="upcoming"
     id="UOL-REFUGEE"
 >
     <div class="card-top">
@@ -1619,6 +1796,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="UOL-REFUGEE"
+    aria-label="Prioritise University of London Refugee Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of London
@@ -1694,6 +1883,18 @@ href="scholarship.css">
 
     <!-- SCHOLARSHIP DETAILS -->
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Study-in-Romania"
+    aria-label="Prioritise Study in Romania Government Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Romanian Ministry of Foreign Affairs (MFA)
@@ -1783,6 +1984,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="edinburgh-mastercard"
+    aria-label="Prioritise University of Edinburgh Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of Edinburgh and Mastercard Foundation
@@ -1882,6 +2095,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="toronto-at-risk"
+    aria-label="Prioritise University of Toronto Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of Toronto
@@ -1973,6 +2198,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="pearson"
+    aria-label="Prioritise Lester B. Pearson Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of Toronto
@@ -2039,7 +2276,7 @@ href="scholarship.css">
     data-country="United States of America"
     data-level="Graduate"
     data-funded="Fully Funded"
-    data-status="closed"
+    data-status="upcoming"
     id="knight-hennessy"
 >
 
@@ -2050,6 +2287,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="knight-henessy"
+    aria-label="Prioritise Knight-Henessy Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Stanford University
@@ -2126,6 +2375,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="elimu"
+    aria-label="Prioritise Elimu Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Government of Kenya, through the Ministry of Education
@@ -2199,6 +2460,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="mpesa-academy"
+    aria-label="Prioritise M-PESA Foundation Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: M-PESA Foundation
@@ -2274,6 +2547,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="kiron"
+    aria-label="Prioritise Kiron Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Kiron Open Higher Education
@@ -2344,6 +2629,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="berea-college"
+    aria-label="Prioritise Berea College Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Berea College
@@ -2416,6 +2713,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="bowdoin"
+    aria-label="Prioritise Bowdoin College Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Bowdoin College
@@ -2487,6 +2796,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="unhcr-scholarships"
+    aria-label="Prioritise UNHCR Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Information Source: UNHCR
@@ -2571,6 +2892,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="EARTH-MASTERCARD"
+    aria-label="Prioritise Earth University Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: EARTH University and Mastercard Foundation
@@ -2650,6 +2983,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="IMPERIAL-SANCTUARY"
+    aria-label="Prioritise Imperial College Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Imperial College London
@@ -2729,6 +3074,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="ROWAN-WILLIAMS-CAMBRIDGE"
+    aria-label="Prioritise Rowan Williams Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of Cambridge
@@ -2811,6 +3168,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="HABESHA-PROTECTION"
+    aria-label="Prioritise Habesha(USCRI) Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: U.S. Committee for Refugees and Immigrants
@@ -2900,6 +3269,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="UB-REFUGEE"
+    aria-label="Prioritise University of Barcelona Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: University of Barcelona
@@ -2984,7 +3365,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
-          
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="MANCHESTER-HUMANITARIAN"
+    aria-label="Prioritise Common App Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+    
 
         <div class="provider-name">
             The University of Manchester
@@ -3034,6 +3426,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="FILMAUD-MEDIA-TRAINING"
+    aria-label="Prioritise FilmAid Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: FilmAid Kenya
@@ -3104,7 +3508,7 @@ href="scholarship.css">
     data-country="Ghana"
     data-level="Bachelor's"
     data-funded="Fully Funded"
-    data-status="check"
+    data-status="open"
     id="ASHESI-MASTERCARD"
 >
     <div class="card-top">
@@ -3114,6 +3518,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="ASHESI-MASTERCARD"
+    aria-label="Prioritise Ashesi University Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Ashesi University and Mastercard Foundation
@@ -3196,6 +3612,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="ALU-MASTERCARD"
+    aria-label="Prioritise African Leadership University Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: African Leadership University and Mastercard Foundation
@@ -3279,6 +3707,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="ICU-UNIVERSITY-OF-TOMORROW"
+    aria-label="Prioritise University of Tomorrow(ICU) Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: International Christian University (ICU), Japan
@@ -3359,6 +3799,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="ICU-PEACE-BELL"
+    aria-label="Prioritise ICU PEACE BELL Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: International Christian University (ICU), Japan
@@ -3443,7 +3895,7 @@ href="scholarship.css">
     data-country="Turkey"
     data-level="Bachelor's"
     data-funded="Fully Funded"
-    data-status="closed"
+    data-status="upcoming"
     id="TURKIYE-BURSARI"
 >
     <div class="card-top">
@@ -3453,6 +3905,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="TURKIYE-BURSARI"
+    aria-label="Prioritise Turkiye Government Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Presidency for Turks Abroad and Related
@@ -3546,6 +4010,18 @@ href="scholarship.css">
     </div>
 
     <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="CHINESE-GOVERNMENT-SCHOLARSHIP"
+    aria-label="Prioritise Chinese Government Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
 
         <div class="provider-name">
             Provider: Chinese Government, administered through
@@ -3617,6 +4093,638 @@ href="scholarship.css">
         </a>
     </div>
 </div>
+
+
+
+<!-- 1. MACALESTER COLLEGE -->
+<div class="scholarship-card"
+    data-name="Macalester College Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Macalester-Financial-Aid">
+    <div class="card-top">
+        <h3>Macalester College Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Macalester-Financial-Aid"
+    aria-label="Prioritise Macalester Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based financial aid for international students; awards depend on demonstrated financial need and available resources</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Macalester College, Minnesota, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate applicants</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Wide range of liberal arts and science programmes</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International applicants, including students seeking significant financial assistance</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply through the Common App; indicate that you need financial aid and submit the CSS Profile or the International Student Application for Financial Assistance (ISAFA)</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision (open) admission deadline: 15 January 2027. Financial aid documents have a separate deadline.</span></div>
+        <a href="scholarship-details.html?id=macalester-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 2. WESLEYAN UNIVERSITY -->
+<div class="scholarship-card"
+    data-name="Wesleyan University Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Wesleyan-Financial-Aid">
+    <div class="card-top">
+        <h3>Wesleyan University Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Wesleyan-Financial-Aid"
+    aria-label="Prioritise Wesleyan University Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based financial aid for eligible international students; the amount is determined by the university's assessment of family financial circumstances</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Wesleyan University, Connecticut, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate study</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Arts, humanities, social sciences, natural sciences and interdisciplinary programmes</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International applicants who demonstrate financial need</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for admission and request financial aid as part of the application; submit the required financial aid documents</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision deadline: January 2027. Confirm the exact admission and financial aid dates on the university website.</span></div>
+        <a href="scholarship-details.html?id=wesleyan-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 3. GRINNELL COLLEGE -->
+<div class="scholarship-card"
+    data-name="Grinnell College Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Grinnell-Financial-Aid">
+    <div class="card-top">
+        <h3>Grinnell College Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="grinnell-financial-aid"
+    aria-label="Prioritise Grinell College Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based institutional financial aid for international students; support is assessed individually and may cover a substantial portion of educational costs</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Grinnell College, Iowa, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate degree applicants</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Liberal arts and sciences, including computer science, mathematics and related fields</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International students demonstrating financial need and academic potential</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply through the Common App and complete the required international financial aid application documents</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision deadline: January 2027; check the admissions portal for the exact date and financial aid requirements.</span></div>
+        <a href="scholarship-details.html?id=grinnell-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 4. AMHERST COLLEGE -->
+<div class="scholarship-card"
+    data-name="Amherst College Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Amherst-Financial-Aid">
+    <div class="card-top">
+        <h3>Amherst College Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Amherst-Financial-Aid"
+    aria-label="Prioritise Amherst College Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Meets the full demonstrated financial need of admitted students; aid is need-based rather than merit-based</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Amherst College, Massachusetts, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate degree study</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Liberal arts and sciences, including computer science, mathematics and natural sciences</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International applicants; admission is need-blind for international students</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for admission and submit the required financial aid documents by the relevant deadline</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision deadline: January 2027. Check Amherst's official admissions calendar for the exact date.</span></div>
+        <a href="scholarship-details.html?id=amherst-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 5. UNIVERSITY OF NOTRE DAME -->
+<div class="scholarship-card"
+    data-name="University of Notre Dame Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Notre-Dame-Financial-Aid">
+    <div class="card-top">
+        <h3>University of Notre Dame Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Notre-Dame-Financial-Aid"
+    aria-label="Prioritise Univeristy of Notre Dame Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based financial assistance for international students; the university evaluates financial need and available aid resources</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>University of Notre Dame, Indiana, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate applicants</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Multiple fields, including computer science, engineering, sciences and business</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International applicants; undergraduate admission is need-blind for international students</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for admission and submit the CSS Profile and any additional financial documents requested by the university</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision admission deadline: 1 January 2027. CSS Profile priority date: 15 January 2027.</span></div>
+        <a href="scholarship-details.html?id=notre-dame-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 6. KENYON COLLEGE -->
+<div class="scholarship-card"
+    data-name="Kenyon College International Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Kenyon-Financial-Aid">
+    <div class="card-top">
+        <h3>Kenyon College Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Kenyon-Financial-Aid"
+    aria-label="Prioritise Kenyon College Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based financial aid for eligible international students; awards depend on demonstrated need and available institutional funding</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Kenyon College, Ohio, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate degree study</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Liberal arts and sciences, including computer science, mathematics and natural sciences</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International applicants who require financial assistance</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for admission and indicate the need for financial aid; complete the required international financial aid documents</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision deadline: January 2027; confirm the exact date and financial aid requirements with Kenyon.</span></div>
+        <a href="scholarship-details.html?id=kenyon-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 7. LAFAYETTE COLLEGE -->
+<div class="scholarship-card"
+    data-name="Lafayette College Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Lafayette-Financial-Aid">
+    <div class="card-top">
+        <h3>Lafayette College Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Lafayette-Financial-Aid"
+    aria-label="Prioritise Lafayette College Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based financial aid for international students; assistance is limited and highly competitive</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Lafayette College, Pennsylvania, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate degree applicants</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Engineering, computer science, mathematics, humanities, social sciences and other fields</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International students who demonstrate significant financial need</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for admission and submit the required international financial aid documents within the application timeline</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision deadline: January 2027; confirm the exact date and aid-document deadline on the official website.</span></div>
+        <a href="scholarship-details.html?id=lafayette-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 8. PRINCETON UNIVERSITY -->
+<div class="scholarship-card"
+    data-name="Princeton University Financial Aid"
+    data-country="United States"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="Princeton-Financial-Aid">
+    <div class="card-top">
+        <h3>Princeton University Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇺🇸</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Princeton-Financial-Aid"
+    aria-label="Prioritise Princeton University Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Meets the full demonstrated financial need of admitted students through grants; Princeton does not require students to take loans to meet their calculated need</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Princeton University, New Jersey, United States</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate degree study</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Wide range of academic fields, including computer science, engineering, mathematics and natural sciences</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International applicants; admission is need-blind regardless of citizenship</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply directly for undergraduate admission and submit the required Princeton financial aid application documents</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Regular Decision admission deadline: 1 January 2027. Financial aid documents must also meet Princeton's deadlines.</span></div>
+        <a href="scholarship-details.html?id=princeton-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 9. NYU ABU DHABI -->
+<div class="scholarship-card"
+    data-name="NYU Abu Dhabi Financial Aid"
+    data-country="United Arab Emirates"
+    data-level="Bachelor's"
+    data-funded="Need-Based Aid"
+    data-status="open"
+    id="NYU-Abu-Dhabi-Financial-Aid">
+    <div class="card-top">
+        <h3>NYU Abu Dhabi Financial Aid</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇦🇪</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="NYU-Abu-Dhabi-Financial-Aid"
+    aria-label="Prioritise NYU Abu Dhabi Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Need-based institutional financial aid; the amount depends on the university's assessment of the applicant's financial circumstances</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>New York University Abu Dhabi, United Arab Emirates</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-year undergraduate degree study</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Computer science, engineering, mathematics, sciences, social sciences and humanities</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>Applicants of all nationalities; financial aid applications are accepted regardless of citizenship</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for undergraduate admission and submit the CSS Profile for the custodial and noncustodial parents, where applicable. A CSS Profile fee payment code may be requested if the fee causes financial hardship, subject to availability.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Admission and financial aid deadlines depend on the selected application round. Check the 2027 entry admissions calendar.</span></div>
+        <a href="scholarship-details.html?id=nyu-abu-dhabi-financial-aid">View Details →</a>
+    </div>
+</div>
+
+<!-- 10. USIU-AFRICA MASTERCARD FOUNDATION -->
+<div class="scholarship-card"
+    data-name="USIU-Africa Mastercard Foundation Scholars Program"
+    data-country="Kenya"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="USIU-Mastercard">
+    <div class="card-top">
+        <h3>USIU-Africa Mastercard Foundation Scholars Program</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇰🇪</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="USIU-Mastercard"
+    aria-label="Prioritise USIU-AFRICA Scholarships"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Full-cost scholarship covering tuition, accommodation, meals, medical insurance, stipend, learning materials and transport, according to programme provisions</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>United States International University–Africa, Nairobi, Kenya</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>First-time undergraduate degree applicants</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Approved programmes include Software Engineering, Information Systems and Technology, Applied Computer Technology and Data Science, among other fields</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>Young Africans facing financial, displacement, gender or disability barriers. Refugees, internally displaced persons and persons with disabilities may apply up to age 32; the general age limit is lower.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply directly through USIU-Africa. The programme guidebook describes rolling affirmative-action consideration for refugee/displaced applicants and applicants with disabilities, even when the general call is not open.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>No general call currently advertised. Refugee and displaced applicants should contact the programme about its rolling application process and confirm the current submission route.</span></div>
+        <a href="scholarship-details.html?id=usiu-mastercard">View Details →</a>
+    </div>
+</div>
+
+<!-- 11. TUENDELEE FOUNDATION -->
+<div class="scholarship-card"
+    data-name="Tuendelee Foundation Scholarship"
+    data-country="Kenya"
+    data-level="Diploma, Bachelor's"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="Tuendelee-Foundation">
+    <div class="card-top">
+        <h3>Tuendelee Foundation Scholarship</h3>
+        <p>College / Undergraduate</p>
+        <span class="country-flag">🇰🇪</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Tuendelee-Foundation"
+    aria-label="Prioritise Tuendelee Foundation Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: May cover tuition, examination fees, accommodation and upkeep, depending on assessed needs and the award offered</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Recognised universities and colleges in Kenya</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>Tertiary education, including college and university study</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Accounting, finance, commerce and business-related courses</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>Applicants aged 18–30 who are Kenyan citizens or residents, demonstrate financial need and have an admission letter or are already enrolled</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply directly through the foundation's scholarship application link. No school nomination requirement is stated. Refugee applicants should confirm whether their Kenyan residence documentation meets the foundation's definition of resident.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>2026 application period: 23 October–30 November 2026. Confirm eligibility and submit before the deadline.</span></div>
+        <a href="scholarship-details.html?id=tuendelee-foundation">View Details →</a>
+    </div>
+</div>
+
+<!-- 12. REACH OXFORD SCHOLARSHIP -->
+<div class="scholarship-card"
+    data-name="Reach Oxford Scholarship"
+    data-country="United Kingdom"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="upcoming"
+    id="Reach-Oxford">
+    <div class="card-top">
+        <h3>Reach Oxford Scholarship</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Reach-Oxford"
+    aria-label="Prioritise Reach Oxford Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Course fees, annual living-cost grant and one return air fare per year for the duration of the course</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>University of Oxford, United Kingdom</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>New undergraduate students; most undergraduate subjects are eligible except Medicine</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Eligible undergraduate courses across Oxford's academic divisions, excluding Medicine</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>Applicants from eligible low-income countries, including Kenya and South Sudan, who demonstrate financial need and strong academic ability</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>First apply for Oxford admission. Only applicants who receive an offer can submit a separate Reach Oxford Scholarship application. No school nomination is required.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>2027 scholarship deadline: 26 January 2027. Application details are expected to be published in January 2027. Only around 2–3 awards are made annually.</span></div>
+        <a href="scholarship-details.html?id=reach-oxford">View Details →</a>
+    </div>
+</div>
+
+<!-- 13. CARDIFF UNIVERSITY -->
+<div class="scholarship-card"
+    data-name="Cardiff Undergraduate International Excellence Scholarship"
+    data-country="United Kingdom"
+    data-level="Bachelor's"
+    data-funded="Partial Funding"
+    data-status="upcoming"
+    id="Cardiff-International-Excellence-2027">
+    <div class="card-top">
+        <h3>Cardiff Undergraduate International Excellence Scholarship</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Cardiff-International-Excellence-2027"
+    aria-label="Prioritise Cardiff International Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: £10,000 tuition fee discount for the first year only; no cash alternative or living-cost allowance</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Cardiff University, Wales, United Kingdom</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>Full-time undergraduate degree programmes beginning in autumn 2027</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Most eligible undergraduate programmes; Medicine, Dentistry and specified healthcare programmes are excluded</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International fee-paying students who are self-funded and meet the academic entry requirements</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>First apply for an eligible Cardiff undergraduate course and receive an offer. Eligible offer-holders are invited by email to submit a separate scholarship application. Applicants who believe they qualify but receive no invitation may contact the International Scholarships team.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Scholarship application deadline: 2 April 2027. Admission offer required before submitting the scholarship application.</span></div>
+        <a href="scholarship-details.html?id=cardiff-international-excellence-2027">View Details →</a>
+    </div>
+</div>
+
+<!-- 14. AFRICAN DEVELOPMENT BANK - SHANGHAI OCEAN UNIVERSITY -->
+<div class="scholarship-card"
+    data-name="African Development Bank Shanghai Ocean University Scholarship"
+    data-country="China"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="AfDB-Shanghai-Ocean">
+    <div class="card-top">
+        <h3>AfDB–Shanghai Ocean University Scholarship</h3>
+        <p>Bachelor's</p>
+        <span class="country-flag">🇨🇳</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="AfDB-Shanghai-Ocean"
+    aria-label="Prioritise AfDB-Shanghai-Ocean Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Full tuition, accommodation, meals and monthly stipend. Applicants are responsible for flight tickets and visa fees.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Shanghai Ocean University, Shanghai, China</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>Four-year undergraduate degree programmes</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Aquaculture, biological science, marine fishery science and technology, marine resources and environment, marine science, food science and engineering, biopharmaceuticals, and international economics and trade</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>Nationals of African Development Bank regional member countries; applicants must be no older than 25 by 1 September 2027</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply directly through the online application portal. Shortlisted applicants may be invited for an online interview. Applicants who do not meet Chinese-language requirements may qualify for a preparatory language programme, subject to the conditions.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>Official AfDB vacancy page states 17 November 2026; the programme brochure states 12 November 2026. Contact the programme or check the portal immediately before applying.</span></div>
+        <a href="scholarship-details.html?id=afdb-shanghai-ocean">View Details →</a>
+    </div>
+</div>
+
+<!-- 15. UNIVERSITY OF STIRLING -->
+<div class="scholarship-card"
+    data-name="University of Stirling Undergraduate Africa Scholarship"
+    data-country="United Kingdom"
+    data-level="Bachelor's"
+    data-funded="Partial Funding"
+    data-status="open"
+    id="Stirling-Africa-2027">
+    <div class="card-top">
+        <h3>University of Stirling Undergraduate Africa Scholarship</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Stirling-Africa-2027"
+    aria-label="Prioritise University of Stirling Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: £5,000 tuition fee reduction per year, worth up to £20,000 over four years. Does not cover accommodation or living expenses.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>University of Stirling, Scotland, United Kingdom</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>Full-time undergraduate degree programmes beginning in January 2027, September 2027 or January 2028</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Eligible undergraduate courses delivered at the Stirling campus</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International fee-paying students living in an African country at the point of application</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for an eligible undergraduate course and receive a conditional or unconditional offer. Eligible students are identified automatically; no separate scholarship application is required.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>No separate scholarship deadline published. Admission and course deadlines apply for the selected 2027 intake.</span></div>
+        <a href="scholarship-details.html?id=stirling-africa-2027">View Details →</a>
+    </div>
+</div>
+
+<!-- 16. LANCASTER UNIVERSITY -->
+<div class="scholarship-card"
+    data-name="Lancaster Undergraduate International Regional Scholarship"
+    data-country="United Kingdom"
+    data-level="Bachelor's"
+    data-funded="Partial Funding"
+    data-status="open"
+    id="Lancaster-Regional-2027">
+    <div class="card-top">
+        <h3>Lancaster Undergraduate International Regional Scholarship</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇬🇧</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="Lancaster-Regional-2027"
+    aria-label="Prioritise Lancaster Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: £3,000 tuition fee reduction per year of study. It does not cover accommodation or living expenses.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>Lancaster University, England, United Kingdom</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>Full-time undergraduate courses starting in 2027</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Eligible undergraduate programmes delivered on campus</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>International fee-paying applicants who are nationals of, or have a permanent home address in, eligible countries including Kenya</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>Apply for an eligible undergraduate course. Qualified applicants are automatically considered; there is no separate scholarship application.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>No separate scholarship deadline published. You must meet the conditions of your admission offer to receive the award.</span></div>
+        <a href="scholarship-details.html?id=lancaster-regional-2027">View Details →</a>
+    </div>
+</div>
+
+<!-- 17. ALCHE MASTERCARD FOUNDATION -->
+<div class="scholarship-card"
+    data-name="ALCHE Mastercard Foundation Scholars Program"
+    data-country="Mauritius"
+    data-level="Bachelor's"
+    data-funded="Fully Funded"
+    data-status="open"
+    id="ALCHE-Mastercard">
+    <div class="card-top">
+        <h3>ALCHE Mastercard Foundation Scholars Program</h3>
+        <p>Undergraduate</p>
+        <span class="country-flag">🇲🇺</span>
+    </div>
+    <div class="card-info">
+      
+<button
+    type="button"
+    class="priority-star"
+    data-priority-id="ALCHE-Mastercard"
+    aria-label="Prioritise ALCHE-MCFSP Scholarship"
+    aria-pressed="false"
+    title="Save this opportunity"
+>
+    ☆
+</button>
+
+        <div class="scholarship-detail"><i class="fa-solid fa-hand-holding-dollar"></i><span>Funding: Fully funded scholarship for selected students, subject to the programme's eligibility rules and available awards</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-building-columns"></i><span>African Leadership College of Higher Education, Mauritius</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-graduation-cap"></i><span>Undergraduate degree programmes</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-book-open"></i><span>Programmes offered by ALCHE; applicants should confirm the available degree options for the relevant intake</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-users"></i><span>Talented African applicants who demonstrate financial need, academic achievement and leadership potential; disadvantaged applicants are prioritised</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-file-lines"></i><span>First apply for admission to ALCHE. Applicants who meet the admission requirements proceed to the scholarship eligibility check and separate scholarship application, including supporting documents, referral letters, essays and the ALCHE Fit Challenge.</span></div>
+        <div class="scholarship-detail"><i class="fa-solid fa-calendar-check"></i><span>International applicant deadline: 14 November 2026. This is the stated deadline; check immediately whether the application portal still accepts submissions.</span></div>
+        <a href="scholarship-details.html?id=alche-mastercard">View Details →</a>
+    </div>
+</div>
+
 
            
           </div>
@@ -3887,4 +4995,4 @@ href="scholarship.css">
 <script src="https://files.bpcontent.cloud/2026/10/26/05/20261026054648-9R701EZM.js" defer></script>
     </body>
                  
-            </html>
+    </html>
