@@ -1,3 +1,40 @@
+/* =========================================
+   PORTICO KAKUMA
+   DETAILS PAGE: BACK BUTTON
+   Goes in scholarship-details.js
+   (replace any earlier back button code there).
+========================================= */
+
+document.addEventListener("click", function (event) {
+
+    const button = event.target.closest(".back-button");
+
+    if (!button) return;
+
+    event.preventDefault();
+
+    // Used only if no saved place exists (for example a shared link)
+    const fallbackUrl = button.dataset.fallback || "scholarship.html";
+
+    let state = null;
+
+    try {
+        state = JSON.parse(sessionStorage.getItem("porticoReturnState") || "null");
+    } catch (error) {
+        state = null;
+    }
+
+    if (state && state.pageUrl) {
+        state.restore = true;
+        sessionStorage.setItem("porticoReturnState", JSON.stringify(state));
+        window.location.href = state.pageUrl;
+    } else {
+        window.location.href = fallbackUrl;
+    }
+});
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // Get the scholarship ID from the URL
@@ -99,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         Back to Scholarships
                     </a>
                 </div>
-            `;
+           `;
 
         }
 
