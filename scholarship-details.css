@@ -19,6 +19,48 @@ body {
     font-size: 15px;
     padding: 30px 20px;
 }
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 10px 16px;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #1F3A5F;
+
+  background: #FFFFFF;
+  border: 1px solid #E1E5EA;
+  border-radius: 999px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #F4F6F9;
+  border-color: #C9D1DB;
+}
+
+.back-button:active {
+  transform: scale(0.97);
+}
+
+.back-button:focus-visible {
+  outline: 2px solid #1F3A5F;
+  outline-offset: 3px;
+}
+
 
 /* =====================================================
    PAGE CONTAINER
@@ -574,7 +616,88 @@ body {
     .detail-section ul li {
         line-height: 1.7;
     }
-   }
+}
+
+/* Table styles for .ca-table-wrap and .ca-table
+   Change the four colours in :root to match your site. */
+
+:root {
+  --ca-table-head-bg: #1f3a5f;
+  --ca-table-head-text: #ffffff;
+  --ca-table-border: #d9dee5;
+  --ca-table-stripe: #f4f6f9;
+}
+
+.ca-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+  border: 1px solid var(--ca-table-border);
+  border-radius: 8px;
+}
+
+.ca-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.ca-table th,
+.ca-table td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--ca-table-border);
+}
+
+.ca-table th {
+  background: var(--ca-table-head-bg);
+  color: var(--ca-table-head-text);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ca-table tbody tr:nth-child(even) {
+  background: var(--ca-table-stripe);
+}
+
+.ca-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.scholarship-detail,
+.scholarship-detail .detail-section,
+.scholarship-detail .detail-meta,
+.scholarship-detail .ca-intro {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.ca-table-wrap {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ca-table {
+  width: 100%;
+  min-width: 520px;
+  table-layout: auto;
+}
+
+.ca-table th,
+.ca-table td {
+  white-space: nowrap;
+}
+
+
 
 /* =====================================================
    MATCH SNHU, COLUMBIA AND ROMANIA TO THE OTHER PAGES
@@ -623,4 +746,4 @@ body {
     #romania .detail-section h3 {
         font-size: 1.15rem;
     }
-}
+   }
