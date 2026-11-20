@@ -450,17 +450,6 @@ listenForNotifications();
      */
 
     const scholarshipDeadlines = [
-      
-        {
-            date: "2026-11-15",
-            name: "Bowdoin College — Undergraduate",
-            url: "scholarship-details.html?id=bowdoin"
-        },
-        {
-            date: "2026-11-19",
-            name: "University of Edinburgh — Mastercard Foundation (Postgraduate)",
-            url: "scholarship-details.html?id=edinburgh-mastercard"
-        },
         {
             date: "2026-11-30",
             name: "Berea College — Undergraduate",
